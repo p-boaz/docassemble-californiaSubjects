@@ -1,0 +1,290 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Objections"
+  title: |
+    Objections
+---
+sections:
+  - Argumentative
+  - Assumes Facts Not In Evidence
+  - Compound
+  - Foundation
+  - Leading
+  - Misleading
+  - Narrative
+  - Speculation
+  - Unresponsive Answer
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+section: Argumentative
+question: |
+  Argumentative
+subquestion: |
+  A question intended to {provoke an argument}, rather than elicit a factual response, is not permitted.
+fields: 
+  - no label: arg_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: arg_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Assumes Facts Not In Evidence
+question: |
+  Assumes Facts Not In Evidence
+subquestion: |
+  A question that assumes to be true disputed facts not yet established by evidence is not permitted.
+fields: 
+  - no label: assume_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: assume_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Compound
+question: |
+  {Compound}
+subquestion: |
+  A question is compound, and not permitted, when it requires a single answer to {multiple questions}.
+fields: 
+  - no label: compound_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: compound_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Foundation
+question: |
+  Foundation
+subquestion: |
+  Under FRE, when the relevance of evidence depends on whether a fact exists, sufficient proof must be introduced to support a finding the fact exists. The court may admit the proposed evidence on the condition the proof be introduced later. 
+  
+  `In CA, proffered evidence is inadmissible unless the court finds there is evidence sufficient to sustain a finding of the existence of the preliminary fact.`
+fields: 
+  - no label: foundation_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: foundation_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Leading
+question: |
+  Leading
+subquestion: |
+  A leading question suggests the answer desired, and is generally improper on direct examination, but permitted on cross-examination.
+  
+  
+fields: 
+  - note: |
+      Here, the question “[Insert the question]” was a leading question, on [direct/cross] examination because [_{hint}_] . The question {was/was not} permitted because [____].
+  - no label: leading_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: leading_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Misleading
+question: |
+  Misleading
+subquestion: |
+  Under FRE, when the relevance of evidence depends on whether a fact exists, sufficient proof must be introduced to support a finding the fact exists. The court may admit the proposed evidence on the condition the proof be introduced later. 
+  
+  `In CA, proffered evidence is inadmissible unless the court finds there is evidence sufficient to sustain a finding of the existence of the preliminary fact.`
+fields: 
+  - no label: misleading_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: misleading_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Narrative
+question: |
+  {Narrative}
+subquestion: |
+  The court shall exercise reasonable control over the mode and order of interrogating witnesses and presenting evidence to (1) make the interrogation and presentation effective for ascertaining truth, (2) avoid needless consumption of time, and (3) protect witnesses from harassment or undue embarrassment.
+fields: 
+  - note: |
+      `Suggest how to make the Narrative question specific.`
+  - no label: narrative_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: narrative_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Speculation
+question: |
+  Speculation
+subquestion: |
+  Witness testimony concerning a particular matter is inadmissible unless s/he has personal knowledge. Speculation is the thought process of substituting generalizations or hypotheses for facts that are missing or unsupported by evidence.
+fields: 
+  - note: |
+      `Explain how the question or answer involves the witness guessing rather than rely on known facts.`
+  - no label: speculation_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: speculation_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Unresponsive Answer
+question: |
+  {Unresponsive Answer}
+subquestion: |
+  An unresponsive answer goes beyond the question scope.
+fields: 
+  - no label: unresp_here
+    datatype: area
+    hint: Here, the question could have been answered with “Yes” or “No.”
+    required: False
+  - note: |
+      `Explain question can be answered “yes” or “no.”`
+  - no label: unresp_thus
+    datatype: area
+    hint: Thus, the information that went beyond the question scope should be stricken.
+    required: False
+  - note: |
+      `In the conclusion, move to strike the excess testimony.`
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  
+  ${ arg_here }
+  
+  ${ arg_thus }
+  
+  ${ assume_here }
+  
+  ${ assume_thus }
+  
+  ${ compound_here }
+  
+  ${ compound_thus }
+  
+  ${ foundation_here }
+  
+  ${ foundation_thus }
+  
+  ${ leading_here }
+  
+  ${ leading_thus }
+  
+  ${ misleading_here }
+  
+  ${ misleading_thus }
+  
+  ${ narrative_thus }
+  
+  ${ narrative_thus }
+  
+  ${ speculation_here }
+  
+  ${ speculation_thus }
+  
+  ${ unresp_here }
+  
+  ${ unresp_thus }
+ 
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+section: Conclusion
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  Argumentative: |
+    Improper Form can be in the answer or question. Move to Strike when an answer is improper. Object to an improper question. Pay attention to form when given a transcript.
+  provoke an argument: |
+    Consider the content or tone to persuade the fact finder rather than elicit information.
+  multiple questions: |
+    Look at the question for “or” and “and.”
+  Assumes: |
+    Usually Speculation, Assumes Facts Not In Evidence, and Foundation tested together.
+  Compound: |
+    Usually Misleading and Compound tested together.
+  was/was not: |
+    Leading question allowed on cross-examination or direct with hostile witness.
+  hint: |
+    Series of specific questions requiring specific answers. Look for questions calling for “yes’ or “no” answers. Show the question suggests the answer.
+  Narrative: |
+    Narrative triggered when a question allows the witness to answer by recounting facts. The attorney does not ask a specific question. Narrative and Unresponsive Answer usually tested together.
+  Unresponsive Answer: |
+    Unresponsive Answer triggered when a question can be answered with “yes” or “no,” and witness answers with information beyond “yes” or “no.”

@@ -1,0 +1,299 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Deeds"
+  title: |
+    Deeds
+---
+sections:
+  - intro: Valid Deed
+  - formalities: Formalities
+  - delivery: Delivery
+  - present: Present Interest
+    subsections:
+      - transfer: Contact info
+      - retention: Retention of Deed by Grantor
+      - exception: Exception
+  - acceptance: Acceptance
+  - conclusion: Conclusion
+---
+features:
+  navigation: True
+---
+event: formalities
+section: formalities
+question: |
+  Formalities
+subquestion: |
+  A deed must be (1) in writing, (2) signed by the grantor, (3) identify the parties, and (4) describe the land.
+review:
+  - Edit: formalities_here
+    button: |
+      ${ formalities_here }
+  - Edit: formalities_thus
+    button: |
+      ${ formalities_thus }
+---
+event: delivery
+section: delivery
+question: Delivery 
+review:
+  - Edit: delivery_here
+    button: |
+      ${ delivery_here }
+  - Edit: delivery_thus
+    button: |
+      ${ delivery_thus }
+---
+event: present
+section: present
+question: |
+  Present Interest
+subquestion: |
+  Delivery may be (1) completed by physically handing or mailing the deed to the grantee or the grantee’s agent, or (2) implied from the words and conduct of the grantor, such as when the grantor drafts and records a deed.
+review:
+  - Edit: present_here
+    button: |
+      ${ present_here }
+  - Edit: present_thus
+    button: |
+      ${ present_thus }
+---
+event: exception
+section: exception
+question: |
+  Exception: Express Condition of Grantor’s Death
+subquestion: |
+  Where there is a properly executed and delivered deed that provides title will not pass until the grantor’s death, delivery is valid and creates a future interest in the grantee and a present life interest for the grantor.
+review:
+  - Edit: exception_here
+    button: |
+      ${ exception_here }
+  - Edit: exception_thus
+    button: |
+      ${ exception_thus }
+---
+event: retention
+section: retention
+question: |
+  Retention of Deed by Grantor
+subquestion: |
+  When the grantor keeps the deed, no intent to transfer is presumed. When the grantor transfers the deed to an agent, the transfer is treated as if the grantor retained the deed, even where the grantor instructs the agent to deliver the deed to the grantee at a future time. Until the grantor’s agent delivers the deed to the grantee, the grantor can demand the agent ignore the prior instruction and return the deed to the grantor.
+review:
+  - Edit: retention_here
+    button: |
+      ${ retention_here }
+  - Edit: retention_thus
+    button: |
+      ${ retention_thus }
+---
+event: acceptance
+section: acceptance
+question: |
+  Acceptance
+subquestion: |
+  Acceptance is required to complete a transfer. Unless a grantee rejects a deed, acceptance is generally presumed.
+review:
+  - Edit: acceptance_here
+    button: |
+      ${ acceptance_here }
+  - Edit: acceptance_thus
+    button: |
+      ${ acceptance_thus }
+---
+section: intro
+question: |
+  Valid Deed
+subquestion: |
+  A deed transfers a real property interest if it complies with (1) formalities, (2) delivery, and (3) acceptance.
+continue button field: intro
+---
+section: formalities
+question: |
+  Formalities
+subquestion: |
+  A deed must be (1) in writing, (2) signed by the grantor, (3) identify the parties, and (4) describe the land.
+fields: 
+  - no label: formalities_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: formalities_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: delivery
+question: |
+  Delivery
+subquestion: |
+  The grantor must, at the time of transfer, manifest (1) an intent to deliver (2) a present property interest to the grantee by deed.
+fields: 
+  - no label: delivery_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: delivery_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: present
+question: |
+  Present Interest
+subquestion: |
+  Delivery may be (1) completed by physically handing or mailing the deed to the grantee or the grantee’s agent, or (2) implied from the words and conduct of the grantor, such as when the grantor drafts and records a deed.
+fields: 
+  - no label: present_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: present_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: transfer
+question: |
+  Transfer of Deed to Grantee
+subquestion: |
+  A deed transfer to the grantee creates a presumption the grantor intends to make a present property interest transfer.
+fields: 
+  - no label: transfer_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: transfer_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: retention
+question: |
+  Retention of Deed by Grantor
+subquestion: |
+  When the grantor keeps the deed, no intent to transfer is presumed. When the grantor transfers the deed to an agent, 5 the transfer is treated as if the grantor retained the deed, even where the grantor instructs the agent to deliver the deed to the grantee at a future time. Until the grantor’s agent delivers the deed to the grantee, the grantor can demand the agent ignore the prior instruction and return the deed to the grantor.
+fields: 
+  - no label: retention_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: retention_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: exception
+question: |
+  Exception: Express Condition of Grantor’s Death
+subquestion: |
+  Where there is a properly executed and delivered deed that provides title will not pass until the grantor’s death, delivery is valid and creates a future interest in the grantee and a present life interest for the grantor.
+fields: 
+  - no label: exception_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: exception_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: acceptance
+question: |
+  Acceptance
+subquestion: |
+  Acceptance is required to complete a transfer. Unless a grantee rejects a deed, acceptance is generally presumed.
+fields: 
+  - no label: acceptance_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: acceptance_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  % if intro: 
+  Valid Deed 
+  
+  A deed transfers a real property interest if it complies with (1) formalities, (2) delivery, and (3) acceptance.
+
+  Formalities 
+
+  A deed must be (1) in writing, (2) signed by the grantor, (3) identify the parties, and (4) describe the land.
+
+  ${ formalities_here }
+  
+  ${ formalities_thus }
+  
+  Delivery 
+  
+  The grantor must, at the time of transfer, manifest (1) an intent to deliver (2) a present property interest to the grantee by deed.
+  
+  ${ delivery_here }
+  
+  ${ delivery_thus }
+
+  Present Interest
+  
+  Delivery may be (1) completed by physically handing or mailing the deed to the grantee or the grantee’s agent, or (2) implied from the words and conduct of the grantor, such as when the grantor drafts and records a deed.
+  
+  ${ present_here }
+  
+  ${ present_thus }
+  
+  Transfer of Deed to Grantee
+  
+  A deed transfer to the grantee creates a presumption the grantor intends to make a present property interest transfer.
+  
+  ${ transfer_here }
+  
+  ${ transfer_thus }
+  
+  Retention of Deed by Grantor 
+  
+  When the grantor keeps the deed, no intent to transfer is presumed. When the grantor transfers the deed to an agent, 5 the transfer is treated as if the grantor retained the deed, even where the grantor instructs the agent to deliver the deed to the grantee at a future time. Until the grantor’s agent delivers the deed to the grantee, the grantor can demand the agent ignore the prior instruction and return the deed to the grantor. 
+  
+  ${ retention_here }
+  
+  ${ retention_thus }
+  
+  Exception: Express Condition of Grantor’s Death 
+  
+  Where there is a properly executed and delivered deed that provides title will not pass until the grantor’s death, delivery is valid and creates a future interest in the grantee and a present life interest for the grantor.
+  
+  ${ exception_here }
+  
+  ${ exception_thus }
+
+  Acceptance 
+  
+  Acceptance is required to complete a transfer. Unless a grantee rejects a deed, acceptance is generally presumed.
+  
+  ${ acceptance_here }
+  
+  ${ acceptance_thus }
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  agent: |
+    On the exam, if the grantor gives the deed to someone to give to the grantee, analyze if the person holding the deed is an agent. If the person is an agent, the grantor is able to recall the deed.

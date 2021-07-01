@@ -1,0 +1,513 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Return: exit
+    url: |
+      ${ referring_url() }
+---
+metadata:
+  interview_identifier: "PR Divergent Issues"
+  title: |
+    PR Divergent Issues
+  subtitle: |
+    An interesting interview that trains you on the differences between CA professional reponsibility rules and those of the ABA. 
+---
+mandatory: True
+question: |
+  All done. Let's see how you did.
+subquestion: |
+  The summaries of ${ issue }.
+    
+  ${ issue.table }
+  
+  ${ issue.add_action() }
+buttons:
+  - Return: exit
+    url: |
+      ${ referring_url() }
+---
+objects:
+  - issue: |
+      DAList.using(
+        object_type=Person,
+        complete_attribute='complete',
+        there_are_any=True)
+---
+code: |
+  issue[i].name.text
+  issue[i].aba
+  issue[i].ca
+  issue[i].complete = True
+---
+table: issue.table
+rows: issue
+columns:
+  - ISSUE: |
+      row_item.name.text
+  - ABA: |
+      row_item.aba
+  - CA: |
+      row_item.ca
+edit:
+  - name.text
+  - aba
+  - ca
+---
+question: |
+  Professional Responsibility
+subquestion: |
+  ##`Divergent Issues`
+fields:
+  - Select an issue to analyze: issue[i].name.text
+    choices:
+      - Competence
+      - Duty of Loyalty
+      - Loyalty - Sexual Relations
+      - Loyalty - Loans
+      - Fees - Standards
+      - Fees - Agreements
+      - Fees - Contingency fees
+      - Fees - 3P compensation
+      - Fees - Arbitration
+      - Fees - True retainers
+      - Duty to safekeep
+      - Confidentiality
+      - Organizations as client - reporting up org
+      - Termination of representation (mandatory)
+      - Withdrawal of representation (permissive)
+      - Malpractice suit v. L
+      - Duty of Candor
+      - Duty of Candor - Testimony of criminal D
+      - Lawyer as witness
+      - Threat rule
+      - Trial publicity
+      - Advertisement (generally allowed)
+      - Solicitation (generally prohibited)
+      - Grounds for discipline after admission
+      - Duty to report misconduct
+      - UPL
+---
+question: |
+  What is the ABA rule on `${ issue[i].name }`? 
+fields:
+  - no label: issue[i].aba
+    datatype: area
+help: |
+  **Competence**
+  
+  * **ABA**: L must have legal knowledge, skill, thoroughness, and preparation reasonably necessary to represent a client
+  * **CA**: L may not intentionally, recklessly, or repeatedly fail to perform legal services with competence
+      * Competency includes the duty to supervise the work of subordinate L and non-L employees
+  
+  **Duty of loyalty - conflict of interest (COI)**
+  
+  L may not accept or continue representation of C, without informed, written consent (IWC) from C, if (1) the representation is directly adverse to another C or (2) there is a significant risk that representation of C will be materially limited by L’s responsibilities to another C, former C, or personal interest of L
+  
+  * **ABA**: -
+  
+  * **CA**: Or L has legal, business, financial, professional, or personal relationship w/ party in same matter
+  
+  **Loyalty - COI** Sexual Relations with C
+  
+  * **ABA**: L may not engage in sexual relation with C (even consensual), unless it preceded AC relationship
+  
+  * **CA**: Same, unless C is L’s spouse or registered domestic partner
+  
+  **Loyalty - COI** Loans to client
+  
+  L cannot provide financial assistance to C in connection with litigation, except for…
+  
+    * Advancing litigation expenses in contingency case (no personal loans)
+    * Paying for an indigent C
+  
+  * **ABA**: -
+  
+  * **CA**:
+      * Paying third party from funds collected or to be collected with C consent
+      * Personal loans after being hired if C agrees to repay in writing
+  
+  **Fees** Standards
+  
+  * **ABA**: Fees cannot be “unreasonable” 
+      * Factors include: novelty and difficulty of legal issues, time limitation, nature of relationship w/ client, experience, contingency
+  
+  * **CA**: Fees cannot be “illegal or unconscionable” 
+      * CA also factors: amount in proportion to value of services, relative sophistication of attorney and client, client’s informed consent to fee
+  
+  **Fees** Agrements
+    
+    * Contingency fee agreement must be in writing
+  
+  * **ABA**: Fee agreement is preferably in writing, except for regularly represented clients w/ same basis or rate
+  
+  * **CA**: For non-contingency cases, written agreement required only if reasonably foreseeable > $1k
+  
+  **Fees** Contingency fees
+  
+  * **ABA**: Not allowed for criminal or domestic relation (divorce, determining alimony/support, property settlement) cases
+  
+  * **CA**: Same
+  
+  **Fees** 3P compensation
+  
+  * **ABA**: May take comp from non-C, only if 1) 3P does not interfere with independence of professional judgment or with lawyer-client relationship, 2) C info is kept confidential, and 3) C gives informed consent
+  
+  * **CA**: May take comp from non-C, only if 1) 3P does not interfere with independence of professional judgment or with lawyer-client relationship, 2) C info is kept confidential, and 3) C gives informed, written consent (IWC)
+  
+  **Fees** Fee Splitting
+  
+  * **ABA**: Fee splitting must only happen between lawyers. Division is restricted unless 1) client agrees in writing, 2) fees are proportional to work done by each lawyer, and 3) is overall reasonable
+  
+  * **CA**: Requires client IWC and total fee must not increase because of division 
+      * Fee division with non-lawyers only for referral service w/ CalBar, deceased attorney’s estate
+  
+  **Fees** Arbitration
+  
+  * **ABA**: -
+  
+  * **CA**: C may elect arbitration of dispute of L’s fees, unless agreed in writing to mandatory arbitration
+  
+  **Fees** True Retainers
+  
+  * **ABA**: -
+  
+  * **CA**: L may charge non-refundable fee to ensure L’s availability to C if C agrees in writing
+  
+  **Duty to safekeep**
+  
+  * Depositing L’s funds in C trust account permitted to extent reasonably necessary to pay bank charges
+  
+  * **ABA**: -
+  
+  * **CA**: EXCEPTION: advance flat fee w/ written notice
+  
+  **Confidentiality**
+  
+  * An attorney must not reveal information relating to the representation of a client. 
+  
+  EXCEPTIONS:
+  
+  * **ABA**: To prevent death or serious bodily harm; To prevent substantial financial harm; To get ethics advice; Compelled by court/law/ethics rules
+  
+  * **CA**: *May* reveal to extent necessary after dissuading C and informing C that info can be revealed; Compelled by court/law rules
+  
+  * **Both**: Informed consent, suit v. client, collect fees
+  
+  **Organization as Client**
+  
+  * **ABA**: Report up the chain of command up to the highest level (board of directors). If this fails, and there is substantial risk of harm to the org, L may reveal info outside to the extent necessary
+  
+  * **CA**: Urge rogue employee to reconsider while explaining likely consequences. L must not violate duty of confidentiality. If this fails, withdraw from rep (never authorized to reveal info to outside)
+  
+  **Termination of representation (mandatory)**
+  
+  * **ABA**: Termination is mandatory if representation will result in violation of the rules and “other law,” physical or mental condition of L “materially impairs” ability to represent client, or L is discharged by C
+  
+  * **CA**: Termination is mandatory if representation “renders it unreasonably difficult” to carry out employment effectively, L is discharged by C, or frivolous litigation (L knows or reasonably should know C’s action is without probable cause)
+  
+  **Withdrawal of representation (permissive)**
+  
+  * **ABA**: C insists on action L considers repugnant, crime or fraud, likely to result in violation of rules, unreasonably difficult. C agrees to termination. Other good cause
+  
+  * **CA**: Any of ABA rules, or C insists on action not warranted under existing law, or continued representation is likely to result in violation of these rules
+  
+  **Malpractice suit v. L**
+  
+  C needs written notice and reasonable opportunity to seek independent counsel before settling
+  
+  * **ABA**: - 
+  
+  * **CA**: Criminal Δ who sues a lawyer for malpractice must make a colorable claim of actual innocence
+      * Will/trust: Intended beneficiary known to L may also hold L liable for malpractice
+    
+  **Duty of candor**
+  
+  * **ABA**: L has a duty not to knowingly offer false evidence, but L may refuse to offer evidence he reasonably believes is false
+  
+  * **CA**: L may not mislead the judge or jury with false statements and use only means consistent w/ the truth
+  
+  **Duty of candor** Testimony of criminal Δ
+  
+  If L reasonably believes testimony will be false, must still allow Δ to testify If L knows Δ’s testimony will be false…
+  
+  * **ABA**: Try to convince not to, ask court to withdraw, or disclose
+  
+  * **CA**: Try to convince not to, ask court to withdraw, or allow Δ to testify in narrative
+  
+  **Lawyer as Witness**
+  
+  * **ABA**: L may not be a witness and advocate, unless there is: uncontested matter, explanation of nature and value of legal services, or substantial hardship on C
+  
+  * **CA**: L may not be a witness and advocate, unless there is: uncontested matter, explanation of nature and value of legal services, substantial hardship on C, or client IWC
+  
+  **Threat Rule**
+  
+  * **ABA**: -
+  
+  * **CA**: L may not threaten criminal, administrative, or disciplinary charges to gain advantage in civil lit
+  
+  **Trial Publicity**
+  
+  * **ABA**: L may state to media re charges, defense, investigation exists, schedule, ask help, warn public danger
+  
+  * **CA**: L may not make media statement if there is a substantial likelihood it will result in material prejudice
+  
+  **Advertisement (generally allowed)**
+  
+  * **ABA**: False or misleading communication containing material misrepresentation of fact or law (or omission of a necessary fact) are prohibited
+  
+  * **CA**: False or misleading statements are prohibited (materiality not required)
+      * Presumed violations: testimonials (unless disclaimer), guarantees, predictions, implied affiliations
+
+  **Solicitation (generally prohibited)**
+  
+  L may not seek work via contact in person or live phone call (or real-time electronics under ABA only), unless family or prior professional (or close personal under ABA) relationship
+  
+  * **ABA**: -
+  
+  * **CA**: Runner/capper: Cannot give anything of value to a person for recommending the lawyer or services, or reward a person for a recommendation made that resulted in employment, except for reasonable media cost
+
+  **Sale of practice**
+  
+  * **ABA**: Entire practice must be sold, must cease practicing law in the geographic area
+  
+  * **CA**: Sale of substantially all of practice allowed
+
+  **Grounds for discipline after admission**
+  
+  * **ABA**: L may not violate the rules or knowingly assist or induce others, or commit a criminal act or engage in conduct that reflects dishonesty
+  
+  * **CA**: L may not commit felony, crime, or act involving “moral turpitude, dishonesty or corruption”
+
+  **Duty to report misconduct**
+  
+  * **ABA**: If L knows (suspicion or speculation insufficient) of a violation of rules that presents a substantial question as to the honesty, trustworthiness, or fitness as an attorney, he is obligated to report it
+  
+  * **CA**: Self-reporting required if sanctions > $1k, 3 suits were filed v. L within 1 year, or facing felony charges
+
+  **UPL**
+  
+  L cannot engage or aid in the unauthorized practice of law
+  
+  * **ABA**: -
+  
+  * **CA**: L may hire and properly supervise a disbarred, suspended, resigned, or involuntarily inactive member to do non-attorney work
+---
+question: |
+  What is the CA rule on `${ issue[i].name }`? 
+fields:
+  - no label: issue[i].ca
+    datatype: area
+help: |
+  **Competence**
+  
+  * **ABA**: L must have legal knowledge, skill, thoroughness, and preparation reasonably necessary to represent a client
+  * **CA**: L may not intentionally, recklessly, or repeatedly fail to perform legal services with competence
+      * Competency includes the duty to supervise the work of subordinate L and non-L employees
+  
+  **Duty of loyalty - conflict of interest (COI)**
+  
+  * L may not accept or continue representation of C, without informed, written consent (IWC) from C, if (1) the representation is directly adverse to another C or (2) there is a significant risk that representation of C will be materially limited by L’s responsibilities to another C, former C, or personal interest of L
+  
+  * **CA**: Or L has legal, business, financial, professional, or personal relationship w/ party in same matter
+  
+  **Loyalty - COI** Sexual Relations with C
+  
+  * **ABA**: L may not engage in sexual relation with C (even consensual), unless it preceded AC relationship
+  
+  * **CA**: Same, unless C is L’s spouse or registered domestic partner
+  
+  **Loyalty - COI** Loans to client
+  
+  L cannot provide financial assistance to C in connection with litigation, except for…
+  
+      * Advancing litigation expenses in contingency case (no personal loans)
+      * Paying for an indigent C
+  
+  * **ABA**: -
+  
+  * **CA**:
+      * Paying third party from funds collected or to be collected with C consent
+      * Personal loans after being hired if C agrees to repay in writing
+  
+  **Fees** Standards
+  
+  * **ABA**: Fees cannot be “unreasonable” 
+      * Factors include: novelty and difficulty of legal issues, time limitation, nature of relationship w/ client, experience, contingency
+  
+  * **CA**: Fees cannot be “illegal or unconscionable” 
+      * CA also factors: amount in proportion to value of services, relative sophistication of attorney and client, client’s informed consent to fee
+  
+  **Fees** Agrements
+    
+    * Contingency fee agreement must be in writing
+  
+  * **ABA**: Fee agreement is preferably in writing, except for regularly represented clients w/ same basis or rate
+  
+  * **CA**: For non-contingency cases, written agreement required only if reasonably foreseeable > $1k
+  
+  **Fees** Contingency fees
+  
+  * **ABA**: Not allowed for criminal or domestic relation (divorce, determining alimony/support, property settlement) cases
+  
+  * **CA**: Same
+  
+  **Fees** 3P compensation
+  
+  * **ABA**: May take comp from non-C, only if 1) 3P does not interfere with independence of professional judgment or with lawyer-client relationship, 2) C info is kept confidential, and 3) C gives informed consent
+  
+  * **CA**: May take comp from non-C, only if 1) 3P does not interfere with independence of professional judgment or with lawyer-client relationship, 2) C info is kept confidential, and 3) C gives informed, written consent (IWC)
+  
+  **Fees** Fee Splitting
+  
+  * **ABA**: Fee splitting must only happen between lawyers. Division is restricted unless 1) client agrees in writing, 2) fees are proportional to work done by each lawyer, and 3) is overall reasonable
+  
+  * **CA**: Requires client IWC and total fee must not increase because of division 
+      * Fee division with non-lawyers only for referral service w/ CalBar, deceased attorney’s estate
+  
+  **Fees** Arbitration
+  
+  * **ABA**: -
+  
+  * **CA**: C may elect arbitration of dispute of L’s fees, unless agreed in writing to mandatory arbitration
+  
+  **Fees** True Retainers
+  
+  * **ABA**: -
+  
+  * **CA**: L may charge non-refundable fee to ensure L’s availability to C if C agrees in writing
+  
+  **Duty to safekeep**
+  
+  * Depositing L’s funds in C trust account permitted to extent reasonably necessary to pay bank charges
+  
+  * **ABA**: -
+  
+  * **CA**: EXCEPTION: advance flat fee w/ written notice
+  
+  **Confidentiality**
+  
+  * An attorney must not reveal information relating to the representation of a client. 
+  
+  EXCEPTIONS:
+  
+  * **ABA**: To prevent death or serious bodily harm; To prevent substantial financial harm; To get ethics advice; Compelled by court/law/ethics rules
+  
+  * **CA**: *May* reveal to extent necessary after dissuading C and informing C that info can be revealed; Compelled by court/law rules
+  
+  * **Both**: Informed consent, suit v. client, collect fees
+  
+  **Organization as Client**
+  
+  * **ABA**: Report up the chain of command up to the highest level (board of directors). If this fails, and there is substantial risk of harm to the org, L may reveal info outside to the extent necessary
+  
+  * **CA**: Urge rogue employee to reconsider while explaining likely consequences. L must not violate duty of confidentiality. If this fails, withdraw from rep (never authorized to reveal info to outside)
+  
+  **Termination of representation (mandatory)**
+  
+  * **ABA**: Termination is mandatory if representation will result in violation of the rules and “other law,” physical or mental condition of L “materially impairs” ability to represent client, or L is discharged by C
+  
+  * **CA**: Termination is mandatory if representation “renders it unreasonably difficult” to carry out employment effectively, L is discharged by C, or frivolous litigation (L knows or reasonably should know C’s action is without probable cause)
+  
+  **Withdrawal of representation (permissive)**
+  
+  * **ABA**: C insists on action L considers repugnant, crime or fraud, likely to result in violation of rules, unreasonably difficult. C agrees to termination. Other good cause
+  
+  * **CA**: Any of ABA rules, or C insists on action not warranted under existing law, or continued representation is likely to result in violation of these rules
+  
+  **Malpractice suit v. L**
+  
+  C needs written notice and reasonable opportunity to seek independent counsel before settling
+  
+  * **ABA**: - 
+  
+  * **CA**: Criminal Δ who sues a lawyer for malpractice must make a colorable claim of actual innocence
+      * Will/trust: Intended beneficiary known to L may also hold L liable for malpractice
+    
+  **Duty of candor**
+  
+  * **ABA**: L has a duty not to knowingly offer false evidence, but L may refuse to offer evidence he reasonably believes is false
+  
+  * **CA**: L may not mislead the judge or jury with false statements and use only means consistent w/ the truth
+  
+  **Duty of candor** Testimony of criminal Δ
+  
+  If L reasonably believes testimony will be false, must still allow Δ to testify If L knows Δ’s testimony will be false…
+  
+  * **ABA**: Try to convince not to, ask court to withdraw, or disclose
+  
+  * **CA**: Try to convince not to, ask court to withdraw, or allow Δ to testify in narrative
+  
+  **Lawyer as Witness**
+  
+  * **ABA**: L may not be a witness and advocate, unless there is: uncontested matter, explanation of nature and value of legal services, or substantial hardship on C
+  
+  * **CA**: L may not be a witness and advocate, unless there is: uncontested matter, explanation of nature and value of legal services, substantial hardship on C, or client IWC
+  
+  **Threat Rule**
+  
+  * **ABA**: -
+  
+  * **CA**: L may not threaten criminal, administrative, or disciplinary charges to gain advantage in civil lit
+  
+  **Trial Publicity**
+  
+  * **ABA**: L may state to media re charges, defense, investigation exists, schedule, ask help, warn public danger
+  
+  * **CA**: L may not make media statement if there is a substantial likelihood it will result in material prejudice
+  
+  **Advertisement (generally allowed)**
+  
+  * **ABA**: False or misleading communication containing material misrepresentation of fact or law (or omission of a necessary fact) are prohibited
+  
+  * **CA**: False or misleading statements are prohibited (materiality not required)
+      * Presumed violations: testimonials (unless disclaimer), guarantees, predictions, implied affiliations
+
+  **Solicitation (generally prohibited)**
+  
+  L may not seek work via contact in person or live phone call (or real-time electronics under ABA only), unless family or prior professional (or close personal under ABA) relationship
+  
+  * **ABA**: -
+  
+  * **CA**: Runner/capper: Cannot give anything of value to a person for recommending the lawyer or services, or reward a person for a recommendation made that resulted in employment, except for reasonable media cost
+
+  **Sale of practice**
+  
+  * **ABA**: Entire practice must be sold, must cease practicing law in the geographic area
+  
+  * **CA**: Sale of substantially all of practice allowed
+
+  **Grounds for discipline after admission**
+  
+  * **ABA**: L may not violate the rules or knowingly assist or induce others, or commit a criminal act or engage in conduct that reflects dishonesty
+  
+  * **CA**: L may not commit felony, crime, or act involving “moral turpitude, dishonesty or corruption”
+
+  **Duty to report misconduct**
+  
+  * **ABA**: If L knows (suspicion or speculation insufficient) of a violation of rules that presents a substantial question as to the honesty, trustworthiness, or fitness as an attorney, he is obligated to report it
+  
+  * **CA**: Self-reporting required if sanctions > $1k, 3 suits were filed v. L within 1 year, or facing felony charges
+
+  **UPL**
+  
+  L cannot engage or aid in the unauthorized practice of law
+  
+  * **ABA**: -
+  
+  * **CA**: L may hire and properly supervise a disbarred, suspended, resigned, or involuntarily inactive member to do non-attorney work
+---
+question: |
+  Are there any more issues
+  you would like to analyze?
+yesno: issue.there_is_another

@@ -1,0 +1,618 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Negligence"
+  title: |
+    Negligence
+---
+sections:
+  - Negligence
+  - Duty:
+    - Firefighters Rule
+    - Duty to Control Third Parties
+    - Standard of Care - Default
+    - Standard of Care - Professional
+    - Standard of Care - Child
+    - Standard of Care - Guest
+  - Breach:
+    - Res Ipsa Loquitur
+  - Causation: 
+    - Actual Cause
+    - Proximate Cause
+  - Damages:
+    - Compensatory Damages
+    - Punitive Damages
+  - Mitigation:
+    - Joint Representation
+  - Defenses:
+    - Contributory/ Comparative Negligence
+    - Assumption of Risk
+    - Indemnity 
+    - Contribution
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+section: Negligence
+question: |
+  Negligence
+subquestion: |
+  Negligence requires (1) **duty**, (2) **breach**, (3) **causation**, and (4) **damages**.
+field: sees_nav_bar
+---
+section: Duty
+question: |
+  **{Duty}**
+subquestion: |
+  Under the **majority**, a defendant is liable to plaintiffs within the foreseeable zone of danger. Under the **minority**, a defendant who breaches a duty to someone breaches a duty to **{all harmed}**.
+fields: 
+  - no label: duty_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: duty_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Firefighters Rule
+question: |
+  Firefighters Rule
+subquestion: |
+  The {Firefighters Rule}, although named with reference to firefighters, bars injury claims by public servants that result from risks unique to the plaintiff’s inherently dangerous work.
+fields: 
+  - no label: ff_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ff_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Duty to Control Third Parties
+question: |
+  Duty to Control Third Parties
+subquestion: |
+  Generally, there is no duty to control third party acts to avoid injury to a plaintiff, except when the defendant had the actual opportunity, ability, and authority to control third party acts.
+fields: 
+  - no label: dtc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: dtc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      *If no Duty to Control Third Parties, conclude no duty for Negligence. `Example`: Parent has opportunity, ability, authority to control whether schizophrenic child takes pills. If child does not take pills and assaults plaintiff, parent owes duty to plaintiff because had opportunity, ability, authority to ensure child took pills.*
+---
+section: Standard of Care - Default
+question: |
+  {Standard of Care - Default}
+subquestion: |
+  Generally, the standard of care imposed is that of a reasonably prudent person under the circumstances as measured by an objective standard.
+fields: 
+  - no label: care_default_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      *In the analysis, explain what standard of care applies to the defendant. Do not analyze whether the defendant meets the standard of care; save that for Breach.*
+  - no label: care_default_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Standard of Care - Professional
+question: |
+  Standard of Care - Professional
+subquestion: |
+  A {professional person} is expected to exhibit the same skill, knowledge, and care as another practitioner in the same community.
+fields: 
+  - no label: care_pro_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: care_pro_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Standard of Care - Child
+question: |
+  Standard of Care - Child
+subquestion: |
+  {Generally}, the standard of care imposed is that of a reasonably prudent person under the circumstances as measured by an objective standard. A child must act as a reasonable person of like age, intelligence, education, and experience. However, when a child engages in an adult activity, s/he must conform to the same standard of care as an adult engaged in such activity.
+fields: 
+  - no label: care_child_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: care_child_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Standard of Care - Guest
+question: |
+  Standard of Care – [Common Carrier/Innkeeper] - Guest
+subquestion: |
+  Under common law, and modernly, in some jurisdictions, [common carriers/innkeepers] are held to the highest duty of care, **liable for slight negligence**, consistent with practical business operation.
+
+  *`Tailor rules to facts. Example: If facts about common carrier, insert common carrier only.`*
+fields: 
+  - no label: care_guest_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      *`If facts on bus, plane, train, hotel, raise common carrier/innkeeper standard of care. Evaluate if there is a common carrier/innkeeper – guest relationship. If no, use default standard of care (reasonable person) or another applicable standard.`*
+  - no label: care_guest_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Standard of Care - Guest
+question: |
+  Standard of Care – Automobile Driver – Guest
+subquestion: |
+  Under the majority, the standard of care imposed on automobile drivers towards guests and passengers (confer economic benefit for ride) is that of a reasonably prudent person under the circumstances. Under the minority, a guest may not recover based on negligence. The guest must establish the defendant acted willfully and wantonly according to guest statutes.
+fields: 
+  - no label: care_auto_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      *`Compare what defendant does with what other people with the same standard of care under the circumstances do.`*
+  - no label: care_auto_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Breach
+question: |
+  Breach
+subquestion: |
+  Where a defendant’s conduct falls short of the applicable standard of care owed to the plaintiff, the defendant breaches the duty.
+fields: 
+  - no label: breach_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: breach_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Res Ipsa Loquitur
+question: |
+  Res Ipsa Loquitur
+subquestion: |
+  *`Res Ipsa Loquitur triggered when no direct evidence of breach.`*
+
+  In the **absence of direct evidence**, the defendant’s breach may be inferred under the res ipsa loquitur doctrine, if the plaintiff proves the accident (1) was the kind that **ordinarily does not occur without negligence**, (2) was caused by an **agent or instrumentality within the defendant’s exclusive control**, and (3) was **not due to plaintiff’s action**.
+fields: 
+  - no label: res_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: res_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Causation
+question: |
+  Causation
+subquestion: |
+  The plaintiff must prove the defendant’s acts are the actual cause (cause-in-fact) and proximate (legal) cause of the plaintiff’s injury.
+fields: 
+  - no label: cause_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: cause_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Actual Cause
+question: |
+  Actual Cause
+subquestion: |
+  If the plaintiff’s injury will not occur **but for** the defendant’s acts, the defendant is the actual cause of the injury. If there are **multiple causes** of the injury, the defendant is the actual cause when the defendant’s acts are a **{substantial factor}** in causing the injury.
+fields: 
+  - no label: actual_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: actual_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Proximate Cause
+question: |
+  Proximate Cause
+subquestion: |
+  {Proximate cause} exists when the plaintiff’s injury is a foreseeable result of defendant’s acts. When multiple forces contribute to the injury, an unforeseeable intervening event severs the causal connection between a defendant’s acts and a plaintiff’s injury.
+fields: 
+  - no label: pc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Proximate Cause
+question: |
+  {Eggshell-skull Plaintiff}
+subquestion: |
+  A defendant is liable for the full extent of a plaintiff’s injuries due to preexisting medical condition or vulnerability, even if the extent is unforeseeable.
+fields: 
+  - no label: egg_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: egg_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Damages
+question: |
+  Damages
+subquestion: |
+  Negligence requires **{personal injury or property damage}**. Claims for **purely economic loss** are generally **not allowed**.
+fields: 
+  - no label: dmg_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: dmg_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Compensatory Damages
+question: |
+  {Compensatory Damages}
+subquestion: |
+  In **personal injury**, the plaintiff may recover **special and general damages**, including lost earnings, medical expenses, and pain and suffering. **Foreseeability of the extent of harm** is generally **irrelevant** because a defendant takes a plaintiff as s/he finds the plaintiff.
+  
+  In **property damage**, the plaintiff may recover the **difference between the fair market value of the property immediately before, and after, the injury, or repair costs if the costs** do not exceed the property value. Damages must be **causal and certain**.
+fields: 
+  - no label: comp_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: comp_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Punitive Damages
+question: |
+  Punitive Damages
+subquestion: |
+  A plaintiff may recover punitive damages if clear and convincing evidence establishes the defendant acted **willfully** and **wantonly**, **recklessly**, or with **malice**.
+fields: 
+  - no label: pun_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pun_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Mitigation
+question: |
+  {Mitigation}
+subquestion: |
+  The plaintiff has a duty to take reasonable steps to mitigate damages; failure to do so precludes recovery of additional harm caused by injury aggravation.
+fields: 
+  - no label: mit_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      *`In personal injury fact pattern, analyze the plaintiff has a duty to seek appropriate treatment to effect a cure or healing, but the treatment needs to be reasonable. Example: Requiring plaintiff to undergo surgery may not be reasonable if surgery involves complications and taking a body part from a relative.`*
+  - no label: mit_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Defenses
+question: |
+  Defenses
+subquestion: |  
+  *`If the interrogatory asks for claims or theories of recovery, do not analyze defenses. If asked for defenses, or whether a plaintiff will prevail, do the defenses the facts trigger.`*
+  
+  Contributory/comparative negligence, and assumption of risk require fault by the plaintiff. Here, [Plaintiff] did not contribute to the [describe injury], or was aware of the [describe danger] to knowingly and voluntarily assume the risk of harm. Thus, no defenses applied.
+
+  *`When asked for defenses, and the facts do not trigger defenses, still address defenses, but do not use up time to give the rules on each type of defense. Summarize the plaintiff did not contribute to the injury, or was aware of the danger to assume the risk. Conclude no defenses apply.`*
+fields: 
+  - no label: def_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: def_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Contributory/ Comparative Negligence
+question: |
+  {Contributory/ Comparative Negligence}
+subquestion: |
+  Contributory negligence deprives a plaintiff from damages when s/he contributes to the legal cause of injuries by failing to exercise reasonable care for plaintiff’s own safety. At common law, contributory negligence is a complete bar to recovery. In “pure” comparative negligence jurisdictions, a plaintiff’s contributory negligence reduces the recovery of damages by the proportion plaintiff’s fault bears to the total harm. In “partial” comparative negligence jurisdictions, the plaintiff’s recovery is barred if s/he is more than 50% at fault.
+fields: 
+  - no label: ccn_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      Contributory/comparative negligence is an objective test. Evaluate whether plaintiff commits negligence upon him/herself. 4 steps:
+      
+      1. Standard of Care: Determine plaintiff’s standard of care. Reasonable prudent person is default.
+      2. Breach: Analyze if plaintiff breached standard of care.
+      3. Causation: Evaluate if breach was actual and proximate cause of plaintiff’s injuries.
+      4. Damages: Conclude damages barred or reduced.
+  - no label: ccn_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Assumption of Risk
+question: |
+  Assumption of Risk
+subquestion: |
+  Assumption of risk is a {subjective standard}, barring a plaintiff from recovery where s/he is aware of danger, and assumes the risk of harm arising from the defendant’s acts (1) **knowingly**, and (2) **voluntarily**.
+fields: 
+  - no label: aor_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: aor_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Indemnity
+question: |
+  {Indemnity}
+subquestion: |
+  A tortfeasor who discharges liability is entitled to indemnity when (1) actual wrongdoer has a primary duty, (2) by contract, (3) vicarious liability, (4) strict products liability, and (5) tortfeasor fails to discover or prevent actual wrongdoer’s misconduct.
+fields: 
+  - no label: indem_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: indem_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Contribution
+question: |
+  Contribution
+subquestion: |
+  A defendant, who pays more than its apportioned share of damages, has a contribution claim against other tortfeasors jointly and severally liable to the same plaintiff.
+fields: 
+  - no label: contrib_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: contrib_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  % if sees_nav_bar: 
+  
+  ${ duty_here }
+  
+  ${ duty_thus }
+  
+  ${ ff_here }
+  
+  ${ ff_thus }
+  
+  ${ dtc_here }
+  
+  ${ dtc_thus }
+  
+  ${ care_default_here }
+  
+  ${ care_default_thus }
+  
+  ${ care_pro_here }
+  
+  ${ care_pro_thus }
+  
+  ${ care_child_here }
+  
+  ${ care_child_thus }
+  
+  ${ care_guest_here }
+  
+  ${ care_guest_thus }
+  
+  ${ care_auto_here }
+  
+  ${ care_auto_thus }
+  
+  ${ breach_here }
+  
+  ${ breach_thus }
+  
+  ${ res_here }
+  
+  ${ res_thus }
+  
+  ${ cause_here }
+  
+  ${ cause_thus }
+  
+  ${ actual_here }
+  
+  ${ actual_thus }
+  
+  ${ pc_here }
+  
+  ${ pc_thus }
+  
+  ${ egg_here }
+  
+  ${ egg_thus }
+  
+  ${ dmg_here }
+  
+  ${ dmg_thus }
+  
+  ${ comp_here }
+  
+  ${ comp_thus }
+  
+  ${ pun_here }
+  
+  ${ pun_thus }
+  
+  ${ mit_here }
+  
+  ${ mit_thus }
+  
+  ${ def_here }
+  
+  ${ def_thus }
+  
+  ${ ccn_here }
+  
+  ${ ccn_thus }
+  
+  ${ aor_here }
+  
+  ${ aor_thus }
+  
+  ${ indem_here }
+  
+  ${ indem_thus }
+  
+  ${ contrib_here }
+  
+  ${ contrib_thus }
+  
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+section: Conclusion
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  subjective standard: |
+    Assumption of risk is a subjective test. Evaluate based on what risks the plaintiff knew or voluntarily assumed.
+  Indemnity: |
+    Consider Indemnity and Contribution defenses when facts on multiple defendants. Indemnity means 100% liability shifting; full reimbursement. Contribution is liability sharing.
+  Contributory/ Comparative Negligence: |
+    Do contributory and comparative negligence under one heading to save time. Analysis is similar, except contributory negligence is a complete bar to recovery whereas comparative negligence reduces recovery based on plaintiff’s fault.
+  personal injury or property damage: |
+    Specify the types of harm allowed.
+  Compensatory Damages: |
+    For Damages element, just indicate the personal injury or property damages. If the interrogatory specifies a damages issue, detail the types of damages. Example: Under what theory might Patron bring an action for damages against Homeowner?
+  Mitigation: |
+    Analyze whether damages unavoidable under Mitigation heading. Mitigation deals with plaintiff’s acts after an injury. Contributory or comparative negligence deals with plaintiff’s acts while an injury occurs.
+  substantial factor: |
+    If there are multiple causes, show defendant’s acts contributed to the plaintiff’s injury. Substantial factor means defendant sets in motion forces that lead to plaintiff’s injury. Conduct is not a substantial factor in causing injury if the same injury occurs without the conduct.
+  Proximate cause: |
+    2 steps:
+    
+    1. Show the plaintiff’s injury is foreseeable from defendant’s breach.
+    2. Evaluate if intervening events (events between the defendant’s act and the plaintiff’s injury) are unforeseeable to sever the defendant’s liability.
+  Eggshell-skull Plaintiff: |
+    Eggshell-skull Plaintiff triggered by facts on the plaintiff having unique physical attributes (i.e. hemophiliac), or suffering unforeseeable injuries such as fear, anxiety.
+  Negligence: |
+    Defenses are not part of the prima facie case. Defenses are for the defendant to raise, not the plaintiff to prove.
+  Duty: |
+    2 steps:
+    
+    1. Does defendant owe a duty? Defendant owes a duty if plaintiff is a foreseeable plaintiff. Apply majority and minority views.
+    2. If defendant owes a duty, what is the duty? Determine standard of care.
+  all harmed: |
+    In the analysis, indicate defendant owes plaintiff a duty because plaintiff is in the “all” category. Defendant breaches a duty to all harmed (foreseeable or not) as a result of the breach.
+  Firefighters Rule: |
+    Firefighters’ Rule triggered when the plaintiff is a public servant (i.e. police, fire). Firefighters’ Rule is not a subtopic of assumption of the risk, but a rule that limits the duty of care that members of the public owe. A member of the public whose conduct precipitates the intervention of a public servant does not owe a duty of care to the public servant with respect to the negligence that caused the intervention. Neighbarger v. Irwin Industries, Inc., 8 Cal.4th 532, 538 (1994). The public servant is employed to confront the risks.
+  Standard of Care - Default: |
+    3 steps:
+    
+    1. Type of person the defendant is (i.e. child, professional). Tailor the rule for the standard of care that fits the defendant.
+    2. Special relationship between defendant and plaintiff (i.e. common carrier – guest, employer – employee).
+    3. Use reasonable prudent person as default if no other applicable standard.
+  professional person : |
+    Professional means following an occupation, not learned professional (i.e. lawyer, doctor, accountant). Example: Caterer who prepares food needs to apply “cook” standard of a care.
+  Generally: |
+    2 steps:
+    
+    1. See if defendant is child (under age 18).
+    2. Determine if adult activity: a. Yes: Apply adult reasonable person. b. No: Apply child reasonable person.

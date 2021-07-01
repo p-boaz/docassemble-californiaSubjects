@@ -1,0 +1,324 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Criminal Law"
+  title: |
+    Criminal Law
+---
+question: |
+  What is the crime? 
+fields:
+  - no label: main_issue
+    choices:
+      - someone dies after actions of Defendant
+      - Defendant hurts, touches, or scares someone
+      - Defendant takes something away from someone else or intends to
+      - Defendant takes steps to do the above but does not complete
+      - Defendant and at least E interact at any time
+---
+question: |
+  Essay tip on Murder 
+fields:
+  - note: |
+      * If the interrogatory specifies types of murder, only discuss the types mentioned. 
+      * If interrogatory asks for murder and lesser included offenses, discuss common law, first degree, second degree murder; voluntary, involuntary manslaughter. 
+      * If the interrogatory asks for the crimes, discuss assault, battery, merger; common law, first degree, second degree murder; voluntary, involuntary manslaughter.
+  - no label: murder_interrogatory
+    choices:
+      - specifies types of murder
+      - asks for murder and lesser included offenses
+      - asks for the crimes 
+---
+question: |
+  Common Law Murder
+fields:
+  - At common law, murder was defined as...: cl_murder_defined
+    help: |
+      the (1) unlawful action (killing) that (2) causes the death of another living human being (3) with malice aforethought.
+  - (1): unlawful_action
+    datatype: area
+    help: |
+      **Unlawful Action** Here, [Defendant] [did not/did] have a legal excuse for [Defendant]’s actions such as insanity, intoxication, or immaturity. [Defendant]’s killing of another living human being, [Victim], [was/was not] unlawful.
+  - (2): causation
+    datatype: area
+    help: |
+      To prove a homicide, the prosecution shows the defendant's act was the (1) actual and (2) proximate cause of the victim's death.
+  - (3): malice_aforethought
+    datatype: area
+    help: |
+      Malice aforethought requires: (1) intent to kill, (2) intent to inflict serious bodily injury, (3) depraved heart, or (4) felony murder.
+continue button field: cl_murder_def
+---
+question: |
+  Actual vs Proximate Cause
+fields:
+  - Actual Cause: actual_cause
+    datatype: area
+    help: |
+      If but for the defendant’s acts, the victim would not have died, the defendant is the actual cause (cause-in-fact) of the death. If there are multiple causes of the death, the defendant is the actual cause when the defendant’s acts are a substantial factor in causing the death.
+  - Proximate Cause: proximate_cause
+    datatype: area
+    help: |
+      Proximate cause exists when the victim’s death is a foreseeable result of defendant’s acts. When multiple forces contribute to the death, an unforeseeable intervening event severs the causal connection between a defendant’s acts and a victim’s death.
+continue button field: cause
+---
+question: |
+  Four States of Mind
+fields:
+  - Intent to kill: intent_to_kill
+    datatype: area
+    help: |
+      Action, accompanied by the intent to kill, which is the legal cause of a living human being’s death, constitutes murder.
+  - Intent to inflict serious bodily injury: srs_bodily_injury
+    datatype: area
+    help: |
+      A person who intends serious bodily injury, but actually succeeds in killing, is guilty of murder despite the lack of intent to kill.
+  - Depraved heart: depraved_heart
+    datatype: area
+    help: |
+      A killing that results from defendant’s reckless action that manifests an extreme indifference to human life is depraved heart murder.
+  - Felony murder: felony_murder
+    datatype: area
+    help: |
+      To convict a defendant of felony murder, the prosecution establishes (1) defendant is guilty of inherently dangerous felony, (2) felony is distinct from the killing, (3) death is a foreseeable result (proximate cause) of the felony, and (4) killing occurs during the commission or attempted commission of the felony.
+continue button field: states_of_mind
+---
+question: |
+  Felony Murder elements
+fields:
+  - (1): guilty_of_danger_felony
+    help: |
+      Give the elements for the felony. The underlying felony is a lesser included offense of murder. If the facts give more than one felony, use a separate heading for each crime, and prove with the facts the elements for each crime.
+  - (2): distinct
+    datatype: area
+    help: |
+     Felony is distinct from killing. 
+  - (3): death_foreseeable
+    datatype: area
+    help: |
+      See rules and analysis on proximate cause.
+  - (4): during_commish
+    datatype: area
+    help: |
+      Killing During Commission or Attempted Commission of Felony 
+continue button field: felony_murder_elements
+---
+question: |
+  First degree murder, created by statute, is murder committed ...
+fields:
+  - 1: first_dg_by_fm
+    datatype: area
+    help: |
+      (1) during the perpetration of an inherently dangerous felony,
+  - 2: premed_or_delib
+    datatype: area
+    help: |
+       (2) under premeditation and deliberation, or 
+  - or 3: egregious_means
+    datatype: area
+    help: |
+      (3) using egregious means.
+  - note: |
+      Here, a statute was inferred from the [Defendant] being arrested and charged with murder.
+continue button field: first_dg_elements
+---
+question: |
+  Second degree murder
+fields:
+  - define: second_dg_def
+    datatype: area
+    help: |
+      Second degree murder is (1) common law murder, or (2) all murder not in the first degree. 
+---
+question: |
+  Defenses
+fields:
+  - (1): crime_prev
+    datatype: area
+    help: |
+      Anyone can use non-deadly force to prevent a felony or serious breach of peace misdemeanor. [Traditionally, deadly force can be used to prevent any felony. Modernly, deadly force may be used only to prevent an inherently dangerous felony involving risk to human life.]
+  - (2): redline
+    datatype: area
+    help: |
+     Under the Redline Doctrine, where a victim or police officer kills a co-felon, the defendant is generally not guilty of felony murder.
+  - (3): sd
+    datatype: area
+    help: |
+      A person may use deadly force reasonably necessary to prevent death or serious bodily injury if (1) not the aggressor, and (2) confronted with imminent (not threatened) unlawful harm.
+  - (4): doo
+    datatype: area
+    help: |
+      **Majority** Under the majority, a person may defend others if s/he reasonably believes the person assisted has the legal right to use force in own defense. No special relationship between the defender and the defended is needed.
+      **Minority Under the minority, a person may defend others under the same circumstances self-defense will be acceptable. The defender steps into the shoes of the defended. The defended must be a member of the defender’s family or the defender’s employee or employer.
+  - (5): dop
+    datatype: area
+    help: |
+      A person in lawful possession of property, threatened by another’s act, with no time to seek law enforcement, may take reasonable steps, including non-deadly force to protect the property.
+  - (6): dim_cap
+    datatype: area
+    help: |
+      Some states recognize the diminished capacity defense under which a defendant may assert that as a result of mental defect short of insanity, s/he does not have the mental state required for the crime charged.
+  - (7): insanity
+    datatype: area
+    help: |
+  - (8): intox
+    datatype: area
+    help: |
+continue button field: murder_defenses
+---
+question: |
+  Insanity
+fields:
+  - (1): durham
+    datatype: area
+    help: |
+      Under Durham, a defendant is not guilty if the unlawful act is the product of the defendant’s mental disease or defect, and the defendant would not have been committed the act but for the disease or defect.
+  - (2): irr_impulse
+    datatype: area
+    help: |
+      Under irresistible impulse, a defendant is not guilty if, because of mental illness, he is unable to control, or conform, actions to the law.
+  - (3): m_naghten
+    datatype: area
+    help: |
+      Under M’Naghten, the defendant is not guilty if, because of a defect of reason due to a mental disease, the defendant did not know (1) nature and quality of the act or (2) wrongfulness of the act.
+  - (4): mpc
+    datatype: area
+    help: |
+      The MPC combines M’Naghten and irresistible impulse. A defendant is not guilty if, at the time of the act, as a result of mental disease or defect, s/he lacks substantial capacity to (1) appreciate the wrongfulness of the act, or (2) conform actions to the law.
+continue button field: insanity_types
+---
+question: |
+  Intoxication
+fields:
+  - (1): crime_prev
+    datatype: area
+    help: |
+continue button field: intox_types
+---
+question: |
+  Voluntary manslaughter
+subquestion: |
+  Voluntary manslaughter is murder comitted in response to **adequate provocation**. Provocation is adequate if ...
+fields:
+  - (1): inflames_passion
+    datatype: area
+    help: |
+      **(1) it inflames the passion of a reasonable person:** Words alone are not sufficient provocation, except when words carry provocative information such as threats of deadly force or adultery. The defendant cannot be inflamed by conduct that would not bother the reasonable person.
+  - (2): moment_out_of_passion
+    datatype: area
+    help: |
+      **(2) it causes the person to momentarily act out of passion rather than reason:** There must be a causal connection between the provocation, passion, and act. There is no mitigation if malice aforethought is formed prior to the provocation.
+  - (3): insuff_cool_off
+    datatype: area
+    help: |
+      **(3) there is insufficient time between the provocation and killing for a reasonable person to cool off:** If there is sufficient time between the provocation and the killing for a reasonable person to cool off, murder is not mitigated to manslaughter. 
+  - (4): does_not_cool
+    datatype: area
+    help: |
+      **(4) the defendant in fact does not cool off between the provocation and killing:** Defendant does not cool down. 
+continue button field: vol_ms_elements
+---
+question: |
+  Imperfect self-defense
+fields:
+  - define: imperf_sd
+    datatype: area
+    help: |
+      Imperfect self-defense occurs when the person claiming self-defense honestly believes deadly force is required to prevent death or serious bodily injury, but unjustifiably kills the attacker. Imperfect self-defense reduces murder to voluntary manslaughter.
+---
+question: |
+  Define involuntary manslaughter
+fields:
+  - Define: invol_ms
+    datatype: area
+    help: |
+      Involuntary manslaughter is an unintentional homicide committed (1) with criminal negligence or (2) during an unlawful act.
+  - (1): crim_neg
+    datatype: area
+    help: |
+      Criminal negligence is reckless action, or inaction when there is a duty to act, that puts another person at significant risk of injury or death.
+  - (2): unlawful_act
+    datatype: area
+    help: |
+      Unlawful Act: A killing committed during the commission of a misdemeanor or a felony.
+continue button field: invol_ms_elements
+---
+question: |
+  List possible property crimes
+fields:
+  - 1): embezzlement
+    datatype: area
+    help: |
+      Embezzlement is (1) fraudulent (2) conversion (3) of another’s personal property (4) by a person in lawful possession of the property.
+  - 2): larceny
+    datatype: area
+    help: |
+      Larceny is (1) trespassory (2) taking and (3) carrying away (4) of another’s personal property, (5) with specific intent to permanently deprive that person of the property.
+  - 3): robbery
+    datatype: area
+    help: |
+      Robbery is: (1) larceny (2) by force or intimidation, (3) where the property taking is from the victim’s person or presence.
+  - 4): extortion
+    datatype: area
+    help: |   
+      Extortion is (1) taking (2) another’s (3) property (4) by threat.
+  - 5): rec_stolen_prop
+    datatype: area
+    help: |         
+      Receiving stolen property requires (1) receiving control of stolen property, (2) with the knowledge the property is stolen, and (3) intent to permanently deprive the owner.
+continue button field: prop_crime_types
+---
+mandatory: true
+question: |
+  Here's the crime summary:
+subquestion: |
+  % if main_issue == 'someone dies after actions of Defendant':
+    % if murder_interrogatory:
+      % if cl_murder_def:
+        % if cause:
+          % if states_of_mind:
+            % if felony_murder_elements:
+            % endif
+          % endif
+        % endif
+        % if first_dg_elements:
+          % if second_dg_def:
+            % if murder_defenses:
+              % if insanity_types:
+                % if intox_types:
+                % endif
+              % endif
+            % endif
+          % endif
+        % endif
+        % if vol_ms_elements:
+          % if imperf_sd:
+            % if invol_ms_elements:
+            % endif
+          % endif
+        % endif
+      % endif
+    % endif
+  % elif main_issue == 'Defendant hurts, touches, or scares someone':
+  % elif main_issue == 'Defendant takes something away from someone else or intends to':
+    % if prop_crime_types:
+    % endif
+  % elif main_issue == 'Defendant takes steps to do the above but does not complete':
+  % elif main_issue == 'Defendant and at least E interact at any time':
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

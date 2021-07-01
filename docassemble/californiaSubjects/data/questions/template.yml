@@ -1,0 +1,77 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "XX"
+  title: |
+    XX
+---
+question: |
+  What is the main issue? 
+fields:
+  - no label: main_issue
+    choices:
+      - XX
+      - XX
+      - XX
+      - XX
+      - XX
+---
+question: |
+  List possible property crimes
+fields:
+  - (1): XX
+    help: |
+      XX
+  - (2): XX
+    help: |
+      XX
+  - (3): XX
+    help: |
+      XX
+  - (4): XX
+    help: |   
+      XX
+  - (5): XX
+    help: |         
+      XX
+continue button field: XX_elements
+---
+mandatory: true
+question: |
+  Here's the XX summary:
+subquestion: |
+  % if main_issue == 'XX':
+    % if XX:
+      % if XX_elements:
+        % if XX_elements:
+          % if XX_elements:
+            % if XX_elements:
+              % if XX_elements:
+                % if XX_elements:
+                % endif
+              % endif
+            % endif
+          % endif
+        % endif
+      % endif
+    % endif
+  % elif main_issue == 'XX':
+  % elif main_issue == 'XX':
+  % elif main_issue == 'XX':
+  % elif main_issue == 'XX':
+  % endif
+  % if XX:
+  % endif

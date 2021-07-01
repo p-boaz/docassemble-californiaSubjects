@@ -1,0 +1,122 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Fixtures"
+  title: |
+    Fixtures
+---
+sections:
+  - Fixtures
+  - Trade Fixtures
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+section: Fixtures
+question: |
+  Fixtures
+subquestion: |
+  A chattel intended to be part of the land is converted from personal to real property when it attaches to the land. The chattel is then considered a fixture, becomes part of the land, and passes with the land ownership.
+fields: 
+  - no label: fixtures_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: fixtures_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Trade Fixtures
+question: |
+  {Trade Fixtures}
+subquestion: |
+  Trade fixtures are items attached to real property for **carrying on a business**, and **may be removed by a tenant** at lease conclusion.
+fields: 
+  - no label: trade_fixtures_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: trade_fixtures_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  **Fixtures**
+  
+  ${ fixtures_here }
+  
+  ${ fixtures_thus }
+  
+  **Trade Fixtures**
+  
+  ${ trade_fixtures_thus }
+  
+  ${ trade_fixtures_here }
+ 
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+section: Conclusion
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  Trade Fixtures: |
+    Trade Fixtures triggered by facts on business chattels.

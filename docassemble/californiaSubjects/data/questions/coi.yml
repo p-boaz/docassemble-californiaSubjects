@@ -1,0 +1,611 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Conflict of Interest"
+  title: |
+    Conflict of Interest
+---
+sections:
+  - Conflict of Interest:
+    - Potential Conflicts of Interest
+    - Actual Conflicts of Interest
+    - Representation Despite Conflicts
+  - Personal Interest Issues:
+    - Lawyer as Witness
+    - Property as Payment for Services
+    - Proprietary Interests
+    - Fees Collection
+    - Business Transaction with a Client
+    - Sexual Relations
+    - Sixth Amendment - Ineffective Counsel
+  - Present Client Issues:
+    - Joint Representation
+  - Former Client Issues: 
+    - Former Firm Lawyer
+  - Imputed Disqualification: 
+    - Imputed Disqualification Exceptions
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+section: Conflict of Interest
+question: |
+  Conflict of Interest
+subquestion: |
+  2 ways to approach Professional Responsibility questions:
+  
+  1. By the events then the issues: Fact pattern has a series of events usually in chronological order. Make a heading for each event with the facts. Under the event heading, make separate issue headings.
+  2. By the issues: The same facts generate multiple issues. Example: Same facts for issues on Business Transaction with a Client and Actual Conflict of Interest. Make a heading for each issue.
+continue button field: intro
+field: sees_nav_bar
+---
+section: Potential Conflicts of Interest
+question: |
+  Potential Conflicts of Interest
+subquestion: |
+  A potential conflict of interest exists when the lawyer suspects a concurrent conflict, but the representation has not yet been materially limited. Under ABA, potential conflicts do not require informed written consent. 
+  
+  `In CA, without the informed written consent of each client, a lawyer may not represent more than one client in a matter in which the clients’ interests potentially conflict.`
+fields: 
+  - note: |
+      **Lawyer and Client**
+  - no label: lc_here
+    datatype: mlarea
+    hint: Here, 
+    required: False
+  - no label: lc_thus
+    datatype: mlarea
+    hint: Thus, 
+    required: False
+  - note: |
+      **Prospective Client and Present Client**
+  - no label: pcpc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pcpc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Prospective Client and Former Client**
+  - no label: pcfc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pcfc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Prospective Client and Present Client**
+  - no label: pres_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pres_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Prospective Client and Present Client**
+  - no label: pres_c_here
+    datatype: area
+    hint: Here,
+    required: False
+  - no label: pres_c_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Actual Conflicts of Interest
+question: |
+  Actual Conflicts of Interest
+subquestion: |
+  Under ABA [`and CA law`], a lawyer must not represent a client if the representation is (1) directly adverse to another client, or (2) materially limited by responsibilities to another client, a former client, a third party, or the lawyer’s own interests.
+fields: 
+  - note: |
+      **Lawyer and Client**
+  - no label: a_lc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: a_lc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Prospective Client and Present Client**
+  - no label: a_pcpc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: a_pcpc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Prospective Client and Former Client**
+  - no label: a_pcfc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: a_pcfc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Prospective Client and Present Client**
+  - no label: a_pres_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: a_pres_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Prospective Client and Present Client**
+  - no label: a_pres_c_here
+    datatype: area
+    hint: Here,
+    required: False
+  - no label: a_pres_c_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Representation Despite Conflicts
+question: |
+  Representation Despite Conflicts
+subquestion: |
+  Despite actual conflicts of interest, a lawyer may represent a client if (1) the lawyer reasonably believes s/he will be able to provide competent and diligent representation to each affected client, (2) the representation is not prohibited by law, (3) the representation does not involve the assertion of a claim by one client against another client represented by the same lawyer, and (4) each client gives {informed consent in writing}. 
+  
+  In a criminal case, even when all defendants waive conflict of interest claims, the trial court can still prohibit joint representation. `Add this rule if facts on criminal case involving co-defendants. Wheat v. U.S., 486 U.S. 153 (1988).`
+fields: 
+  - no label: rdc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: rdc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Lawyer as Witness
+question: |
+  Lawyer as Witness
+subquestion: |
+  Under ABA, a lawyer shall not act as advocate at a trial in which the lawyer is likely to be a necessary witness, unless (1) the testimony relates to an uncontested issue, (2) the testimony relates to the nature and value of legal services, or (3) disqualification of the lawyer would result in substantial client hardship. 
+  
+  `CA law is the same as ABA for jury trials without exception (3). In lieu of exception (3), CA allows representation if a lawyer obtains client informed written consent.`
+fields: 
+  - no label: law_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: law_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Property as Payment for Services
+question: |
+  Property as Payment for Services
+subquestion: |
+  Under ABA, a lawyer may receive property as a payment for services, as long as the payment does not involve acquiring a proprietary interest in a litigation subject matter.
+fields: 
+  - no label: pps_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pps_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Proprietary Interests
+question: |
+  Proprietary Interests
+subquestion: |
+  Under ABA, except for liens to collect a fee, a lawyer may not obtain a proprietary interest in a litigation subject matter.
+fields: 
+  - no label: pi_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pi_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Fees Collection
+question: |
+  Fees Collection
+subquestion: |
+  Under ABA [CA laws], a lawyer may collect a fee by taking an interest-bearing promissory note, or obtaining a lien upon a potential recovery to secure the fee payment, provided the lawyer complies with rules of professional conduct relating to business transactions with clients.
+fields: 
+  - no label: fc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: fc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Business Transaction with a Client
+question: |
+  Business Transaction with a Client
+subquestion: |
+  Under ABA, a fee paid in property has the essential qualities of a business transaction with a client.
+  
+  Under ABA [CA laws], a lawyer shall not enter into a business transaction with a client, or knowingly acquire an ownership, possessory, security, or other pecuniary interest adverse to a client, unless: (1) the transaction or acquisition and its terms are fair and reasonable to the client and fully disclosed in writing in a manner which the client should reasonably have understood, (2) the client is advised in writing the client may seek the advice of an independent lawyer and is given reasonable opportunity to seek that advice, (3) the client consents in writing to the transaction or acquisition and its terms.
+fields: 
+  - no label: btc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: btc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Sexual Relations
+question: |
+  Sexual Relations
+fields: 
+  - note: |
+      **ABA**
+      
+      Under ABA, a lawyer may not have sexual relations with a client unless a consensual sexual relationship existed when the client-lawyer relationship commenced.
+  - no label: sr_aba_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: sr_aba_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **CA**
+      
+      In 2018, California updated its rule on sexual relations with a client to align with the ABA. California now imposes a strict prohibition on sexual relations with a current client who is not a spouse or registered domestic partner, unless a consensual sexual relationship exists between them when the attorney client relationship commences.
+  - no label: sr_ca_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: sr_ca_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Sixth Amendment - Ineffective Counsel
+question: |
+  Sixth Amendment - Ineffective Counsel
+subquestion: |
+  The right to counsel encompasses the right to be assisted by a reasonably competent attorney. An attorney is ineffective when (1) representation falls below an objective reasonableness standard, and (2) the deficient performance prejudices the defendant, resulting in an unreliable or fundamentally unfair outcome in the proceeding.
+fields: 
+  - no label: sa_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: sa_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Present Client Issues
+question: |
+  Joint Representation
+subquestion: |
+  **Potential Conflict of Interest**: Joint representation is not per se invalid, but if the attorney advises the trial court of a potential conflict of interest, and the court refuses to appoint separate counsel, the defendant is entitled to automatic reversal.
+  
+  **Actual Conflict of Interest**: If the defendant does not timely object to joint representation, the defendant must show (1) the attorney represented actual conflicting interests and (2) prejudiced the defendant.
+fields: 
+  - no label: jr_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: jr_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Former Client Issues
+question: |
+  Former Government Lawyer
+subquestion: |
+  Under ABA, a lawyer must not represent a client in a matter in which the lawyer participated personally and substantially as a government officer or employee, unless the appropriate government agency gives informed, written consent, except as permitted by law. 
+  
+  `In CA, a former criminal prosecutor may not participate on the defense of the same case.`
+fields: 
+  - no label: fgl_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: fgl_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Former Client Issues
+question: |
+  Former Firm Lawyer
+subquestion: |
+  A lawyer must not represent a client in a matter in which the (1) lawyer participated substantially, and (2) any attorney at the former firm has confidential, material information, unless the former client gives informed, written consent.
+fields: 
+  - no label: ffl_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ffl_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Imputed Disqualification
+question: |
+  Imputed Disqualification
+subquestion: |
+  Under ABA, if one lawyer employed by a firm is unable to represent because of a conflict of interest or confidentiality issue with a former client, the disqualification is imputed to the firm and no lawyer in the firm may represent.
+  
+  `CA law on imputed disqualification is unsettled for a conflict of interest, but automatic for confidentiality issue.`
+fields: 
+  - no label: id_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: id_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Imputed Disqualification
+question: |
+  Imputed Disqualification Exceptions
+subquestion: |
+  If a former government lawyer is prohibited from representing a client, the firm may represent a client against the government if (1) the former government lawyer is screened from participation, (2) not apportioned fees, and (3) prompt written notice is given to the government so the government takes preventive measures.
+fields: 
+  - no label: ide_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ide_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Imputed Disqualification
+question: |
+  Former Client and Former Firm
+subquestion: |
+  If a lawyer is prohibited from representing a client based on {duties to a former client} and former firm association, other firm lawyers will not be precluded from {representing the client if} (1) the disqualified lawyer is screened from participation, (2) not apportioned fees, (3) prompt written notice is given to any affected former client, and (4) certification of compliance with these rules and the screening procedures are provided to any affected former client upon written request and termination of the screen procedures.
+fields: 
+  - no label: fcff_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: fcff_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Imputed Disqualification
+question: |
+  Personal Interest
+subquestion: |
+  If a lawyer is prohibited from representing a client based upon a {personal interest}, other firm lawyers will not be precluded from representing the client if the prohibited lawyer’s disqualification does not materially limit the remaining firm lawyers’ client representation.
+fields: 
+  - no label: pi_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pi_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Imputed Disqualification
+question: |
+  Client Waiver
+subquestion: |
+  A client may waive an {imputed disqualification if} (1) the lawyer reasonably believes s/he will be able to provide competent and diligent representation to each affected client, (2) the representation is not prohibited by law, (3) the representation does not involve the assertion of a claim by one client against another client represented by the same lawyer, and (4) each client gives informed consent in writing. 
+  
+  `CA law is similar, but does not have the “reasonably believes” requirement.`
+fields: 
+  - no label: cw_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: cw_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+mandatory: true
+progress: 100
+question: Summary 
+subquestion: |
+  % if sees_nav_bar:
+  
+  ${ lc_here }
+  
+  ${ lc_thus }
+  
+  ${ pcpc_here }
+  
+  ${ pcpc_thus }
+  
+  ${ pcfc_here }
+  
+  ${ pcfc_thus }
+  
+  ${ pres_here }
+  
+  ${ pres_thus }
+  
+  ${ pres_c_here }
+  
+  ${ pres_c_thus }
+  
+  ${ a_lc_here }
+  
+  ${ a_lc_thus }
+  
+  ${ a_pcpc_here }
+  
+  ${ a_pcpc_thus }
+  
+  ${ a_pcfc_here }
+  
+  ${ a_pcfc_thus }
+  
+  ${ a_pres_here }
+  
+  ${ a_pres_thus }
+  
+  ${ a_pres_c_here }
+  
+  ${ a_pres_c_thus }
+  
+  ${ rdc_here }
+  
+  ${ rdc_thus }
+  
+  ${ law_here }
+  
+  ${ law_thus }
+  
+  ${ pps_here }
+  
+  ${ pps_thus }
+  
+  ${ pi_here }
+  
+  ${ pi_thus }
+  
+  ${ fc_here }
+  
+  ${ fc_thus }
+  
+  ${ btc_here }
+  
+  ${ btc_thus }
+  
+  ${ sr_aba_here }
+  
+  ${ sr_aba_thus }
+  
+  ${ sr_ca_here }
+  
+  ${ sr_ca_thus }
+  
+  ${ sa_here }
+  
+  ${ sa_thus }
+  
+  ${ jr_here }
+  
+  ${ jr_thus }
+  
+  ${ fgl_here }
+  
+  ${ fgl_thus }
+  
+  ${ ffl_here }
+  
+  ${ ffl_thus }
+  
+  ${ id_here }
+  
+  ${ id_thus }
+  
+  ${ ide_here }
+  
+  ${ ide_thus }
+  
+  ${ fcff_here }
+  
+  ${ fcff_thus }
+  
+  ${ pi_here }
+  
+  ${ pi_thus }
+  
+  ${ cw_here }
+  
+  ${ cw_thus }
+  
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  personal interest: |
+    Example: Sexual relations with client.
+  imputed disqualification if: |
+    Same as Representation Despite Conflicts.
+  duties to a former client: |
+    For CA, only applies to confidentiality issues.
+  representing the client if: |
+    Not need former client consent if all requirements met.
+  informed consent in writing: |
+    Client understands how conflict can harm client. Unconsentable if need to disclose confidential information of one client in order to explain how conflict affects another client.
+---

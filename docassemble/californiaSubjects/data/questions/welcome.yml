@@ -1,0 +1,103 @@
+metadata:
+  title: Bar Playbook - CA
+---
+default screen parts:
+  post: |
+    % if not user_logged_in():
+    [:sign-in-alt: Sign-in](${url_of('login', next=interview_url())}) or [register](${url_of('register', next=interview_url())}) to save your progress.
+    % endif
+---
+objects:
+  - client: Individual
+---
+mandatory: true
+question: |
+  ## Welcome to the CA section of Bar Playbook
+subquestion: |
+  This project is in development and invite-only. However, the [Civil Procedure] worksheet is open for everyone. 
+
+  **Multi-state Subjects**: 
+    
+    1. [Civil Procedure]
+    2. [Property]
+    3. [Constitutional Law]
+    4. [Torts]
+    5. [Evidence]
+    6. [Criminal Law]
+    7. [Contracts]
+    8. [Criminal Procedure]
+
+  **California subjects**: 
+    
+    9. [Wills & Trusts]
+    10. [Remedies]
+    11. [Business Associations]
+    12. [Professional Responsibility] 
+    13. [Community Property]
+ 
+  **Focused subtopics:**
+  
+    * Property
+      14. [State of Title]
+      15. [Landlord-Tenant]
+      16. [Deeds]
+      17. [Quiet Enjoyment]
+      18. [Easements]
+    * Constitutional Law
+      19. [Takings]
+      20. [Constitutional Clauses]
+    * Wills & Trusts
+      21. [Valid Will]
+      22. [Trustee Duties]
+    * Professional Responsibility
+      23. [Attorney Fees]
+      24. [Attorney Advertisements and Solicitation]
+      25. [Prosecutor Duties]
+      26. [Conflict of Interest]
+    * Remedies
+      27. [Specific Performance]
+      28. [Constructive Trust]
+    * Civil Procedure
+      29. [FRCP v California Rules]
+    * Torts
+      30. [Negligence]
+      31. [Defamation]
+    * Evidence
+      32. [Hearsay]
+      33. [Relevance]
+  
+    [Civil Procedure]: https://ca.barplaybook.com/run/Civil-Procedure/#/1
+    [Contracts]: https://ca.barplaybook.com/run/Contracts/#/1
+    [Criminal Procedure]: https://ca.barplaybook.com/run/Criminal-Procedure/#/1
+    [Evidence]: https://ca.barplaybook.com/run/Evidence/#/1
+    [Torts]: https://ca.barplaybook.com/run/Torts/#/1
+    [Professional Responsibility]: https://ca.barplaybook.com/run/Prof-Resp/#/1
+    [Criminal Law]: https://ca.barplaybook.com/run/Criminal-Law/#/1
+    [Property]: https://ca.barplaybook.com/run/Property/#/1
+    [Constitutional Law]: https://ca.barplaybook.com/run/Constitutional-Law/#/1
+    [Community Property]: https://ca.barplaybook.com/run/Community-Property/#/1
+    [Wills & Trusts]: https://ca.barplaybook.com/run/Wills-and-Trusts/#/1
+    [Remedies]: https://ca.barplaybook.com/run/Remedies/#/1
+    [Business Associations]: https://ca.barplaybook.com/run/Biz-Assoc/#/1
+    
+    [Constitutional Clauses]: https://ca.barplaybook.com/run/Con-Clauses/#/1
+    [State of Title]: https://ca.barplaybook.com/run/State-of-Title/#/1
+    [FRCP v California Rules]: https://ca.barplaybook.com/run/FRCP-v-CA/#/1
+    [Takings]: https://ca.barplaybook.com/run/Takings/#/1
+    [Easements]: https://ca.barplaybook.com/run/Easements/#/1
+    [Landlord-Tenant]: https://ca.barplaybook.com/run/Landlord-Tenant/#/1
+    [Valid Will]: https://ca.barplaybook.com/run/Valid-Will/#/1
+    [Trustee Duties]: https://ca.barplaybook.com/run/Trustee-Duties/#/1
+    [Deeds]: https://ca.barplaybook.com/run/Deeds/#/1
+    [Specific Performance]: https://ca.barplaybook.com/run/Specific-Perf/#/1
+    [Attorney Fees]: https://ca.barplaybook.com/run/Atty-Fees/#/1
+    [Attorney Advertisements and Solicitation]: https://ca.barplaybook.com/run/Atty-Ads/#/1
+    [Prosecutor Duties]: https://ca.barplaybook.com/run/Pros-Duties/#/1
+    [Quiet Enjoyment]: https://ca.barplaybook.com/run/Quiet-Enj/#/1
+    [Conflict of Interest]: https://ca.barplaybook.com/run/COI/#/1
+    [Negligence]: https://ca.barplaybook.com/run/Negligence/#/1
+    [Defamation]: https://ca.barplaybook.com/run/Defamation/#/1
+    [Constructive Trust]: https://ca.barplaybook.com/run/Const-Trust/#/1
+buttons:
+  - Back to barplaybook.com: exit
+    url: https://barplaybook.com

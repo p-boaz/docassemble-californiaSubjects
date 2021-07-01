@@ -1,0 +1,420 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Contracts"
+  title: |
+    Contracts
+---
+question: |
+  What is the applicable law? 
+field: app_law
+choices:
+  - Common Law
+  - UCC
+---
+question: |
+  Is there at least one merchant?
+fields:
+  - Confirm: merchant_amt
+    datatype: yesnoradio
+  - Rules: merchant_rules
+    datatype: area
+    show if:
+      variable: merchant_amt
+      is: true
+---
+question: |
+  Is it an oral agreement?
+fields:
+  - Confirm: oral_k
+    datatype: yesnoradio
+  - Rules: oral_k_rules
+    datatype: area
+    show if:
+      variable: oral_k
+      is: true
+---
+question: |
+  Is is within the Statute of Frauds?
+fields:
+  - Confirm: within_sof
+    datatype: yesnoradio
+  - Rules: sof_rules
+    datatype: area
+    show if:
+      variable: within_sof
+      is: true
+help: |
+---  
+question: |
+  Do you need to check if there's a valid contract?
+subquestion: |
+  If so, a valid contract requires
+fields:
+  - Got it: valid_k_in_question
+    datatype: yesnowide
+  - (1): k_el_1
+    show if:
+      variable: valid_k_in_question
+      is: true
+  - (2): k_el_2
+  - (3): k_el_3
+  - (4): k_el_4
+---
+question: |
+  Was there a valid offer?
+subquestion: |
+  A valid offer requires
+fields:
+  - Confirm: valid_offer
+    datatype: yesnowide
+  - no label: offer_el_1
+  - no label: offer_el_2
+  - no label: offer_el_3
+  - only under CL: cl_offer_el_4
+    show if:
+      variable: valid_offer
+      is: true
+help: |
+    An offer requires (1) an express present intent to be legally bound to a contract, (2) certain and definite terms, and (3) communication to an identifiable offeree. [Under common law, essential terms (subject, price, quantity) must be covered.]
+---
+question: |
+  Was there a valid acceptance?
+subquestion: |
+  A valid acceptance requires
+fields:
+  - no label: acc_el_1
+  - no label: acc_el_2
+  - no label: acc_el_3
+  - was it mailed?: was_mailed
+    datatype: yesnowide
+  - Confirm: valid_acceptance
+    datatype: yesnowide
+  - Mailbox Rule: valid_acceptance_mailed
+    show if:
+      variable: was_mailed
+      is: true
+help: |
+  Acceptance requires (1) unequivocal acceptance terms, (2) an offeree with power to accept, and (3) communication of acceptance.
+  
+  Mailbox Rule:
+  
+  Under the mailbox rule, acceptance by mail or similar means, properly addressed, stamped, and sent, is effective at **dispatch**. The mailbox rule applies only to acceptance, and does not apply to other contract events.
+---
+question: |
+  Was there valid consideration?
+subquestion: |
+  Valid consideration requires
+fields:
+  - Confirm: valid_consideration
+    datatype: yesnowide
+  - no label: cons_el_1
+  - no label: cons_el_2
+  - Here,: facts_applied
+    show if:
+      variable: valid_consideration
+      is: true
+help: |
+  Consideration involves (1) a bargain for exchange (2) of legal value.
+
+  Here, [insert dollar amount or value of good or service], something of legal value, motivated [Party1] to exchange to [Party2] [insert good or service Party1 gives to Party2], a detriment incurred by [Party1] for [Party2]’s benefit.
+---
+question: |
+  Are there any defenses to formation?
+subquestion: |
+  The 12 formation defenses are as follows:
+fields:
+  - no label: formation_def_1
+  - no label: formation_def_2
+  - no label: formation_def_3
+  - no label: formation_def_4
+  - no label: formation_def_5
+  - no label: formation_def_6
+  - no label: formation_def_7
+  - no label: formation_def_8
+  - no label: formation_def_9
+  - no label: formation_def_10
+  - no label: formation_def_11
+  - no label: formation_def_12
+  - Confirm: no_formation_defenses
+    datatype: noyeswide
+help: |
+  1) undue influence, 2) duress, 3) unilateral mistake, 4) mutual mistake, 5) misrepresentation, 6) unconscionability, 7) statute of frauds, 8) part payment, 9) part performance, 10) illegality, 11) incapacity - minor, 12) incapacity - mental
+---
+question: |
+  Does the call require you to determine whether a party performed?
+subquestion: |
+  If so, think about
+fields:
+  - Confirm: performance_in_q
+    datatype: yesnoradio
+---
+question: |
+  Is a party seeking to vary terms of a final writing?
+subquestion: |
+  If so, check Parol Evidence Rule
+fields:
+  - Rule: per_rule
+    datatype: area
+  - Confirm: vary_terms_final_k
+    datatype: yesnoradio
+---
+question: |
+  Is a party seeking to modify terms?
+subquestion: |
+  If so, check CL (preexisting duty rule) vs. UCC (good faith)
+fields:
+  - CL (preexisting duty rule): cl_mod_rule
+    datatype: area
+  - UCC (good faith): ucc_mod_rule
+    datatype: area
+  - Confirm: modify_terms
+    datatype: yesnoradio
+---
+question: |
+  Was there a breach?
+subquestion: |
+  A breach occurs when a party fails to perform once...
+fields:
+  - (1): k_el_1
+  - (2): k_el_2
+  - and (3): k_el_3
+  - got it: breach
+    datatype: yesnowide
+help: |
+  (1) conditions precedent are met or excused, (2) time to perform arrives, and (3) performance is not discharged.
+---
+question: |
+  Were there conditions precendent?
+subquestion: |
+  A condition precedent occurs...
+fields:
+  - definition: condition_prec
+  - subtopic 1: sub_cond_prec1
+  - subtopic 2: sub_cond_prec2
+  - subtopic 3: sub_cond_prec3
+  - Confirm: cond_prec
+    datatype: yesnowide
+help: |
+    A condition precedent occurs before an absolute duty of performance arises.
+---
+question: |
+  Three issues under conditions precendent:
+fields:
+  - Assurances of Performance (CL): aop_cl
+    datatype: area
+    help: |
+      **Common Law**: A non-breaching party may request adequate assurances of performance, and treat the failure to assure within a reasonable time as anticipatory repudiation. The requesting party may suspend performance until assurances are given.
+  - Assurances of Performance (UCC): aop_ucc
+    datatype: area
+    help: |
+      **UCC**: Under the UCC, a request for adequate assurances of performance must be in writing. A non-breaching party may request adequate assurances of performance, and treat the failure to assure within 30 days as anticipatory repudiation. The requesting party may suspend performance until assurances are given.
+  - Anticipatory Repudiation (four options): ar
+    datatype: area
+    help: |
+      **Anticipatory repudiation** occurs where a promisor, prior to the time to perform arrives, unequivocally indicates s/he will not perform when the time occurs. Anticipatory repudiation gives the non-repudiating party four options: (1) treat the contract as totally repudiated and sue immediately, (2) suspend own performance and wait until performance is due to sue, (3) treat the repudiation as an offer to rescind, and the contract discharged, or (4) ignore the repudiation and urge performance.
+  - Substantial performance: subs_perf
+    datatype: area
+    help: |
+      **Substantial Performance**: Where a party almost completely performs the duties, but breaches in a minor way, substantial performance avoids forfeiture of a return performance.
+  - Confirm: cond_prec_subs
+    datatype: yesnowide
+---
+question: |
+  Time to perform arrives?
+subquestion: |
+  Failure to perform by the time in the contract is generally...
+fields:
+  - no label: time_to_perform
+    datatype: area
+help: |
+  Failure to perform by the time in the contract is generally not a material breach if performance is rendered within a reasonable time. However, if the contract makes timely performance essential, or expressly provides time is of the essence, failure to perform on time is a material breach.
+---
+question: |
+  Was performance discharged?
+subquestion: |
+  list the ways
+fields:
+  - no label: perf_dis_1
+  - no label: perf_dis_2
+  - no label: perf_dis_3
+  - no label: perf_dis_4
+  - no label: perf_dis_5
+  - no label: perf_dis_6
+  - no label: perf_dis_7
+  - no label: perf_dis_8
+  - no label: perf_dis_9
+  - Confirm: performance_disch
+    datatype: noyeswide
+help: |
+  1) assignment, 2) mutual rescission, 3) modification, 4) waiver, 5) impossibility, 6) impracticability, 7) frustration of purpose, 8) disclaimer, 9) accord and satisfaction
+---
+question: |
+  Are there third parties?
+subquestion: |
+  If so, check the following:
+fields:
+  - Rules: third_pt_rules
+    datatype: area
+  - Confirm: there_are_3p
+    datatype: yesnoradio
+---
+question: |
+  Are there intended beneficiaries?
+subquestion: |
+  If so, check the following:
+fields:
+  - Rules: intended_bene_rules
+    datatype: area
+  - Confirm: intended_bene
+    datatype: yesnoradio
+---
+question: |
+  Are there assignments?
+subquestion: |
+  If so, check the following:
+fields:
+  - Rules: assignment_rules
+    datatype: area
+  - Confirm: assignments
+    datatype: yesnoradio
+---
+question: |
+  Are there delegations?
+subquestion: |
+  If so, check the following:
+fields:
+  - Rules: delegation_rules
+    datatype: area
+  - Confirm: delegations
+    datatype: yesnoradio
+---
+question: |
+  Do you need to discuss remedies?
+subquestion: |
+  If so, what do you do first? 
+fields:
+  - Rules: liability_theory
+    datatype: area
+  - Confirm: discuss_remedies
+    datatype: yesnoradio
+---
+question: |
+  Damages
+subquestion: |
+  What types of damages should you check (name five)?
+fields:
+  - Rules: dmg_rules
+    datatype: area
+  - Confirm: damages
+    datatype: yesnoradio
+help: |
+  * Expectation/Actual
+  * Consequential
+  * Incidental
+  * Liquidated damages clause
+  * UCC seller/buyer damages
+---
+question: |
+  Restitutionary Remedies?
+subquestion: |
+  Discuss
+fields:
+  - Rules: rest_remedy_rules
+    datatype: area
+  - Confirm: rest_remedies
+    datatype: yesnoradio
+---
+question: |
+  Equitable remedies?
+subquestion: |
+  If so, what more to look for? 
+fields:
+  - Rules: eq_remedy_rules
+    datatype: area
+  - Confirm: eq_remedies
+    datatype: yesnoradio
+help: |
+  * Specific performance
+  * Rescission
+  * Reformation
+---
+mandatory: true
+question: |
+  The applicable law is
+  ${ app_law }.
+subquestion: |
+  % if app_law == 'Common Law':
+  No need to consider UCC.
+  % else:
+  You're looking at UCC 
+    % if merchant_amt:
+  and there are merchant rules. 
+    % else:
+  but you don't need to worry about merchants.   
+    % endif
+  % endif
+  
+    % if valid_k_in_question:
+  Since the performance is in question: discuss the promise(s) and/or condition(s) of the K. List the terms and any express or constructive conditions.
+    % if valid_offer and valid_acceptance and valid_consideration and no_formation_defenses:
+  You can prove there's a valid contract
+    % else: 
+  There is no valid contract. 
+    % endif 
+    
+    % if performance_in_q:
+      % if vary_terms_final_k:
+  Apply parol evidence rule (and exceptions if applicable)
+      % endif
+      % if modify_terms:
+  CL (preexisting duty rule) vs. UCC (good faith)
+      % endif
+      % if breach:
+        % if cond_prec:
+          % if cond_prec_subs:
+  You've adequately explored conditions precedent, WHICH YOU NEED TO WORK ON MORE.
+          % endif
+        % endif  
+        % if time_to_perform and performance_disch:
+  Breach analysis complete.
+        % endif
+      % endif
+    % endif  
+  % endif
+  
+  % if oral_k:
+    % if within_sof:
+  for the contract to be enforceable, it must be in writing. 
+    % else:
+  it is not within SOF
+    % endif
+  % endif
+  
+  % if there_are_3p:
+    % if intended_bene and assignments and delegations:
+  You've explored them all.
+    % endif
+  % endif
+  
+  % if discuss_remedies:
+    % if damages and rest_remedies and eq_remedies:
+  You've explored them all. 
+    % endif
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

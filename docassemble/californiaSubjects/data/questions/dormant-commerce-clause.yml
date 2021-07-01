@@ -1,0 +1,328 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Dormant Commerce Clause"
+  title: |
+    Dormant Commerce Clause
+---
+sections:
+  - Intro
+  - Regulation
+  - Congress
+  - Dormant
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  **Dormant Commerce Clause**
+subquestion: |
+   
+field: sees_nav_bar
+---
+question: |
+  {Regulation} Regulates Interstate Commerce?
+subquestion: |
+  Only interstate commerce regulations fall within the negative powers given to the states relating to the Dormant Commerce Clause.
+fields: 
+  - no label: reg_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: reg_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Regulation
+---
+question: |
+  Congress Regulates Specific Area (Preemption)?
+subquestion: |
+  Congress may exercise powers the U.S. Constitution specifically enumerated. The Commerce Clause empowers Congress to regulate foreign and interstate commerce.
+fields: 
+  - no label: congress_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: congress_thus
+    datatype: area
+    required: False
+    hint: Thus,
+  - note: |
+      `If no preemption, conclude the state can regulate.`
+section: Congress
+---
+question: |
+  **{Dormant} Commerce Clause**
+subquestion: |
+  A state may regulate an area of interstate commerce if Congress has not enacted laws so long as its statutes do not (1) discriminate against out-of-state commerce, or (2) unduly burden interstate commerce.
+continue button field: dormant
+section: Dormant 
+---
+question: |
+  Discriminate Against {Out-Of-State Commerce}
+subquestion: |
+  A state law discriminates against out-of-state competition if it protects local economic interests.
+fields: 
+  - no label: discrim_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: discrim_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **{Exception} 1: Important Non-Economic Interest/NonDiscriminatory Alternatives**
+      
+      A discriminatory statute may be valid if (1) it **furthers an important noneconomic state interest**, and (2) there are **no reasonable nondiscriminatory alternatives**.
+  - note: |
+      **Furthers an Important Noneconomic State Interest**
+      
+      `Discuss the purpose of the regulation for the state. If facts do not give a purpose, use state police powers (i.e. health, safety) as the noneconomic purpose. If the interest is only saving money, the interest is economic. Example: City limits the amount of waste in landfills. This may promote a cleaner environment for health, but the interest may be economic if the landfill is used only for household waste (non-hazardous), and new (unused capacity), able to accommodate waste without posing health risks.`
+  - no label: furthers_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: furthers_thus
+    datatype: area
+    required: False
+    hint: Thus,
+  - note: |
+      **NonDiscriminatory Alternatives**
+      
+      `On the exam, this exception usually fails. Think of a real life alternative way to meet the state purpose that is less discriminatory.`
+  - no label: alt_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: alt_thus
+    datatype: area
+    required: False
+    hint: Thus,
+  - note: |
+      **Exception 2: Market Participant**
+      
+       A state may prefer its own citizens when acting as a market participant
+  - no label: market_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: market_thus
+    datatype: area
+    required: False
+    hint: Thus,
+  - note: |
+      **Exception 3: Traditional {Government Function}**
+      
+      A regulation relating to a state performing a traditional government function is valid.
+  - no label: gov_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: gov_thus
+    datatype: area
+    required: False
+    hint: Thus,
+  - note: |
+      `If there is discrimination, conclude found discrimination, but there is an exception or there is no exception depending on the facts. Usually, the market participant or traditional government function exception apply. If no discrimination, conclude no discrimination and go to Unduly Burden Interstate Commerce.`
+section: Dormant
+---
+question: |
+  **Unduly Burden Interstate Commerce**
+subquestion: |
+  A nondiscriminatory state law may be invalid if the burdens on interstate commerce outweigh the promotion of legitimate state interests. In balancing the state law objective against the burden on interstate commerce, courts consider less-restrictive alternatives.
+fields:
+  - note: |
+      **Promotion of Legitimate State Interests**
+  - no label: legit_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: legit_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Burden on Interstate Commerce**
+  - no label: bic_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: bic_thus
+    datatype: area
+    required: False
+    hint: Thus,
+  - note: |
+      **Less-Restrictive Alternatives**
+  - no label: less_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: less_thus
+    datatype: area
+    required: False
+    hint: Thus,
+  - note: |
+      `After doing the balancing, if there are more factors for the plaintiff, conclude there is a violation. If there are more factors for the state government, conclude no violation.`
+section: Dormant
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+  % if sees_nav_bar:
+  **Due Process**
+  
+  The Due Process Clause of the [Fifth/Fourteenth] Amendment provides that the government shall not take an individual’s life, liberty, or property without due process of law.
+
+  **Procedural Due Process**
+
+  ${ reg_here }
+  
+  ${ reg_thus }
+  
+  ${ congress_here }
+  
+  ${ congress_thus }
+  
+  ${ discrim_here }
+  
+  ${ discrim_thus }
+  
+  ${ furthers_here }
+  
+  ${ furthers_thus }
+  
+  ${ alt_here }
+  
+  ${ alt_thus }
+  
+  ${ market_here }
+  
+  ${ market_thus }
+  
+  ${ gov_here }
+  
+  ${ gov_thus }
+  
+  ${ legit_here }
+  
+  ${ legit_thus }
+  
+  ${ bic_here }
+  
+  ${ bic_thus }
+  
+  ${ less_here }
+  
+  ${ less_thus }
+
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  Out-Of-State Commerce: |
+    2 steps:
+    
+    1. Determine if discrimination on face of regulation.
+        
+        a. Yes: Regulation presumed invalid. Go through each exception. Regulation valid if find an exception; skip Unduly Burden Interstate Commerce.
+        b. No: Determine if discrimination in practice. If yes, go through each exception. Regulation valid if find an exception; skip Unduly Burden Interstate Commerce.
+    
+    2. If no discrimination (on face or in practice), do Unduly Burden Interstate Commerce.
+  Dormant: |
+    When there is a Dormant Commerce Clause issue, see if the facts also trigger Privileges and Immunities issue, especially when a regulation involves a state discriminating against other states.
+  on its face: |
+    The law, by its own terms, makes an explicit distinction between classes of persons. Example: The Corps drafts boys ages 15 to 18 who have dropped out of school.
+  in its application: |
+    A law, neutral on its face, is invalid if the plaintiff proves government action had a discriminatory purpose when applying the law differently to different classes of persons. Example: Peremptory challenge is an equal protection violation when plaintiff proves attorney excluded a potential juror based on race or sex. Batson v. Kentucky, 476 U.S. 79 (1986).
+  discriminatory motive: |
+    A law, neutral on its face and in application, is invalid if it has a disproportionate impact on a class of persons and the plaintiff proves the law maker enacted or maintained the law for a discriminatory purpose. Statistical Evidence on Disproportionate Impact + Evidence on Legislative Intent = Discriminatory Motive.
+  compelling state interest: |
+    The government has the burden of proving the elements. Usually the government loses so make it turn out that way in the analysis.
+  Fifth: |
+    Use the Fourteenth Amendment for state government. Use the Fifth Amendment for federal government. No equal protection clause in the Bill of Rights. Bolling v. Sharpe, 347 U.S. 497 (1954) stretched Fifth Amendment “due process” to require the federal government to afford equal protection of the laws.
+  Regulation: |
+    Before discussing Dormant Commerce Clause, ask 2 preliminary questions to determine if the state can regulate:
+    
+    1. Regulation regulates interstate commerce? Determine if the regulation regulates interstate commerce or commerce within a state.
+    2. Congress regulates in the specific area? Determine if federal law preempts the state regulation.
+  individuals: |
+    Do not waste time with an introduction on the different scrutiny levels. Identify the classification. Then give the rules only for the level of scrutiny for the classification.
+  Compelling Interest: |
+    Analyze the government interest first. Cannot determine if the means used to achieve an interest are necessary and least restrictive when do not know what the interest is. If no mention of the government interest in the facts, base the interest on police powers (i.e. health, safety, welfare).
+  Necessary: |
+    The law is not whether the government action is necessary, but whether the action is necessary to achieve the government interest.
+  Suspect Class: |
+    Input the suspect class (national origin, race, alienage) in the heading. Alienage: Use strict scrutiny for state laws that discriminate against aliens, except laws that prohibit aliens from the democratic process (i.e. voting, jury duty), working as a notary public, or government employment (i.e. police officers, public school teachers, probation officers). Use rational basis for state exceptions and federal laws. Federal alienage classification is likely valid unless it is arbitrary and unreasonable because Congress has plenary power over aliens under Article I.
+  Equal Protection: |
+    * A regulation that affects a specific classification triggers Equal Protection. A regulation that affects all triggers Substantive Due Process. Read the regulation to see if it involves more than one group.
+    
+    * If a regulation mentions only one group, the issue is substantive due process. Do not think it is equal protection based on how the regulation benefits another group. Example: A regulation bans disposable diapers for environmental reasons. As a result of the regulation, diaper services for cleaning cloth diapers become profitable, but a study finds no improvement in the environment.
+    
+    * If the regulation mentions at least two groups, the issue is equal protection. Example: A jail supervisor tells Ada that she can be designated a jail chaplain if she obtains a letter from a recognized religious group stating it has ordained Ada as a minister and endorsed her for such work. There are two classifications based on ordained v. not ordained, and recognized religious group v. not recognized religious group.
+  Exception: |
+    3 exceptions. Go through each exception until show one applies. Once find an exception, move on to the rest of the issue.
+  market participant: |
+    Examples: Buying or selling products, hiring labor, giving subsidies.
+  Government Function: |
+    Examples: Waste disposal, not taxing state municipal bonds, but taxing bonds of other states. Department of Revenue of Kentucky v. Davis, 533 U.S. 328 (2008); United Haulers Association, Inc. v. Oneida-Herkimer Solid Waste Management Authority, 550 U.S. 330 (2007).

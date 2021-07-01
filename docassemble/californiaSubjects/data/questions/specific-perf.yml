@@ -1,0 +1,433 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Specific Performance"
+  title: |
+    Specific Performance
+---
+sections:
+  - Specific Performance
+  - Valid K
+  - ILR
+  - FE
+  - PM
+  - K Conditions:
+    - AR
+  - No Unfairness:
+    - Defenses
+    - Unilateral Mistake
+    - Hardship
+    - Inadequate Consideration
+    - Misrepresentation 
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  Welcome to Specific Performance
+subquestion: |
+  If you are not on a
+  smartphone-sized device,
+  you should see a navigation
+  bar to the left.
+field: sees_nav_bar
+---
+mandatory: True
+question: |
+  Specific Performance
+subquestion: |
+  To obtain specific performance, there must be (1) a **valid contract** with **more definite and certain terms**, (2) **inadequate legal remedy**, (3) **feasible enforcement**, (4) performance **mutuality**, (5) **plaintiff’s** contract **conditions satisfied or excused**, and (6) **no unfairness**.
+continue button field: intro
+section: Specific Performance
+---
+mandatory: True
+question: |
+  Valid Contract with More Definite and Certain Terms
+subquestion: |
+  For equitable relief, a valid contract requires more definite and certain terms so the court can determine what it must order each party to do.
+fields: 
+  - no label: vc_here
+    datatype: area
+    hint: Here, 
+  - no label: vc_thus
+    datatype: area
+    hint: Thus, 
+section: Valid K
+---
+mandatory: True
+question: |
+  Inadequate Legal Remedy
+subquestion: |
+  Inadequate legal remedy if (1) speculative, (2) insolvent defendant, (3) need multiple suits, or (4) unique property bargained for.
+fields: 
+  - note: |
+      {Heading for Item 1}
+  - no label: ilr_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      `2 steps:`
+        
+        `1. Are there compensatory, restitution, or other money damages? If yes, there is an adequate legal remedy.`
+        
+        `2. If no, analyze if (1) legal remedies are speculative, (2) defendant is insolvent, (3) multiple suits are necessary, or (4) the thing bargained for is unique.`
+  - note: |
+      Heading for Item 2
+  - no label: ilr_here_2
+    datatype: area
+    hint: Here, 
+  - no label: ilr_thus
+    datatype: area
+    hint: Thus, 
+section: ILR
+---
+mandatory: True
+question: |
+  Feasible Enforcement
+subquestion: |
+  A court will not specifically enforce a promise if enforcement imposes court burdens that are disproportionate to the advantages gained from enforcement, and the harms suffered from denial. Performance that entails continuous supervision, or involves suitability judgment will generally not be ordered.
+fields: 
+  - note: |
+      {Item 1}
+  - no label: fe_here
+    datatype: area
+    hint: Here, 
+  - note: Item 2
+  - no label: fe_here_2
+    datatype: area
+    hint: Here,
+  - no label: fe_thus
+    datatype: area
+    hint: Thus, 
+section: FE
+---
+mandatory: True
+question: |
+  Performance Mutuality
+subquestion: |
+  The aggrieved party must show the breaching party can secure performance.
+fields: 
+  - no label: pm_here
+    datatype: area
+    hint: Here, 
+  - no label: pm_thus
+    datatype: area
+    hint: Thus, 
+section: PM
+---
+mandatory: True
+question: |
+  Plaintiff’s Contract Conditions
+subquestion: |
+  To compel specific performance of a defendant, conditions precedent to the performance must be satisfied or excused.
+fields: 
+  - no label: pcc_here
+    datatype: area
+    hint: Here, 
+  - no label: pcc_thus
+    datatype: area
+    hint: Thus, 
+section: K Conditions
+---
+mandatory: True
+question: |
+  Anticipatory Repudiation
+subquestion: |
+  Anticipatory repudiation occurs where a promisor, **prior to the time to perform arrives, unequivocally indicates** s/he **will not perform** when the time occurs. Anticipatory repudiation gives the non-repudiating party **four** options: (1) treat the contract as **totally repudiated** and **sue immediately**, (2) **suspend** own **performance** and **wait until performance is due to sue**, (3) treat the repudiation as an offer to **rescind**, and the contract as **discharged**, or (4) **ignore** the repudiation and **urge performance**.
+fields: 
+  - no label: ar_here
+    datatype: area
+    hint: Here, 
+  - no label: ar_thus
+    datatype: area
+    hint: Thus, 
+section: AR
+---
+mandatory: True
+question: |
+  No Unfairness
+subquestion: |
+  Specific performance will not be granted if such relief would be unfair. Factors in determining unfairness include (1) defenses, (2) hardship, (3) mistake, (4) misrepresentation, (5) inadequate consideration, (6) unconscionability.
+fields: 
+  note: |
+    `These are examples. List only the unfairness situations the facts trigger.`
+continue button field: no_unfairness
+section: No Unfairness
+---
+mandatory: True
+question: |
+  Defenses
+subquestion: |
+  A defendant may assert defenses against specific performance, including (1) **unclean hands**, (2) **laches**, and (3) **sale to bona fide purchaser**.
+fields: 
+  - no label: defenses_here
+    datatype: area
+    hint: Here, 
+  - no label: defenses_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+mandatory: True
+question: |
+  {Unclean Hands}
+subquestion: |
+  The party seeking relief must not have been guilty of **wrongful conduct** with respect to the **transaction subject matter**.
+fields: 
+  - no label: uh_here
+    datatype: area
+    hint: Here, 
+  - no label: uh_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+mandatory: True
+question: |
+  Laches
+subquestion: |
+  The right to equitable relief is cut off when there has been unreasonable **delay** in initiating the claim, and the delay **prejudices** the defendant.
+fields: 
+  - no label: laches_here
+    datatype: area
+    hint: Here, 
+  - no label: laches_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+mandatory: True
+question: |
+  Bona Fide Purchaser
+subquestion: |
+  Specific performance is cut off when the contract subject matter has been sold to a bona fide purchaser who (1) pays **valuable consideration**, (2) with **no notice** of the contract.
+fields: 
+  - Plaintiff: bfp_here
+    datatype: area
+    hint: Here, 
+  - Defendant: bfp_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+mandatory: True
+question: |
+  Unilateral Mistake
+subquestion: |
+  A unilateral mistake by one party is insufficient to make a contract voidable, unless the **non-mistaken party** (1) **knew or had reason to know** of the mistake, or (2) had a **duty to disclose** the fact about which the other party was mistaken. A defendant’s actions that do not rise to the level of a contract defense for mistake can nevertheless be a factor that results in the denial of specific performance.
+fields: 
+  - Plaintiff: uni_here
+    datatype: area
+    hint: Here, 
+  - Defendant: uni_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+mandatory: True
+question: |
+  Hardship
+subquestion: |
+  Hardship can be a factor in not granting specific performance when events that occur after contract formation fall short of impracticability, impossibility, or frustration of purpose, but cause unreasonable hardship to the **defendant and third parties**.
+fields: 
+  - Plaintiff: hardship_here
+    datatype: area
+    hint: Here, 
+  - Defendant: hardship_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+mandatory: True
+question: |
+  Inadequate Consideration
+subquestion: |
+  While inadequate consideration is not generally grounds for granting contract relief, gross inadequate consideration can be a factor that weighs in favor of contract unfairness.
+fields: 
+  - no label: ic_here
+    datatype: area
+    hint: Here, 
+  - no label: ic_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+mandatory: True
+question: |
+  Unconscionability
+subquestion: |
+  A contract may be voidable where the provisions are one-sided as to be unconscionable at the time the contract is made. The defense is applied where one party has unequal and superior bargaining power over the other party. Unconscionability may be a factor in denying specific performance though it may not be a contract formation defense.
+fields: 
+  - no label: uncon_here
+    datatype: area
+    hint: Here, 
+  - no label: uncon_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+mandatory: True
+question: |
+  Misrepresentation
+subquestion: |
+  If a party (1) **induces** another party to enter into a contract (2) asserting **fraudulent misrepresentation** (known untrue information), the contract is (3) **voidable** by the party who **justifiably relies** on the misrepresentation.
+fields: 
+  - no label: misrep_here
+    datatype: area
+    hint: Here, 
+  - no label: misrep_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+
+  % if sees_nav_bar and intro:
+  **Temporary Restraining Order**
+  
+  ${ vc_here }
+  
+  ${ vc_thus }
+  
+  ${ fe_here }
+  
+  ${ fe_here_2 }
+  
+  ${ fe_thus }
+  
+  ${ pm_here }
+  
+  ${ pm_thus }
+  
+  **Preliminary Injunction**
+  
+  ${ pcc_here }
+  
+  ${ pcc_thus }
+  
+  ${ ar_here }
+  
+  ${ ar_thus }
+  
+  ${ defenses_here }
+  
+  ${ defenses_thus }
+  
+  ${ uh_here }
+  
+  ${ uh_thus }
+  
+  **Permanent Injunction** 
+  
+  ${ laches_here }
+  
+  ${ laches_thus }
+  
+  ${ bfp_here }
+  
+  ${ bfp_thus }
+  
+  ${ uni_here }
+  
+  ${ uni_thus }
+  
+  ${ hardship_here }
+  
+  ${ hardship_here }
+
+  ${ uh_here }
+  
+  ${ uh_thus }
+  
+  ${ laches_here }
+  
+  ${ laches_thus }
+  
+  ${ ic_here }
+  
+  ${ ic_thus }
+  
+  ${ uncon_here }
+  
+  ${ uncon_thus }
+
+  ${ misrep_here }
+  
+  ${ misrep_thus }
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  The right: |
+    Laches is not a defense if there is delay without prejudice to the defendant.
+  Unclean hands: |
+    For unclean hands, the wrongful conduct has to relate to the parties’ transaction. There may be facts on the plaintiff doing something wrongful such as putting assets in another person’s name to hide assets from creditors. Unclean hands not a defense if wrongful conduct unrelated to the transaction.
+  Heading for Item 1: |
+    Evaluate based on the bargain for exchange items. If more than one item bargained for (i.e. money, publicity, reputation), make a heading for each item, and analyze if speculative, unique, etc.
+  more definite: |
+    Terms must be more definite and certain than in a money damages action.
+  Item 1: |
+    Facts may have more than one item bargained for (i.e. water rights, land). Make a heading for each item, and analyze if feasible to enforce separately. 
+    
+    Example: Plaintiff contracted to purchase 3 items from the defendant, but defendant did not own 2 items. Evaluate whether defendant owns item, and if defendant and property within court’s jurisdiction. Feasible to enforce the defendant giving the plaintiff the items the defendant owned, but not the items the defendant did not own.
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue

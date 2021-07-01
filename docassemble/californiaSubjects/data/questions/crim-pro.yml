@@ -1,0 +1,388 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Crim Pro"
+  title: |
+    Criminal Procedure
+---
+question: |
+  What is the main issue? 
+fields:
+  - no label: main_issue
+    choices:
+      - the call asks whether to suppress an item
+      - the call asks to suppress a statement or identification
+      - the call asks about attorney of defendant, a co-defendant, or the trial procedure
+      - none of the above
+  - Is it (1) unreasonable search or seizure or (2) inadmissible evidence: fourth_a_options
+    choices:
+      - unreasonable search or seizure
+      - inadmissible evidence
+    show if: 
+      variable: main_issue
+      is: 'the call asks whether to suppress an item'
+---
+question: |
+  Fourth Amendment - unreasonable search and seizure
+subquestion: |
+  The Fourth Amendment, applicable to the states through the Fourteenth Amendment, provides:
+fields:
+  - no label: fourth_a_unreas_def
+    datatype: area
+help: |
+      (1) state action shall not violate people’s right to be secure against (2) searches and/or seizures (3) that are unreasonable.
+---
+question: |
+  Define unreasonable search and seizure
+fields:
+  - A search is..: unreas_search
+    help: |
+      A search occurs when state action **violates a reasonable privacy expectation**.
+  - A seizure is...: unreas_seizure
+    help: |
+       A **seizure** occurs when a **reasonable person** believes s/he is **not free to terminate a state encounter**, or a state exercises **control over property** the person has **ownership** of, or **possessory interest** in.
+  - note: |
+      **Unreasonable** defined in more detail on next page. 
+continue button field: fourth_a_unreas_s_and_s
+---
+question: |
+  Explore "Unreasonable" scenarios
+subquestion: |
+  Tests for whether a search and seizure is unreasonable include: Administrative Inventory Searches, Routine International Border Searches, Vehicle Checkpoint Stops, Stop and Frisk.
+fields:
+  - (1): admin_search
+    help: |
+      **Administrative Inventory Search**: Administrative inventory searches of arrestees or their property, after lawful custody, for safety or to ensure arrestees’ personal items are not lost, does not require reasonableness under the Fourth Amendment to be valid, as long as the search is performed according to standardized criteria and procedure.
+  - (2): eavesdropping
+    help: |
+      A speaker has no Fourth Amendment claim if s/he makes no attempt to keep a conversation private.
+  - (3): intl_border
+    help: |
+      The Fourth Amendment does not apply to routine international border searches of border crossers and their belongings.
+  - Vehicle Checkpoint Stops: checkpoint
+    help: |   
+      The police may set up checkpoints to stop vehicles without individualized suspicion that the driver violated a law when (1) based on a neutral, articulable standard, and (2) related to a problem pertaining to vehicles and their mobility.
+  - stop: stop
+    help: |   
+      If the police have a reasonable suspicion of criminal activity or involvement in a completed crime, supported by articulable facts, they may stop a person for investigative purposes.
+  - frisk: frisk
+    help: |         
+      If the police have reasonable suspicion the detainee is armed and dangerous, they may frisk the detainee for weapons.
+continue button field: unreas_scenarios
+---
+question: |
+  Fourth Amendment - evidentiary search and seizure
+subquestion: |
+  To be valid under the Fourth Amendment, evidentiary searches and seizures must be reasonable. Reasonableness requires a valid warrant, unless a warrant exception applies. A Fourth Amendment violation requires... 
+fields:
+  - (1): state_action
+    help: |
+      State Action
+  - (2): standing
+    help: |
+      A person with standing
+  - (3): no_warrant
+    help: |
+      No valid warrant or warrant exception
+continue button field: fourth_a_ev_def
+---
+question: |
+  Fourth Amendment - evidentiary search and seizure elements
+fields:
+  - state action: state_action_def
+    help: |
+      The Fourth Amendment limits state action, not private party acts, unless the private party acts as a state agent or instrument.
+  - search and/or seizure: ev_s_and_or_s
+    help: |
+      A search occurs when state action violates a reasonable privacy expectation. A seizure occurs when a reasonable person believes s/he is not free to terminate a state encounter, or a state exercises control over property the person has ownership of, or possessory interest in.
+  - standing: fourth_a_standing
+    help: |
+      To object to the admission of illegally seized evidence: (1) defendant’s own rights must be violated, (2) defendant must show ownership of, or possessory interest in, the items seized, and (3) defendant must have a legitimate privacy expectation in the physical area searched.
+  - warrant: warrant_def
+    help: |   
+      A valid search warrant must be (1) issued by a neutral and detached magistrate (2) based on probable cause, supported by oath or affidavit, and (3) describe with particularity the places to be searched and the items to be seized.
+continue button field: fourth_a_ev_elements
+---
+question: |
+  Warrant exceptions
+subquestion: |
+  Automobile Exception, Automobile search incident to arrest, Consent, Emergency situations, Evanescent evidence, Hot pursuit, Plain view, Search incident to lawful arrest, Stop and frisk
+fields:
+  - Automobile Exception: auto_exception
+    help: |
+      If (1) the police have probable cause, (2) the automobile contains evidence of a crime or contraband, (3) the police may search anywhere in the vehicle, including the trunk, that might contain the item.
+  - Automobile search incident to arrest: asia
+    help: |
+      Under the Fourth Amendment, the police may search the interior compartment of a vehicle, but not the trunk, without a warrant, incident to a lawful arrest if they demonstrate at the time of the search (1) arrestee is within reach of the compartment, and may pose an actual and continuing threat to the officer’s safety or a need to preserve evidence from tamper, or (2) the vehicle contains evidence of the offense of arrest.
+  - Consent: fourth_a_consent
+    help: |
+      A warrantless search is valid if the police have a voluntary and intelligent consent. Lawful authority acquiescence is not consent.
+  - Emergency situations: emerg_sit
+    help: |   
+      A search without a warrant is authorized when there is reasonable apprehension the delay to obtain a warrant will result in (1) immediate danger of evidence destruction, (2) threatened public or police safety, or (3) a suspect likely to flee.
+  - Evanescent evidence: evanescent_ev
+    help: |         
+      Evidence that would disappear if the police waited to obtain a warrant may be seized without warrant.
+  - Hot pursuit: hot_pursuit
+    help: |         
+      If the police have probable cause a fleeing individual has committed a felony, they may make a warrantless search and seizure, and pursue the felon into a private building to arrest.
+  - Plain view: plain_view
+    help: |         
+      A police officer (1) legitimately on the premises (2) may seize an item in plain view if (3) the incriminating character of evidence is immediately apparent.
+  - Search incident to lawful arrest: sila
+    help: |         
+      In a (1) lawful arrest, the police may (2) search the person and wingspan
+  - Stop and frisk: saf
+    help: |         
+      **Stop**: If the police have a reasonable suspicion of criminal activity or involvement in a completed crime, supported by articulable facts, they may stop a person for investigative purposes.
+      **Frisk**: If the police have reasonable suspicion the detainee is armed and dangerous, they may frisk the detainee for weapons.
+continue button field: warrant_exceptions
+---
+question: |
+  Exclusionary rule & fruit of the poisonous tree
+fields:
+  - exclusionary rule: excl_rule_4a
+    help: |
+      Under the exclusionary rule, evidence obtained in violation of the Fourth Amendment may not be introduced at trial to prove guilt.
+  - fpt: fpt_def
+    help: |
+      Under the fruit of the poisonous tree doctrine, the exclusionary rule extends to secondary evidence obtained as a result of an unconstitutional search and seizure, unless an exception to the fruit of the poisonous tree doctrine applied.
+continue button field: fourth_a_exclusionary_rule_and_fpt
+---
+question: |
+  Fruit of the Poisonous Tree Doctrine Exceptions
+subquestion: |
+  Secondary evidence may be admissible if a fruit of the poisonous tree doctrine exception applies:
+fields:
+  - purged taint: purged_taint
+    help: |
+      **Purged Taint**: Passage of time, or intervening events, may sufficiently attenuate the causal connection between secondary evidence and primary taint to permit use of evidence at trial.
+  - inevitable discovery: inev_discovery
+    help: |
+      **Inevitable Discovery**: Secondary evidence may be admissible if the evidence will be inevitably discovered through lawful means.
+  - independent source: ind_source
+    help: |
+      **Independent Source**: Secondary evidence may be admissible if the evidence is discovered in part by an independent source unrelated to the tainted evidence.
+continue button field: fpt_exceptions
+---
+question: |
+  Fifth Amendment - Miranda
+subquestion: |
+   The Fifth Amendment, applicable to the states through the Fourteenth Amendment, provides that no person shall be compelled in a criminal case to be a witness against him/herself. A statement obtained as the result of (1) custodial (2) interrogation may not be used against a suspect at trial, unless the police (3) inform the suspect of Miranda rights, and the suspect (4) intelligently waives those rights.
+fields:
+  - (1) custodial: custodial
+    help: |
+      Custody exists where a person is not free to leave, or significantly deprived of freedom of action.
+  - (2) interrogation: interrogation
+    help: |
+      Interrogation is questioning, expressly or through words or actions, initiated by law enforcement, that the police know or should know, are likely to elicit an incriminating response.
+  - (2.1)voluntary statements: vol_statement
+    help: |
+      A defendant’s volunteered statements are not protected by Miranda. A confession is involuntary only if the police coerce the defendant into making the confession. The totality of the circumstances determine whether a statement is voluntary.
+  - (3) Miranda rights: miranda
+    help: |
+      Once custodial interrogation begins, to secure the privilege against self-incrimination, anything the defendant says is inadmissible until the defendant is informed of Miranda rights, and the defendant **intelligently waives those rights**.
+continue button field: miranda_def
+---
+question: |
+  Exclusionary rule & fruit of the poisonous tree exceptions
+fields:
+  - exclusionary rule: excl_rule_5a
+    help: |
+      Under the exclusionary rule, evidence obtained in violation of the Fifth Amendment may not be introduced at trial to prove guilt.
+  - fpt - physical evidence: fpt_phys
+    help: |
+      Under the fruit of the poisonous tree doctrine, derivative physical evidence obtained from an inadmissible confession due to police failure to inform a suspect of Miranda rights is admissible.
+  - fpt - public safety exception: fpt_pub_safe
+    help: |  
+      The police may interrogate a suspect without Miranda warnings when public safety is at risk.
+  - fpt - subsequent confession: fpt_subs
+    help: |  
+      Miranda warning removes the taint of a prior Miranda violation to admit a subsequent confession when the unwarned questioning was unplanned and inadvertent.
+continue button field: fifth_a_exclusionary_rule_and_fpt
+---
+question: |
+  Privilege Against Compelled Self-Incrimination 
+fields:
+  - defintion: priv_def
+    help: |
+      Under the Fifth Amendment, a defendant may refuse to testify at a criminal trial.
+---
+question: |
+  Due Process Clause
+fields:
+  - (1): testify
+    help: |
+      A criminal defendant’s right to testify on his/her own behalf is essential to due process and a fair trial, but does not extend to testifying falsely.
+  - (2): burden_of_proof
+    help: |
+      The Due Process Clause requires the prosecution prove all the elements of a crime beyond a reasonable doubt. The Due Process Clause does not forbid the state from placing the burden of proving an affirmative defense on the defendant.
+  - (3): exculp_ev
+    help: |
+      The Due Process Clause of the Fifth Amendment, applicable to the states through the Fourteenth Amendment, requires a prosecutor to disclose to the defense and the court all known exculpatory evidence or information that tends to disprove guilt or mitigates an offense.
+  - (4): pretrial_id
+    help: |
+      The Due Process Clause of the Fifth Amendment, applicable to the states through the Fourteenth Amendment, prohibits a pretrial identification process that is (1) unnecessarily suggestive and where there is a (2) substantial likelihood of misidentification.
+continue button field: due_process_def
+---
+question: |
+  Fifth Amendment - Right to Counsel 
+fields:
+  - defintion: right_to_counsel_def
+    help: |
+      The Fifth Amendment right to counsel protects against the right to be free from compelled self-incrimination. [A pretrial identification is not considered interrogation.
+---
+question: |
+  Sixth Amendment - Right to Counsel 
+fields:
+  - defintion: sixth_a_rtc_def
+    help: |
+      The Sixth Amendment, applicable to the states through the Fourteenth Amendment, (1) provides the right to counsel to the accused (2) in all felony cases and misdemeanor cases imposing actual or suspended incarceration (3) at all critical stages of prosecution, from formal charge until sentencing (4) unless waived.
+  - An attorney is ineffective when ...: ineff_counsel
+    help: |
+      (1) representation falls below an objective reasonableness standard, and (2) deficient performance prejudices the defendant, resulting in an unreliable or fundamentally unfair outcome in the proceeding.
+  - Standby counsel: standby
+    help: |
+      A criminal defendant who proceeds pro se has no constitutional right to assistance of counsel. Standby counsel is at a judge’s sole discretion.
+  - Waiver: waiver_6a
+    help: |
+      A competent defendant has a right to refuse counsel and proceed pro se at trial, unless the request is untimely, or the defendant is unable or unwilling to abide by procedural rules, if a court finds the waiver (1) knowing and (2) intelligent.
+  - Exclusionary Rule: excl_rule_6a
+    help: |
+      Under the Exclusionary Rule, evidence obtained in violation of the Sixth Amendment right to counsel may not be introduced at trial to prove guilt.
+continue button field: sixth_a_right_to_counsel_def
+---
+question: |
+  Sixth Amendment - Confrontation Clause 
+fields:
+  - defintion: sixth_a_rtc_def
+    help: |
+      Under the Sixth Amendment, applicable to the states through the Fourteenth Amendment, the accused has the right to (1) directly encounter and (2) cross-examine adverse witnesses.
+  - Co-defendent confessions: co_def_confessions
+    help: |
+      If two persons are tried together and a co-defendant confession implicates the defendant, the right of confrontation prohibits use of that confession, even where the confession interlocks with the defendant’s own confession which is admitted. The co-defendant confession may be admitted if (1) all portions referring to the defendant are eliminated, (2) the co-defendant takes the stand and subjects to cross examination on the truth or falsity of the co-defendant’s confession, (3) the co-defendant confession is used to rebut the defendant’s claim that the defendant’s confession was obtained coercively.
+continue button field: sixth_a_conf_clause
+---
+question: Guilty Pleas
+fields:
+  - rule: guilty_pleas
+    help: |
+      A guilty plea waives certain constitutional claims, and must be voluntary and intelligent. Before a court accepts a guilty plea, the judge must personally advise the defendant: (1) guilty plea waives the right to trial, (2) right to plead not guilty, (3) critical elements of the charges, (4) maximum and minimum sentence possible. Failure to advise a defendant of each point renders a plea involuntary.
+  - Guilty Plea Withdrawal: plea_withdrawal
+    help: |
+      A defendant may withdraw a guilty plea if the defendant shows failure to meet the standards for taking a guilty plea.
+continue button field: sixth_a_guilty_pleas
+---
+question: |
+  Sixth Amendment - Jury Trial 
+fields:
+  - definition: jury_trial_def
+    help: |
+      The Sixth Amendment, applicable to the states through the Fourteenth Amendment, provides the right to jury trials for serious offenses (more than 6 months imprisonment).
+  - waiver: jury_trial_waiver
+    help: |
+      Unless a court or prosecutor compels the defendant to a jury trial when a fair trial is not denied, a defendant may waive a jury trial, if the waiver is (1) knowing and (2) intelligent.
+  - number: jury_trial_number
+    help: |
+      There must be at least six (6) jurors to satisfy the right to jury trial.
+  - unanimous: jury_trial_unanimous
+    help: |
+      Six person jurors must be unanimous, but no constitutional right to a unanimous verdict if more than six jurors.
+  - representative cross-section: jury_trial_repr
+    help: |
+      A jury must be selected from a representative community cross-section. To establish absence of a representative community cross-section: (1) group excluded is distinctive in community, (2) group not fairly represented in jury pool, (3) underrepresentation resulted from systematic exclusion of group in jury selection.
+  - peremptory challenges: jury_trial_peremp_chall
+    help: |      
+      Peremptory challenges disqualify potential jurors during the jury selection process without a need to show cause. The Equal Protection Clause of the Fourteenth Amendment prohibits peremptory challenges based solely on race or gender.
+  - death penalty: jury_trial_death_penalty
+    help: |        
+      Prospective jurors opposed to the death penalty may be removed for cause if their opposition prevents or substantially impairs performing their duties at the sentencing phase.
+continue button field: sixth_a_jury_trial
+---
+question: |
+  Eighth Amendment - prohibits cruel and unusual punishment
+fields:
+  - Non-death penalty: eighth_a_non_death
+    help: |
+      A sentence grossly disproportionate to the crime constitutes cruel and unusual punishment. 
+  - Death penalty: eighth_a_death_pen
+    help: |
+      The death penalty may be imposed only under a statutory scheme that gives (1) the fact finder discretion to consider mitigating circumstances, (2) guidance, and (3) defendant information. 
+  - Discretion - Mitigating Circumstances: eighth_a_death_discretion
+    help: |
+      A death sentence violates the Eighth and Fourteenth Amendments if the sentencing judge refuses to review or admit mitigating evidence. 
+  - Guidance: eighth_a_death_guidance
+    help: |
+      A death penalty statute may not be vague. 
+  - Info - Aggravating Circumstances: eighth_a_death_info
+    help: |
+      A defendant in a homicide case cannot be sentenced to death unless the trier of fact (1) convicts the defendant of murder and (2) finds at least one aggravating circumstance at the guilt or penalty phase. The aggravating circumstance must not (a) apply to every defendant convicted of murder, and (b) be unconstitutionally vague. 
+  - Felony Murder: eighth_a_felony_murder
+    help: |
+      Substantial participation in a felony likely to result in death, combined with reckless disregard for human life, may justify the death penalty, even absent taking a life or intent to kill.
+continue button field: eighth_a_def
+---
+mandatory: true
+question: |
+  Here's the Crim Pro summary:
+subquestion: |
+  % if main_issue == 'the call asks whether to suppress an item':
+    % if fourth_a_options == 'unreasonable search or seizure':
+      % if fourth_a_unreas_def:
+        % if fourth_a_unreas_s_and_s:
+          % if unreas_scenarios:
+          % endif
+        % endif
+      % endif
+    % elif fourth_a_options == 'inadmissible_evidence':
+      % if fourth_a_ev_def:
+        % if fourth_a_ev_elements:
+          % if warrant_exceptions: 
+          % endif
+        % endif
+      % endif
+    % endif
+    % if fourth_a_exclusionary_rule_and_fpt:
+      % if fpt_exceptions:
+      % endif
+    % endif
+  % elif main_issue == 'the call asks to suppress a statement or identification':
+    % if miranda_def:
+      % if fifth_a_exclusionary_rule_and_fpt:
+        % if priv_def:
+          % if due_process_def:
+            % if right_to_counsel_def:
+            % endif
+          % endif
+        % endif
+      % endif
+    % endif
+  % elif main_issue == 'the call asks about attorney of defendant, a co-defendant, or the trial procedure':
+    % if sixth_a_right_to_counsel_def:
+      % if sixth_a_conf_clause:
+        % if sixth_a_guilty_pleas:
+          % if sixth_a_jury_trial:
+          % endif
+        % endif
+      % endif
+    % endif
+  % else:
+    % if eighth_a_def:
+    % endif
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

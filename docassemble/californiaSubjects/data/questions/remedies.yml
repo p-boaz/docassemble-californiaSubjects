@@ -1,0 +1,434 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Remedies - Injunctions"
+  title: |
+    Remedies - Injunctions
+---
+sections:
+  - Introduction
+  - Injunction:
+    - TRO
+    - Prelim
+    - Perm
+  - Specific Performance
+  - Constructive Trust:
+    - Equitable Defenses
+  - Equitable Lien
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  Welcome to Remedies
+subquestion: |
+  If you are not on a
+  smartphone-sized device,
+  you should see a navigation
+  bar to the left.
+field: sees_nav_bar
+---
+mandatory: True
+question: |
+  There are TROs, Preliminary Injunctions, and Permanent Injunctions
+field: intro_to_injunction
+section: Injunction
+---
+mandatory: True
+question: |
+  Temporary Restraining Order (TRO)
+subquestion: |
+  A temporary restraining order (TRO) is an injunction to preserve the status quo until a preliminary injunction hearing. The plaintiff establishes (1) irreparable harm and (2) likelihood of success in a preliminary injunction.
+continue button field: intro_TRO
+section: TRO
+---
+mandatory: True
+question: |
+  Irreparable Harm
+subquestion: |
+  To show irreparable harm if an injunction is not issued, the plaintiff establishes (1) inadequate legal remedy, (2) feasible enforcement, and (3) status quo preservation as a primary concern.
+continue button field: intro_ih
+section: TRO
+---
+mandatory: True
+question: |
+  Inadequate Legal Remedy
+subquestion: |
+  Inadequate legal remedy if (1) speculative, (2) insolvent defendant, (3) need multiple suits, or (4) unique property bargained for.
+fields: 
+  - no label: ih_here
+    datatype: area
+    hint: Here, 
+  - no label: ih_thus
+    datatype: area
+    hint: Thus, 
+section: TRO
+---
+mandatory: True
+question: |
+  Feasible Enforcement
+subquestion: |
+  Courts deny injunctions when they are not feasible to enforce, unless the rights are sufficiently important.
+fields: 
+  - no label: fe_here
+    datatype: area
+    hint: Here, 
+  - no label: fe_thus
+    datatype: area
+    hint: Thus, 
+section: TRO
+---
+mandatory: True
+question: |
+  Status Quo Preservation
+fields: 
+  - no label: sqp_here
+    datatype: area
+    hint: Here, 
+  - no label: sqp_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      In conclusion, [Plaintiff] [could/could not] establish irreparable harm.
+section: TRO
+---
+mandatory: True
+question: |
+  Likelihood of Success in a Preliminary Injunction
+subquestion: |
+  Here, the likelihood of [Plaintiff]’s preliminary injunction success depended on whether it prevailed in a [insert cause of action (i.e. breach of contract, defamation)] claim.
+
+  **Claim**
+  
+  [Analyze prima facie elements for claim to show Plaintiff can meet each element.] Thus, [Plaintiff] [could/could not] establish likelihood of success in a preliminary injunction. In conclusion, [Plaintiff] [was/was not] entitled to a TRO.
+continue button field: likely_success
+section: TRO
+---
+mandatory: True
+question: |
+  Preliminary Injunction
+subquestion: |
+  A preliminary injunction is issued pending a full trial on the merits to preserve the status quo. The plaintiff establishes (1) irreparable harm, (2) hardship balancing of the equities in the plaintiff’s favor, and (3) likelihood of success on the merits of the underlying claim.
+continue button field: intro_prelim
+section: Prelim
+---
+mandatory: True
+question: |
+  Irreparable Harm
+subquestion: |
+  To show irreparable harm if an injunction is not issued, the plaintiff establishes (1) inadequate legal remedy, (2) feasible enforcement, and (3) status quo preservation as a primary concern.
+continue button field: intro_prelim_ih
+section: Prelim
+---
+mandatory: True
+question: |
+  Inadequate Legal Remedy
+subquestion: |
+  Inadequate legal remedy if (1) speculative, (2) insolvent defendant, (3) need multiple suits, or (4) unique property bargained for.
+fields: 
+  - no label: prelim_ih_here
+    datatype: area
+    hint: Here, 
+  - no label: prelim_ih_thus
+    datatype: area
+    hint: Thus, 
+section: Prelim
+---
+mandatory: True
+question: |
+  Feasible Enforcement
+subquestion: |
+  Courts deny injunctions when they are not feasible to enforce, unless the rights are sufficiently important.
+fields: 
+  - no label: prelim_fe_here
+    datatype: area
+    hint: Here, 
+  - no label: prelim_fe_thus
+    datatype: area
+    hint: Thus, 
+section: Prelim
+---
+mandatory: True
+question: |
+  Status Quo Preservation
+fields: 
+  - no label: prelim_sqp_here
+    datatype: area
+    hint: Here, 
+  - no label: prelim_sqp_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      In conclusion, Plaintiff `could/could not` establish irreparable harm.
+section: Prelim
+---
+mandatory: True
+question: |
+  Balancing of Hardships
+subquestion: |
+  The balance of the equities weigh in the plaintiff’s favor when the plaintiff’s hardships if the injunction is not issued will be significantly greater than the hardships on the defendant and third parties if the injunction is issued.
+fields: 
+  - Plaintiff: plaintiff_here
+    datatype: area
+    hint: Here, 
+  - Defendant: defendant_here
+    datatype: area
+    hint: Here, 
+  - Third Parties: third_p_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      Thus, the balance favored [`Plaintiff/Defendant/Third Parties`].
+section: Prelim
+---
+mandatory: True
+question: |
+  Likelihood of Success on the Merits of the Underlying Claim
+subquestion: |
+  Here, the likelihood of Plaintiff’s success on the merits depended on whether it prevailed in a `[insert cause of action (i.e. breach of contract, defamation)]` claim.
+fields: 
+  - note: |
+      **Claim**
+    
+      `Analyze prima facie elements for claim to show Plaintiff can meet each element`. 
+    
+      *Thus, [`Plaintiff`] [`could/could not`] establish likelihood of success in an underlying claim.*
+    
+      *In conclusion, [`Plaintiff`] [`was/was not`] entitled to a preliminary injunction.*
+continue button field: prelim_likely_success
+section: Prelim
+---
+mandatory: True
+question: |
+  Permanent Injunction
+subquestion: |
+  To obtain a permanent injunction, a plaintiff establishes (1) **inadequate legal remedy**, (2) protectable **property right/interest**, (3) **feasible enforcement**, (4) **hardship balancing** of the equities in the plaintiff’s favor, and (5) **no defenses**.
+continue button field: intro_perm
+section: Perm
+---
+mandatory: True
+question: |
+  Inadequate Legal Remedy
+subquestion: |
+  Inadequate legal remedy if (1) **speculative**, (2) **insolvent defendant**, (3) need **multiple suits**, or (4) **unique** property bargained for.
+fields: 
+  - no label: perm_ih_here
+    datatype: area
+    hint: Here, 
+  - no label: perm_ih_thus
+    datatype: area
+    hint: Thus, 
+section: Perm
+---
+mandatory: True
+question: |
+  Property Right/Interest
+subquestion: |
+  Traditionally, only a claim regarding tangible property warrants an injunction. Modernly, any interest is protected.
+fields: 
+  - no label: perm_pr_here
+    datatype: area
+    hint: Here, 
+  - no label: perm_pr_thus
+    datatype: area
+    hint: Thus, 
+section: Perm
+---
+mandatory: True
+question: |
+  Feasible Enforcement
+subquestion: |
+  Courts deny injunctions when they are not feasible to enforce, unless the rights are sufficiently important.
+fields: 
+  - no label: perm_fe_here
+    datatype: area
+    hint: Here, 
+  - no label: perm_fe_thus
+    datatype: area
+    hint: Thus, 
+section: Perm
+---
+mandatory: True
+question: |
+  Balancing of Hardships
+subquestion: |
+  The balance of the equities weigh in the plaintiff’s favor when the plaintiff’s hardships if the injunction is not issued will be significantly greater than the hardships on the defendant and third parties if the injunction is issued.
+fields: 
+  - Plaintiff: perm_plaintiff_here
+    datatype: area
+    hint: Here, 
+  - Defendant: perm_defendant_here
+    datatype: area
+    hint: Here, 
+  - Third Parties: perm_third_p_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      Thus, the balance favored [`Plaintiff/Defendant/Third Parties`].
+section: Perm
+---
+mandatory: True
+question: |
+  No Defenses
+subquestion: |
+  A defendant may assert defenses against permanent injunction, including (1) unclean hands and (2) laches.
+fields: 
+  - note: |
+      **Unclean Hands**
+      
+      The party seeking relief must not have been guilty of wrongful conduct with respect to the transaction subject matter.
+  - no label: uh_here
+    datatype: area
+    hint: Here, 
+  - no label: uh_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      **Laches**
+      
+      {The right} to equitable relief is cut off when there has been unreasonable delay in initiating the claim, and the delay prejudices the defendant.
+  - no label: laches_here
+    datatype: area
+    hint: Here, 
+  - no label: laches_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      In conclusion, [`Plaintiff`] [`was/was not`] entitled to a permanent injunction.
+section: Perm
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+
+  % if sees_nav_bar and intro_to_injunction:
+  **Temporary Restraining Order**
+  
+  ${ ih_here }
+  
+  ${ ih_thus }
+  
+  ${ fe_here }
+  
+  ${ fe_thus }
+  
+  ${ sqp_here }
+  
+  ${ sqp_thus }
+  
+  **Preliminary Injunction**
+  
+  ${ prelim_ih_here }
+  
+  ${ prelim_ih_thus }
+  
+  ${ prelim_fe_here }
+  
+  ${ prelim_fe_thus }
+  
+  ${ prelim_sqp_here }
+  
+  ${ prelim_sqp_thus }
+  
+  ${ plaintiff_here }
+  
+  ${ defendant_here }
+  
+  ${ third_p_here }
+  
+  **Permanent Injunction** 
+  
+  ${ perm_ih_here }
+  
+  ${ perm_ih_thus }
+  
+  ${ perm_pr_here }
+  
+  ${ perm_pr_thus }
+  
+  ${ perm_fe_here }
+  
+  ${ perm_fe_thus }
+  
+  ${ perm_plaintiff_here }
+  
+  ${ perm_defendant_here }
+
+  ${ perm_third_p_here }
+  
+  **No Defenses**
+  
+  A defendant may assert defenses against permanent injunction, including (1) unclean hands and (2) laches.
+  
+  ${ uh_here }
+  
+  ${ uh_thus }
+  
+  ${ laches_here }
+  
+  ${ laches_thus }
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  The right: |
+    Laches is not a defense if there is delay without prejudice to the defendant.
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue

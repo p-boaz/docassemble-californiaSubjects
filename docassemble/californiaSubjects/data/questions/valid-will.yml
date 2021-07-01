@@ -1,0 +1,295 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Valid Will"
+  title: |
+    Valid Will
+---
+question: Valid Will Analysis
+subquestion: |
+  Choose either formal or holographic will if it is obvious from the facts which it is. 
+  
+  Example: If facts on “handwritten” do holographic will. If the facts are vague, do both holographic and formal. Example: Portions typed and portions handwritten.
+fields:
+  - What type of will or both?: main_issue
+    datatype: checkboxes
+    choices:
+      - Formal Will
+      - Holographic Will
+      - Not sure
+---
+question: |
+  Formal Will
+subquestion: |
+  A valid formal will requires (1) testator with **capacity** and (2) present testamentary **intent** (3) to sign (4) a **writing** (5) in the **joint presence of two witnesses who understand the instrument is a will**.
+fields: 
+  - no label: valid_will_here
+    datatype: area
+    hint: Here, 
+  - no label: valid_will_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  Holographic Will
+subquestion: |
+  CA recognizes holographic wills, which require the testator to (1) have **capacity**, (2) **intend** the document be a will, (3) **handwrite** the **material provisions**, and (4) **sign** the will. A holographic will need not be witnessed.
+fields: 
+  - no label: hw_here
+    datatype: area
+    hint: Here, 
+  - no label: hw_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  **{Capacity}**
+subquestion: |
+  The testator must be (1) at least **age 18** and (2) of **sound mind**.
+fields: 
+  - no label: capacity_here
+    datatype: area
+    hint: Here, 
+  - no label: capacity_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Intent**
+subquestion: |
+  When a testator signs an instrument, s/he must intend it have testamentary effect, and understand s/he is executing a will.
+fields: 
+  - no label: intent_here
+    datatype: area
+    hint: Here, 
+  - no label: intent_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Sign**
+subquestion: |
+  The testator or someone in his/her presence and direction {must sign} the will.
+fields: 
+  - no label: sign_here
+    datatype: area
+    hint: Here, 
+  - no label: sign_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Handwritten**
+subquestion: |
+  The testator must handwrite the **{material terms}**.
+fields: 
+  - no label: handwritten_here
+    datatype: area
+    hint: Here, 
+  - no label: handwritten_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Writing**
+subquestion: |
+  The entire will must be in writing.
+fields: 
+  - no label: writing_here
+    datatype: area
+    hint: Here, 
+  - no label: writing_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Joint Presence Two Witnesses/Witnesses Understand Instrument**
+subquestion: |
+  In CA, a formal will must be signed or acknowledged in the joint presence of and attested to by two witnesses. The witnesses must be aware the instrument is a will, but need not read the will, or sign the will in the presence of the testator or each other. Witnesses must be of sufficient mental capacity to comprehend the act of witnessing a will. {In CA, an interested witness is competent}.
+fields: 
+  - no label: jp_here
+    datatype: area
+    hint: Here, 
+  - no label: jp_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  **{Harmless Error}**
+subquestion: |
+  If a will is **not executed in compliance with witnessing requirements**, the will may be admitted into probate if the will proponent establishes by **clear and convincing evidence** that **at the time the testator signed the will**, s/he **intended** the will to constitute the testator’s will.
+fields: 
+  - no label: he_here
+    datatype: area
+    hint: Here, 
+  - no label: he_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      {In conclusion,}...
+---
+question: |
+  **Valid Pour-Over Will**
+subquestion: |
+  A testator may by will bequeath estate assets to an inter vivos trust, provided the will identifies the trust, and the bequeath provisions are set forth in a written instrument executed before or currently with the testator’s will execution.
+fields: 
+  - Is there a Pour-Over Will in the facts?: there_is_pow
+    datatype: yesnowide
+  - no label: pow_here
+    show if: there_is_pow
+    required: false
+    datatype: area
+    hint: |
+      Here, when [Settlor] established the trust, [Settlor] executed a valid will pouring over to the trust all [Settlor]’s [describe assets].
+  - no label: pow_thus
+    show if: there_is_pow
+    required: false
+    datatype: area
+    hint: |
+      Thus, there was a valid pour-over will.
+---
+mandatory: True
+progress: 100
+question: |
+  Here is your Valid Will analysis
+subquestion: |  
+  % if main_issue['Formal Will']:
+  **FORMAL WILL**
+  
+  A valid formal will requires (1) testator with capacity and (2) present testamentary intent (3) to sign (4) a writing (5) in the joint presence of two witnesses who understand the instrument is a will.
+  
+  ${ valid_will_here }
+  
+  ${ valid_will_thus }
+  
+  **Capacity**
+  
+  The testator must be (1) at least age 18 and (2) of sound mind.
+  
+  ${ capacity_here }
+  
+  ${ capacity_thus }
+  
+  **Intent** 
+  
+  When a testator signs an instrument, s/he must intend it have testamentary effect, and understand s/he is executing a will.
+  
+  ${ intent_here }
+  
+  ${ intent_thus }
+  
+  **Sign**
+  
+  The testator or someone in his/her presence and direction {must sign} the will.
+  
+  ${ sign_here }
+  
+  ${ sign_thus }
+  
+  **Writing**
+  
+  The entire will must be in writing.
+ 
+  ${ writing_here }
+  
+  ${ writing_thus }
+  
+  **Joint Presence Two Witnesses/Witnesses Understand Instrument**
+  
+  In CA, a formal will must be signed or acknowledged in the joint presence of and attested to by two witnesses. The witnesses must be aware the instrument is a will, but need not read the will, or sign the will in the presence of the testator or each other. Witnesses must be of sufficient mental capacity to comprehend the act of witnessing a will. In CA, an interested witness is competent.
+  
+  ${ jp_here }
+  
+  ${ jp_thus }
+  
+  **Harmless Error**
+  
+  If a will is not executed in compliance with witnessing requirements, the will may be admitted into probate if the will proponent establishes by clear and convincing evidence that at the time the testator signed the will, s/he intended the will to constitute the testator’s will.
+   
+  ${ he_here }
+  
+  ${ he_thus }
+  
+  % elif main_issue['Holographic Will']:
+  **HOLOGRAPHIC WILL**
+  
+  CA recognizes holographic wills, which require the testator to (1) have capacity, (2) intend the document be a will, (3) handwrite the material provisions, and (4) sign the will. A holographic will need not be witnessed.
+  
+  ${ hw_here }
+  
+  ${ hw_thus }
+  
+  **Capacity**
+  
+  The testator must be (1) at least age 18 and (2) of sound mind.
+  
+  ${ capacity_here }
+  
+  ${ capacity_thus }
+  
+  **Intent** 
+  
+  When a testator signs an instrument, s/he must intend it have testamentary effect, and understand s/he is executing a will.
+  
+  ${ intent_here }
+  
+  ${ intent_thus }
+  
+  **Handwritten**
+  
+  The testator must handwrite the material terms.
+  
+  ${ handwritten_here }
+  
+  ${ handwritten_thus }
+  
+  **Sign**
+  
+  The testator or someone in his/her presence and direction {must sign} the will.
+  
+  ${ sign_here }
+  
+  ${ sign_thus }
+  % endif
+
+  % if there_is_pow:
+    A testator may by will bequeath estate assets to an inter vivos trust, provided the will identifies the trust, and the bequeath provisions are set forth in a written instrument executed before or currently with the testator’s will execution.
+  
+  ${ pow_here }
+  
+  ${ pow_thus }
+  % endif 
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  Capacity: |
+    If there are not enough facts to breakdown analysis into the elements, use in one paragraph, but mention each element in the order listed in the rules.
+  must sign: |
+    In CA, no need to sign at end.
+  In CA, an interested witness is competent: |
+    Add this rule if facts on interested witness (witness is a will beneficiary). If there is an interested witness, the facts usually also test Undue Influence and Intestate Succession. Interested witness issues should be ordered under a heading for the party who is the interested witness, not part of the Valid Will analysis.
+  Harmless Error: |
+    Do Harmless Error if witnessing requirements not met.
+  In conclusion,: |
+    Conclude there is a valid formal will if each element met.
+  material terms: |
+    Examples: Gifts, beneficiaries.
+  conclusion: |
+    Conclude there is a valid holographic will if each element met.
+  valid will: |
+    If the facts do not give a valid will, do separate issue on Valid Will.

@@ -1,0 +1,153 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Abuse of Process/Malicious Prosecution"
+  title: |
+    Abuse of Process/Malicious Prosecution
+---
+sections:
+  - Abuse of Process
+  - Malicious Prosecution
+  - Conclusion
+---
+mandatory: True
+section: Abuse of Process
+question: |
+  Abuse of Process
+subquestion: |
+  {Abuse of process} requires (1) misuse of a civil or criminal judicial process for an {ulterior purpose}, and (2) definite act or threat against plaintiff to accomplish the ulterior purpose.
+fields: 
+  - no label: aop_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: aop_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Malicious Prosecution
+question: |
+  Malicious Prosecution
+subquestion: |
+  Malicious prosecution requires (1) {institution of a criminal proceeding} against a party for an improper purpose, (2) claim in underlying case dismissed in plaintiff’s favor (3) insufficient probable cause to bring claim, and (4) damages. Most jurisdictions extend malicious prosecution to civil cases.
+fields: 
+  - note: |
+      **Institution of Legal Proceedings for Improper Purpose**
+      
+      Here, assuming the jurisdiction extended malicious prosecution to civil cases…
+  - no label: legal_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Claim Dismissed in Defendant's Favor**
+  - no label: favor_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: favor_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Insufficient Probable Cause**
+  - no label: insuff_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: insuff_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Damages**
+  - no label: dmg_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: dmg_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - In conclusion,: conclusion
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Duty to Control Third Parties
+question: |
+  Absolute Privilege
+subquestion: |
+  Prosecutors, judges, and law enforcement are absolutely privileged and cannot be sued for malicious prosecution, even when they act without probable cause.
+fields: 
+  - no label: ap_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ap_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  
+  ${ aop_here }
+  
+  ${ aop_thus }
+  
+  ${ legal_thus }
+  
+  ${ favor_here }
+  
+  ${ favor_thus }
+  
+  ${ insuff_here }
+  
+  ${ insuff_thus }
+  
+  ${ dmg_here }
+  
+  ${ dmg_thus }
+  
+  ${ conclusion }
+  
+  ${ ap_thus }
+  
+  ${ ap_thus }
+ 
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+section: Conclusion
+---
+terms: 
+  Abuse of process: |
+    Abuse of Process usually tested with Malicious Prosecution.
+  ulterior purpose: |
+    Purpose other than what process intended. Merits of action irrelevant.
+  institution of a criminal proceeding: |
+    Example: Filing police report to procure plaintiff’s arrest.
+  improper purpose: |
+    Not bring case to seek justice (malice).
+  dismissed in plaintiff favor: |
+    Termination of underlying case demonstrates defendant’s innocence (termination based on merits, not procedure).
+  insufficient probable cause: |
+    Sufficient probable cause: (1) grand jury indictment, (2) conviction, even if subsequently reversed on appeal, or (3) instituted proceeding on advice of attorney. Insufficient probable cause: (1) not enough facts for a reasonable person to believe plaintiff was guilty or (2) defendant not actually believe plaintiff was guilty. Probable cause difficult to show in civil cases; people often file doubtful cases.
+  damages: |
+    Need to prove damages. Examples: Expenses in defending criminal proceeding, reputation harm, emotional distress, punitive damages.

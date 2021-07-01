@@ -1,0 +1,322 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Trust Modification/Termination"
+  title: |
+    Trust Modification/Termination
+---
+sections:
+  - Trustee Modification: 
+    - Trustee
+    - Settlor
+    - Beneficiaries
+  - Cy Pres
+  - Trust Termination:
+    - by Trustee
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+section: Conflict of Interest
+question: |
+  Trust Modification/Termination
+continue button field: intro
+field: sees_nav_bar
+---
+section: Trustee
+question: |
+  Trustee
+subquestion: |
+  In CA, on a trustee petition, a court may modify the administrative or dispositive trust terms if, owing to circumstances unknown to and unanticipated by the settlor, trust continuation under the terms will defeat or substantially impair the accomplishment of trust purposes.
+fields: 
+  - no label: trustee_here
+    datatype: area
+    hint: Here,
+    required: False
+  - no label: trustee_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Settlor
+question: |
+  Settlor
+subquestion: |
+  Under the majority, unless a settlor expressly reserves the right, s/he may not modify a trust.
+fields: 
+  - no label: settlor_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: settlor_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Beneficiaries
+question: |
+  Beneficiaries
+subquestion: |
+  Beneficiaries may compel trust modification when (1) **{all beneficiaries consent}**, and (2) modification will **not frustrate a material trust purpose**.
+fields: 
+  - no label: bene_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: bene_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Cy Pres
+question: |
+  Cy Pres
+subquestion: |
+  Under the cy pres doctrine, a court may modify a charitable trust to seek an alternative charitable purpose if the **original purpose** becomes **illegal, impracticable, or impossible** to perform. The court must **determine the settlor’s original purpose** and **select a new purpose as near as possible**. The **settlor’s intent controls**. If it appears the settlor would **not have wished an alternative purpose**, the trust property may be subject to a **resulting trust** for the benefit of the settlor’s estate.
+fields: 
+  - no label: cypres_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: cypres_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Trust Termination
+question: |
+  Trust Termination
+subquestion: |
+  In CA, a revocable inter vivos trust becomes irrevocable when a settlor dies. Four ways an irrevocable trust terminates prematurely before the **{time set for termination}** in the trust instrument: (1) **operation of law** (completed, impossible, illegal purpose), (2) **settlor and all beneficiaries agree** to terminate, (3) **all the beneficiaries agree** to terminate **and all the material purposes accomplished**, or (4) **merger**.
+fields: 
+  - note: |
+      Time Set in Trust Instrument
+  - no label: time_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: time_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Operation of Law**
+      
+      In CA, termination by operation of law may occur when the trust purpose (1) **completes**, or becomes (2) **impossible** or (3) **illegal**.
+  - no label: ool_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ool_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Settlor and All Beneficiaries Agree**
+  - no label: settlor_and_bene_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: settlor_and_bene_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Proprietary Interests
+question: |
+  All Beneficiaries Agree and All Material Purposes Accomplished
+fields: 
+  - note: |
+      **All Beneficiaries Agree**
+      
+      “All” beneficiaries consists of **existing and potential beneficiaries**, some of which may not be {ascertainable}.
+  - no label: allbene_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      `Even if existing beneficiaries agree, consent of all beneficiaries may not be possible if the trust provides for trust assets remaining after the death of named beneficiaries to be distributed to future beneficiaries (i.e. then living descendants).`
+  - no label: allbene_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **All Material Provisions Accomplished**
+  - no label: provisions_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: provisions_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Trust Termination
+question: |
+  Merger
+subquestion: |
+  If the sole trustee becomes the sole beneficiary, the trust interests merge and the trust terminates.
+fields: 
+  - no label: merger_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: merger_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: by Trustee
+question: |
+  Trust Termination by Trustee
+subquestion: |
+  A trustee has no power to terminate a trust, unless (1) trust instrument expressly provides, or (2) trustee power to invade principal is broad enough to entitle a trustee to terminate a trust.
+fields: 
+  - no label: by_trustee_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: by_trustee_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  % if sees_nav_bar:
+  
+  **TRUST MODIFICATION**
+  
+  ${ trustee_here }
+  
+  ${ trustee_thus }
+  
+  ${ settlor_here }
+  
+  ${ settlor_thus }
+  
+  ${ bene_here }
+  
+  ${ bene_thus }
+  
+  **CY PRES**
+
+  ${ cypres_here }
+  
+  ${ cypres_thus }
+  
+  **TRUST TERMINATION**
+  
+  In CA, a revocable inter vivos trust becomes irrevocable when a settlor dies. Four ways an irrevocable trust terminates prematurely before the **{time set for termination}** in the trust instrument: (1) **operation of law** (completed, impossible, illegal purpose), (2) **settlor and all beneficiaries agree** to terminate, (3) **all the beneficiaries agree** to terminate **and all the material purposes accomplished**, or (4) **merger**.
+  
+  **Time Set in Trust Instrument**
+  
+  ${ time_here }
+  
+  ${ time_thus }
+  
+  **Operation of Law**
+  
+  ${ ool_here }
+  
+  ${ ool_thus }
+  
+  **Settlor and All Beneficiaries Agree**
+  
+  ${ settlor_and_bene_here }
+  
+  ${ settlor_and_bene_thus }
+  
+  **All Beneficiaries Agree and All Material Purposes Accomplished**
+  
+  ${ allbene_here }
+  
+  ${ allbene_thus }
+  
+  ${ provisions_here }
+  
+  ${ provisions_thus }
+
+  **MERGER**
+
+  ${ merger_here }
+  
+  ${ merger_thus }
+
+  **Trust Termination by Trustee** 
+  
+  A trustee has no power to terminate a trust, unless (1) trust instrument expressly provides, or (2) trustee power to invade principal is broad enough to entitle a trustee to terminate a trust.
+
+  ${ by_trustee_here }
+  
+  ${ by_trustee_thus }
+  
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  time set for termination: |
+    TO SAM: Time Set in Trust Instrument Settlor and All Beneficiaries Agree All Beneficiaries Agree and All Material Purposes Accomplished Merger
+  all beneficiaries consent: |
+    “All” beneficiaries includes named and unnamed future beneficiaries.
+  ascertainable: |
+    Example: Beneficiaries not born.
+---

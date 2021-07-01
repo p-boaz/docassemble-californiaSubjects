@@ -1,0 +1,26 @@
+mandatory: True
+code: |
+  favorite_fruit
+  ok_to_finish
+  final_screen
+---
+question: |
+  What is your favorite fruit?
+fields:
+  - Fruit: favorite_fruit
+---
+code: |
+  if not user_has_privilege('customer'):
+    require_signup_screen
+  ok_to_finish = True
+---
+event: require_signup_screen
+question: |
+  The rest of this interview requires a membership. 
+buttons:
+  - Update membership: leave
+    url: ${ url_of('/interview?i=docassemble.subjects:data/questions/signup.yml', next=interview_url()) }
+---
+event: final_screen
+question: |
+  Ok you're all set. 

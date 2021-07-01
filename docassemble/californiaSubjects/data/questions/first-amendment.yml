@@ -1,0 +1,586 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "First Amendment"
+  title: |
+    First Amendment
+---
+sections:
+  - Intro
+  - Limits on Regulation:
+    - Prior Restraint
+    - Overbroad
+    - Vague
+    - Unfettered Discretion
+  - Content-Based vs. Content Neutral Regulations:
+    - Content-Based
+    - Content Neutral
+  - Time, Place, and Manner Restrictions:
+    - Public Forum
+    - Nonpublic Forum
+    - Private Forum
+    - No Forum
+  - Symbolic Speech
+  - Commercial Speech
+  - Unprotected Speech:
+    - Defamation
+    - Obscenity
+    - Incitement to Violence
+    - Fighting Words
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+section: Intro
+question: |
+  First Amendment - Freedom of Speech
+subquestion: |
+  The First Amendment, applicable to the states through the Fourteenth Amendment, requires the **government** to not interfere with the freedom of speech.
+fields: 
+  - no label: fa_here
+    datatype: area
+    hint: Here,
+    required: False
+  - note: |
+      `See if First Amendment freedom of speech rights at issue.`
+  - no label: fa_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+field: sees_nav_bar
+---
+section: Limits on Regulation
+question: |
+  Limits on Regulation
+subquestion: |
+  The **government is limited** in how it regulates speech. Speech regulation must not be (1) **prior restraint**, (2) **overbroad**, (3) **vague**, or (4) **unfettered discretion**.
+field: limits
+---
+section: Prior Restraint
+question: |
+  Prior Restraint
+subquestion: |
+  A prior restraint regulates speech in advance of expression. Prior restraints are generally presumed unconstitutional, except when (1) **particular harm can be avoided**, and (2) **procedural safeguards** are provided to the speaker, including **narrowly drawn, reasonable, and definite standards**.
+fields: 
+  - no label: prior_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: prior_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Collateral Bar Rule**
+      
+      The {collateral bar rule} prevents individuals from **challenging a court order** if they disobey the order before appealing the order through appropriate proceedings. Courts preserve their abilities to direct the methods for challenging judicial orders to ensure that individuals do not become the judges in their own cases.
+  - no label: coll_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      `Unconstitutional court order null, and cannot be the basis of legal right or proceedings, yet, until unconstitutionality judicially declared, defendant charged with observance cannot disregard or violate court order with immunity from contempt charge. Defendant cannot raise unconstitutionality in collateral proceedings on appeal from a judgment of conviction for contempt if defendant violates court order prior to challenging it with a court.`
+  - no label: coll_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Overbroad
+question: |
+  Overbroad
+subquestion: |
+  A law is overbroad when it **prohibits protected and unprotected speech**, regulating substantially more speech than necessary.
+fields: 
+  - no label: over_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: over_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Vague
+question: |
+  Vague
+subquestion: |
+  A law is void for vagueness if it gives **no reasonable notice as to what specific speech is protected**.
+fields: 
+  - no label: vague_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: vague_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Unfettered Discretion**
+      
+      A law that gives regulating officials unfettered discretion is void on its face. A regulation must define standards as to how to apply the law to prevent unfettered discretion over speech.
+  - no label: ud_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ud_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Content-Based vs. Content Neutral Regulations
+question: |
+  Content-Based vs. Content Neutral Regulations
+subquestion: |
+  If the government regulates speech content, the regulation is subject to strict scrutiny. Content neutral speech regulations are subject to intermediate scrutiny.
+field: continue
+---
+section: Content-Based
+question: |
+  **Content-Based**
+subquestion: |
+  {Under strict scrutiny}, the government may regulate speech content if the regulation is (1) necessary and the least restrictive means to achieve (2) a compelling state interest.
+  
+  Here, the regulation [was/was not] content-based because [____]. [However, strict scrutiny did not apply if the speech was unprotected.]
+fields: 
+  - no label: cb_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: cb_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: Compelling Interest
+  - no label: ci_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: Necessary
+  - no label: nec_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: nec_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: Substantially Related
+  - no label: sr_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: sr_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Time, Place, and Manner Restrictions
+question: |
+  Time, Place, and Manner Restrictions
+subquestion: |
+  The government’s ability to regulate time, place, and manner of speech varies with the forum in which the speech takes place.
+field: continue
+---
+section: Public Forum
+question: |
+  Public Forum
+subquestion: |
+  A public forum may be traditional or {designated}. {Traditional public forums} are historically associated with expression. A designated public forum is not historically used for speech activities, but the government opens for such use. To be valid, government speech regulation in public forums must be (1) content neutral, (2) substantially related to an important government interest, and (3) leave open alternative communication channels.
+  
+  Here, the [place of speech] was a [traditional/designated] public forum because [____].
+fields: 
+  - note: |
+      **Content Neutral**
+  - no label: cn_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: cn_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Substantially Related to an Important Government Interest**
+  - no label: sr_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      **Alternative Communication Channels**
+  - no label: alt_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: alt_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Nonpublic Forum
+question: |
+  **Nonpublic Forum**
+subquestion: |
+  A nonpublic forum is all public property that is not a traditional or designated public forum. The government may regulate speech activities in nonpublic forums as long as the regulation is (1) viewpoint neutral, and (2) rationally related to a legitimate government interest. Viewpoint neutral means the government may prohibit speech on certain issues altogether, but not allow only one side of an issue to be presented.
+fields: 
+  - note: |
+      **Viewpoint Neutral**
+  - no label: vn_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      **Legitimate Government Interest**
+  - no label: lgi_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      **Rationally Related**
+  - no label: rr_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: rr_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Private Forum
+question: |
+  Private Forum
+subquestion: |
+  There is no First Amendment right to free speech in a completely private forum, except when the private forum serves a public function.
+fields: 
+  - no label: priv_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: priv_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: No Forum
+question: |
+  No Forum
+subquestion: |
+  When public property is not a 18 forum, 19 content neutral speech regulations are subject to intermediate scrutiny and upheld if the government shows (1) law is substantially related to an (2) important government interest.
+  
+  Here, the regulation was content neutral because [____]
+fields: 
+  - no label: noforum_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: noforum_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Important Government Interest**
+  - no label: igi_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      **Substantially Related**
+  - no label: subs_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: subs_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Symbolic Speech
+question: |
+  Symbolic Speech
+subquestion: |
+  Protected speech includes symbolic speech (expressive conduct). Government regulation of symbolic speech is upheld if (1) the regulation, within the government’s power to enact (e.g. police power), (2) furthers an important government interest, (3) unrelated to suppressing ideas, and (4) burdens speech no greater than necessary.
+fields: 
+  - no label: ss_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ss_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Commercial Speech
+question: |
+  Commercial Speech
+subquestion: |
+  The First Amendment protects commercial speech that is truthful, not misleading, and concerns lawful activity. Regulation of commercial speech is permissible when the regulation (1) serves a substantial government interest, (2) advances that interest directly, and (3) is narrowly tailored to serve that interest.
+  
+  Here, [Plaintiff] engaged in commercial speech because [____]. No facts indicated the [____] was not truthful, misleading, and did not concern lawful activity.
+fields: 
+  - note: |
+      **Substantial Government Interest** 
+  - no label: cs_sgi_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      **Advances Interest Directly** 
+  - no label: aid_here
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Narrowly Tailored to Serve Interest** 
+  - no label: ntsi_here
+    datatype: area
+    hint: Here,
+    required: False
+  - no label: ntsi_thus
+    datatype: area
+    hint: Thus,
+    required: False
+---
+section: Unprotected Speech
+question: |
+  Unprotected Speech
+fields: 
+  - note: |
+      **Defamation** 
+  - no label: def_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      **Obscenity** 
+      
+      Obscenity, a form of unprotected speech, can be regulated, based on content. To be considered obscene, the average person, applying contemporary community standards, must find the material, taken as a whole (1) **appeals to the prurient interest**, (2) **depicts sexual conduct in a patently offensive way**, and (3) **{lacks} serious political, artistic, literary, or scientific value.**
+  - no label: obs_here
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Incitement to Violence** 
+      
+      The government may forbid speech that (1) creates a clear and present danger of imminent lawless action if (2) a call to violence uses language calculated to incite unlawful action.
+  - no label: itv_here
+    datatype: area
+    hint: Here,
+    required: False
+  - no label: itv_thus
+    datatype: area
+    hint: Thus,
+    required: False
+  - note: |
+      **Fighting Words** 
+      
+      A speaker may be criminally punished for using fighting words. Annoying or offensive words are not fighting words.
+  - no label: fw_here
+    datatype: area
+    hint: Here,
+    required: False
+  - no label: fw_thus
+    datatype: area
+    hint: Thus,
+    required: False
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  % if sees_nav_bar and limits:
+  
+  **First Amendment - Freedom of Speech**
+  
+  The First Amendment, applicable to the states through the Fourteenth Amendment, requires the government to not interfere with the freedom of speech.
+  
+  ${ fa_here }
+  
+  ${ fa_thus }
+  
+  **Limits on Regulation**
+  
+  The government is limited in how it regulates speech. Speech regulation must not be (1) prior restraint, (2) overbroad, (3) vague, or (4) unfettered discretion.
+
+  **Prior Restraint**
+  
+  A prior restraint regulates speech in advance of expression. Prior restraints are generally presumed unconstitutional, except when (1) particular harm can be avoided, and (2) procedural safeguards are provided to the speaker, including narrowly drawn, reasonable, and definite standards.
+  
+  ${ prior_here }
+  
+  ${ prior_thus }
+  
+  **Collateral Bar Rule**
+  
+  The collateral bar rule prevents individuals from challenging a court order if they disobey the order before appealing the order through appropriate proceedings. Courts preserve their abilities to direct the methods for challenging judicial orders to ensure that individuals do not become the judges in their own cases.
+  
+  ${ coll_here }
+  
+  ${ coll_thus }
+  
+  **Overbroad**
+  
+  A law is overbroad when it prohibits protected and unprotected speech, regulating substantially more speech than necessary.
+  
+  ${ over_here }
+  
+  ${ over_thus }
+  
+  **Vague**
+  
+  A law is void for vagueness if it gives no reasonable notice as to what specific speech is protected.
+  
+  ${ vague_here }
+  
+  ${ vague_thus }
+  
+  **Unfettered Discretion**
+  
+  A law that gives regulating officials unfettered discretion is void on its face. A regulation must define standards as to how to apply the law to prevent unfettered discretion over speech.
+  
+  ${ ud_here }
+  
+  ${ ud_thus }
+  
+  **Content-Based vs. Content Neutral Regulations** 
+  
+  If the government regulates speech content, the regulation is subject to strict scrutiny. Content neutral speech regulations are subject to intermediate scrutiny.
+  
+  **Content-Based**
+  
+  Under strict scrutiny, the government may regulate speech content if the regulation is (1) necessary and the least restrictive means to achieve (2) a compelling state interest.
+  
+  ${ cb_here }
+  
+  ${ cb_thus }
+  
+  ${ ci_here }
+  
+  ${ nec_here }
+  
+  ${ nec_thus }
+  
+  **Content Neutral**
+  
+  Content neutral speech regulations are subject to intermediate scrutiny and upheld if the government shows (1) law is substantially related to an (2) important government interest.
+  
+  ${ cn_here }
+  
+  ${ cn_thus }
+  
+  ${ sr_here }
+  
+  ${ sr_thus }
+  
+  ${ alt_here }
+  
+  ${ alt_thus }
+  
+  ${ vn_here }
+  
+  ${ lgi_here }
+  
+  ${ rr_here }
+  
+  ${ rr_thus }
+  
+  ${ priv_here }
+  
+  ${ priv_thus }
+  
+  ${ noforum_here }
+  
+  ${ noforum_thus }
+  
+  ${ igi_here }
+  
+  ${ subs_here }
+  
+  ${ subs_thus }
+  
+  ${ ss_here }
+  
+  ${ ss_thus }
+  
+  ${ cs_sgi_here }
+  
+  ${ aid_here }
+  
+  ${ ntsi_here }
+  
+  ${ ntsi_thus }
+  
+  ${ def_here }
+  
+  ${ obs_here }
+  
+  ${ itv_here }
+  
+  ${ itv_thus }
+  
+  ${ fw_here }
+  
+  ${ fw_thus }
+
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms:
+  collateral bar rule: |
+    Walker v. City of Birmingham, 388 U.S. 307 (1967). Collateral Bar Rule usually tested in Constitutional Law on First Amendment rights or Remedies where the facts deal with injunctive relief.
+  Under strict scrutiny: |
+    The government has the burden of proving the elements. On the exam, try to make the party that has the burden of proof lose in the analysis.

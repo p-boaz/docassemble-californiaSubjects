@@ -1,0 +1,493 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Covenant/Equitable Servitude/Implied Reciprocal Servitude"
+  title: |
+    Covenant/Equitable Servitude/Implied Reciprocal Servitude
+---
+sections:
+  - Intro
+  - Covenant:
+    - Burden to Run
+    - Benefit to Run
+  - Equitable Servitude
+  - Implied Reciprocal Servitude
+  - Defenses
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+question: |
+  **{Covenant}**
+subquestion: |
+  A covenant is a non-possessory interest or promise obligating the holder to (1) do something (burden to run) or (2) refrain from doing something (benefit to run) relating to land.
+field: sees_nav_bar
+section: Covenant
+---
+question: |
+  **Burden to Run**
+subquestion: |
+  For the covenant burden to run, there must be (1) horizontal privity (2) vertical privity, (3) intent, (4) notice, (5) touch and concern, and (6) writing.
+  
+  *If analyzing whether someone needs to comply with a restriction (i.e. whether landlord needs to comply with lease), do burden to run. If analyzing whether someone gets the benefit of a restriction (i.e. whether assignee gets a lease benefit), do benefit to run. If facts trigger both benefit to run and burden to run, do burden to run first. For benefit to run, refer back on the elements that are the same, and only analyze the elements that differ to save time. It is not possible for both burden and benefit to run to one party. Do both burden and benefit when different covenants or different subsequent landowners succeeding to the same covenant.*
+  
+  `2 steps:`
+  
+  `1. Identify subsequent landowner.`
+  
+  `2. Determine if covenant burdens or benefits subsequent landowner.`
+  
+    `a. If subsequent landowner held to covenant, do burden to run.`
+     
+    `b. If subsequent landowner enforcing covenant, do benefit to run.`
+      
+      P: Privity (Horizontal, Vertical)
+      
+      I: Intent
+      
+      N: Notice
+      
+      T: Touch and Concern
+      
+      S: Statute of Frauds (Writing)
+fields: 
+  - note: |
+      **Horizontal Privity**
+      
+      The parties have privity of estate at the time the covenant is imposed.
+  - no label: horiz_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: horiz_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **{Vertical Privity}**
+      
+      The {successor} to property can be held to the covenant (burden runs) only if title to the entire servient estate traces to the promisor.
+  - no label: vert_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: vert_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Intent**
+      
+      The parties {intend} for the rights and duties to bind the successor in interest (run with the land).
+  - no label: intent_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: intent_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Notice**
+      
+      Under the recording acts, a subsequent purchaser without notice of a burdening covenant is not bound by it. {Notice} must be {constructive or actual}.
+  - no label: notice_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: notice_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Touch and Concern**
+      
+      The covenant must {touch and concern} the land, which means the burden or benefit must affect the promisee and promissor as landowners, and not merely as individuals.
+  - no label: tc_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: tc_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Writing**
+      
+      To enforce a covenant, a writing must satisfy the {Statute of Frauds}.
+  - no label: writing_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: writing_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Burden to Run
+---
+question: |
+  Benefit to Run 
+subquestion: |
+  For the covenant benefit to run, there must be (1) vertical privity, (2) intent, (3) touch and concern, and (4) writing,
+fields: 
+  - note: |
+      **{Vertical Privity}**
+      
+      {The successor} to the property can enforce a covenant (benefit runs) as long as the property interest possessed by the successor is at least some portion of the property interest held by the promissee.
+  - no label: vert_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: vert_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Intent**
+      
+      The parties {intend} for the rights and duties to bind the successor in interest (run with the land).
+  - no label: ben_intent_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: ben_intent_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Touch and Concern**
+      
+      The covenant must {touch and concern} the land, which means the burden or benefit must affect the promisee and promissor as landowners, and not merely as individuals.
+  - no label: ben_tc_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: ben_tc_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Writing**
+      
+      To enforce a covenant, a writing must satisfy the {Statute of Frauds}.
+  - no label: ben_writing_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: ben_writing_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      *Unlike burden to run, no notice or horizontal privity elements.*
+      
+      *Covenants not to compete may not be enforceable to permit the benefit to run when no physical presence on the land. Restricting land use (burden) touches and concerns the land, but the commercial enhancement (benefit) does not affect the physical use of the benefited land. If the covenant is personal to the promisee (benefit does not touch and concern property), courts may find the burden does not run even if touch and concern burdened land.*
+section: Benefit to Run
+---
+question: |
+  **Equitable Servitude**
+subquestion: |
+  For a servitude to be enforced at equity, it requires (1) intent (2) notice (actual, constructive, inquiry) to the party to whom a servitude is being enforced, (3) touch and concern, and (4) writing. If the equitable servitude is enforced, it will allow the enforcing party to obtain a mandatory injunction. An equitable servitude is similar to a covenant except it is enforceable in equity rather than {at law}.
+fields:
+  - no label: es_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: es_thus
+    datatype: area
+    required: False
+    hint: Thus,
+section: Equitable Servitude
+---
+question: |
+  **{Implied Reciprocal Servitude}**
+subquestion: |
+  Enforcing an implied reciprocal servitude requires (1) intent to create a servitude on all plots of land with a common scheme apparent from the development (promise must be reciprocal), (2) negative servitude (promise to refrain from doing something), and (3) notice (actual, constructive, inquiry) by the party against whom enforcement of the servitude is sought.
+fields: 
+  - no label: irs_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: irs_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Implied Reciprocal Servitude
+---
+question: |
+  Defenses
+subquestion: |
+  Enforcing an implied reciprocal servitude requires (1) intent to create a servitude on all plots of land with a common scheme apparent from the development (promise must be reciprocal), (2) negative servitude (promise to refrain from doing something), and (3) notice (actual, constructive, inquiry) by the party against whom enforcement of the servitude is sought.
+fields: 
+  - note: |
+      **Changed Circumstances**
+      
+      If a property restriction is no longer justified to enforce because of changes in neighborhood circumstances since the restriction was contemplated, the restriction will not be enforced.
+  - no label: cc_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: cc_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Release**
+      
+      Covenants, equitable servitudes, and implied reciprocal servitudes may terminate {upon written release}.
+  - no label: release_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: release_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Merger**
+      
+      Covenants, equitable servitudes, and implied reciprocal servitudes may terminate when the burdened land and benefited land merge into common ownership under fee title.
+  - no label: merger_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: merger_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Statute of Limitations**
+      
+      The statute of limitations limits the time a plaintiff may bring a claim to encourage resolving claims within a reasonable time, and prevent stale claims from arising after evidence has been lost or facts become unclear through time passage, defective memory, death, or witness disappearance.
+  - no label: sol_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: sol_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **{Laches}**
+      
+      The right to equitable relief is cut off when there has been unreasonable delay in initiating the claim, and the delay prejudices the defendant.
+  - no label: laches_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: laches_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Equitable Estoppel**
+      
+      Equitable estoppel may bar contract enforcement where one party reasonably and justifiably relies to detriment on the other party’s {previous acts}.
+  - no label: ee_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: ee_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **{Unclean Hands}**
+      
+      The party seeking relief must not have been guilty of wrongful conduct with respect to the transaction subject matter.
+  - no label: uh_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: uh_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Defenses
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+  % if sees_nav_bar:
+  **Due Process**
+  
+  The Due Process Clause of the [Fifth/Fourteenth] Amendment provides that the government shall not take an individual’s life, liberty, or property without due process of law.
+
+  **Procedural Due Process**
+  
+  ${ horiz_here }
+  
+  ${ horiz_thus }
+  
+  ${ vert_here }
+  
+  ${ vert_thus }
+  
+  ${ intent_here }
+  
+  ${ intent_thus }
+  
+  ${ notice_here }
+  
+  ${ notice_thus }
+  
+  ${ tc_here }
+  
+  ${ tc_thus }
+  
+  ${ writing_here }
+  
+  ${ writing_thus }
+  
+  ${ vert_here }
+  
+  ${ vert_thus }
+  
+  ${ ben_intent_here }
+  
+  ${ ben_intent_thus }
+  
+  ${ ben_tc_here }
+  
+  ${ ben_tc_thus }
+  
+  ${ ben_writing_here }
+  
+  ${ ben_writing_thus }
+  
+  ${ es_here }
+  
+  ${ es_thus }
+  
+  ${ irs_here }
+  
+  ${ irs_thus }
+  
+  ${ cc_here }
+  
+  ${ cc_thus }
+  
+  ${ release_here }
+  
+  ${ release_thus }
+  
+  ${ merger_here }
+  
+  ${ merger_thus }
+  
+  ${ sol_here }
+  
+  ${ sol_thus }
+  
+  ${ laches_here }
+  
+  ${ laches_thus }
+  
+  ${ ee_here }
+  
+  ${ ee_thus }
+  
+  ${ uh_here }
+  
+  ${ uh_thus }
+
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  covenant: |
+    Covenant is promise between at least 2 parties to do, or not do, something on land. Covenant v. Easement: Covenant restricts land use. Easement is land use right.
+    
+    There is privity between original contracting parties so to recover damages, the parties sue for breach of the covenant. Whether a covenant runs with the land deals with subsequent landowners. A subsequent landowner doesn’t have privity. A covenant doesn’t run to an original contracting party because the covenant started with the party.
+  imposed: |
+    Estate and covenant contained in the same instrument (i.e. deed, lease). 
+  Vertical Privity: |
+    Vertical privity not defined the same for burden to run and benefit to run.
+  successor: |
+    In landlord-tenant, a burden runs to an assignee, but not a sublessee.
+  intend: |
+    Look at conveyance language. Example: Grantee covenants for himself, heirs, successors, and assigns.
+  Notice: |
+    No inquiry notice. Before recording statutes, notice was not required for a covenant to run with the land.
+    
+    Recording acts caused a notice requirement. Notice can only be actual or constructive.
+  constructive or actual: |
+    Constructive means recorded in chain of title. Actual means told covenant exists.
+  touch and concern: |
+    Touch and concern means the covenant increases the land value or use to benefited party, or decreases the land rights or enjoyment to the burdened party.
+  Statute of Frauds: |
+    If no writing, apply contract law (i.e. prove covenant through part performance or estoppel).
+  The successor: |
+    In landlord-tenant, a benefit runs to an assignee or a sublessee. Assignee or sublessee can enforce a covenant.
+  at law: |
+    Analyze covenant first; refer back for equitable servitude. Notice requirement applies only to burden, and there is inquiry notice (unlike covenants). No horizontal or vertical privity for equitable servitude.
+  Implied Reciprocal Servitude: |
+    Example: D acquired undeveloped land, subdivided the tract into 10 lots. D sold Lot 1 to C. D sold the remaining 9, selling Lot 2 to S. D inserted this clause in each deed: “Purchaser(s) hereby covenant and agree on their own behalf and on behalf of their heirs, successors, and assigns to pay a $600 annual fee for 10 years to ASI for security maintenance within the subdivision.” D properly recorded all 10 deeds. One year later, S sold Lot 2 to B. S’s deed to B did not contain the above-quoted clause. B refuses to pay any security fee.
+    
+    Prior purchaser v. subsequent purchaser (C v. B): C is the first purchaser so unable to show common plan of residential restrictions at outset of D’s sale to C. No evidence similar covenant restrictions in all deeds. Under majority, C enforces restriction against B, even though D made no covenant in C’s deed, based on (1) third party beneficiary of B’s promise to D, and (2) implied reciprocal servitude attached to D’s retained land at the moment D deeded Lot 1 to C. C enforces an implied servitude on Lot 2, not the express covenant made by B.
+  upon written release: |
+    Benefited landowner releases burdened landowner.
+  Laches: |
+    Not defense for covenants. For covenants, use Statute of Limitations.
+  previous acts: |
+    Example: Plaintiff property owner passively endures multiple covenant violations may be estopped from enforcing covenant against yet another violator
+  Unclean Hands: |
+    For unclean hands, the wrongful conduct has to relate to the parties’ transaction. There may be facts on the plaintiff doing something wrongful such as putting assets in another person’s name to hide assets from creditors. Unclean hands not a defense if wrongful conduct unrelated to the transaction.

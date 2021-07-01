@@ -1,0 +1,87 @@
+metadata:
+  interview_identifier: "Sign Up"
+  title: |
+    Sign Up
+---
+modules:
+  - .dastripe
+---
+features:
+  javascript: https://js.stripe.com/v3/
+---
+objects:
+  - payment: DAStripe.using(payor=client, currency='usd')
+  - client: Individual
+  - client.billing_address: Address
+---
+mandatory: True
+code: |
+  # Payor information may be required for some payment methods.
+  client.name.first
+  client.billing_address.address
+  client.phone_number
+  client.email
+  if not payment.paid:
+    payment_screen
+  final_screen
+---
+question: |
+  Payment Info
+fields:
+  - First: client.name.first
+  - Last: client.name.last
+---
+question: |
+  What is your phone number?
+fields:
+  - Phone: client.phone_number
+    required: False
+---
+question: |
+  What is your e-mail address?
+fields:
+  - Email: client.email
+---
+question: |
+  What is your billing address?
+fields:
+  - Address: client.billing_address.address
+    address autocomplete: True
+  - Unit: client.billing_address.unit
+    required: False
+  - City: client.billing_address.city
+  - State: client.billing_address.state
+    code: states_list()
+  - Zip: client.billing_address.zip
+---
+question: |
+  **Please select a plan**
+fields:
+  - Amount: payment.amount
+    input type: radio
+    datatype: integer
+    choices: 
+      - Basic Member ($99): 99
+      - Premium Member ($139): 139
+---
+event: payment.demand
+question: |
+  Payment
+subquestion: |
+  Please enter your credit card information here.
+
+  ${ payment.html }
+  
+script: |
+  ${ payment.javascript }
+---
+event: payment.success
+code: |
+  payment.process()
+---
+event: final_screen
+question: Success
+subquestion: |
+  Thank you for signing up, ${ user_info().first_name }!
+  
+  ${ action_button_html("https://ca.barplaybook.com", label="Back to homepage", color="primary", size="md") }

@@ -1,0 +1,297 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Civ Pro - Joinder"
+  title: |
+    Civ Pro - Joinder
+---
+sections:
+  - Compulsory Joinder:
+    - Service of Process
+    - Subject Matter Jurisdiction
+    - Venue
+    - Necessary Party
+    - Personal Jurisdiction
+    - Indispensable Party
+  - Permissive Joinder
+  - Intervention: 
+    - Intervention of Right
+    - Permissive Intervention
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  Welcome to Joinder
+subquestion: |
+  If you are not on a
+  smartphone-sized device,
+  you should see a navigation
+  bar to the left.
+field: sees_nav_bar
+---
+mandatory: True
+question: |
+  Compulsory Joinder
+subquestion: |
+  A person subject to 
+    
+    1. service of process whose joinder will 
+    2. not deprive the court of subject matter jurisdiction, or 
+    3. destroy venue 
+    4. must be joined as a necessary party, 
+    5. if the court has personal jurisdiction.
+continue button field: intro
+section: Compulsory Joinder
+---
+mandatory: True
+question: |
+  Service of Process
+subquestion: |
+  In the U.S., the summons and complaint may be 
+  
+  1. personally served on the defendant, 
+  2. left at the defendant’s usual place of abode with a person of suitable age and discretion who reside there, or 
+  3. delivered to an agent the defendant appointed or authorized by law to receive service. 
+  
+  [Outside the U.S., service may be effected in any internationally agreed upon manner, reasonably calculated to give notice. If no international agreement exists, or if an international agreement permits service by other means, service on any competent individual outside the U.S. may be effected by any method the law of the foreign country permits.]
+fields: 
+  - no label: sop_here
+    datatype: area
+    hint: Here, 
+  - no label: sop_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **Subject Matter Jurisdiction**
+      
+      See Subject Matter Jurisdiction Template.
+  - note: |
+      **Venue** 
+      
+      If a joined party objects to venue and the joinder makes venue improper, the court must dismiss that party.
+  - no label: venue_here
+    datatype: area
+    hint: Here, 
+  - no label: venue_thus
+    datatype: area
+    hint: Thus, 
+section: Service of Process
+---
+mandatory: True
+question: |
+  Necessary Party
+subquestion: |
+  A party is necessary if in the person’s absence (1) complete relief cannot be provided to existing parties, (2) disposition may impair the person’s ability to protect his/her interest, or (3) existing parties are exposed to a substantial risk of multiple or inconsistent obligations. The U.S. Supreme Court has held that joint and severally liable tortfeasors are not parties who must be joined.
+fields: 
+  - note: |
+      **Complete Relief**
+      
+      `Divide the elements into headings to force an analysis of each part of the rules. When there are few facts on each element or the facts are not controversial, to save time, do the analysis in one paragraph, using the keywords from the rules in the analysis, matching facts to each element.`
+  - no label: cr_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      **Disposition Impair Interest** 
+      
+      `Evaluate how a judgment without the party affects a future lawsuit with the party (res judicata, collateral estoppel), indemnity, contribution.`
+  - no label: dii_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      **Multiple or Inconsistent Obligations** 
+  - no label: mio_here
+    datatype: area
+    hint: Here, 
+  - no label: np_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **Personal Jurisdiction**
+      
+      See Personal Jurisdiction Template.
+section: Necessary Party
+---
+mandatory: True
+question: |
+  Indispensable Party
+subquestion: |
+  If joinder deprives a court of subject matter jurisdiction, a court considers these factors in deciding whether to proceed in the person’s absence or dismiss the case if the person is indispensable: (1) judgment in the person’s absence prejudices the person or existing parties, (2) prejudice can be reduced by shaping the judgment, (3) judgment in person’s absence will be adequate, and (4) plaintiff will be deprived of an adequate remedy if the action is dismissed.
+fields: 
+  - note: |
+      **Judgment in Absence Prejudices**
+  - no label: jap_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      **Prejudice Can be Reduced** 
+  - no label: pcr_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      **Judgment in Absence Adequate** 
+  - no label: jaa_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      **Plaintiff Deprived Adequate Remedy**
+  - no label: pdar_here
+    datatype: area
+    hint: Here, 
+  - no label: ip_thus
+    datatype: area
+    hint: Here, 
+section: Indispensable Party
+---
+mandatory: True
+question: |
+  Permissive Joinder
+subquestion: |
+  Parties may join as plaintiffs, or be joined as defendants when (1) (a) any right to relief is asserted, or asserted against, jointly, severally, or (b) some claim is made by each plaintiff and against each defendant relating to, or arising out of the same occurrences or transactions, and (2) there is a question of fact or law common to all the parties.
+fields:
+  - no label: pj_here
+    datatype: area
+    hint: Here, 
+  - no label: pj_thus
+    datatype: area
+    hint: Thus, 
+section: Permissive Joinder
+---
+mandatory: True
+question: |
+  Intervention of Right
+subquestion: |
+  Upon a timely motion, a non-party has the right to intervene in an action in which a federal statute confers the right when the (1) non-party has an interest in the property or transaction that is the subject matter of the action, (2) disposition of the action may impair the nonparty’s interest, and (3) non-party’s interest is not adequately represented by existing parties.
+fields: 
+  - no label: right_inter_here
+    datatype: area
+    hint: Here, 
+  - no label: right_inter_thus
+    datatype: area
+    hint: Thus, 
+section: Intervention
+---
+mandatory: True
+question: |
+  Permissive Intervention
+subquestion: |
+  The court may allow intervention, upon timely motion, 17 and after considering whether the intervention will unduly delay or prejudice the adjudication of rights of the original parties, when the movant either (1) has a conditional right to intervene under a federal statute, or (2) claim or defense and the original action share a common question of law or fact.
+fields: 
+  - no label: perm_inter_here
+    datatype: area
+    hint: Here, 
+  - no label: perm_inter_thus
+    datatype: area
+    hint: Thus, 
+section: Intervention
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+
+  % if sees_nav_bar and intro:
+  **Temporary Restraining Order**
+  
+  ${ sop_here }
+  
+  ${ sop_thus }
+  
+  ${ venue_here }
+  
+  ${ venue_thus }
+  
+  ${ cr_here }
+  
+  ${ dii_here }
+  
+  ${ mio_here }
+  
+  ${ np_thus }
+  
+  ${ jap_here }
+  
+  ${ pcr_here }
+  
+  ${ jaa_here }
+  
+  ${ pdar_here }
+  
+  ${ ip_thus }
+  
+  ${ pj_here }
+  
+  ${ pj_thus }
+  
+  ${ right_inter_here }
+  
+  ${ right_inter_thus }
+
+  ${ perm_inter_here }
+  
+  ${ perm_inter_thus }
+ 
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  The right: |
+    Laches is not a defense if there is delay without prejudice to the defendant.
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue

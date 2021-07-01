@@ -1,0 +1,298 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Motions"
+  title: |
+    Motions
+---
+sections:
+  - MTD
+  - JOP
+  - MTS
+  - MCD
+  - MSJ
+  - JMOL:
+    - Renewed JMOL
+  - MNT
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  Motions
+subquestion: |
+  If you are not on a
+  smartphone-sized device,
+  you should see a navigation
+  bar to the left.
+field: sees_nav_bar
+section: Intro
+---
+mandatory: True
+question: |
+  Motion to Dismiss
+subquestion: |
+  Civil Procedure Questions: 
+  
+  Prior to filing an answer, a defendant may file a motion raising 
+  
+  * lack of personal jurisdiction, 
+  * lack of subject matter jurisdiction, 
+  * failure to state a claim upon which relief can be granted, 
+  * improper venue, 
+  * insufficient process, 
+  * insufficient service of process, 
+  * or failure to join a necessary or indispensable party 
+  
+  to seek dismissal of the claim.
+fields:
+  - no label: mtd_here
+    datatype: area
+    hint: Here, 
+  - no label: mtd_thus
+    datatype: area
+    hint: Thus, 
+section: MTD
+post: |
+  `If the facts or interrogatory mention a motion (i.e. motion to dismiss, motion for summary judgment), identify the motion as an issue before resolving the motion. Give the standard of review as the rules, and explain what the court needs to do in the analysis.`
+---
+mandatory: True
+question: |
+  Motion for Judgment on the Pleadings
+subquestion: |
+  After the answer is filed, a party may move for judgment on the pleadings to allow a court to dispose a case when the material facts are not in dispute, and a judgment on the merits can be achieved based on the content of the pleadings.
+fields: 
+  - no label: jop_here
+    datatype: area
+    hint: Here, 
+  - no label: jop_thus
+    datatype: area
+    hint: Thus, 
+section: JOP
+---
+mandatory: True
+question: |
+  Motion to Strike
+subquestion: |
+  If a pleading contains any insufficient defense, or redundant, immaterial, impertinent, or scandalous matter, the court, upon motion or its own initiative, may order such matter stricken.
+fields: 
+  - no label: mts_here
+    datatype: area
+    hint: Here, 
+  - no label: mts_thus
+    datatype: area
+    hint: Thus, 
+section: MTS
+---
+mandatory: True
+question: |
+  Motion to Compel Discovery
+subquestion: |
+  If a party fails to respond, or provides incomplete discovery, the other party may move the court to compel discovery.
+fields:
+  - no label: mcd_here
+    datatype: area
+    hint: Here, 
+  - no label: mcd_thus
+    datatype: area
+    hint: Thus, 
+section: MCD
+---
+mandatory: True
+question: |
+  Motion for Summary Judgment
+subquestion: |
+  A motion for summary judgment is applicable to all civil actions and should be granted if the pleadings, the discovery and disclosure materials on file, and affidavits show there is no genuine issue as to any material fact and the movant is entitled to judgment as a matter of law.
+fields: 
+  - no label: msj_here
+    datatype: area
+    hint: Here, 
+  - no label: msj_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      Affidavits
+      
+      Affidavits must (1) be made on personal knowledge, (2) set forth facts admissible in evidence, and (3) show the affiant is competent to testify.
+  - no label: aff_here
+    datatype: area
+    hint: Here, 
+  - no label: aff_thus
+    datatype: area
+    hint: Thus, 
+section: MSJ
+---
+mandatory: True
+question: |
+  Motion for Judgment as a Matter of Law
+subquestion: |
+  A motion for judgment as a matter of law (JMOL) may be brought after the close of plaintiff's evidence or at the close of all trial evidence. A JMOL is granted if no reasonable person could differ as to the trial outcome.
+fields: 
+  - no label: jmol_here
+    datatype: area
+    hint: Here, 
+  - no label: jmol_thus
+    datatype: area
+    hint: Thus, 
+section: JMOL
+---
+mandatory: True
+question: |
+  Renewed Motion for Judgment as a Matter of Law (JMOL)
+subquestion: |
+  If the court does not grant a JMOL, the court submits the action to the jury subject to the court deciding the legal questions raised by the JMOL. In ruling on the renewed JMOL, the court may (1) allow judgment on the verdict if the jury returned a verdict, (2) order a new trial, or (3) direct the entry of judgment as a matter of law. If the renewed JMOL is granted and the party had alternatively moved for a new trial, the court must determine whether to grant the motion for a new trial if the judgment is reversed or vacated on appeal.
+fields: 
+  - no label: rjmol_here
+    datatype: area
+    hint: Here, 
+  - no label: rjmol_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **Time for Renewed JMOL**
+      
+      The movant may file a renewed motion for judgment as a matter of law no later than 28 days after the entry of judgment. If the motion addresses a jury issue not decided by a verdict, the renewed motion must be filed no later than 28 days after the jury was discharged.
+  - no label: rjmol_time_here
+    datatype: area
+    hint: Here, 
+  - no label: rjmol_time_thus
+    datatype: area
+    hint: Thus, 
+section: Renewed JMOL
+---
+mandatory: True
+question: |
+  Motion for New Trial
+subquestion: |
+  The court may grant a motion for new trial at its discretion on all or certain issues or parties. Grounds for a new trial include [10 verdict against clear weight of evidence, verdict based on false evidence such that new trial necessary to prevent injustice, 11 verdict is excessive or inadequate, error at trial that renders judgment unfair, newly discovered evidence that existed at the time of trial excusably overlooked and likely have altered trial outcome, prejudicial misconduct of counsel, party, judge, or juror]. The trial court must disregard 12 harmless errors.
+fields: 
+  - no label: mnt_here
+    datatype: area
+    hint: Here, 
+  - no label: mnt_thus
+    datatype: area
+    hint: Thus, 
+section: MNT
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+
+  % if sees_nav_bar:
+  **Motions**
+  
+  ${ mtd_here }
+  
+  ${ mtd_thus }
+  
+  ${ jop_here }
+  
+  ${ jop_thus }
+  
+  ${ mts_here }
+  
+  ${ mts_thus }
+  
+  ${ mcd_here }
+  
+  ${ mcd_thus }
+  
+  ${ msj_here }
+  
+  ${ msj_thus }
+  
+  ${ aff_here }
+  
+  ${ aff_thus }
+  
+  ${ jmol_here }
+  
+  ${ jmol_thus }
+  
+  ${ rjmol_here }
+  
+  ${ rjmol_thus }
+  
+  ${ rjmol_time_here }
+  
+  ${ rjmol_time_thus }
+  
+  ${ mnt_here }
+  
+  ${ mnt_thus }
+
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  Solicitation: |
+    Solicitation is not the same as advertising. Solicitation is directed to specific people. Advertising is a communication to the masses.
+  pecuniary gain: |
+    Offers for free legal services allowed.
+  any form: |
+     Rule governs **all** communications about a lawyer’s services, including statements in letters, emails, telephone calls.
+  In CA: |
+    CA Rules of Professional Conduct, Rule 1-400
+  Under ABA: |
+    No similar CA rule. 
+  ads that contain: |
+    List and analyze only the restrictions the facts trigger.
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue

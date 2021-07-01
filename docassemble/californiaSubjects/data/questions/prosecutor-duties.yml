@@ -1,0 +1,279 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Special Duties of Prosecutors"
+  title: |
+    Special Duties of Prosecutors
+---
+sections:
+  - Intro
+  - Probable Cause
+  - Constitutional Due Process Rights
+  - Exculpatory Evidence
+  - Right to Counsel
+  - Waiver of Pre-Trial Rights
+  - Not Subpoena a Lawyer
+  - Disclose New Evidence
+  - Investigate Leads Objectively
+  - Trial Publicity
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  Attorney Fees
+subquestion: |
+  Under ABA [`and CA law`], a prosecutor is not only an advocate, but a minister of justice. The prosecutor’s responsibilities include 
+  
+  1. lay charges only when supported by probable cause, 
+  2. ensure the accused is afforded all constitutional due process rights,
+  3. disclose to the defense and the court all known exculpatory evidence that tends to negate guilt or mitigates an offense, 
+  4. assure accused is advised of the right to counsel and give reasonable opportunity to obtain counsel, 
+  5. not attempt to obtain a waiver of pre-trial rights from an unrepresented accused such as the right to a preliminary hearing, 
+  6. not subpoena a lawyer in a grand jury or other criminal proceeding to present evidence about a client unless reasonably believes (a) not privileged, (b) essential, and (c) no feasible alternative,
+  7. disclose new, credible, material evidence, creating a reasonable likelihood that a convicted defendant did not commit the offense; if conviction within the prosecutor’s jurisdiction, (a) disclose the evidence to the defendant, unless the court otherwise instructs, (b) investigate to determine wrongful conviction, and (c) remedy a conviction when evidence is clear and convincing,
+  8. investigate leads objectively.
+field: sees_nav_bar
+section: Intro
+---
+mandatory: True
+question: |
+  Probable Cause
+fields:
+  - no label: pc_here
+    datatype: area
+    hint: Here, 
+  - no label: pc_thus
+    datatype: area
+    hint: Thus, 
+section: Probable Cause
+---
+mandatory: True
+question: |
+  Constitutional Due Process Rights
+fields: 
+  - no label: dpr_here
+    datatype: area
+    hint: Here, 
+  - no label: dpr_thus
+    datatype: area
+    hint: Thus, 
+section: Constitutional Due Process Rights
+---
+mandatory: True
+question: |
+  Exculpatory Evidence
+fields: 
+  - no label: ee_here
+    datatype: area
+    hint: Here, 
+  - no label: ee_thus
+    datatype: area
+    hint: Thus, 
+section: Exculpatory Evidence
+---
+mandatory: True
+question: |
+  Right to Counsel
+fields:
+  - no label: rtc_here
+    datatype: area
+    hint: Here, 
+  - no label: rtc_thus
+    datatype: area
+    hint: Thus, 
+section: Right to Counsel
+---
+mandatory: True
+question: |
+  Waiver of Pre-Trial Rights
+fields: 
+  - no label: wptr_here
+    datatype: area
+    hint: Here, 
+  - no label: wptr_thus
+    datatype: area
+    hint: Thus, 
+section: Waiver of Pre-Trial Rights
+---
+mandatory: True
+question: |
+ Not Subpoena a Lawyer
+fields: 
+  - no label: nsl_here
+    datatype: area
+    hint: Here, 
+  - no label: nsl_thus
+    datatype: area
+    hint: Thus, 
+section: Not Subpoena a Lawyer
+---
+mandatory: True
+question: |
+  Disclose New Evidence
+fields: 
+  - no label: dne_here
+    datatype: area
+    hint: Here, 
+  - no label: dne_thus
+    datatype: area
+    hint: Thus, 
+section: Disclose New Evidence
+---
+mandatory: True
+question: |
+  Investigate Leads Objectively
+fields: 
+  - no label: ilo_here
+    datatype: area
+    hint: Here, 
+  - no label: ilo_thus
+    datatype: area
+    hint: Thus, 
+section: Investigate Leads Objectively
+---
+mandatory: True
+question: |
+  Trial Publicity
+subquestion: |
+  Under ABA [`and CA law`], a lawyer participating in litigation is not permitted to make an extrajudicial statement (1) the lawyer knows or reasonably should know will be disseminated by means of public communication and (2) will have a substantial likelihood of {materially prejudicing} an adjudicative proceeding.
+  
+  {Under ABA}, a prosecutor must use reasonable care to prevent law enforcement personnel, investigators, or other persons associated with the criminal case from making extrajudicial statements the prosecutor is prohibited from making.
+fields: 
+  - no label: tp_here
+    datatype: area
+    hint: Here, 
+  - no label: tp_thus
+    datatype: area
+    hint: Thus, 
+section: Trial Publicity
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+
+  % if sees_nav_bar:
+  **Special Duties of Prosecutors**
+  
+  **Probable Cause**
+
+  ${ pc_here }
+  
+  ${ pc_thus }
+  
+  **Constitutional Due Process Rights**
+  
+  ${ dpr_here }
+  
+  ${ dpr_thus }
+  
+  **Exculpatory Evidence**
+  
+  ${ ee_here }
+  
+  ${ ee_thus }
+  
+  **Right to Counsel**
+  
+  ${ rtc_here }
+  
+  ${ rtc_thus }
+  
+  **Waiver of Pre-Trial Rights**
+
+  ${ wptr_here }
+  
+  ${ wptr_thus }
+  
+  **Not Subpoena a Lawyer**
+
+  ${ nsl_thus }
+  
+  ${ nsl_here }
+ 
+  **Disclose New Evidence**
+  
+  ${ dne_here }
+  
+  ${ dne_thus }
+  
+  **Investigate Leads Objectively** 
+  
+  ${ ilo_here }
+  
+  ${ ilo_thus }
+
+  **Trial Publicity** 
+
+  ${ tp_here }
+  
+  ${ tp_thus }
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  include: |
+    List in rules and make headings to analyze only the duties the facts trigger.
+  materially prejudicing: |
+     For prosecutor duties, this means heightening public condemnation of accused.
+  Under ABA: |
+    Trial Publicity rule is the same as for attorneys who are not prosecutors, except under ABA, a prosecutor needs to exercise reasonable care to prevent investigators, law enforcement personnel, or other persons assisting or associated with the prosecutor in a criminal case from making an extrajudicial statement that the prosecutor would be prohibited from making.
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue

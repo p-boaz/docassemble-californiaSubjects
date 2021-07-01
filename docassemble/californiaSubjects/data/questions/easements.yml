@@ -1,0 +1,408 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Easements"
+  title: |
+    Easements
+---
+question: |
+  {Trespass}
+subquestion: |
+  Trespass to land occurs when (1) a defendant's intentional act (2) causes a physical invasion (3) of the land of another. Consent is a defense to trespass.
+continue button field: trespass
+---
+question: |
+  Easement
+subquestion: |
+  An easement is a **non-possessory land interest** that gives the holder the right to use another's land.
+continue button field: easement
+---
+question: |
+  Step 1: Creation
+subquestion: |
+  Easements may be created by
+  
+  * express, 
+  * implication, 
+  * necessity, 
+  * prescription, or 
+  * estoppel
+fields:
+  - How was the easement created?: creation_type
+    choices:
+      - express
+      - implication
+      - necessity
+      - prescription
+      - estoppel
+  - What type: express_type
+    js show if: |
+      val('creation_type') == "express"
+    choices: 
+      - valid deed
+      - valid contract
+      - valid will
+---
+question: |
+  Step 1.2: Implication
+subquestion: |
+  If an (1) earlier owner previously used an easement on the servient estate, the court may find the parties intended the easement to continue if the (2) prior use was continuous, apparent, and (3) reasonably necessary to the dominant land's use and enjoyment.
+fields: 
+  - 1: prev_used
+  - 2: prior_cont_apparent
+  - 3: neccessary
+---
+question: |
+  Step 1.3: Neccessity
+subquestion: |
+  An easement by necessity requires (1) severance of title to land held in common ownership, and (2) strict necessity for the easement at the time of severance.
+fields: 
+  - 1: sev_of_title
+  - 2: strict_nec
+---
+question: |
+  Step 1.4: Prescription
+subquestion: |
+  An easement by necessity requires (1) severance of title to land held in common ownership, and (2) strict necessity for the easement at the time of severance.
+fields: 
+  - 1: continuous
+  - 2: actual
+  - 3: open
+  - 4: hostile
+---
+question: |
+  Step 1.5: Estoppel
+subquestion: |
+  Easement by estoppel requires
+fields: 
+  - 1: burden
+  - 2: det_reliance
+  - 3: damages
+help: |
+  Easement by estoppel requires (1) burdened estate holder represents permission, (2) justifiable detrimental reliance by servient estate holder, and (3) servient estate holder suffers damages if easement unrecognized.
+---
+question: |
+  Step 2: Type 
+subquestion: |
+  An easement may be (1) appurtenant or in gross, and (2) affirmative or negative.
+fields:
+  - appurtenant or in gross?: app_or_gross
+    choices:
+      - appurtenant
+      - in gross
+  - affirmative or negative?: aff_or_neg
+    choices:
+      - affirmative
+      - negative
+---
+question: |
+  **Easement Appurtenant**
+subquestion: |
+  Easements are presumed {appurtenant} unless there are clear contrary facts. The land subject to the easement is the servient estate, whereas the land that benefits from an easement is the dominant estate. An easement appurtenant is {transferred with the land} to which it relates.
+fields: 
+  - no label: appurt
+    datatype: area
+    hint: Here, 
+  - no label: appurt2
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Easement In Gross**
+subquestion: |
+  An easement is **in gross** if it is granted to benefit a particular person (as opposed to the land).
+fields: 
+  - no label: in_gross
+    datatype: area
+    hint: Here, 
+  - no label: in_gross2
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Negative Easement**
+subquestion: |
+  Negative easements allow the holder to compel the servient estate owner to refrain from using land in particular ways.
+fields: 
+  - no label: neg_ease
+    datatype: area
+    hint: Here, 
+  - no label: neg_ease2
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Affirmative Easement**
+subquestion: |
+  Affirmative easements allow the holder to affirmatively use another's land.
+fields: 
+  - no label: aff_ease
+    datatype: area
+    hint: Here, 
+  - no label: aff_ease2
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  Step 3: Scope
+subquestion: |
+  % if creation_type == 'express':
+  **Express**
+
+  The terms of the written grant or reservation determines the scope of an express easement. Courts consider the (1) reasonableness of the use and the (2) intent of the original parties to the easement. When the language used to create the easement is too general to determine the specific easement purpose, ambiguities are resolved in favor of the grantee.
+  
+  % elif creation_type == 'implication':
+  **Implication or Necessity**
+  
+  The scope of an easement by necessity is limited to the nature and extent of the necessity, and is determined by the parties' conduct. Courts consider the easement (1) purpose, (2) reasonable use changes, and (3) future foreseeable use.
+  
+  % elif creation_type == 'estoppel':
+  **Estoppel**
+  
+  Courts consider the reasonableness of the (1) use and the (2) intent of the original parties to the easement.
+  
+  % elif creation_type == 'prescription':
+  **Prescription**
+  
+  The scope of an easement by prescription is limited to the nature and extent of the adverse use.
+  % endif
+fields:
+  - no label: scope_here
+    datatype: area
+    hint: Here, 
+  - no label: scope_thus
+    datatype: area
+    hint: Thus, 
+---
+pre: |
+  `List only the termination methods the facts trigger.`
+question: |
+  Step 4: Termination
+subquestion: |
+  An easement can terminate by sale to a bona fide purchaser, release, merger, severance, abandonment, destruction, condemnation, prescription, or estoppel.
+fields: 
+  - How was it claimed to be terminated?: easement_terminated
+    choices:
+      - Bona Fide Purchaser
+      - Release
+      - Merger
+      - Severance
+      - Abandonment
+      - Destruction
+      - Condemnation
+      - Prescription
+      - Estoppel
+---
+question: |
+  **Bona Fide Purchaser**
+subquestion: |
+  A bona fide purchaser (1) pays valuable consideration, (2) with no notice (actual, constructive, inquiry) of an easement.
+fields: 
+  - no label: bfp_here
+    datatype: area
+    hint: Here, 
+  - no label: bfp_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Release**
+subquestion: |
+  An easement terminates when the dominant estate holder releases the interest in writing to the servient estate holder.
+fields: 
+  - no label: release_here
+    datatype: area
+    hint: Here, 
+  - no label: release_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Merger**
+subquestion: |
+  An easement terminates when the dominant and servient estates merge into common ownership under fee title.
+fields: 
+  - no label: merger_here
+    datatype: area
+    hint: Here, 
+  - no label: merger_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Severance**
+subquestion: |
+  An attempt to convey an easement appurtenant separate from the land it benefits severs the easement.
+fields: 
+  - no label: sev_here
+    datatype: area
+    hint: Here, 
+  - no label: sev_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Abandonment**
+subquestion: |
+  Abandonment terminates an easement when there is (1) intent to abandon, and (2) an affirmative act furthers the intent.
+fields: 
+  - no label: abandon_here
+    datatype: area
+    hint: Here, 
+  - no label: abandon_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Destruction**
+subquestion: |
+  Destruction of a structure on the servient estate by natural forces terminates an easement if the easement relates to the structure.
+fields: 
+  - no label: destruction_here
+    datatype: area
+    hint: Here, 
+  - no label: destruction_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Condemnation**
+subquestion: |
+  Condemnation of the servient estate terminates an easement. Some courts permit the estate holder to receive compensation because of the condemnation.
+fields: 
+  - no label: condemn_here
+    datatype: area
+    hint: Here, 
+  - no label: condemn_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Prescription**
+subquestion: |
+  If an easement holder fails to protect an easement against a trespasser for the statutory period, prescription may terminate the easement.
+fields: 
+  - no label: prescript_here
+    datatype: area
+    hint: Here, 
+  - no label: prescript_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  **Estoppel**
+subquestion: |
+  Estoppel terminates an easement when (1) servient estate holder justifiably detrimentally relies on (2) acts or representations of burdened estate holder that the easement is abandoned, and (3) servient estate holder suffers damages if easement is not terminated.
+fields: 
+  - no label: estoppel_here
+    datatype: area
+    hint: Here, 
+  - no label: estoppel_thus
+    datatype: area
+    hint: Thus, 
+---
+mandatory: True
+question: |
+  Done with Easement review
+subquestion: |
+  % if trespass and easement: 
+    % if creation_type == 'express':
+      % if express_type == 'valid deed':
+  Do a valid deed analysis. 
+      % elif express_type == 'valid contract':
+  Do a valid contract analysis. 
+      % elif express_type == 'valid will':
+  Do a valid will analysis. 
+      % endif
+    % elif creation_type == 'implication':
+  ${ prev_used }
+    % elif creation_type == 'necessity':
+  ${ strict_nec }
+    % elif creation_type == 'prescription':
+  ${ continuous }
+    % elif creation_type == 'estoppel':
+  ${ damages }
+    % endif
+    % if app_or_gross == 'appurtenant':
+  ${ appurt }
+  
+  ${ appurt2 }
+    % else:
+  ${ in_gross }
+  
+  ${ in_gross2 }
+    % endif
+    % if aff_or_neg == 'affirmative':
+  ${ aff_ease }
+  
+  ${ aff_ease2 }
+    % else:
+  ${ neg_ease }
+  
+  ${ neg_ease2 }
+    % endif
+  ${ scope_here }
+  
+  ${ scope_thus }
+    % if easement_terminated =='Bona Fide Purchaser':
+  ${ bfp_here }
+  
+  ${ bfp_thus }
+    % elif easement_terminated =='Merger':
+  ${ merger_here }
+  
+  ${ merger_thus }
+    % elif easement_terminated =='Release':
+  ${ release_here }
+  
+  ${ release_thus }
+    % elif easement_terminated =='Severance':
+  ${ sev_here }
+  
+  ${ sev_thus }
+    % elif easement_terminated =='Abandonment':
+  ${ abandon_here }
+  
+  ${ abandon_thus }
+    % elif easement_terminated =='Destruction':
+  ${ destruction_here }
+  
+  ${ destruction_thus }
+    % elif easement_terminated =='Condemnation':
+  ${ condemn_here }
+  
+  ${ condemn_thus }
+    % elif easement_terminated =='Prescription':
+  ${ prescript_here }
+  
+  ${ prescript_thus }
+    % elif easement_terminated =='Estoppel':
+  ${ estoppel_here }
+  
+  ${ estoppel_thus }
+    % endif
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  Trespass: |
+    Easement may be tested with Trespass. If a party has an easement, consent is a trespass defense. Analyze Trespass issue before Easement.
+  appurtenant: |
+    Appurtenant means tied to the land. Use the facts to show two tracts of land adjoined.
+  transferred with the land: |
+    Benefit transferred automatically with dominant estate transfer. Burden transferred automatically with servient estate (burdened estate).

@@ -1,0 +1,505 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Estates in Land"
+  title: |
+    Estates in Land
+---
+sections:
+  - Intro
+  - Present Possessory Estates:
+    - Fee Simple Absolute
+    - Fee Simple Determinable
+    - Fee Simple Subject to Condition Subsequent
+    - Life Estate
+  - Future Interests:
+    - Possibility of Reverter
+    - Reversion
+    - Right of Reentry
+    - Remainder
+  - Constructional Rights: 
+    - Rule Against Perpetuities
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+section: Intro
+question: |
+  Estates in Land
+field: sees_nav_bar
+---
+section: Fee Simple Absolute
+question: |
+  Fee Simple Absolute
+subquestion: |
+  The fee simple absolute is a present estate that **does not terminate**, unless the owner dies intestate without heirs, in which case the property escheats to the state, and gives a person all property rights, including unimpeded rights to (1) **sell or convey all or part**, (2) **devise**.
+fields: 
+  - no label: fsa_here
+    datatype: area
+    hint: Here,
+    required: False
+  - no label: fsa_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Fee Simple Absolute
+question: |
+  Alienable
+subquestion: |
+  A fee simple absolute is **freely alienable** by the owner **during life**, and **upon death, devisable and descendible**.
+fields: 
+  - no label: fsa_alien_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: fsa_alien_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Fee Simple Determinable
+question: |
+  Fee Simple Determinable
+subquestion: |
+  A fee simple determinable is a present fee simple **limited by specific {durational language}** such that it **terminates automatically upon the happening of a stated condition**, and **full property ownership reverts to the grantor**.
+fields: 
+  - no label: fsd_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: fsd_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Fee Simple Determinable
+question: |
+  Alienable
+subquestion: |
+  A fee simple determinable is **freely alienable, devisable**, and descendible, but always **subject to the stated condition**.
+fields: 
+  - no label: fsd_alien_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: fsd_alien_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Fee Simple Subject to Condition Subsequent
+question: |
+  Fee Simple Subject to Condition Subsequent
+subquestion: |
+  A fee simple subject to a condition subsequent is a present fee simple in which the **grantor reserves**, through **{conditional words}, the right to terminate upon the happening of a stated event**. The fee simple **does not automatically terminate upon the occurrence of the event**, but when the grantor acts to recover possession.
+fields: 
+  - no label: fss_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: fss_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Fee Simple Subject to Condition Subsequent
+question: |
+  Alienable
+subquestion: |
+  A fee simple subject to a condition subsequent is **freely alienable** by the owner **during life, and upon death, devisable and descendible**.
+fields: 
+  - no label: fss_alien_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: fss_alien_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Life Estate
+question: |
+  Life Estate
+subquestion: |
+  A life estate is a present possessory interest **limited in duration by a life**.
+fields: 
+  - no label: le_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: le_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Possibility of Reverter
+question: |
+  Possibility of Reverter
+subquestion: |
+  A possibility of reverter is a future interest that arises automatically in the grantor as a consequence of conveying a **fee simple determinable**. Upon the **occurrence of the stated condition, the estate automatically reverts to the grantor****.
+fields: 
+  - no label: pr_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pr_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Reversion
+question: |
+  Reversion
+subquestion: |
+  A reversion is a **future interest the grantor retains** when the grantor **transfers less than a fee simple absolute** to a third person.
+fields: 
+  - no label: rev_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: rev_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Right of Reentry
+question: |
+  Right of Reentry
+subquestion: |
+  A right of reentry is a future interest the grantor expressly reserves after granting a life estate or fee simple on condition subsequent.
+fields: 
+  - no label: reentry_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: reentry_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Right of Reentry
+question: |
+  Restraint on Alienation
+subquestion: |
+  Forfeiture restraints on alienation (grantor may terminate estate if conveyance made) on fee simples are void, unless for a limited time and reasonable purpose.
+fields: 
+  - no label: restraint_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: restraint_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Right of Reentry
+question: |
+  Failure to Assert Right of Reentry
+fields: 
+  - note: |
+      **Waiver** 
+      
+      The right to terminate a fee simple subject to a condition subsequent is devisable and descendible. The failure to assert the right of reentry does not constitute a waiver.
+  - no label: waiver_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: waiver_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Statute of Limitations** 
+      
+      The statute of limitations limits the time a plaintiff may bring a claim to encourage resolving claims within a reasonable time, and prevent stale claims from arising after evidence has been lost or facts become unclear through time passage, defective memory, death, or witness disappearance.
+  - no label: sol_here
+    datatype: area
+    hint: Calculate amount of years when the right of reentry vested.
+    required: False
+  - no label: sol_thus
+    datatype: area
+    hint: Conclude whether the statute of limitations bars asserting the right of reentry.
+    required: False
+---
+section: Remainder
+question: |
+  Remainder
+subquestion: |
+  A remainder is a future interest created in a grantee that takes effect after the expiration of a prior possessory estate. A remainder can be {vested or contingent}.
+fields: 
+  - no label: restraint_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: restraint_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Remainder
+question: |
+  Vested Remainder
+subquestion: |
+  A vested remainder is (1) an interest subject to any conditions precedent and created in (2) an ascertainable grantee.
+fields: 
+  - no label: vr_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: vr_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Remainder
+question: |
+  Contingent Remainder
+subquestion: |
+  A remainder is contingent if (1) interest not subject to condition precedent or (2) unascertained taker.
+fields: 
+  - no label: cr_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: cr_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Rule Against Perpetuities
+question: |
+  Rule Against Perpetuities
+subquestion: |
+  No interest in property is valid unless it must vest, if at all, not later than 21 years after some life in being (measuring life) at the creation of the interest.
+fields: 
+  - no label: rap_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: rap_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      Property interest vests when given to person in being (living person), and not subject to a condition precedent. 
+      
+      Example: W’s children alive at the time of W’s death. The children’s interest is not vested because the interest is subject to a condition precedent that they survive W. Rules against perpetuities not relate to time when property vests in actual possession, but when property vests in interest. 
+      
+      Example: W’s children, A and R. The children’s interest is vested.
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  % if sees_nav_bar:
+  
+  **Fee Simple Absolute**
+  
+  The fee simple absolute is a present estate that does not terminate, unless the owner dies intestate without heirs, in which case the property escheats to the state, and gives a person all property rights, including unimpeded rights to (1) sell or convey all or part, (2) devise.
+  
+  ${ fsa_here }
+  
+  ${ fsa_thus }
+  
+  **Alienable** 
+  
+  A fee simple absolute is freely alienable by the owner during life, and upon death, devisable and descendible.
+  
+  ${ fsa_alien_here }
+  
+  ${ fsa_alien_thus }
+  
+  **Fee Simple Determinable**
+  
+  A fee simple determinable is a present fee simple limited by specific durational language such that it terminates automatically upon the happening of a stated condition, and full property ownership reverts to the grantor.
+  
+  ${ fsd_here }
+  
+  ${ fsd_thus }
+  
+  **Alienable** 
+  
+  A fee simple determinable is freely alienable, devisable, and descendible, but always subject to the stated condition.
+  
+  ${ fsd_alien_here }
+  
+  ${ fsd_alien_thus }
+  
+  **Fee Simple Subject to Condition Subsequent**
+  
+  A fee simple subject to a condition subsequent is a present fee simple in which the grantor reserves, through conditional words, the right to terminate upon the happening of a stated event. The fee simple does not automatically terminate upon the occurrence of the event, but when the grantor acts to recover possession.
+  
+  ${ fss_here }
+  
+  ${ fss_thus }
+  
+  **Alienable** 
+  
+  A fee simple subject to a condition subsequent is freely alienable by the owner during life, and upon death, devisable and descendible.
+  
+  ${ fss_alien_here }
+  
+  ${ fss_alien_thus }
+  
+  **Life Estate**
+  
+  A life estate is a present possessory interest limited in duration by a life.
+  
+  ${ le_here }
+  
+  ${ le_thus }
+  
+  **Possibility of Reverter**
+  
+  A possibility of reverter is a future interest that arises automatically in the grantor as a consequence of conveying a fee simple determinable. Upon the occurrence of the stated condition, the estate automatically reverts to the grantor.
+  
+  ${ pr_here }
+  
+  ${ pr_thus }
+  
+  **Reversion**
+  
+  A reversion is a future interest the grantor retains when the grantor transfers less than a fee simple absolute to a third person.
+  
+  ${ rev_here }
+  
+  ${ rev_thus }
+  
+  **Right of Reentry** 
+  
+  A right of reentry is a future interest the grantor expressly reserves after granting a life estate or fee simple on condition subsequent.
+  
+  ${ reentry_here }
+  
+  ${ reentry_thus }
+  
+  **Restraint on Alienation**
+  
+  Forfeiture restraints on alienation (grantor may terminate estate if conveyance made) on fee simples are void, unless for a limited time and reasonable purpose.
+  
+  ${ restraint_here }
+  
+  ${ restraint_thus }
+  
+  **Failure to Assert Right of Reentry**
+  
+  **Waiver** 
+  
+  The right to terminate a fee simple subject to a condition subsequent is devisable and descendible. The failure to assert the right of reentry does not constitute a waiver.
+  
+  ${ waiver_here }
+  
+  ${ waiver_thus }
+  
+  **Statute of Limitations**
+  
+  The statute of limitations limits the time a plaintiff may bring a claim to encourage resolving claims within a reasonable time, and prevent stale claims from arising after evidence has been lost or facts become unclear through time passage, defective memory, death, or witness disappearance.
+  
+  ${ sol_here }
+  
+  ${ sol_thus }
+  
+  **Remainder** 
+  
+  A remainder is a future interest created in a grantee that takes effect after the expiration of a prior possessory estate. A remainder can be vested or contingent.
+
+  **Vested Remainder** 
+  
+  A vested remainder is (1) an interest subject to any conditions precedent and created in (2) an ascertainable grantee.
+  
+  ${ vr_here }
+  
+  ${ vr_thus }
+  
+  **Contingent Remainder**
+  
+  A remainder is contingent if (1) interest not subject to condition precedent or (2) unascertained taker.
+  
+  ${ cr_here }
+  
+  ${ cr_thus }
+  
+  **Constructional Rules**
+  
+  **Rule Against Perpetuities** 
+  
+  No interest in property is valid unless it must vest, if at all, not later than 21 years after some life in being (measuring life) at the creation of the interest.
+  
+  ${ rap_here }
+  
+  ${ rap_thus }
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms:
+  less than a fee simple absolute: |
+    Examples: Life estate, estate for years.
+  conditional words: |
+    Examples: provided that, on condition that, but if.
+  Present Possessory Interests: |
+    This list of Estates In Land issues is not complete; contains only topics tested on CA Bar Exam essay questions from 7/2003-2/2015.
+  durational language: |
+    Examples: so long as, while, during, until. Language needs to limit the duration, not the transfer purpose. If language only limits the purpose, estate is a fee simple absolute. A conveyance that contains durational language and a termination power may be construed as fee simple subject to condition subsequent because the right to terminate is not automatic. Courts try to avoid estate forfeitures.
+  vested or contingent: |
+    Do what the fact triggers, not both if no facts on both.
+  interest not subject to condition precedent: |
+    Property cannot vest because known beneficiary subject to condition precedent that has not occurred.
+  unascertained taker: |
+    Property cannot vest because beneficiary unknown.

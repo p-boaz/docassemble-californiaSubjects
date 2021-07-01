@@ -1,0 +1,379 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Standing"
+  title: |
+    Standing
+---
+sections:
+  - Intro
+  - Individual Standing:
+    - Injury in Fact
+    - Causation
+    - Redressability
+  - Organization Standing:
+    - Indiv Standing
+    - Org Purpose
+    - Indiv Members
+  - Taxpayer Standing
+  - Third Party Standing
+  - Mootness
+  - Ripeness
+  - Advisory Opinion
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  Standing
+subquestion: |
+  If you are not on a
+  smartphone-sized device,
+  you should see a navigation
+  bar to the left.
+field: sees_nav_bar
+---
+question: |
+  Main issue
+subquestion: |
+  There are a few types of standing. 
+fields:
+  - What type of standing is involved?: type
+    datatype: checkboxes
+    choices:
+      - Individual Standing
+      - Organization Standing
+      - Taxpayer Standing
+      - Third Party Standing
+      - Mootness
+      - Ripeness
+      - Advisory Opinion
+section: Intro
+---
+question: |
+  Individual Standing
+subquestion: |
+  A person must have a stake in the case outcome. For standing, a plaintiff shows (1) an injury in fact, (2) caused by alleged unlawful government action, and (3) redressability.
+fields: 
+  - no label: indiv_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: indiv_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Individual Standing
+---
+question: |
+  Injury in Fact
+subquestion: |
+  The injury must be concrete and particularized. 
+  
+  `In injunction or declaratory relief, injury in fact is satisfied if the injury is imminent, even though it has not yet occurred.`
+fields: 
+  - no label: injury_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: injury_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Injury in Fact
+---
+question: |
+  Causation
+subquestion: |
+  The plaintiff must show the injury traces to the defendant's acts. 
+fields: 
+  - no label: caus_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: caus_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Causation
+---
+question: |
+  Redressability 
+subquestion: |
+  It must be likely (as opposed to speculative) that a favorable court decision will eliminate the grievance.
+fields: 
+  - no label: redress_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: redress_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Redressability
+---
+question: |
+  Organization Standing
+subquestion: |
+  An organization may bring an action on behalf of its members (even if the organization has not suffered direct injury itself) if (1) its members have standing, (2) the interests at stake are germane to the organization purpose, and (3) neither the claim asserted nor relief requested requires individual members’ participation in the lawsuit.
+fields: 
+  - no label: org_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: org_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Organization Standing
+---
+question: |
+  Individual Standing
+subquestion: |
+  A person must have a stake in the case outcome. For standing, a plaintiff shows (1) an injury in fact, (2) caused by alleged unlawful government action, and (3) redressability.
+fields: 
+  - no label: ind_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: ind_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Indiv Standing
+---
+question: |
+  Organization Purpose
+subquestion: |
+  Organization standing requires the injury in fact be related to the organization purpose.
+fields: 
+  - no label: purpose_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: purpose_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Org Purpose
+---
+question: |
+  Individual Members’ Participation Not Required
+subquestion: |
+  For organization standing, individual members’ participation in the lawsuit is not required.
+fields: 
+  - no label: partic_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: partic_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Indiv Members
+---
+question: |
+  Taxpayer Standing
+subquestion: |
+  A federal taxpayer has standing to challenge a measure (1) enacted under Congress’ taxing and spending power (2) that exceeds some specific limit on the power. The Establishment Clause is the only limit on the power.
+fields: 
+  - no label: tax_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: tax_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Taxpayer Standing
+---
+question: |
+  Third Party Standing
+subquestion: |
+  Third party standing is allowed when (1) a third party is unable to assert its own rights, and (2) a plaintiff with standing (a) has a close relationship with the third party, or (b) suffers an injury that adversely affects the plaintiff’s relationship with the third party resulting in an indirect violation of third party’s rights.
+fields: 
+  - no label: third_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: third_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Third Party Standing
+---
+question: |
+  Mootness
+subquestion: |
+  There must be a live controversy at all review stages.
+fields: 
+  - no label: moot_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: moot_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Mootness
+---
+question: |
+  Ripeness
+subquestion: |
+  Ripeness refers to the readiness of a case for litigation. A federal court will not consider a claim before it fully develops; to do so is premature, and any potential injury speculative.
+fields: 
+  - no label: ripeness_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: ripeness_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Ripeness
+---
+question: |
+  Advisory Opinion
+subquestion: |
+  A federal court may not render advisory opinions on the constitutionality of proposed action or legislation, but may grant a declaratory judgment when the challenged action poses a real and immediate danger to a party’s interests.
+fields: 
+  - no label: ao_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: ao_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Advisory Opinion
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+  % if sees_nav_bar:
+  **Standing**
+
+  **Individual Standing**
+  
+  ${ indiv_here }
+  
+  ${ indiv_thus }
+  
+  ${ injury_here }
+  
+  ${ injury_thus }
+  
+  ${ caus_here }
+
+  ${ caus_thus }
+
+  ${ redress_here }
+
+  ${ redress_thus }
+  
+  **Organization Standing**
+  
+  ${ org_here }
+  
+  ${ org_thus }
+  
+  ${ ind_here }
+  
+  ${ ind_thus }
+  
+  ${ purpose_here }
+  
+  ${ purpose_thus }
+  
+  ${ partic_here }
+  
+  ${ partic_thus }
+
+  **Taxpayer Standing**    
+
+  ${ tax_here }
+  
+  ${ tax_thus }
+
+  **Third Party Standing**
+
+  ${ third_here }
+  ${ third_thus }
+
+  **Mootness**
+  
+  ${ moot_here }
+  
+  ${ moot_thus }
+
+  **Ripeness**
+  
+  ${ ripeness_here }
+  
+  ${ ripeness_thus }
+  
+  ${ ao_here }
+  
+  ${ ao_thus }
+
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue

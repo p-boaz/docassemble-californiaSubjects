@@ -1,0 +1,1160 @@
+---
+metadata:
+  interview_identifier: "Business Associations Library"
+  title: |
+    Business Associations Library
+---
+sections:
+  - Intro
+  - Agency: 
+    - Director and Officer Authority
+    - Partner Authority
+  - Partnership:
+    - Formation
+    - Type
+    - Liability
+    - Partner Fiduciary Duties
+    - Dissolution
+  - Piercing the Corporate Veil
+  - SEC Rule 10b-5
+---
+question: |
+  Business Associations
+subquestion: |
+  Applicants should be prepared to answer questions that have issues concerning a variety of Business Associations, including, but not limited to Corporations, Sole Proprietorships, Partnerships (General Partnerships, Limited Partnerships, Limited Liability Partnerships), Joint Ventures, Limited Liability Companies, and the principles of Agency inherent in business relationships.
+section: Intro
+---
+question: |
+  Section 16(b)
+subquestion: |
+  Section 16(b) requires (1) return to a corporation (a) with more than $10 million in assets and 500 or more shareholders in any class, or (b) whose shares are traded on a national exchange (2) profit realized by a director, officer, or shareholder owning more than 10% of a class of the corporation’s stock (3) from the purchase and sale, or sale and purchase, of equity security (4) within a six-month period.
+section: 
+---
+question: |
+  De Facto Limited Liability Partnership
+subquestion: |
+  A de facto limited liability partnership immunizes partners from personal liability when the partners have a good faith belief, though erroneous, that a limited liability partnership has been created. However, courts have not widely applied “de facto” status in the partnership context.
+section: 
+---
+question: |
+  Failure to File Certificate of Limited Partnership
+subquestion: |
+  Where a certificate of limited partnership is not filed, a person who contributes to a purported limited partnership and erroneously believes in good faith s/he is a limited partner, may be liable to a third party who transacts business with the purported limited partnership.
+section: 
+---
+question: |
+  Close Corporation
+subquestion: |
+  A close corporation is a corporation that is not publicly traded, has few shareholders, and less corporate formalities or governance.
+section: 
+---
+question: |
+  Board Action
+subquestion: |
+  Once a quorum is present, a vote of the majority of the directors present constitutes a board action, unless the articles of incorporation or bylaws requires a higher number.
+section:
+---
+question: |
+  Shareholder Inspection Rights
+subquestion: |
+  A shareholder has a right to (1) inspect and copy corporate records (e.g. shareholder, board, or incorporator meeting minutes), (2) upon five days’ written notice (3) stating a proper purpose.
+section: Shareholder Rights
+---
+question: |
+  Proxies
+subquestion: |
+  A shareholder may vote shares in person or by proxy executed in writing. Proxies are valid for 11 months unless they provide otherwise. A proxy is generally revocable by the shareholder, and may be revoked by the shareholder attending the meeting to vote or by subsequent appointment of another proxy. A proxy is irrevocable if it states it is irrevocable and is coupled with an interest or given as security.
+section: Shareholder Rights
+---
+question: |
+  Voluntary Dissolution Distribution
+subquestion: |
+  In a voluntary dissolution, a corporation’s assets are distributed in the following order: (1) creditors (secured before unsecured), including bona fide obligations owed to shareholders, (2) shareholders of stock with preferences in liquidation, and (3) shareholders of other stock.
+section:
+---
+question: |
+  Dividends
+subquestion: |
+  The decision to declare distributions of a corporation’s assets to shareholders is solely within the directors’ discretion, subject to articles of incorporation limitations and statutory solvency requirements.
+section:
+---
+question: |
+  Meetings
+subquestion: |
+  The board may hold regular or special meetings either within or outside the states.
+section:
+---
+question: |
+  Shareholder
+subquestion: |
+  A shareholder is an owner of a corporation.
+section: Role Definitions
+---
+question: |
+  Member
+subquestion: |
+  A member is an owner of a limited liability company.
+section: Role Definitions
+---
+question: |
+  Partner
+subquestion: |
+  A partner is a person who intends to carry on a business for profit as a co-owner. Factors to determine whether a person is a partner include (1) equal right to participate in management, (2) shares profits, (3) no right to remuneration for services to the partnership.
+section: Role Definitions
+---
+question: |
+  Employee
+subquestion: |
+  A worker is an employee if the worker (1) gets a wage or salary, (2) regularly works at the employer’s premises, (3) during business hours, (4) using the employer’s equipment.
+section: Role Definitions
+---
+question: |
+  Purported Partner (Partner by Estoppel)
+subquestion: |
+  A person not a partner in a partnership may be treated as a partner when the person (1) represents him/herself as a partner or (2) consents to being represented by another as a partner. The person will be liable to third parties who rely on the representation.
+section: Role Definitions
+---
+question: |
+  Direct Action
+subquestion: |
+  A shareholder may pursue a direct action to enforce shareholder rights. A shareholder may sue the corporation for breach of a fiduciary duty owed to the shareholder by a director or an officer.
+section: Shareholder Rights
+---
+question: |
+  Derivative Action
+subquestion: |
+  In a derivative action, (1) a shareholder with standing (2) after a board demand, (3) sues on the corporation’s behalf to recover for harm to the corporation, and litigation expenses.
+section: Shareholder Rights
+---
+question: |
+  Shareholder Agreements
+subquestion: |
+  Shareholders may enter into agreements concerning the management of a corporation as long as the agreement is set forth in the articles, bylaws, or a written agreement signed by all shareholders at the time the agreement is made known to the corporation.
+fields: 
+  - no label: sa_here
+    datatype: area
+    hint: Here, 
+  - no label: sa_thus
+    datatype: area
+    hint: Thus, 
+section: Shareholder Rights
+---
+question: |
+  Election of Directors
+subquestion: |
+  Shareholders elect directors at the annual shareholders’ meeting.
+fields: 
+  - no label: eod_here
+    datatype: area
+    hint: Here, 
+  - no label: eod_thus
+    datatype: area
+    hint: Thus, 
+section: Shareholder Rights
+---
+question: |
+  Removal of Directors
+subquestion: |
+ Shareholders may remove a director with or without cause.
+fields: 
+  - no label: rod_here
+    datatype: area
+    hint: Here, 
+  - no label: rod_thus
+    datatype: area
+    hint: Thus, 
+section: Shareholder Rights
+---
+question: |
+  Appointment of Officers
+subquestion: |
+  The primary officers of a corporation are elected by the board of directors.
+fields: 
+  - no label: aoo_here
+    datatype: area
+    hint: Here, 
+  - no label: aoo_thus
+    datatype: area
+    hint: Thus, 
+section: Shareholder Rights
+---
+question: |
+  Removal of Officers
+subquestion: |
+  An officer may be removed at any time with or without cause. The existence of an employment contract between an officer and the corporation does not prevent the removal of the officer, but may give rise to contractual remedies if removal constitutes a breach of contract.
+fields: 
+  - no label: roo_here
+    datatype: area
+    hint: Here, 
+  - no label: roo_thus
+    datatype: area
+    hint: Thus, 
+section: Shareholder Rights
+---
+question: |
+  Board of Directors Decides Officers’ Salaries
+subquestion: |
+  The board of directors makes management decisions such as officers’ salaries.
+fields: 
+  - no label: bod_here
+    datatype: area
+    hint: Here, 
+  - no label: bod_thus
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  Promoter
+subquestion: |
+  Prior to formation of a corporation, a promoter engages in activities, such as entering into contracts, to bring the corporation into existence.
+section: Pre-Incorporation Transactions
+---
+question: |
+  Promoter Liability for Pre-Incorporation Agreements
+subquestion: |
+  Absent a novation, a corporation does not have any liability for pre-incorporation contracts entered into by a promoter in the corporation’s name. A novation is an agreement among the corporation, promoter, and third party that the promoter be released from liability from the agreement obligations, substituting in the promoter’s place, the corporation.
+section: Pre-Incorporation Transactions 
+---
+question: |
+  Right to Reimbursement
+subquestion: |
+  While a promoter can seek reimbursement for pre-incorporation expenses, undertaken on the corporation’s behalf, the promoter cannot compel the corporation to make payments. The promoter’s acts, while done to benefit the corporation, are not undertaken at the corporation’s direction.
+section: Pre-Incorporation Transactions
+---
+question: |
+  Adoption
+subquestion: |
+  A corporation can be liable where the corporation adopts a contract by accepting the benefits ofthe transaction, or giving an express acceptance of liability for the debt, such as a board resolution after incorporation. However, an express adoption of, or use of the benefits from, a contract by a corporation, is not sufficient to relieve a promoter of liability.
+section: Pre-Incorporation Transactions
+---
+question: |
+  De Jure Corporation
+subquestion: |
+  When incorporators comply with all statutory requirements to file articles of incorporation with the Secretary of State, they create a de jure corporation. As a consequence, the corporation, not persons associated with the corporation (i.e. officers, shareholders, directors) are liable for activities undertaken by the corporation. The articles of incorporation must contain the corporation name, number of shares the corporation is authorized to issue, name and address of the corporation’s registered agent and incorporators, and other provisions regarding operation of the corporation not inconsistent with law.
+---
+question: |
+  De Facto Corporation
+subquestion: |
+  When efforts to comply with incorporation requirements are unsuccessful, persons associated with the corporation may escape personal liability for obligations the corporation incurs if a de facto corporation exists from: (1) a statute under which the entity can validly incorporate, (2) colorable compliance with the statute and a good faith attempt to comply, and (3) conduct of business in the corporate name and the exercise of corporate privileges.
+---
+question: |
+  Corporation by Estoppel
+subquestion: |
+  Under corporation by estoppel, persons who deal with an entity as if it is a corporation will be estopped from denying the corporation’s existence.
+---
+question: |
+  Quasi-contract
+subquestion: |
+  A court implies a quasi-contract when there is a failed contract, no contract, or divisible contract by implying a promise that requires the defendant to make restitution to the plaintiff. The elements: (1) plaintiff confers defendant a measureable benefit without gratuitous intent (reasonably expected compensation), (2) defendant knows or has reason to know of plaintiff’s expectation because defendant had opportunity to decline the benefit, but instead knowingly accepted it, and (3) defendant unjustly enriched if defendant retains the benefit without cost.
+---
+question: |
+  De Jure Corporation
+subquestion: |
+  When incorporators comply with all statutory requirements to file articles of incorporation with the Secretary of State, they create a de jure corporation.
+---
+question: |
+  Corporation by Estoppel
+subquestion: |
+  Under corporation by estoppel, persons who deal with an entity as if it is a corporation will be estopped from denying the corporation’s existence.
+---
+question: |
+  Voluntary Dissolution Distribution
+subquestion: |
+  In a voluntary dissolution, a corporation’s assets are distributed in the following order: (1) creditors of the corporation to pay debts and other obligations of the corporation, including bona fide obligations owed to shareholders, (2) shareholders of stock with preferences in liquidation, and (3) shareholders of other stock.
+---
+question: |
+  Ultra Vires Act
+subquestion: |
+  If a corporation includes a business purpose in its articles of incorporation, it may not undertake ultra vires acts (activities unrelated to achieving the stated business purpose).
+section: Ultra Vires Act
+---
+question: |
+  Enforceability of Ultra Vires Act
+subquestion: |
+  Under common law, ultra vires acts are void and unenforceable. Under the Revised Model Business Corporation Act (RMBCA), ultra vires acts are generally enforceable, and can be raised when: (1) a shareholder sues the corporation to enjoin a proposed ultra vires act, (2) a corporation sues an officer or director for damages for approving an ultra vires act, or (3) a state brings an action to dissolve a corporation for committing an ultra vires act.
+section: Ultra Vires Act
+---
+question: |
+  Usurpation of Corporate Opportunity
+subquestion: |
+  A director may violate his/her duty of loyalty by usurping a corporate opportunity by not first offering the opportunity to the corporation. In determining whether the opportunity is one that must first be offered to the corporation, courts apply the “interest and expectancy” test or “line of business test.” Courts may look at additional factors in determining whether an opportunity belongs to the corporation.
+section: Director Duty of Loyalty
+---
+question: |
+  Interest or Expectancy Test
+subquestion: |
+  Under the “interest or expectancy” test, the key is whether the corporation has an existing interest or expectancy arising from an existing right in the opportunity.
+section: Director Duty of Loyalty
+---
+question: |
+  Line of Business Test
+subquestion: |
+  Under the “line of business” test, the key is whether the opportunity is within the corporation’s current or prospective line of business.
+section: Director Duty of Loyalty
+---
+question: |
+  Additional Factors
+subquestion: |
+  Additional factors a court may look at in determining whether an opportunity belongs to a corporation include: (1) the relationship between the person offering the opportunity and the director and/or corporation, (2) how and when the director acquired knowledge of the opportunity, and (3) the relationship of the director to the corporation.
+section: Director Duty of Loyalty
+---
+question: |
+  Conflicting Interest Transactions
+subquestion: |
+  A director or officer has a conflicting interest with respect to a transaction if the director or officer knows s/he or a related person (e.g. spouse, parent, child, grandchild) (1) is a party to the transaction, (2) has a beneficial financial interest in, or an interest will reasonably be expected to influence the director or officer’s judgment if s/he votes on the transaction, or (3) is a director, general partner, agent, or employee of another entity with whom the corporation is transacting, and the transaction is of such importance to the corporation it will in the normal course of business be brought before the board.
+section: Director Duty of Loyalty
+---
+question: |
+  Remedies
+subquestion: |
+  When a director usurps a corporate opportunity, the corporation can recover the profits the director makes from the transaction, or force the director to convey the opportunity to the corporation.
+section: Director Duty of Loyalty
+---
+question: |
+  Upholding Conflicting Interest Transactions
+subquestion: |
+  A conflicting interest transaction will not be enjoined or give rise to damages due to the director or officer’s interest if (1) a majority of at least two disinterested directors approve the transaction after all material facts are disclosed, (2) a majority of disinterested shareholders with voting power approve the transaction after all material facts are disclosed, or (2) the transaction, at the time of commitment, is fair to the corporation (i.e. adequate consideration, corporate need, available alternatives, financial position).
+section: Director Duty of Loyalty
+---
+question: |
+  Competing Venture
+subquestion: |
+  Directors and officers may not engage in personal business in direct conflict with the corporation.
+section: Director Duty of Loyalty
+---
+question: |
+  Director Duty of Care
+subquestion: |
+  Directors must manage to the best of their abilities by discharging duties (1) in good faith, (2) with the care of an ordinarily prudent person in a like position and similar circumstances, and (3) in a manner the directors reasonably believe to be in the best interest of the corporation.
+section: Director Duty of Care
+---
+question: |
+  Business Judgment Rule
+subquestion: |
+  The business judgment rule is a rebuttable presumption that a director reasonably believed his/her actions were in the best interest of the corporation.
+section: Director Duty of Care
+---
+question: |
+  Reliance Protection
+subquestion: |
+  A director is entitled to rely on the performance of, as well as information, reports, and opinions supplied by the following persons if the director reasonably believes them to be reliable and competent: (1) officers and other employees of the corporation, (2) outside attorneys, accountants, or other skilled or expert individuals retained by the corporation, and (3) a committee of the board of which the director is not a member.
+section: Director Duty of Care
+---
+question: |
+  Consideration Valuation
+subquestion: |
+  Under the RMBCA, once the board determines the consideration received for stock is adequate, the consideration adequacy is not subject to challenge.
+section: Director Duty of Care
+---
+question: |
+  Par Value Stock
+subquestion: |
+  When a corporation issues par value stock, the stock is required to receive at least the value assigned to the stock (i.e. par value).
+section: Director Duty of Care
+---
+question: |
+  Watered Stock
+subquestion: |
+  Because stock is deemed validly issued, paid in full, and non-assessable once the corporation receives adequate consideration (as the board of directors determines) the RMBCA does not recognize watered stock (stock issued for consideration less than par value).
+section: Director Duty of Care
+---
+question: |
+  Waste
+subquestion: |
+  Under the waste doctrine, directors have a duty not to waste corporate assets by overpaying for property.
+section: Director Duty of Care
+---
+question: |
+  Personal Liability of Directors
+subquestion: |
+  Directors can be personally liable for action taken, or failure to take action, as a director. No articles of incorporation provision can eliminate or limit a director’s personal liability for (1) breach of the duty of loyalty, (2) acts or omissions not in good faith, or (3) transactions from which the director receives an improper personal benefit.
+section: Director Duty of Care
+---
+question: |
+  Quorum
+subquestion: |
+  For the board of directors’ acts at a meeting to be valid, a quorum of directors must be present. A majority of all directors constitutes a quorum, unless a higher or lower number is required by the articles of incorporation or bylaws.
+---
+question: |
+  Authority
+subquestion: |
+  [`Party name`]’s authority to [`insert facts on what the person did (i.e. sign a contract)`] arose from [`his/her`] role as [`Company`] (1) [`director`] or (2) [`officer title`].
+  
+  `List the roles from the facts. Facts may have a person being both a director and officer. Do not do both unless facts trigger.`
+continue button field: authority
+section: Director and Officer Authority
+---
+question: |
+  Director
+subquestion: |
+  A board of directors may act by (1) meeting or (2) unanimous written consent.
+
+  Here, [`list each director’s name`] were [`Company`] directors. Since [`Director`] was not the only director, [`Director`] could not make decisions on [`Director`]’s own in the director role. The board members did not hold a meeting or execute a unanimous written consent to [`insert facts on what Director did`].
+
+  Thus, the authority for [`insert facts on what Director did`] did not come from [`Director`]’s director role.
+  
+  `If the person is not the only director, the person cannot make decisions alone in the director role. This is an example analysis; tailor to the facts on whether the board members held a meeting or executed a unanimous written consent. Match facts to each keyword from the rules.`
+continue button field: director
+section: Director and Officer Authority
+---
+question: |
+  *Officer Title*
+subquestion: |
+  `Insert officer title (i.e. President, Treasurer, Secretary).`
+
+  The authority the principal delegates to the agent determines an agent’s ability to bind a principal: (1) actual, (2) apparent, or (3) ratification.
+continue button field: officer
+section: Director and Officer Authority
+---
+question: |
+  Actual Authority
+subquestion: |
+  Actual authority may be (1) express or (2) implied.
+  
+  `Evaluate events between principal (corporation) and agent (officer).`
+continue button field: actual_auth
+section: Director and Officer Authority
+---
+question: |
+  Express
+subquestion: |
+  Express authority manifests from (1) oral and written words, (2) direct and definite language, or (3) specific instructions. Corporate bylaws, articles of incorporation, or the board of directors define actual express authority for an officer.
+fields: 
+  - no label: express_here
+    datatype: area
+    hint: Here, 
+  - no label: express_thus
+    datatype: area
+    hint: Thus, 
+section: Director and Officer Authority
+---
+question: |
+  Implied
+subquestion: |
+  Implied authority allows an agent to take actions necessary to achieve the principal’s objectives based on the agent’s reasonable understanding of the objectives. An officer has implied authority to perform tasks necessary to carry out the officer’s duties by virtue of the position.
+  
+  `Analyze if what the person did is a task normally done by someone in the role or custom. Examples: President has implied authority to enter into contracts in ordinary course of business (routine). Secretary has implied authority to keep and certify corporate records (minutes). “Secretary” does not mean office secretary or administrative support. Treasurer has implied authority to receive and keep corporate funds.`
+fields: 
+  - no label: implied_here
+    datatype: area
+    hint: Here, 
+  - no label: implied_thus
+    datatype: area
+    hint: Thus, 
+section: Director and Officer Authority
+---
+question: |
+  Apparent Authority
+subquestion: |
+  An agent derives apparent authority from a {principal’s manifestations} which cause a third party to reasonably believe the agent has authority even though the agent has neither express nor implied authority. An officer has apparent authority if the corporation holds the officer out to third parties as having authority to bind the corporation.
+fields: 
+  - no label: aa_here
+    datatype: area
+    hint: Here, 
+  - no label: aa_thus
+    datatype: area
+    hint: Thus, 
+section: Director and Officer Authority
+---
+question: |
+  Ratification
+subquestion: |
+  A principal can ratify (approve) an unauthorized act (no actual or apparent authority) an agent performed, and agree to be bound, as if the agent performed with authority.
+fields:
+  - no label: ratif_here
+    datatype: area
+    hint: Here, 
+  - no label: ratif_thus
+    datatype: area
+    hint: Thus, 
+section: Director and Officer Authority
+---
+question: |
+  Partner Authority 
+subquestion: |
+  Each partner has equal partnership management rights. A partner is a partnership agent and can bind the partnership when the partner acts with (1) actual, (2) apparent, or (3) ratification.
+fields: 
+  - note: |
+      **Actual Authority**
+      
+      Actual authority may be (1) **express** or (2) **implied**.
+  - note: |
+      **Express**
+      
+      Express authority manifests from (1) a partnership agreement, (2) an authorization of the partners, or (3) a statement of authority filed with the Secretary of State.
+  - no label: ex_here
+    datatype: area
+    hint: Here, 
+  - no label: ex_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **Implied**
+      
+      Implied authority is based on a partner’s reasonable belief that an action is necessary to carry out an express authority.
+      
+      `Give the responsibilities of the partner, and analyze if what the person did is a task normally done by someone in the role.`
+  - no label: i_here
+    datatype: area
+    hint: Here, 
+  - no label: i_thus
+    datatype: area
+    hint: Thus, 
+section: Partner Authority
+---
+question: |
+  Apparent Authority
+subquestion: |
+  An unauthorized partner’s act may bind the partnership if the act is performed in the ordinary course of apparently carrying on (1) the partnership business or (2) business of a kind carried on by the partnership. A third party cannot hold a partnership liable where the person knows or receives notice a partner lacks authority.
+fields: 
+  - no label: app_auth_here
+    datatype: area
+    hint: Here, 
+  - no label: app_auth_thus
+    datatype: area
+    hint: Thus, 
+section: Partner Authority
+---
+question: |
+  Ratification
+subquestion: |
+  A principal can ratify (approve) an unauthorized act (no actual or apparent authority) an agent performed, and agree to be bound, as if the agent performed with authority.
+fields: 
+  - no label: rat_here
+    datatype: area
+    hint: Here, 
+  - no label: rat_thus
+    datatype: area
+    hint: Thus, 
+section: Partner Authority
+---
+question: |
+ **Formation**
+subquestion: |
+ **Partnership**
+ 
+  A partnership is two or more persons associating as business co-owners for {profit}. A written agreement is not necessary to form a partnership.
+  
+  `Three steps:`
+  
+  1. Show entity is a partnership.
+  2. Type of partnership (LP, LLP, general). Begin with LP or LLP based on facts; do not do both. Facts trigger LP versus LLP when a party wants to limit liability to the amount of contributions.
+  3. If not file a certification with the Secretary of State, explain LP or LLP requirements not met, and general partnership by default.
+fields: 
+  - no label: partner_here
+    datatype: area
+    hint: Here, 
+  - no label: partner_thus
+    datatype: area
+    hint: Thus, 
+section: Formation
+---
+question: |
+  Limited Partnership 
+subquestion: |
+  A limited partnership forms when (1) two or more persons, at least one general partner and at least one limited partner, (2) file a limited partnership certificate with the Secretary of State. A limited partner’s liability for partnership debts is limited to the amount of the capital contribution to the partnership.
+fields: 
+  - no label: lp_here
+    datatype: area
+    hint: Here, 
+  - no label: lp_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **Failure to File Limited Partnership Certificate** 
+      
+      A person, who contributes to a purported limited partnership and believes in good faith s/he is a limited partner, may be personally liable to a third party who transacts with the purported limited partnership, where a limited partnership certificate is not filed with the Secretary of State.
+  - no label: failtofile_here
+    datatype: area
+    hint: Here, 
+  - no label: failtofile_thus
+    datatype: area
+    hint: Thus, 
+section: Type
+---
+question: |
+  Limited Liability Partnership
+subquestion: |
+  A limited liability partnership (LLP) forms when a statement of qualification is filed with the Secretary of State to notify third parties their sources for loss recovery is limited.
+fields: 
+  - no label: llp_here
+    datatype: area
+    hint: Here, 
+  - no label: llp_thus
+    datatype: area
+    hint: Thus,  
+section: Type
+---
+question: |
+  General Partnership
+subquestion: |
+  An entity that does not qualify as a [LLP] [LP] transforms into a general partnership.
+fields: 
+  - no label: gp_here
+    datatype: area
+    hint: Here, 
+  - no label: gp_thus
+    datatype: area
+    hint: Thus,  
+section: Type
+---
+question: |
+  LP - Liability to Third Parties
+subquestion: |
+  A general partner is personally, jointly, and severally liable for all {partnership debts}. A limited partner in a LP is personally liable when a third party actually believes in good faith the person is a general partner at the time of a transaction.
+fields: 
+  - no label: lp_3p_here
+    datatype: area
+    hint: Here, 
+  - no label: lp_3p_thus
+    datatype: area
+    hint: Thus,  
+section: Liability
+---
+question: |
+  LLP – Liability to Third Parties
+subquestion: |
+  A LLP eliminates a partner’s personal liability for partnership debts, which are solely the partnership’s obligation. A limited partner in a LLP is personally liable for his/her own misconduct.
+fields: 
+  - no label: llp_3p_here
+    datatype: area
+    hint: Here, 
+  - no label: llp_3p_thus
+    datatype: area
+    hint: Thus,  
+section: Liability
+---
+question: |
+  General Partnership - Liability to Third Parties
+subquestion: |
+  General partners are personally, jointly and severally, liable to third parties for all partnership debts.
+fields: 
+  - no label: gp_3p_here
+    datatype: area
+    hint: Here, 
+  - no label: gp_3p_thus
+    datatype: area
+    hint: Thus,  
+section: Liability
+---
+question: |
+  [Third Party]’s Theories of Liability
+subquestion: |
+  [Third Party] could base liability on (1) [Theory 1] or (2) [Theory 2].
+  
+  `Insert possible liability theories. Usually at least 2 theories (one based on contract and another based on tort). If there are more than 2 theories, analyze 2 of them, finish the rest of the exam, and return to complete the other theories if time permits.`
+fields: 
+  - note: |
+      **[Theory 1]**
+     
+      [Give rules and analyze prima facie elements for claim to show Third Party can meet each element.]
+     
+      Thus, [Third Party] [could/could not] establish each element for [Theory 1].
+  - note: |
+      **[Theory 2]**
+      
+      [Give rules and analyze prima facie elements for claim to show Third Party can meet each element.] 
+      
+      Thus, [Third Party] [could/could not] establish each element for [Theory 2].
+      
+      **In conclusion,**
+  - note: |
+      `Conclude on the personal liability of each partner and the partnership for each liability theory.`
+  - no label: liability_thus
+    datatype: area
+section: Partner Authority
+---
+question: |
+  Sharing Business Profits
+subquestion: |
+  Sharing business profits for rent does not create a rebuttable presumption that the arrangement is a partnership and recipients are partners.
+fields: 
+  - no label: sbp_here
+    datatype: area
+    hint: Here, 
+  - no label: sbp_thus
+    datatype: area
+    hint: Thus,  
+section: Profits
+---
+question: |
+  Partner Fiduciary Duties
+subquestion: |
+  A partnership may maintain an action against a partner for the resulting loss when the partner violates a partnership duty.
+fields: 
+  - no label: pfd_here
+    datatype: area
+    hint: Here, 
+  - no label: pfd_thus
+    datatype: area
+    hint: Thus,  
+section: Partner Fiduciary Duties
+---
+question: |
+  Partner Duty of Loyalty
+subquestion: |
+  Under the duty of loyalty, a partner is to refrain from (1) competing with the partnership, (2) advancing an interest adverse to the partnership, or (3) usurping a partnership opportunity, using partnership property, or conducting partnership business to derive a personal benefit, unless the partner accounts to the partnership for such benefit.
+fields: 
+  - no label: dol_here
+    datatype: area
+    hint: Here, 
+  - no label: dol_thus
+    datatype: area
+    hint: Thus,  
+section: Partner Fiduciary Duties
+---
+question: |
+  Partner {Duty of Care}
+subquestion: |
+  Each partner is to refrain from engaging in grossly negligent, reckless, or knowing unlawful acts, or intentional misconduct.
+fields: 
+  - no label: pdoc_here
+    datatype: area
+    hint: Here, 
+  - no label: pdoc_thus
+    datatype: area
+    hint: Thus,  
+section: Partner Fiduciary Duties
+---
+question: |
+  Assets Distribution at Dissolution
+subquestion: |
+  Upon dissolution, partnership assets are distributed in this order: (1) creditors, (2) partners and former partners for accrued unpaid distributions, (3) partners for contributions return, and (4) partners in the proportion in which they share distributions.
+fields: 
+  - no label: diss_here
+    datatype: area
+    hint: Here, 
+  - no label: diss_thus
+    datatype: area
+    hint: Thus,  
+section: Dissolution
+---
+question: |
+  Piercing the Corporate Veil
+subquestion: |
+  Generally, shareholders are not liable for corporate debts. Courts or creditors may disregard the corporate entity and pierce the corporate veil by holding active shareholders personally liable for corporate debts when under the (1) totality of the circumstances, (2) limited liability is unfair.
+  
+  `2 steps:`
+  
+  1. Show the party suing is a creditor or court. Example: Creditor was a Company creditor because [____].
+  2. Show the shareholders actively participate (take part in management) in company operations. Passive shareholders (just invest) are not personally liable.
+
+  **{Totality of the Circumstances}** 
+  
+  {Factors} courts consider when piercing the corporate {veil}:
+  
+  1. undercapitalization, 
+  2. alter ego, 
+  3. fraud, 
+  4. enterprise liability, 
+  5. “Deep Rock” doctrine.
+continue button field: pcv
+section: Piercing the Corporate Veil
+---
+question: |
+  Undercapitalization
+subquestion: |
+  Undercapitalization looks at whether the corporation has adequate funds to cover potential liabilities {at the time of formation}.
+fields: 
+  - no label: undercap_here
+    datatype: area
+    hint: Here, 
+  - no label: undercap_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      `Analysis should be derivative of the rules. Look at the rules when writing the analysis. Do not just write down the facts. Connect the keywords from the rules to the facts. Use only enough facts to prove the rules. Do not do more than what is necessary to prove the rules with the facts. “A” in IRAC means ANALYSIS, not ARGUMENT. Do not do “X will argue…Y will counter…X will contend…”`
+section: Piercing the Corporate Veil
+---
+question: |
+  Alter Ego
+subquestion: |
+  The shareholder (1) failure to respect the corporate entity must (2) adversely affect a third party’s ability to recover from the corporation.
+fields: 
+  - no label: ae_here
+    datatype: area
+    hint: Here, 
+  - no label: ae_thus
+    datatype: area
+    hint: Thus,  
+section: Piercing the Corporate Veil
+---
+question: |
+  Fraud
+subquestion: |
+  Intentional misrepresentation (fraud) requires: (1) false representation, (2) scienter, (3) intent, (4) causation, (5) justifiable reliance, and (6) damages.
+fields: 
+  - no label: fraud_here
+    datatype: area
+    hint: Here, 
+  - no label: fraud_thus
+    datatype: area
+    hint: Thus,  
+section: Piercing the Corporate Veil
+---
+question: |
+  Enterprise Liability
+subquestion: |
+  When the same shareholders own the stock of two corporations engaged in the same enterprise, one corporation’s creditor can reach the other corporation’s assets to satisfy the debt.
+fields: 
+  - no label: el_here
+    datatype: area
+    hint: Here, 
+  - no label: el_thus
+    datatype: area
+    hint: Thus,  
+section: Piercing the Corporate Veil
+---
+question: |
+  {Deep Rock Doctrine}
+subquestion: |
+  When a corporation is insolvent and {equity requires, controlling shareholders’ claims as creditors}, may be {subordinated to outside creditors’ claims}.
+fields: 
+  - no label: dpd_here
+    datatype: area
+    hint: Here, 
+  - no label: dpd_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      {In conclusion,}
+section: Piercing the Corporate Veil
+---
+question: |
+  Limited Liability Is Unfair
+subquestion: |
+  The corporate veil is often pierced in tort, not contract, cases. Parties who contract with a corporation have a chance to investigate its financial conditions.
+fields: 
+  - no label: llu_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      `Analyze if tort or contract debt. If tort debt, conclude a court might pierce. If contract debt, conclude a court might not pierce since the party could have investigated the company’s finances, but chose not to do so diligently.`
+  - no label: llu_thus
+    datatype: area
+    hint: Thus, 
+section: Piercing the Corporate Veil
+---
+question: |
+  Rule 10b-5 Violation
+subquestion: |
+  Under Rule 10b-5, it is unlawful for any person, directly or indirectly, to use interstate commerce, to (1) employ any scheme to defraud, (2) {make any material misstatement or omission of fact}, and (3) engage in any act, practice, or course of business that operates as a fraud in connection with a securities purchase or sale.
+continue button field: rule_10b5
+section: SEC Rule 10b-5
+---
+question: |
+  Interstate Commerce
+subquestion: |
+  {Interstate commerce} must be used in the perpetration of a scheme to defraud.
+fields: 
+  - no label: interc_here
+    datatype: area
+    hint: Here, 
+  - no label: interc_thus
+    datatype: area
+    hint: Thus,  
+section: SEC Rule 10b-5
+---
+question: |
+  Scheme to Defraud
+subquestion: |
+  A scheme to defraud includes making any material misstatement or omission of fact. The statement must have been made with scienter to be fraudulent.
+fields:
+  - note: |
+      **Material Misstatement/Omission of Fact** 
+      
+      A misstatement or omission is material if there is a substantial likelihood that a reasonable investor would consider it necessary or important in making an investment decision.
+  - no label: mm_here
+    datatype: area
+    hint: Here, 
+  - no label: mm_thus
+    datatype: area
+    hint: Thus,  
+  - note: |
+      **Scienter**
+      
+      Scienter is a mental state involving intent to deceive, defraud, or manipulate.
+  - no label: scien_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      *Show intent using facts on words or actions*
+  - no label: scien_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **In Connection with Securities Purchase or Sale**
+      
+      {An actual securities purchase} or sale must take place for a Rule 10b-5 violation.
+  - no label: conn_here
+    datatype: area
+    hint: Here, 
+  - no label: conn_thus
+    datatype: area
+    hint: Thus, 
+section: SEC Rule 10b-5
+---
+question: |
+  Private Plaintiff 
+subquestion: |
+  A private plaintiff needs to show (1) reliance on the defendant’s acts, and (2) damages.
+fields:
+  - note: |
+      **Reliance** 
+      
+      A plaintiff must actually rely on the defendant’s material misstatement or omission.
+  - no label: rel_here
+    datatype: area
+    hint: Here, 
+  - no label: rel_thus
+    datatype: area
+    hint: Thus,  
+  - note: |
+      **Damages** 
+      
+      A plaintiff must sustain damages as a result of the defendant’s material misstatement or omission.
+  - no label: dam_here
+    datatype: area
+    hint: Here, 
+  - no label: dam_thus
+    datatype: area
+    hint: Thus, 
+section: SEC Rule 10b-5
+---
+question: |
+  Insider Trading - Insider
+subquestion: |
+  {Rule 10b-5 prohibits} (1) an insider from (2) trading securities based on inside information.
+fields: 
+  - no label: insider_here
+    datatype: area
+    hint: Here, 
+  - no label: insider_thus
+    datatype: area
+    hint: Thus, 
+section: SEC Rule 10b-5
+---
+question: |
+  Insider Trading - Tipper
+subquestion: |
+  Under Rule 10b-5, an insider is liable if (1) the insider gives (tipper) (2) inside information (tip) to a person who trades based on the information (tippee), for an (3) improper purpose.
+fields:
+  - note: |
+      **Insider**
+  - no label: tipper_here
+    datatype: area
+    hint: Here,
+  - note: |
+      **Inside Information**
+  - no label: ii_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      **Improper Purpose**
+      
+      `Examples: Kickback, gift, reputation benefit.`
+  - no label: ip_here
+    datatype: area
+    hint: Here, 
+  - no label: ip_thus
+    datatype: area
+    hint: Thus, 
+section: SEC Rule 10b-5
+---
+question: |
+  Insider Trading - Tippee
+subquestion: |
+  `Tippee not liable when no tipper.`
+
+  Under Rule 10b-5, if the tippee (1) knows a tipper provides inside information in violation of a corporate duty, and (2) trades based on the information, the tippee is liable.
+fields: 
+  - no label: tippee_here
+    datatype: area
+    hint: Here, 
+  - no label: tippee_thus
+    datatype: area
+    hint: Thus, 
+section: SEC Rule 10b-5
+---
+question: |
+  Misappropriator
+subquestion: |
+  Under Rule 10b-5, the government can prosecute a person for trading on inside information in breach of a duty of trust and confidence owed to the inside information source.
+fields: 
+  - no label: misapp_here
+    datatype: area
+    hint: Here, 
+  - no label: misapp_thus
+    datatype: area
+    hint: Thus, 
+section: SEC Rule 10b-5
+---
+question: Thank you.
+subquestion: |
+  % if intro:
+  **Agency**
+  
+  **Director and Officer Authority**
+
+  **Director**
+  
+  **Actual Authority**
+  
+  ${ express_here }
+  
+  ${ express_thus }
+  
+  ${ implied_here }
+  
+  ${ implied_thus }
+  
+  **Apparent Authority**
+  
+  ${ aa_here }
+  
+  ${ aa_thus }
+  
+  **Ratification**
+  
+  ${ ratif_here }
+  
+  ${ ratif_thus }
+  
+  **Partner Authority**
+  
+  **Express**
+  ${ ex_here }
+  
+  ${ ex_thus }
+  
+  **Implied**
+  
+  ${ i_here }
+  
+  ${ i_thus }
+  
+  **Apparent Authority**
+  
+  ${ app_auth_here }
+  
+  ${ app_auth_thus }
+  
+  **Ratification**
+  
+  ${ rat_here }
+  
+  ${ rat_thus }
+  
+  **Undercapitalization**
+  
+  ${ undercap_here }
+  
+  ${ undercap_thus }
+  
+  ${ ae_here }
+  
+  ${ ae_thus }
+  
+  ${ fraud_here }
+  
+  ${ fraud_thus }
+  
+  ${ el_here }
+  
+  ${ el_thus }
+  
+  ${ dpd_here }
+  
+  ${ dpd_thus }
+  
+  ${ llu_here }
+  
+  ${ llu_thus }
+  
+  ${ interc_here }
+  
+  ${ interc_thus }
+  
+  ${ mm_here }
+  
+  ${ mm_thus }
+  
+  ${ scien_here }
+  
+  ${ scien_thus }
+  
+  ${ conn_here }
+  
+  ${ conn_thus }
+  
+  ${ rel_here }
+  
+  ${ rel_thus }
+  
+  ${ dam_here }
+  
+  ${ dam_thus }
+  
+  ${ insider_here }
+  
+  ${ insider_thus }
+  
+  ${ tipper_here }
+  
+  ${ ii_here }
+  
+  ${ ip_here }
+  
+  ${ ip_thus }
+  
+  ${ tippee_here }
+  
+  ${ tippee_thus }
+  
+  ${ misapp_here }
+  
+  ${ misapp_thus }
+  % endif
+  
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  principal’s manifestations: |
+    Evaluate events between principal and third party; spoken or written word, conduct.
+  Ratification: |
+    If the person did not have authority, analyze if the board of directors held a meeting to ratify the person’s act.
+  partnership debts: |
+    Debts can be based on tort or contract.
+  Duty of Care: |
+    Duty of Care triggered when a partner does not obtain permission from other partners to act contrary to express partnership terms. 
+    
+    Example: Partner1 has exclusive express authority to buy furniture. Partner2 violates the duty of care if Partner2 buys a chair without Partner1’s permission.
+  profit: |
+    Do not need to share losses.
+  Totality of the Circumstances: |
+    To make it easier to read, use spaces before and after headings, and indent when one topic is a subtopic of another.
+  Factors: |
+    “Factors” means this is a balancing test. Analyze each factor, and then do a weighing in the conclusion.
+  veil: |
+    List only the factors the facts trigger. Do at least 3 so there can be a balancing. The often tested factors are undercapitalization, alter ego, fraud.
+  at the time of formation: |
+    If the company is going out of business or in debt, see if the undercapitalization was at the time of formation.
+  Deep Rock Doctrine: |
+    Bankruptcy fact scenario.
+  equity requires, controlling shareholders’ claims as creditors: |
+    Examples: Fraud, gross mismanagement, bad faith.
+  subordinated to outside creditors’ claims: |
+    Court has discretion to subordinate shareholders’ claims to any class of creditors, even unsecured creditors.
+  In conclusion,: |
+    See how many factors go towards the party suing and how many for the shareholders. If there are more factors for the shareholders, conclude no piercing.
+  Interstate commerce: |
+    The scheme to defraud, not the trade, has to be executed by use of interstate commerce. Interstate commerce used to make a material misrepresentation or omission. No interstate commerce if in person.
+  material misstatement or omission of fact: |
+    **SEC Rule 10b-5 violation** deals with making **untrue statements** to defraud people. **Rule 10b-5 violation based on insider trading** relates to using **true statements** for self gain.
+  An actual securities purchase: |
+    Focus on plaintiff buy or sell. Defendant not need to participate in transaction. “In connection” means the fraudulent conduct (i.e. breach of fiduciary duty) coincides with securities transaction.
+  Rule 10b-5 prohibits: |
+    “Insider” means person with duty of trust and confidence to issuer, shareholders of issuer, or source of material nonpublic information. “Inside” means material nonpublic.

@@ -1,0 +1,430 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Duties to Clients"
+  title: |
+    Duties to Clients
+---
+sections:
+  - Intro
+  - Competence
+  - Diligence
+  - Loyalty
+  - Fees
+  - Confidentiality
+  - Organization as Client
+  - Scope of Representation
+  - Termination
+  - Withdrawal
+  - Malpractice Suit
+  - Conclusion
+---
+features:
+  navigation: False
+  progress bar: False
+  hide navbar: True
+---
+mandatory: True
+question: |
+  Professional Responsibility
+subquestion: |
+  ###`Duties to Clients`
+field: sees_nav_bar
+---
+question: |
+  Main issue
+subquestion: |
+  * Keep in mind major ethical obligations likely worth raising: **competence, loyalty, fees, confidentiality** to clients; **candor, fairness, decorum** to court & opponent (“**C**lients **l**ove **f**ierce **c**ounsel; **c**ourts **f**eel **d**ifferently”) 
+  * Organize answer by party and its duty; answer will just be a list of duties owed by each lawyer in the call
+fields:
+  - What duties are involved?: duties
+    datatype: checkboxes
+    choices:
+      - Competence
+      - Diligence
+      - Loyalty
+      - Fees
+      - Confidentiality
+      - Organization as Client
+      - Scope of Representation
+      - Termination
+      - Withdrawal
+      - Malpractice Suit
+section: Intro
+---
+question: |
+  Duty of Competence
+subquestion: |
+  L must have legal knowledge, skill, thoroughness and preparation reasonably necessary to represent C
+  
+  `In CA, L may not intentionally, recklessly, or repeatedly fail to perform legal services with competence.`
+  
+  `In CA, Competency includes the duty to supervise the work of subordinate L and non-L employees`
+post: |
+  `Competency cannot be waived by client under any circumstances (doesn’t matter if pro bono, reduced fees)`
+fields: 
+  - no label: competence_here
+    datatype: area
+    hint: Here, 
+  - no label: competence_thus
+    datatype: area
+    hint: Thus, 
+section: Competence
+---
+question: |
+  L may gain competency 
+subquestion: |
+  L may gain competency by 1) associating w/ lawyer reasonably believed to be competent, or 2) acquiring sufficient learning and skill before performance w/o undue expense or delay
+  
+  But may advise or assist in a true emergency (e.g., impracticable to reach another L) to extent reasonably necessary
+fields: 
+  - no label: gain_competence_here
+    datatype: area
+    hint: Here, 
+  - no label: gain_competence_thus
+    datatype: area
+    hint: Thus, 
+section: Competence
+---
+question: |
+  Diligence
+subquestion: |
+  L must act with reasonable diligence and promptness in representing C
+  
+  `[CA] L may not intentionally, repeatedly, recklessly or with gross negligence fail to act with reasonable diligence in representing C (“reasonable diligence” is commitment and dedication to C’s interests)`
+fields: 
+  - no label: diligence_here
+    datatype: area
+    hint: Here, 
+  - no label: diligence_thus
+    datatype: area
+    hint: Thus, 
+section: Diligence
+---
+question: |
+  Loyalty
+subquestion: |
+  Go to this COI interview
+
+---
+question: |
+  Fees
+subquestion: |
+  Go to this Attorney Fees interview
+
+---
+question: |
+  Confidentiality
+subquestion: |
+  An attorney must not reveal information relating to the representation of a client. 
+  
+  **EXCEPTIONS**:
+  
+  * To prevent death or serious bodily harm (`[CA] may reveal to extent necessary after dissuading C and informing C that info can be revealed`), 
+  * prevent substantial financial harm (`[CA] N/A`),
+  * has informed consent, 
+  * to get ethics advice (`[CA] N/A`), 
+  * suit v. client, 
+  * collect fees, 
+  * compelled by court/law/ethics rules (`[CA] court/law only`)
+fields: 
+  - no label: confidentiality_here
+    datatype: area
+    hint: Here, 
+  - no label: confidentiality_thus
+    datatype: area
+    hint: Thus, 
+section: Confidentiality
+---
+question: |
+  Attorney-Client Privilege
+subquestion: |
+  Evidentiary privilege that allows C to refuse to testify and prevent L from testifying in court about communications. Extends to preliminary consultation w/ L. 
+  
+  **EXCEPTIONS**: 
+  
+  * duty of confidentiality (may conflict, discuss!) Crime/fraud (conflicts w/ duty of confidentiality), 
+  * suit v. client, 
+  * joint clients, 
+  * competency or intention of testator client, [`CA: to prevent substantial bodily injury or death`]
+fields: 
+  - no label: ac_priv_here
+    datatype: area
+    hint: Here, 
+  - no label: ac_priv_thus
+    datatype: area
+    hint: Thus, 
+section: Confidentiality
+---
+question: |
+  Organization as client
+subquestion: |
+  L represents the organization; he must conform his rep to the concept that C is the org itself
+  
+  When L knows that action of (rogue) officer or employee is likely to result in substantial injury to the org, L must proceed as is reasonably necessary in the best interest of the org
+  
+  * `[ABA] Report up the chain of command up to the highest level (board of directors). If this fails, and there is substantial risk of harm to the org, L may reveal info outside to the extent necessary`
+  * `[CA] Urge rogue employee to reconsider while explaining likely consequences. L must not violate duty of confidentiality. If this fails, withdraw from rep (never authorized to reveal info to outside)`
+fields: 
+  - no label: org_here
+    datatype: area
+    hint: Here, 
+  - no label: org_thus
+    datatype: area
+    hint: Thus, 
+section: Organization as Client
+---
+question: |
+  Dealing with org’s constituents
+subquestion: |
+  When L is dealing with org’s constituents (directors, officers, e’ee, members, s/h) and reasonably should know org’s interests are adverse to those of constituents (e’ee sues), L must explain C’s adverse interest
+    
+    L must obtain consent of org’s counsel before communicating with a constituent of the org.
+fields: 
+  - no label: constit_here
+    datatype: area
+    hint: Here, 
+  - no label: constit_thus
+    datatype: area
+    hint: Thus, 
+section: Organization as Client
+---
+question: |
+  Duty to communicate
+subquestion: |
+  L must communicate with and keep C reasonably informed of all significant developments in representation. If a settlement offer is made, L must convey offer to all Cs and get agreement (joint clients must agree on division of settlement)
+fields: 
+  - no label: communicate_here
+    datatype: area
+    hint: Here, 
+  - no label: communicate_thus
+    datatype: area
+    hint: Thus, 
+section: Scope of Representation
+---
+question: |
+  L must abide by C’s decisions
+subquestion: |
+  L must abide by C’s decisions regarding objectives of representation and reasonably consult with C as to the means pursued. L must abide by C’s decision on whether to settle, and in crim cases, decisions on what plea bargain to enter, whether C will testify, whether to waive jury trial
+fields: 
+  - no label: abide_here
+    datatype: area
+    hint: Here, 
+  - no label: abide_thus
+    datatype: area
+    hint: Thus, 
+section: Scope of Representation
+---
+question: |
+  Accepting Employment
+subquestion: |
+  L must not accept employment if he knows or should know the purpose of the suit is frivolous
+  
+  Not considered “frivolous” to make a criminal prosecutor prove each element of a crime, however
+fields: 
+  - no label: communicate_here
+    datatype: area
+    hint: Here, 
+  - no label: communicate_thus
+    datatype: area
+    hint: Thus, 
+section: Scope of Representation
+---
+question: |
+  Zealous advocacy
+subquestion: |
+  Zealous advocacy w/in bounds of law: 
+  
+  L may not advise (can explain) violation of law or file frivolous suit.
+  
+  Criminal defense: 
+  
+  L may conduct a defense such that P must establish case beyond a reas. doubt
+fields: 
+  - no label: zeal_here
+    datatype: area
+    hint: Here, 
+  - no label: zeal_thus
+    datatype: area
+    hint: Thus, 
+section: Scope of Representation
+---
+question: |
+  Termination
+subquestion: |
+  Termination is mandatory if representation will result in violation of the rules and “other law,” physical or mental condition of L [ABA: “materially impairs” ability represent client / CA: “renders it unreasonably difficult” to carry out employment effectively], or L is discharged by C, 
+  
+  [`CA: frivolous litigation—L knows or reasonably should know C’s action is without probable cause and for purpose of harassing or maliciously injuring a person`]
+fields: 
+  - no label: termination_here
+    datatype: area
+    hint: Here, 
+  - no label: termination_thus
+    datatype: area
+    hint: Thus, 
+section: Termination
+---
+question: |
+  Withdrawal
+subquestion: |
+  Withdrawal is permissive if C insists on taking action L considers repugnant or has fundamental disagreement with, wants to pursue criminal or fraudulent means, representation will be unreasonably difficult, C freely agrees to termination, or other good cause 
+  
+  `CA: any of foregoing, or C insists on action not warranted under existing law, or continued representation is likely to result in violation of these rules`
+fields: 
+  - no label: withdraw_here
+    datatype: area
+    hint: Here, 
+  - no label: withdraw_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **Either for termination or withdrawal, need court permission if in proceeding before a court**
+  - no label: permission_here
+    datatype: area
+    hint: Here, 
+  - no label: permission_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **Duties of withdrawing lawyer:** 
+      
+      **Notice and opp to get other counsel, return unearned fees, return client files**
+  - no label: duties_here
+    datatype: area
+    hint: Here, 
+  - no label: duties_thus
+    datatype: area
+    hint: Thus, 
+section: Withdrawal
+---
+question: |
+  Malpractice suit
+subquestion: |
+  C needs written notice and reasonable opportunity to seek independent counsel before settling w/ L
+  
+  Liability may never be prospectively limited
+  
+  `[CA] Criminal Δ who sues a lawyer for malpractice must make a colorable claim of actual innocence`
+  
+  `[CA] Will/trust: Intended beneficiary known to L may also hold L liable for malpractice`
+fields: 
+  - no label: malpractice_here
+    datatype: area
+    hint: Here, 
+  - no label: malpractice_thus
+    datatype: area
+    hint: Thus, 
+section: Malpractice suit
+---
+mandatory: True
+question: Thank you.
+subquestion: |
+  % if sees_nav_bar:
+  **Duties to Clients**
+    % if duties['Competence']:
+  
+  ${ competence_here }
+  
+  ${ competence_thus }
+  
+  ${ gain_competence_here }
+  
+  ${ gain_competence_thus }
+    % endif
+    
+    % if duties['Diligence']:
+  **Diligence**  
+  
+  ${ diligence_here }
+  
+  ${ diligence_thus }
+    % endif
+    
+    % if duties['Confidentiality']:
+  **Confidentiality**
+  
+  ${ confidentiality_here }
+  
+  ${ confidentiality_thus }
+  
+  ${ ac_priv_here }
+  
+  ${ ac_priv_thus }
+    % endif 
+    
+    % if duties['Organization as Client']:
+  ${ org_here }
+  
+  ${ org_thus }
+  
+  ${ constit_here }
+  
+  ${ constit_thus }
+    % endif
+    
+    % if duties['Scope of Representation']:
+  **Scope of Representation**
+
+  ${ communicate_here }
+  
+  ${ communicate_thus }
+  
+  ${ abide_here }
+  
+  ${ abide_thus }
+
+  ${ zeal_here }
+
+  ${ zeal_thus }
+    % endif
+    
+    % if duties['Termination']:
+  **Termination**
+  
+  ${ termination_here }
+  
+  ${ termination_thus }
+    % endif
+  
+    % if duties['Withdrawal']:
+  
+  ${ withdraw_here }
+  
+  ${ withdraw_thus }
+  
+  ${ permission_here }
+  
+  ${ permission_thus }
+  
+  ${ duties_here }
+  
+  ${ duties_thus }
+    % endif
+    
+    % if duties['Malpractice Suit']:
+  
+  ${ malpractice_here }
+  
+  ${ malpractice_thus }
+    
+    % endif
+
+  % endif
+section: Conclusion
+buttons:
+  - Return: exit
+    url: |
+      ${ referring_url() }

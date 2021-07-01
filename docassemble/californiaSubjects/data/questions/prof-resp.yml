@@ -1,0 +1,138 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Professional Responsibility"
+  title: |
+    Professional Responsibility
+---
+question: |
+  Main issue
+subquestion: |
+  * Keep in mind major ethical obligations likely worth raising: **competence, loyalty, fees, confidentiality** to clients; **candor, fairness, decorum** to court & opponent (“**C**lients **l**ove **f**ierce **c**ounsel; **c**ourts **f**eel **d**ifferently”) 
+  * Organize answer by party and its duty; answer will just be a list of duties owed by each lawyer in the call
+fields:
+  - What are you analyzing?: main_issue
+    choices:
+      - Did the lawyer interact with a client or another lawyer?
+      - Did the lawyer interact with the court system or an opposing party?
+      - Did the lawyer interact with others (third parties)?
+  - Additional Details: client_type
+    js show if: |
+      val('main_issue') == "Did the lawyer interact with a client or another lawyer?"
+    choices: 
+      - Joint clients? 
+      - Organization as client? 
+      - Neither 
+  - Is the lawyer a criminal prosecutor?: prosecutor
+    js show if: |
+      val('main_issue') == "Did the lawyer interact with the court system or an opposing party?"
+    datatype: yesnoradio
+  - Additional Details: media_or_coworker
+    js show if: |
+      val('main_issue') == "Did the lawyer interact with others (third parties)?"
+    choices: 
+      - Did the lawyer interact with the media?
+      - Did the lawyer interact with a co-worker?
+      - Neither
+---
+question: |
+  Duty of Competence
+subquestion: |
+  L must have legal knowledge, skill, thoroughness and preparation reasonably necessary to represent C
+  
+  `In CA, L may not intentionally, recklessly, or repeatedly fail to perform legal services with competence.`
+  
+  In CA, Competency includes the duty to supervise the work of subordinate L and non-L employees`
+fields:
+  - Rule: competence
+---
+question: |
+  Duty of Loyalty
+fields:
+  - Rule: loyalty
+---
+question: |
+  Duties relating to fees
+fields:
+  - Rule: fees
+---
+question: |
+  Duty of Confidentiality
+fields:
+  - Rule: confidentiality
+---
+question: |
+  Duty to Communicate
+fields:
+  - Rule: communicate
+---
+question: |
+  Concurrent Conflict of Interest
+fields:
+  - Rule: concurrent_coi
+---
+question: |
+  Settlement
+fields:
+  - Rule: settlement
+---
+question: |
+  Attorney-Client Privilege
+fields:
+  - Rule: ac_priv
+---
+question: |
+  Organization as client
+fields:
+  - Rule: rogue_employees
+---
+mandatory: true
+question: |
+  Here's the Professional Responsibility summary:
+subquestion: |
+  % if main_issue == 'Did the lawyer interact with a client or another lawyer?':
+    % if competence: 
+      % if loyalty: 
+        % if fees:
+          % if confidentiality: 
+            % if communicate:
+            % endif
+          % endif
+        % endif
+      % endif
+    % endif
+    % if client_type == 'Joint clients?':
+      % if concurrent_coi:
+        % if settlement: 
+          % if ac_priv:
+          % endif
+        % endif
+      % endif
+    % elif client_type == 'Organization as client?':
+      % if rogue_employees:
+      % endif
+    % endif
+  % elif main_issue == 'Did the lawyer interact with the court system or an opposing party?':
+    % if prosecutor:
+    % endif
+  % elif main_issue == 'Did the lawyer interact with others (third parties)?':
+    % if media_or_coworker == 'Did the lawyer interact with the media?':
+    % elif media_or_coworker =='Did the lawyer interact with a co-worker?':
+    % endif
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

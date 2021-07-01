@@ -1,0 +1,272 @@
+cinitial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Character Evidence/Habit/Impeachment"
+  title: |
+    Character Evidence/Habit/Impeachment
+---
+sections:
+  - Intro
+  - Character Evidence:
+    - Admitting Character - MIMIC
+  - Habit:
+    - Business Routine
+    - Scope of Cross
+  - Impeachment:
+    - Rehabilitation
+  - Conclusion
+---
+section: Intro
+question: |
+  Evidence
+subquestion: |
+  ###`Character Evidence/Habit/Impeachment`
+continue button field: intro
+field: sees_nav_bar
+---
+section: Character Evidence
+question: |
+  {Character Evidence}
+subquestion: |
+  Character evidence is any document or testimony offered to prove a person acted in a particular way on a particular occasion based on the person’s disposition or character. Evidence of a person’s character is generally inadmissible as irrelevant to prove conduct in conformity with the {character trait}.
+fields: 
+  - no label: ce_here
+    datatype: area
+    hint: Here,
+    required: False
+  - no label: ce_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: How Character Can Be Introduced
+question: |
+  How Character Can Be Introduced
+subquestion: |
+  Character evidence may be offered as substantive, versus impeachment, evidence to (1) prove character when it is the ultimate case issue, or (2) serve as circumstantial evidence of how a person possibly acted.
+  
+  If character is an ultimate issue, character evidence is admissible by (1) testimony regarding the person’s reputation, (2) the witness’s opinion, or (3) {specific acts}. 
+  
+  Evidence of a defendant's bad character is generally inadmissible by the prosecutor. An accused may introduce evidence of good character to show innocence of an alleged crime. When the defendant opens the door, the prosecution may rebut the defendant’s claims by attacking the {defendant’s character}.
+  
+  `A California prosecutor cannot initiate the use of character evidence to prove the defendant’s conduct at the time of the {conduct}.`
+fields: 
+  - no label: intro_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: intro_thus
+    datatype: area
+    hint: Thus, the character evidence [was/was not] admissible.
+    required: False
+  - note: |
+      `Character evidence will usually be inadmissible to prove conduct in conformity.`
+---
+section: Admitting Character - MIMIC
+question: |
+  Admitting Character - MIMIC
+subquestion: |
+  A defendant’s past crimes or other wrongful acts are not admissible to show criminal propensity, but admissible as circumstantial evidence of motive, intent, absence of accident or mistake, identity, knowledge, opportunity, or common plan or scheme.
+fields: 
+  - no label: mimic_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: mimic_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Habit
+question: |
+  Habit
+subquestion: |
+  Habit evidence is admissible to prove conduct in conformity with the habit on a particular occasion. A habit is a person’s particular routine reaction to specific circumstances.
+fields: 
+  - no label: habit_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: habit_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Business Routine
+question: |
+  Business Routine
+subquestion: |
+  Evidence that a business has an established routine is relevant to show a particular event occurred.
+fields: 
+  - no label: time_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: time_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Scope of Cross
+question: |
+  {Scope of Cross-Examination}
+subquestion: |
+  The scope of cross-examination generally is limited to the subject matter of the direct examination and witness credibility, but the court, in its discretion, may allow inquiry into additional matters.
+fields: 
+  - no label: provisions_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: provisions_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Impeachment
+question: |
+  Impeachment
+subquestion: |
+  A witness may be impeached by [cross-examination /extrinsic evidence.]
+  
+  Extrinsic evidence is inadmissible to prove an instance to attack or support a witness’ character for truthfulness on cross-examination when a witness denies a specific instance of conduct.
+fields: 
+  - no label: impeach_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: impeach_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Rehabilitation 
+question: |
+  Rehabilitation
+subquestion: |
+  A witness who has been impeached may be rehabilitated by 
+  
+  1. explanation or clarification on redirect examination,
+  2. reputation or opinion evidence of character for truthfulness, or 
+  3. prior consistent statement to rebut an express or implied charge the witness lied or exaggerated due to improper motive or influence.
+fields: 
+  - no label: rehab_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: rehab_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  % if sees_nav_bar:
+  
+  ${ ce_here }
+  
+  ${ ce_thus }
+  
+  ${ intro_here }
+  
+  ${ intro_thus }
+  
+  ${ mimic_here }
+  
+  ${ mimic_thus }
+  
+  ${ habit_here }
+  
+  ${ habit_thus }
+  
+  ${ time_here }
+  
+  ${ time_thus }
+  
+  ${ provisions_here }
+  
+  ${ provisions_thus }
+  
+  ${ impeach_here }
+  
+  ${ impeach_thus }
+  
+  ${ rehab_here }
+  
+  ${ rehab_thus }
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  character: |
+    Character means general behavior patterns.
+  "defendant's character": |
+    Add rules if a criminal case. In criminal cases, only the accused can initiate because good character may have a tendency to show accused did not commit a crime, unless the prosecution introduces evidence for reasons other than propensity. “Opens the door” means the defendant introducing defendant’s good character or victim’s bad character. Tailor the rules to the facts. 8
+  specific acts: |
+    FRE 405
+  conduct: |
+    Add this sentence if asked to apply CA law and a criminal case.
+  Character Evidence: |
+    3 steps:
+    
+    1. Character Evidence:
+        * Define character evidence.
+        * Analyze if evidence is character evidence. Explain character evidence inadmissible to prove conduct in conformity.
+    2. How Character Can Be Introduced:
+        * Give rules on when character evidence can be introduced.
+        * Analyze if the facts fall under the categories.
+    3. Admitting Character - MIMIC:
+        * Give MIMIC rules. Use separate headings if more than one purpose.
+        * Prove the elements using the facts.
+  character trait: |
+    FRE 404(a). On the exam, when there are facts on bad character evidence, analyze Legal Relevance to conclude the unfair prejudice outweighs the probative value, unless character is an element in a claim or defense. Explain the character evidence confuses or misleads the jury on what the main case issue about, or wastes time in requiring the jury to examine a collateral issue.
+    
+    Character is directly in issue when proof of character is an element of a claim or defense in a civil case.
+    
+    Add this rule when character is an ultimate issue in the case (negligent hiring or entrustment, child-custody, defamation).

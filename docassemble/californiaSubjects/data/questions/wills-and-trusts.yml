@@ -1,0 +1,327 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Wills & Trusts"
+  title: |
+    Wills & Trusts
+---
+question: |
+  Main issue
+subquestion: |
+  Watch for crossover with COMMUNITY PROPERTY 
+  
+  * Diagram all parties and any relationships. List all documents and any items left behind by decedent
+fields:
+  - What are you analyzing?: main_issue
+    choices:
+      - Did the decedent leave things behind upon death and is there a will?
+      - Is the will revived or not revoked?
+      - Did the decedent leave things behind and there is no will or will has failed?
+      - Is there a trust?
+      - Is a trustee acting on trust assets?
+  - Do the facts say the will is valid?: no_valid_will
+    datatype: noyesradio
+    js show if: |
+      val('main_issue') == "Did the decedent leave things behind upon death and is there a will?"
+  - Additional Details: will_details
+    js show if: |
+      val('main_issue') == "Did the decedent leave things behind upon death and is there a will?"
+    choices:
+      - Is there a codicil to existing will?
+      - Is there a related document?
+      - Did something happen to the will?
+      - If the will was changed or revoked improperly, was it a mistake?
+      - Is the language or intent of the will ambiguous and is extrinsic evidence available?
+---
+question: |
+  Valid Will Analysis
+subquestion: |
+  % if no_valid_will: 
+  You should to do the valid will analysis here. 
+  % else: 
+  Since the facts mention the will is valid, just briefly mention **validity of will**, quick or on discussion of elements.
+  % endif
+  
+  % if will_details == 'Is there a related document?':
+  Since there's a related document of some sort, let's look at **incorporation by reference** and **revocation by subsequent instrument**.
+  % endif
+  % if will_details == 'Did something happen to the will?':
+  Since something happened to the will, let's look at **revocation** by subsequent instrument (e.g. 2nd will) or physical act, **lost will**
+  % endif 
+fields:
+  - no label: will_here
+    datatype: area
+    hint: Here, 
+  - no label: will_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Revocation
+subquestion: |
+  
+fields:
+  - no label: revocation_here
+    datatype: area
+    hint: Here, 
+  - no label: revocation_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Lost Will
+subquestion: |
+  
+fields:
+  - no label: lost_will_here
+    datatype: area
+    hint: Here, 
+  - no label: lost_will_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Dependent Relative Revocation
+subquestion: |
+  
+fields:
+  - no label: deprel_revocation_here
+    datatype: area
+    hint: Here, 
+  - no label: deprel_revocation_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Extrinsic Evidence
+subquestion: |
+  
+fields:
+  - no label: ex_ev_here
+    datatype: area
+    hint: Here, 
+  - no label: ex_ev_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Ademption by Satisfaction
+subquestion: |
+  
+fields:
+  - no label: ademption_sat_here
+    datatype: area
+    hint: Here, 
+  - no label: ademption_sat_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Abatement
+subquestion: |
+  A putative spouse has a good faith belief s/he is, but is not, lawfully married.
+fields:
+  - no label: abatement_here
+    datatype: area
+    hint: Here, 
+  - no label: abatement_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Ademption by Extinction
+subquestion: |
+  A putative spouse has a good faith belief s/he is, but is not, lawfully married.
+fields:
+  - no label: ademption_ext_here
+    datatype: area
+    hint: Here, 
+  - no label: ademption_ext_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Lapse
+subquestion: |
+  A putative spouse has a good faith belief s/he is, but is not, lawfully married.
+fields:
+  - no label: lapse_here
+    datatype: area
+    hint: Here, 
+  - no label: lapse_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Omitted child or spouse
+subquestion: |
+  A putative spouse has a good faith belief s/he is, but is not, lawfully married.
+fields:
+  - no label: omit_here
+    datatype: area
+    hint: Here, 
+  - no label: omit_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Intestate Distribution
+subquestion: |
+  A putative spouse has a good faith belief s/he is, but is not, lawfully married.
+fields:
+  - no label: intestate_here
+    datatype: area
+    hint: Here, 
+  - no label: intestate_thus
+    datatype: area
+    hint: Thus,
+---
+mandatory: true
+question: |
+  Here's the Wills & Trusts summary:
+subquestion: |
+  % if main_issue == 'Did the decedent leave things behind upon death and is there a will?':
+  
+  ${ will_here }
+  
+  ${ will_thus }
+  
+  **Revocation**
+  
+  ${ revocation_here }
+  
+  ${ revocation_thus }
+  
+  **Lost Will**
+  
+  ${ lost_will_here }
+  
+  ${ lost_will_thus }
+  
+  **Dependent Relevant Revocation**
+  
+  ${ deprel_revocation_here }
+  
+  ${ deprel_revocation_thus }
+  
+  **Extrinsic Evidence**
+  
+  ${ ex_ev_here }
+  
+  ${ ex_ev_thus }
+  
+  % elif main_issue == 'Is the will revived or not revoked?':
+
+  **Revocation**
+  
+  ${ revocation_here }
+  
+  ${ revocation_thus }
+  
+  **Lost Will**
+  
+  ${ lost_will_here }
+  
+  ${ lost_will_thus }
+
+  % elif main_issue == 'Did the decedent leave things behind & there is no will or will has failed?':
+  
+    **Dependent Relevant Revocation**
+  
+  ${ deprel_revocation_here }
+  
+  ${ deprel_revocation_thus }
+  
+  **Extrinsic Evidence**
+  
+  ${ ex_ev_here }
+  
+  ${ ex_ev_thus }
+  
+  % elif main_issue == 'Is the will revived or not revoked?':
+
+  **Revocation**
+  
+  ${ revocation_here }
+  
+  ${ revocation_thus }
+  
+  **Lost Will**
+  
+  ${ lost_will_here }
+  
+  ${ lost_will_thus }
+  
+  % elif main_issue == 'Is there a trust?':
+  
+    **Dependent Relevant Revocation**
+  
+  ${ deprel_revocation_here }
+  
+  ${ deprel_revocation_thus }
+  
+  **Extrinsic Evidence**
+  
+  ${ ex_ev_here }
+  
+  ${ ex_ev_thus }
+  
+  % elif main_issue == 'Is the will revived or not revoked?':
+
+  **Revocation**
+  
+  ${ revocation_here }
+  
+  ${ revocation_thus }
+  
+  **Lost Will**
+  
+  ${ lost_will_here }
+  
+  ${ lost_will_thus }
+  
+  % elif main_issue == 'Is a trustee acting on trust assets?':
+  
+    **Dependent Relevant Revocation**
+  
+  ${ deprel_revocation_here }
+  
+  ${ deprel_revocation_thus }
+  
+  **Extrinsic Evidence**
+  
+  ${ ex_ev_here }
+  
+  ${ ex_ev_thus }
+  
+  % elif main_issue == 'Is the will revived or not revoked?':
+
+  **Revocation**
+  
+  ${ revocation_here }
+  
+  ${ revocation_thus }
+  
+  **Lost Will**
+  
+  ${ lost_will_here }
+  
+  ${ lost_will_thus }
+  
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

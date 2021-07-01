@@ -1,0 +1,294 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Evidence"
+  title: |
+    Evidence
+---
+question: |
+  Main issue
+fields:
+  - Is this a California criminal case?: ca_crim_case
+    datatype: yesno
+  - Prop 8 Preamble: prop_8
+    datatype: area
+    show if: 
+      variable: ca_crim_case
+      is: true
+  - Prop 8 Exceptions: chopsur
+    datatype: area
+    show if: 
+      variable: ca_crim_case
+      is: true
+  - What are you analyzing?: main_issue
+    choices:
+      - Is a piece of evidence admissible?
+      - Other
+help: |
+  Proposition 8 is part of the CA Constitution. Prop 8 makes all relevant evidence in a criminal case admissible, even though objectionable under the California Evidence Code, unless it falls under certain exceptions.
+  
+  **Exceptions (CHOP SUR)**:
+  
+  1. Constitution: Exclusionary rules based on U.S. Constitution, e.g., confrontation clause, Miranda violation
+  2. Hearsay: Hearsay evidence remains inadmissible, and exceptions to the hearsay rule are still admissible
+  3. Open the door: Prosecution is still prohibited from offering evidence of Δ’s or V’s character before Δ opens
+  4. Privilege: Attorney-client, spousal witness and marital communications, physician-patient, and all other privileges in existence since 1982 apply
+  5. Secondary evidence rule: CA’s version of best evidence rule still applies
+  6. Unfair prejudice: Prop 8 preserves CEC 352, giving judge discretion to exclude evidence if PV << danger
+  7. Rape-shield statutes prevent Δ from offering evidence of V’s sexual conduct to prove behavior, unless V’s prior sexual conduct was with Δ. If Π asks V about prior sexual conduct, Δ may x-examine and rebut
+---
+question: |
+  Logical and Legal Relevance
+subquestion: |
+  Relevance is an issue when an interrogatory asks if evidence is admissible, not when an interrogatory asks if evidence is objectionable or if a witness can be called to the stand. 
+  
+  * Example: Transcript with numbered items, and interrogatory asks if items are objectionable. The first time do Relevance, separate into two headings on Logical and Legal. If evidence is objectionable because it is irrelevant, go to the part of relevance (logical or legal) that makes the evidence objectionable, rather than do both.
+fields:
+  - Logical Relevance: logical_rel
+    datatype: area
+  - In CA...: fact_in_dispute
+  - Legal Relevance: legal_rel
+    datatype: area
+help: |
+  Evidence is **logically relevant** if it tends to make a fact of consequence more or less probable than it would be without the evidence. 
+  
+  **In CA, the fact must be *in dispute***.
+
+  **Legal Relevance**: Logically relevant evidence may be excluded if its probative value is substantially outweighed by the danger of unfair prejudice, confusion of issues, or misleading the jury, or by considerations of undue delay, waste of time, or needless presentation of cumulative evidence.
+---
+question: |
+  Exclusions based on public policy
+subquestion: |
+  Evidence is EXCLUDED as irrelevant for the public policy reasons below. However, it may still be admissible for other purposes, e.g., ownership/control, impeachment, admission, rebutting non-feasibility, bias
+fields:
+  - 1: subs_rem_measures
+    datatype: area
+  - 2: set_offers
+    datatype: area
+  - 3: offer_to_pay_med
+    datatype: area
+  - CA Rule: ca_med_offers
+    datatype: area
+  - 4: liability_ins
+    datatype: area
+  - 5: withdrawn_guilty_plea
+  - CA 1: symp
+  - CA 2: mediation
+help: |
+  1. **Subsequent Remedial Measures** [Public policy encourages subsequent remedial measures (repairs or 11 precautionary measures following a harm to prevent a similar incident).] Evidence of subsequent remedial measures is inadmissible to prove fault, but admissible to prove (1) ownership or control, (2) feasibility of precautionary measures, or (3) spoilation (destruction) of evidence.
+  2. **Settlement Offers**: [Public policy encourages people to settle disputes without fear that a settlement offer will be used as evidence against them in litigation.] A settlement offer is inadmissible to prove (1) liability for, (2) invalidity of, or (3) amount of, a disputed claim, or (4) to impeach through a prior inconsistent statement.
+  3. **Offer to Pay Medical Expenses** [Public policy encourages humanitarian motives.] Federal Rule: Under the FRE, payment of, or an offer to pay, medical expenses are inadmissible to prove liability for injury, but admissions of fact in conjunction with an offer to pay medical expenses, are admissible.
+  
+  **CA Rule: In CA, an offer to pay medical expenses, and admissions of fault in conjunction with an offer to pay medical expenses, are inadmissible.**
+  
+  4. **Liability Insurance** [Public policy encourages people to have insurance.] Evidence of liability insurance is inadmissible to show a defendant is negligent or has ability to pay a substantial judgment, but admissible (1) to prove ownership or control, (2) to impeach, or (3) as an admission.
+  5. **Withdrawn guilty pleas**: Inadmissible as too prejudicial, minimal PV (but can waive inadmissibility)
+  
+  **[CA]**
+  
+  1. Expression of sympathy relating to accident V inadmissible civil cases, other admissions severable
+  2. Mediation statements and writings inadmissible in discovery or proceedings (can waive)
+continue button field: pub_pol_excl
+---
+question: |
+  Is the evidence a statement (written/oral)?
+noyes: is_not_statement
+---
+question: |
+  Documentary evidence
+subquestion: |
+  Since the evidence isn't an oral or written statement, it must be **documentary evidence**. So ask: 
+  
+  1. is it Authenticated? 
+  2. does the Best Evidence rule apply? 
+fields:
+  - Authentication: auth
+    datatype: area
+  - Best Evidence rule: BER
+    datatype: area
+  - In CA...: SER
+help: |
+  **Authentication**: Real or written evidence requires proof to support a jury finding that it is what the proponent claims
+  
+  1. Authentication generally requires witness’s first-hand knowledge or familiarity. Preponderance not needed
+  2. Self-authenticating docs: certified records, trade inscriptions ([CA] N/A), business records, official pubs
+
+  **Best evidence rule (`[CA] secondary evidence rule`)**: To prove the content of a writing or other tangible collection of data relevant to proving some material fact, the original must be introduced if available. Can still be hearsay
+
+  1. Only applies if content is in dispute (K, will, defamation) or where the testimony depends on the writing
+  2. Duplicates (`[CA] handwriting included`) are admissible to the same extent, unless 1) genuineness is at issue (one party contests authenticity), or 2) would be unfair in the circumstances to admit the duplicate in lieu
+  3. Original NOT required if: lost or destroyed (unless by opponent bad faith), opponent fails to produce, collateral matter, subpoena ineffective, independent source (personal knowledge), inscribed chattel
+---
+question: |
+  Testimonial evidence
+subquestion: |
+  Ask these questions first
+fields:
+  - Who spoke?: competence
+    note: Judge & jurors are not competent to testify. Judge may provide proper judicial notice
+  - Did the witness have personal knowledge?: pers_knowledge
+    datatype: yesno
+  - Did the witness have an opinion?: opinion
+    datatype: yesno
+  - Lay witness vs. expert witness: lay_v_expert
+    show if: opinion
+  - Was there an examination of a witness (transcript, question & answer)?: witness_exam
+    datatype: yesno
+  - Analyze both the question and the statement as one item of evidence: witness_analysis
+    show if: witness_exam
+  - note: Discuss any objections to form of question/answer (leading, nonresponsive, speculative…)
+  - Is a part of an answer improper?: improper_found
+    datatype: yesno
+    show if: witness_exam
+  - note that counsel should assert motion to strike: mts
+    datatype: yesno
+    show if: improper_found
+    
+continue button field: testimonial 
+---
+question: |
+  Dealing with reputation, etc. 
+fields:
+  - (1): XX
+
+  - (2): XX
+
+  - (3): reputation_opinion_other
+help: |
+  XX
+---
+question: |
+  Character evidence...
+fields:
+  - (1): character_evidence_rules
+help: |
+  Character evidence is any document or testimony offered to prove a person acted in a particular way on a particular occasion based on the person’s disposition or character. Evidence of a person’s character is generally inadmissible as irrelevant to prove conduct in conformity with the character trait.
+---
+question: |
+  Is it Character Evidence?
+subquestion: |
+  
+fields:
+  - yesno: is_ce
+  - yesno: not_ce
+---
+question: |
+  Hearsay Analysis
+subquestion: |
+  Hearsay is an out-of-court statement made by the declarant offered to prove the truth of the matter asserted. It is inadmissible upon proper objection unless an exemption or exception applies.
+note: |
+  **How to introduce Hearsay in an essay**
+  
+  Here, [Evidence] was a statement because it was [(written/oral) assertion] [conduct intended to be a substitute for words] [question conveyed, rather than sought, information]. The declarant, [Declarant], a person, made [Evidence] outside of court [give facts on where, when statement made]. The statement [was/was not] offered for its truth [insert literal statement from exam without paraphrasing]. The statement was offered to prove [purpose statement offered to prove]
+continue button field: hearsay_intro
+---
+question: The statement is not hearsay where the OOC statement is introduced for other purposes, to show
+fields:
+  - (1): legally_op_facts
+  - (2): effect_on_listener
+  - (3): know_of_speaker
+  - (4): state_of_mind
+help: |         
+  1. legally operative facts (of independent legal significance, e.g., K terms, defamatory words), 
+  2. effect on listener (notice, knowledge, motive), 
+  3. knowledge of speaker, 
+  4. state of mind (evidence of insanity, belief)
+continue button field: ooc_not_hearsay
+---
+question: |
+  Non-hearsay exemptions ([CA] fall under “exceptions”) 
+subquestion: |
+  “prior” statements need declarant’s availability)
+fields:
+  - (1): prior_incon_stmt
+  - (2): prior_con_stmt
+  - (3): prior_stmt_id
+  - (4): admissions_by_party
+help: |         
+  1. Prior inconsistent statement: To admit a prior statement inconsistent with declarant’s in-court testimony, declarant must be available [FRE] and the prior statement must have been given under oath
+  2. Prior consistent statement offered to rebut a charge that W has motive to lie/exaggerate. Declarant must testify at trial + be subject to x-exam + statement made before the alleged motive to lie or exaggerate arose
+  3. Prior statement identifying a person after perceiving him – must be available to testify at trial
+  4. Admissions by party: Statements by opponent (cannot bring own) acknowledging a fact relevant to the case
+continue button field: non_hearsay_exemptions
+---
+question: |
+  Party Admissions
+subquestion: |
+  
+fields:
+  - (1): adm_by_party_opp
+  - (2): adoptive_adm
+  - (3): vicarious_adm_by_cocon
+  - (4): vicarious_adm_by_agent
+help: |         
+  
+continue button field: party_admissions
+---
+question: |
+  Hearsay Exceptions - if declarant is unavailable
+subquestion: |
+  
+fields:
+  - (1): stmt_against_interest
+  - (2): former_testimony
+  - (3): dying_dec
+  - (4): pedigree_family
+  - (5): forfeiture
+  - CA (1): past_phys_or_mental
+  - CA (2): phys_abuse
+help: |         
+  1. 
+continue button field: hearsay_exceptions
+---
+mandatory: true
+question: |
+  Here's the Evidence summary:
+subquestion: |
+  % if main_issue == 'Is a piece of evidence admissible?':
+    % if logical_rel:
+      % if legal_rel:
+        % if pub_pol_excl:
+          % if is_not_statement:
+            % if auth and BER:
+            % endif
+          % else:
+            % if testimonial:
+              % if hearsay_intro:
+                % if ooc_not_hearsay:
+                  % if non_hearsay_exemptions:
+                    % if party_admissions:
+                      % if hearsay_exceptions:
+                      % endif
+                    % endif
+                  % endif
+                % endif
+              % endif
+            % elif reputation_opinion_other:
+              % if character_evidence_rules and is_ce:
+              INADMISSIBLE
+              % elif character_evidence_rules and not_ce:
+                % if hearsay_intro:
+                % endif
+              % endif
+            % endif
+          % endif
+        % endif
+      % endif
+    % endif
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

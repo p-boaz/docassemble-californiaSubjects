@@ -1,0 +1,290 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Quiet Enjoyment"
+  title: |
+    Quiet Enjoyment
+---
+sections:
+  - intro: Quiet Enjoyment
+  - actual: Actual Eviction
+  - constructive: Constructive Eviction
+    subsections:
+      - substantial: Substantial Interference
+      - priv: Private Nuisance
+      - notice: Notice
+      - vacates: Vacates
+  - retaliatory: Retaliatory Eviction
+  - conclusion: Conclusion
+progressive: True
+---
+event: intro
+code: |
+  force_ask('quiet_enjoyment')
+---
+event: actual
+code: |
+  force_ask('actual_eviction')
+---
+event: constructive
+code: |
+  force_ask('constructive_eviction')
+---
+event: notice
+code: |
+  force_ask('notice')
+---
+event: vacates
+code: |
+  force_ask('vacates')
+---
+event: retaliatory
+code: |
+  force_ask('retaliatory')
+---
+event: conclusion
+code: |
+  force_ask('final_screen')
+---
+features:
+  navigation: True
+---
+section: intro
+question: Quiet Enjoyment
+subquestion: |
+  {Every lease} contains an implied covenant of quiet enjoyment, which is breached when the landlord, someone claiming through the landlord, or someone with superior title disrupts the tenant’s possession. **Any acts (except for temporary or de minimis acts)** by the landlord that breach this covenant amount to an **actual or constructive eviction** of the tenant.
+continue button field: qe_intro
+---
+section: actual
+question: |
+  Actual Eviction
+subquestion: |
+  If the landlord removes the tenant from the premises, the total eviction terminates the lease and the tenant’s obligation to pay rent.
+fields:
+  - no label: actual_eviction_here
+    datatype: area
+    hint: Here, 
+  - no label: actual_eviction_thus
+    datatype: area
+    hint: Thus,
+---
+section: constructive
+question: |
+  Constructive Eviction
+subquestion: |
+  If the landlord (1) **substantially interferes** with the tenant’s use and enjoyment of the leasehold, the tenant’s obligation to pay rent is excused due to constructive eviction if the tenant gives (2) **notice** and (3) **vacates** the property within a reasonable time.
+continue button field: ce_intro
+---
+section: substantial
+question: |
+  1) Substantial Interference
+subquestion: |
+  Here, [Tenant] would base substantial interference on (1) `Situation 1` and (2) `Situation 2`.
+fields:
+  - note: |
+      **Situation 1**
+  - no label: substantial_here
+    datatype: area
+    hint: Here, 
+  - no label: substantial_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      **Situation 2**
+      
+      The situation with [____] constituted substantial interference if it was a {private nuisance}.
+---
+section: priv
+question: |
+  1.1) Private Nuisance
+subquestion: |
+  A private nuisance is (1) substantial and (2) {unreasonable interference} with another person’s use or enjoyment of property.
+fields:
+  - no label: priv_here
+    datatype: area
+    hint: Here, 
+  - no label: priv_thus
+    datatype: area
+    hint: Thus,
+---
+section: priv
+question: |
+  1.1.1) Plaintiff
+subquestion: |
+  Anyone with possessory rights in the property may bring a nuisance claim.
+fields:
+  - no label: p_here
+    datatype: area
+    hint: Here, 
+  - no label: p_thus
+    datatype: area
+    hint: Thus,
+---
+section: priv
+question: |
+  1.1.2) Substantial
+subquestion: |
+  The interference is substantial if it is offensive, inconvenient, or annoying to an average reasonable person in the community.
+fields:
+  - no label: subs_here
+    datatype: area
+    hint: Here, 
+  - no label: subs_thus
+    datatype: area
+    hint: Thus,
+---
+section: priv
+question: |
+  1.1.3) Unreasonable
+subquestion: |
+  The interference is unreasonable if the injury caused outweighs the usefulness of the defendant’s actions.
+fields:
+  - no label: unreas_here
+    datatype: area
+    hint: Here, 
+  - no label: unreas_thus
+    datatype: area
+    hint: Thus,
+---
+pre: |
+  `Finish the rest of the constructive eviction elements.`
+section: notice
+question: |
+  2) Notice
+fields:
+  - no label: notice_here
+    datatype: area
+    hint: Here, 
+  - no label: notice_thus
+    datatype: area
+    hint: Thus,
+---
+section: vacates
+question: |
+  3) Vacates
+fields:
+  - no label: vacates_here
+    datatype: area
+    hint: Here, 
+  - no label: vacates_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      {In conclusion,}
+---
+section: retaliatory
+question: Retaliatory Eviction 
+subquestion: |
+  A landlord may not evict a residential tenant for failure to pay rent as retaliation for the tenant reporting a housing code violation to the appropriate {authorities}.
+fields:
+  - no label: retaliatory_here
+    datatype: area
+    hint: Here, 
+  - no label: retaliatory_thus
+    datatype: area
+    hint: Thus,
+---
+mandatory: true
+event: final_screen
+question: |
+  Quiet Enjoyment Analysis
+subquestion: |
+  % if qe_intro: 
+  **Quiet Enjoyment**
+  
+  Every lease contains an implied covenant of quiet enjoyment, which is breached when the landlord, someone claiming through the landlord, or someone with superior title disrupts the tenant’s possession. **Any acts (except for temporary or de minimis acts)** by the landlord that breach this covenant amount to an **actual or constructive eviction** of the tenant.
+  
+  **Actual Eviction**
+  
+  If the landlord removes the tenant from the premises, the total eviction terminates the lease and the tenant’s obligation to pay rent.
+    
+  ${ actual_eviction_here }
+
+  ${ actual_eviction_thus }
+  
+  % if ce_intro:
+  **Constructive Eviction**
+
+  If the landlord (1) substantially interferes with the tenant’s use and enjoyment of the leasehold, the tenant’s obligation to pay rent is excused due to constructive eviction if the tenant gives (2) notice and (3) vacates the property within a reasonable time.
+
+  **Substantial Interference**
+
+  ${ substantial_here }
+  
+  ${ substantial_thus }
+  
+  **Private Nuisance**
+  
+  ${ priv_here }
+  
+  ${ priv_thus }
+    
+    **Plaintiff**
+    
+    ${ p_here }
+  
+    ${ p_thus }
+    
+    **Substantial**
+  
+    ${ subs_here }
+  
+    ${ subs_thus }
+    
+    **Unreasonable**
+  
+    ${ unreas_here }
+  
+    ${ unreas_thus }
+  
+  **Notice**
+
+  ${ notice_here }
+  
+  ${ notice_thus }
+  
+  **Vacates**
+  
+  ${ vacates_here }
+  
+  ${ vacates_thus }
+  % endif
+  
+  **Retaliatory Eviction** 
+  
+  A landlord may not evict a residential tenant for failure to pay rent as retaliation for the tenant reporting a housing code violation to the appropriate authorities.
+  
+  ${ retaliatory_here }
+  
+  ${ retaliatory_thus }
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms:
+  Every lease: |
+    Commercial and residential.
+  private nuisance: |
+    If the situation triggers Private Nuisance, integrate the private nuisance analysis inside the Substantial Interference element.
+  authorities: |
+    Retaliatory eviction applies only when landlord retaliates after tenant reports landlord for housing code violation.
+  Situation 1: |
+    List each situation from the facts.
+  unreasonable interference: |
+    Intentional, negligent, reckless, or result of abnormally dangerous conduct.
+  In conclusion,: |
+    Conclude on constructive eviction.

@@ -1,0 +1,348 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Attorney Advertising and Solicitation"
+  title: |
+    Attorney Advertising and Solicitation
+---
+sections:
+  - Intro
+  - Advertising:
+    - False or Misleading
+    - Identity
+    - Client Names
+    - Labeling
+    - Specialization
+    - CA Restrictions
+  - Solicitation:
+    - Agents
+    - Direct Mail 
+    - Prospective Clients
+  - Conclusion
+---
+question: |
+  Professional Responsibility
+subquestion: |
+  ##`Attorney Advertising and Solicitation`
+field: sees_nav_bar
+section: Intro
+---
+question: |
+  False or Misleading
+subquestion: |
+  The facts may give an ad with several statements. Make a heading for each statement, and analyze separately whether false or misleading under ABA or CA (whichever law instructed to apply). Evaluate if each statement 
+    
+    1. contains a material misrepresentation of fact or law, 
+    2. omits facts necessary to make the statement as a whole not materially misleading, 
+    3. lead a reasonable person to form unjustified expectation that the same results could be obtained without reference to specific factual and legal circumstances, 
+    4. unsubstantiated comparisons of fees or services.
+fields:
+  - note: |
+      **ABA**
+      
+      ABA permits a lawyer to advertise using {any form} of public communication about the lawyer’s services that is not false or misleading.
+  - no label: fom_aba_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: fom_aba_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **CA**
+      
+      In CA, these lawyer communications are presumed false or misleading: (1) communications delivered to a potential client in the hospital or suffering from physical or mental stress, (2) mailings not clearly labeled as advertising that seek fee-paying work, and (3) communications containing testimonials or endorsements without a disclaimer they are not a promise about the results in the potential client’s case.
+  - no label: fom_ca_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: fom_ca_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: False or Misleading
+post: |
+  `Whether statement is false or misleading may require first evaluating if another professional responsibility rule is violated. Analyze the violation of the other rule first. Then conclude whether false or misleading. Example: Ad offers interest-free loans for clear liability cases. First evaluate if the ad violates rules relating to financial assistance. If yes, ad is false or misleading.`
+---
+question: |
+  Identity
+subquestion: |
+  {Under ABA}, all ads must include the name and office address of at least one attorney or law firm.
+fields: 
+  - no label: id_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: id_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Identity
+---
+question: |
+  Clients' Names
+subquestion: |
+  Under ABA, regularly-represented clients’ names may be communicated in an ad with consent.
+fields: 
+  - no label: names_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: names_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Client Names
+---
+question: |
+  Advertising Material Labeling
+fields:
+  - note: |
+      **ABA**
+      
+      ABA allows advertising circulars sent in the **mail targeted** to those known to be in need of particular legal services, but the **outside envelope** must include the words **"Advertising Material."**
+  - no label: label_aba_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: label_aba_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **CA**
+      
+      In CA, **mailings** not clearly labeled as advertising that seek fee-paying work are **presumed false or misleading**.
+  - no label: label_ca_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: label_ca_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Labeling
+---
+question: |
+  Specialization 
+subquestion: |
+  In an advertisement, a lawyer is permitted to state the lawyer **“specializes in”** a field of law as long as the statement is not false and misleading, but **may not imply or state** s/he is **certified** as a **specialist** in a field of law, **unless** s/he is certified by an organization approved by a state authority or accredited by the ABA, and identifies the certifying organization name.
+fields: 
+  - no label: spec_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: spec_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Specialization
+---
+question: |
+ Special CA Restrictions
+subquestion: |
+  CA laws prohibit {ads that contain} (1) guarantee or warranty of the case outcome, (2) words or symbols that suggest quick cash or settlement, (3) lawyer or client impersonation without disclosing it is an impersonation, (4) accident or other event dramatization without disclosing it is a dramatization, and (5) contingent fee offer that does not warn a client who loses a case must still pay litigation costs if that is the arrangement.
+fields: 
+  - no label: ca_restrict_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: ca_restrict_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: CA Restrictions
+---
+question: |
+  {Solicitation}
+subquestion: |
+  Under ABA [`or CA law`], a lawyer cannot solicit fee-generating employment by in-person, live telephone, or real-time electronic contact from a specific prospective client when the lawyer’s significant reason for doing so is {pecuniary gain}, unless the person solicited (1) is a lawyer, or (2) has a family, close personal, or prior professional relationship.
+fields: 
+  - no label: solic_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: solic_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Solicitation
+---
+question: |
+  Agents
+subquestion: |
+  A lawyer must not use agents to solicit in a manner the lawyer cannot.
+fields: 
+  - no label: agents_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: agents_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Agents
+---
+question: |
+  Direct Mail
+subquestion: |
+  A lawyer may send a truthful and non-deceptive targeted letter to a potential client known to face a particular legal problem.
+fields: 
+  - no label: dm_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: dm_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Direct Mail
+---
+question: |
+  Prospective Clients
+subquestion: |
+  A lawyer must not coerce, harass, or solicit prospective clients who indicate they do not wish to be solicited.
+fields: 
+  - no label: pc_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: pc_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Prospective Clients
+---
+event: atty_ads_done
+question: Thank you.
+subquestion: |
+
+  % if sees_nav_bar:
+  **Advertising**
+  
+  **False or Misleading**
+  
+  ABA permits a lawyer to advertise using any form of public communication about the lawyer’s services that is not false or misleading.
+  
+  ${ fom_aba_here }
+  
+  ${ fom_aba_thus }
+  
+  **CA**
+  
+  In CA, these lawyer communications are presumed false or misleading: (1) communications delivered to a potential client in the hospital or suffering from physical or mental stress, (2) mailings not clearly labeled as advertising that seek fee-paying work, and (3) communications containing testimonials or endorsements without a disclaimer they are not a promise about the results in the potential client’s case.
+  
+  ${ fom_ca_here }
+  
+  ${ fom_ca_thus }
+  
+  **Identity**
+  
+  Under ABA, all ads must include the name and office address of at least one attorney or law firm.
+  
+  ${ id_here }
+  
+  ${ id_thus }
+  
+  **Clients’ Names**
+  
+  Under ABA, regularly-represented clients’ names may be communicated in an ad with consent.
+  
+  ${ names_here }
+  
+  ${ names_thus }
+  
+  **Advertising Material Labeling**
+      
+  **ABA**
+      
+  ABA allows advertising circulars sent in the mail targeted to those known to be in need of particular legal services, but the outside envelope must include the words "Advertising Material."
+      
+  ${ label_aba_here }
+  
+  ${ label_aba_thus }
+  
+  **CA**
+      
+  In CA, mailings not clearly labeled as advertising that seek fee-paying work are presumed false or misleading.
+  
+  ${ label_ca_here }
+  
+  ${ label_ca_thus }
+  
+  **Specialization**
+  
+  In an advertisement, a lawyer is permitted to state the lawyer “specializes in” a field of law as long as the statement is not false and misleading, but may not imply or state s/he is certified as a specialist in a field of law, unless s/he is certified by an organization approved by a state authority or accredited by the ABA, and identifies the certifying organization name.
+  
+  ${ spec_here }
+  
+  ${ spec_thus }
+  
+  **Special CA Restrictions**
+  
+  CA laws prohibit ads that contain (1) guarantee or warranty of the case outcome, (2) words or symbols that suggest quick cash or settlement, (3) lawyer or client impersonation without disclosing it is an impersonation, (4) accident or other event dramatization without disclosing it is a dramatization, and (5) contingent fee offer that does not warn a client who loses a case must still pay litigation costs if that is the arrangement.
+  
+  ${ ca_restrict_here }
+  
+  ${ ca_restrict_thus }
+  
+  **Solicitation** 
+  
+  ${ solic_here }
+  
+  ${ solic_thus }
+  
+  **Agents** 
+  
+  A lawyer must not use agents to solicit in a manner the lawyer cannot.
+
+  ${ agents_here }
+  
+  ${ agents_thus }
+  
+  **Direct Mail**
+  
+  A lawyer may send a truthful and non-deceptive targeted letter to a potential client known to face a particular legal problem.
+  
+  ${ dm_here }
+  
+  ${ dm_thus }
+  
+  **Prospective Client**
+  
+  ${ pc_here }
+  
+  ${ pc_thus }
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  Solicitation: |
+    Solicitation is not the same as advertising. Solicitation is directed to specific people. Advertising is a communication to the masses.
+  pecuniary gain: |
+    Offers for free legal services allowed.
+  any form: |
+     Rule governs **all** communications about a lawyer’s services, including statements in letters, emails, telephone calls.
+  In CA: |
+    CA Rules of Professional Conduct, Rule 1-400
+  Under ABA: |
+    No similar CA rule. 
+  ads that contain: |
+    List and analyze only the restrictions the facts trigger.

@@ -1,0 +1,105 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "State of Title"
+  title: |
+    State of Title
+---
+question: |
+  Apply the facts you know to these questions
+fields:
+  - "What conveyance can you start with?": chooses_conveyance
+    datatype: checkboxes
+    choices:
+      - life estate
+      - fee simple
+---
+question: |
+  In that case, please answer the following
+fields:
+  - "After the life estate, where does the interest go?": after_le
+    datatype: checkboxes
+    choices:
+      - to third party
+      - back to grantor or grantor heirs
+---
+question: |
+  Since this a remainder, answer the following
+fields:
+  - "Is there an ascertainable person?": asc_person
+    datatype: yesnoradio
+  - "Are there no conditions precedent?": no_cond_prec
+    datatype: yesnoradio
+---
+mandatory: True
+code: |
+  chooses_conveyance
+  ok_to_finish
+  final_screen
+---
+code: |
+  if not user_logged_in():
+    require_login_screen
+  ok_to_finish = True
+---
+event: require_login_screen
+question: |
+  You need to log in to finish this interview.
+buttons:
+  - Log in: leave
+    url: ${ url_of('login', next=interview_url()) }
+---
+event: final_screen
+mandatory: True
+question: |
+  Thank you for your answers.
+subquestion: |
+  % if chooses_conveyance['life estate']:
+  Based on your responses, you can confirm that this is a **life estate**
+  
+  A life estate is followed by either a **remainder** or **reversion**. 
+    
+    % if after_le['to third party']:
+  You answered that the interest went to a third party, so that makes it a **remainder**.
+      
+      % if asc_person and no_cond_prec:
+  You answered that the interest went to an **ascertainable person** and there are **no conditions precedent** that must be satisfied before the remainder is **certain to become possessory**. Therefore, this is a **vested remainder**
+  
+  **Vested remainders are always devisable by will** (and in the absence of a will they pass according to the intestacy statute).
+  
+      % else:
+  This is a **contingent** remainder. 
+      % endif
+    % else:
+  In this case, the interest went back to grantor or grantor heirs, so it's a **reversion**.
+    % endif
+  % endif
+  % if chooses_conveyance['fee simple']:
+  You said this was a fee simple - we're working on developing this answer more...
+  % endif
+
+  In Python, `chooses_conveyance` is
+  `${ repr(chooses_conveyance) }`.
+
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+auto terms:
+  remainder: |
+    If, after the life estate ends, the interest will go to a third party
+  reversion: |
+    If, after the life estate ends, the interest will go to the grantor or the grantor's heirs

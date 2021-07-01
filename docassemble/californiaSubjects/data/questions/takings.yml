@@ -1,0 +1,241 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Takings"
+  title: |
+    Takings
+---
+question: |
+  The {Fifth Amendment} Takings Clause 
+subquestion: |
+  Applicable to states through the Fourteenth Amendment, prohibits the government from (1) {taking} (2) private property (3) for public use (4) without just compensation.
+fields:
+  - First, establish what kind of **(1) taking**: taking_type
+    choices:
+      - Per Se Taking
+      - Partial Taking
+---
+question: |
+  Per Se Taking
+subquestion: |
+  A per se taking is almost always found when the government (1) actually appropriates, destroys, or permanently physically invades property, or (2) permanently deprives an owner of all economic value, requiring land be left substantially in its natural state.
+fields:
+  - no label: per_se1
+    hint: Here,
+    datatype: area
+  - no label: per_se2
+    hint: Thus,
+    datatype: area          
+---
+question: |
+  Courts apply a three factors balancing test to determine whether a regulation constitutes a taking:
+fields:
+  - (1): ec_impact
+  - (2): extent
+  - (3): character
+help: |         
+  1. economic impact of the regulation on a property owner,
+  2. extent the regulation interferes with an owner’s reasonable, investment-backed expectations regarding property use, and
+  3. character of the regulation, including the degree it benefits society, how the regulation distributes the burdens and benefits among property owners, and whether the regulation violates the owner’s property ownership attributes (i.e. right to exclude).
+---
+question: Economic Interest on Property Owner
+fields:
+  - no label: ec_int1
+    hint: Here,
+    datatype: area
+  - no label: ec_int2
+    hint: Thus,
+    datatype: area
+---
+question: Reasonable, Investment-Backed Expectations
+fields:
+  - no label: reas_ex1
+    hint: Here,
+    datatype: area
+  - no label: reas_ex2
+    hint: Thus,
+    datatype: area
+---
+question: Character of Regulation
+fields:
+  - no label: ch_of_reg1
+    hint: Here,
+    datatype: area
+  - no label: ch_of_reg2
+    hint: Thus,
+    datatype: area
+---
+pre: |
+  `Now examine the second element of the takings analysis` 
+question: |
+  (2) private property
+subquestion: |
+  A person with a real, intangible, or tangible personal property interest may challenge an unconstitutional taking.
+fields:
+  - no label: priv_property1
+    hint: Here,
+    datatype: area
+  - no label: priv_property2
+    hint: Thus,
+    datatype: area
+---
+question: |
+  (3) for public use
+subquestion: |
+  A government’s exercise of its eminent domain power is valid so long as the taking is (1) {rationally related} to (2) a {legitimate government interest}.
+fields:
+  - note: |
+      **Legitimate Government Interest**
+  - no label: for_pub_use1
+    hint: Here,
+    datatype: area
+  - no label: for_pub_use2
+    hint: Thus,
+    datatype: area
+  - note: |
+      **Rationally Related**
+  - no label: rational1
+    hint: Here,
+    datatype: area
+  - no label: rational2
+    hint: Thus,
+    datatype: area
+---
+question: |
+  (4) without just compensation.
+subquestion: |
+  Once a court determines a taking of private property for public use, it can (1) compensate the owner the {fair market value} of the property, or (2) terminate the taking and pay the owner for damages resulting from the taking.
+fields:
+  - note: |
+      **Fair Market Value**
+  - no label: just_comp1
+    hint: Here,
+    datatype: area
+  - no label: just_comp2
+    hint: Thus,
+    datatype: area
+  - note: |
+      **Terminate Taking**
+  - no label: terminate1
+    hint: Here,
+    datatype: area
+  - no label: terminate2
+    hint: Thus,
+    datatype: area
+---
+mandatory: true
+question: |
+  Here's your essay:
+subquestion: |
+  The Fifth Amendment Takings Clause, applicable to states through the Fourteenth Amendment, prohibits the government from (1) taking (2) private property (3) for public use (4) without just compensation.
+  
+  % if taking_type == 'Partial Taking':
+  **(1) PARTIAL TAKING**
+  
+  Courts apply a three factors balancing test to determine whether a regulation constitutes a taking:
+      
+  1. ${ ec_impact }
+  2. ${ extent }
+  3. ${ character }
+  
+    **Economic Interest on Property Owner**
+  
+    ${ ec_int1 }
+  
+    ${ ec_int2 }
+  
+    **Reasonable, Investment-Backed Expectations**
+  
+    ${ reas_ex1 }
+  
+    ${ reas_ex2 }
+  
+    **Character of Regulation**
+  
+    ${ ch_of_reg1 }
+  
+    ${ ch_of_reg2 }
+  
+  % else: 
+  
+  **(1) PER SE TAKING**
+  
+  A per se taking is almost always found when the government (1) actually appropriates, destroys, or permanently physically invades property, or (2) permanently deprives an owner of all economic value, requiring land be left substantially in its natural state.
+  
+  ${ per_se1 }
+  
+  ${ per_se2 }
+  
+  % endif
+  **(2) PRIVATE PROPERTY**
+  
+  A person with a real, intangible, or tangible personal property interest may challenge an unconstitutional taking.
+  
+  ${ priv_property1 }
+  
+  ${ priv_property2 }
+  
+  **(3) PUBLIC USE**
+  
+  A government’s exercise of its eminent domain power is valid so long as the taking is (1) rationally related to (2) a legitimate government interest.
+  
+  **Legitimate Government Interest**
+  
+  ${ for_pub_use1 }
+  
+  ${ for_pub_use2 }
+  
+  **Rationally Related**
+  
+  ${ rational1 }
+    
+  ${ rational2 }
+  
+  **(4) JUST COMPENSATION**
+  
+  Once a court determines a taking of private property for public use, it can (1) compensate the owner the fair market value of the property, or (2) terminate the taking and pay the owner for damages resulting from the taking.
+  
+  **Fair Market Value**
+  
+  ${ just_comp1 }
+   
+  ${ just_comp2 }
+  
+  **Terminate Taking**
+  
+  ${ terminate1 }
+   
+  ${ terminate2 }
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms:
+  Fifth Amendment: |
+    Signal Constitutional Law issues with the amendment number. Taking may be tested with Zoning, Equal Protection, Due Process.
+  taking: |
+    If facts deal with state or local government taking, do Tenth Amendment to show the source of power for the taking (police power – health, safety, morals, welfare).
+  rationally related: |
+    Rational basis test. The plaintiff has the burden of proving the elements. Usually on the exam, try to make the plaintiff lose in the analysis.
+  legitimate government interest: |    
+    Public Use means public purpose. Example: Taking when City transfers private property to private developer because public benefits from development. Kelo v. City of New London, 545 U.S. 469 (2005). 
+    
+    2 steps for rational basis test:
+    
+      1. Legitimate government interest
+      2. Whether regulation is rationally related to the interest.
+  fair market value: |      
+      Reasonable property value at time of taking measured in terms of owner loss, not government gain.

@@ -1,0 +1,863 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Valid Contract"
+  title: |
+    Valid Contract
+---
+sections:
+  - Intro
+  - Preliminary Negotiation
+  - Advertisement
+  - Offer
+  - UCC Firm Offer
+  - Bilateral Contract
+  - Unilateral Contract
+  - Counteroffer
+  - Revival
+  - Rejection
+  - Acceptance: 
+    - Silence
+    - Action - Bilateral Contract
+    - Action - Unilateral Contract
+  - Mailbox Rule
+  - Consideration
+  - No Formation Defenses:
+    - Undue Influence
+  - Quasi-contract
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+section: Intro
+question: |
+  **{Valid Contract}**
+subquestion: |
+  A valid contract requires (1) offer, (2) acceptance, (3) consideration, and (4) no formation defenses.
+continue button field: intro
+field: sees_nav_bar
+---
+section: Preliminary Negotiation
+question: |
+  Preliminary Negotiation
+subquestion: |
+  {Preliminary negotiation} does not constitute an offer.
+fields: 
+  - no label: pn_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pn_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Advertisement
+question: |
+  Advertisement
+subquestion: |
+  An advertisement is an invitation to receive offers, unless (1) associated with a stated reward, or (2) the advertisement specifies who may accept, how acceptance is made, and is not negotiable.
+fields: 
+  - note: |
+      `Use “Here” or “In this case” to signal analysis. Do not put the conclusion at the beginning; redundant since you need a conclusion at the end. Analysis should contain keywords from the rules to ensure each part of the rules is proven with the facts. Match only enough facts to prove the rules. Do not use facts meant for other issues or elements.`
+  - no label: advert_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      `Use “Thus” or “Therefore” to signal the conclusion, not in the analysis. Conclusion should not have new arguments. Conclusion should reflect the issue or element (heading), and be 1-2 sentences at most on whether the facts prove the issue or element. Have a conclusion for each element and issue.`
+  - no label: advert_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Offer
+question: |
+  Offer
+subquestion: |
+  An offer requires (1) an express present intent to be legally bound to a contract, (2) certain and definite terms, and (3) communication to an identifiable offeree.
+  
+  *Under common law, essential terms (subject, price, quantity) must be covered.*
+fields: 
+  - no label: offer_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: offer_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Termination
+question: |
+  Lapse of Time
+subquestion: |
+ * If the offer specifies a termination date, the offer terminates at midnight on that date.
+ 
+ * If the offer terminates after a specified number of days, the time runs from the time the offer is received.
+ 
+ * If the offer specifies no time, the time limit is what a {reasonable offeree} assumes.
+fields: 
+  - no label: lot_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: lot_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Termination
+question: |
+  Death
+subquestion: |
+  An offer terminates upon the offeror’s death, even when the offeree does not know of the death, except for an offer that is an option, which is irrevocable for the period consideration was paid.
+fields: 
+  - no label: death_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: death_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Revocation
+question: |
+  Revocation
+subquestion: |
+  An offer terminates if (1) an offeror **{directly communicates}** revocation to the offeree, or (2) the offeree acquires reliable information that the offeror has taken definite action inconsistent with the offer. A revocation is effective when received by the offeree.
+fields: 
+  - no label: revoc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: revoc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: UCC Firm Offer
+question: |
+  **{UCC Firm Offer}**
+subquestion: |
+  Under the UCC, an offer to buy or sell goods is irrevocable if (1) **offeror is a merchant**, (2) there are **assurances the offer is to remain open**, and (3) the assurances are contained in an **{authenticated writing}** from the offeror. **{Irrevocability}** may not exceed **three months**.
+fields: 
+  - no label: ucc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ucc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Bilateral Contract
+question: |
+  **{Bilateral Contract}**
+subquestion: |
+  In a bilateral contract, one party’s promise is exchanged for the other party’s promise. The exchange of promises renders both enforceable.
+fields: 
+  - no label: bc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: bc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Unilateral Contract
+question: |
+  Unilateral Contract
+subquestion: |
+  In a unilateral contract, the **offeror promises** to perform in return for the **offeree’s act**. The offeree’s promise to perform is insufficient to constitute acceptance; the offeree must perform the act to accept the offer.
+fields: 
+  - no label: uc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: uc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Unilateral Contract – Irrevocable Offer**
+      
+      Starting performance makes an offer for a unilateral contract irrevocable for a reasonable time to allow for complete performance.
+  - no label: uc_io_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: uc_io_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Counteroffer
+question: |
+  Sixth Amendment - Ineffective Counsel
+subquestion: |
+  The right to counsel encompasses the right to be assisted by a reasonably competent attorney. An attorney is ineffective when (1) representation falls below an objective reasonableness standard, and (2) the deficient performance prejudices the defendant, resulting in an unreliable or fundamentally unfair outcome in the proceeding.
+fields: 
+  - note: |
+      **Common Law**
+      
+      Generally, an acceptance is effective upon 18posting. At common law, acceptance must mirror the offer terms, neither omitting nor adding terms. Modifications to an offer act as a rejection of the offer and create a new offer (counteroffer).
+  - no label: co_cl_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: co_cl_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **UCC**
+      
+      Under UCC §2-207, additional or different terms included in the acceptance of an offer generally do not constitute a rejection unless (1) offer expressly limits acceptance to the offer terms, (2) when between non-merchants or a merchant and a non-merchant, the acceptance is made expressly conditional on the offeror’s consent to the additional or different terms, where these terms are a proposal for addition to the contract that is to be separately accepted or rejected, or (3) when both parties are merchants, the additional or different terms are part of the contract unless the terms materially alter the agreement or the offeror objects within a reasonable time.
+  - no label: co_ucc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: co_ucc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Revival
+question: |
+  **{Revival}**
+subquestion: |
+  The offeror may revive a terminated offer.
+fields: 
+  - no label: rev_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: rev_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Rejection
+question: |
+  Rejection
+subquestion: |
+  An offeree may reject an offer expressly. A rejection becomes effective when **received**.
+fields: 
+  - no label: rej_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: rej_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Acceptance
+question: |
+  Acceptance
+subquestion: |
+  Acceptance requires (1) **unequivocal** acceptance terms, (2) an offeree with **power to accept**, and (3) **communication** of acceptance.
+fields: 
+  - no label: acc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: acc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Acceptance
+question: |
+  **Silence**
+subquestion: |
+  Silence does not operate as an acceptance of an offer, unless (1) the offeree has reason to believe the offer could be accepted by silence, was silent, and **intended to accept** the offer **by silence**, or (2) due to **previous dealings**, it is reasonable to believe the offeree must notify the offeror if the offeree intends not to accept.
+fields:      
+  - no label: sil_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: sil_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Action – Bilateral Contract
+question: |
+  Action – Bilateral Contract
+subquestion: |
+  An offer requiring a promise to accept can be accepted with (1) return promise or (2) act completion. Starting performance is enough to accept an offer for a bilateral contract.
+fields: 
+  - no label: action_bc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: action_bc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Action – Unilateral Contract
+question: |
+  Action – Unilateral Contract
+subquestion: |
+  An offer requiring action to accept can be accepted with offeree (1) aware of the offer, and (2) act completion.
+fields: 
+  - no label: action_uc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: action_uc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Mailbox Rule
+question: |
+  Mailbox Rule
+subquestion: |
+  Under the mailbox rule, acceptance by mail or similar means, properly addressed, stamped, and sent, is effective at **dispatch**. The **{mailbox rule applies only to acceptance}**, and does not apply to other contract events.
+fields: 
+  - no label: mbr_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: mbr_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Consideration
+question: |
+  Consideration
+subquestion: |
+  Consideration involves (1) a **bargain for exchange** (2) of **legal value**.
+fields: 
+  - no label: consid_here
+    datatype: area
+    hint: |
+      Here, [`insert dollar amount or value of good or service`], something of legal value, motivated [`Party1`] to exchange to [`Party2`] [`insert good or service Party1 gives to Party2`], a detriment incurred by [`Party1`] for [`Party2`]’s benefit.
+    required: False
+  - no label: consid_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Bargain for Exchange
+question: |
+  Bargain for Exchange
+fields: 
+  - no label: bfe_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: bfe_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Illusory Promise**
+  - no label: ip_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ip_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Past Consideration**
+      
+      **Traditionally**, past performance before a promise is not bargained for, or done in reliance on the promise. **Modernly**, some courts enforce a promise to prevent unjust enrichment when the **plaintiff expected compensation**, and the **{defendant benefitted}** from the plaintiff’s actions.
+  - no label: pc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Legal Value
+question: |
+  Legal Value
+fields: 
+  - no label: lv_here
+    datatype: area
+    hint: Here,
+    required: False
+  - no label: lv_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Preexisting Legal Duty**
+      
+      Performing or promising to perform an existing legal duty is insufficient consideration.
+  - no label: pld_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pld_thus
+    datatype: area
+    hint: Thus, 
+    required: False   
+  - note: | 
+      `Conclude on Consideration. After finish each element, conclude on the issue or answer the interrogatory.`
+---
+section: Output [Requirements] Contract
+question: |
+  Output [Requirements] Contract
+subquestion: |
+  [In a requirements contract, the buyer agrees to buy all it requires of a product from the seller.] 
+  
+  [In an output contract, the seller agrees to sell all it manufactures of a product to the buyer.]
+  
+  Consideration is from the promisor suffering a legal detriment.
+fields: 
+  - no label: orc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: orc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Promissory Estoppel
+question: |
+  Promissory Estoppel
+subquestion: |
+  Promissory estoppel acts as consideration when a party’s promise (1) **foreseeably induces** the other party’s **reliance**, (2) the **other party relies** on the promise, and (3) **injustice** can be **avoided** only **by enforcing the promise**.
+fields: 
+  - no label: pe_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pe_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: No Formation Defenses
+question: |
+  No Formation Defenses
+fields: 
+  - note: |
+      **Undue Influence**
+      
+      Undue influence occurs when one party is dominant and the other party is dependent, due to lack of expertise, experience, or diminished mental capacity. Generally, the dominant party will be held to a higher fairness and disclosure standard than in a contract between arms-length parties.
+  - no label: ui_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ui_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Duress**
+      
+      Duress means any wrongful act or threat that deprives a party of meaningful choice. When a party’s agreement results from physical duress, the contract is void. When the duress is a threat, the contract is voidable.
+  - no label: duress_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: duress_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Unilateral Mistake**
+      
+      A unilateral mistake by one party is insufficient to make a contract voidable, **unless the nonmistaken party** (1) **knew or had reason to know** of the mistake, or (2) had a **duty to disclose** the fact about which the other party was mistaken.
+  - no label: um_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: um_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Mutual Mistake**
+      
+      Mutual mistake occurs when both parties are mistaken as to an essential contract element. There must be a substantial difference between the contemplated and actual deal, with no intent by the parties to take a risk on the contract element. The contract is generally voidable by the party adversely affected by the mistake.
+  - no label: mm_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: mm_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Misrepresentation**
+      
+      If a party (1) induces another party to enter into a contract (2) asserting fraudulent misrepresentation (known untrue information), the contract is (3) voidable by the party who justifiably relies on the misrepresentation.
+  - no label: misrep_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: misrep_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Unconscionability**
+      
+      A contract may be voidable where the provisions are one-sided as to be unconscionable at the time the contract is made. The defense is applied where one party has unequal and superior bargaining power over the other party.
+  - no label: uncon_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: uncon_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Statute of Frauds**
+      
+      Scenario 1: [Under the UCC, to be enforceable, agreements for the sale of goods for $500 or more must be in writing.] [The Statute of Frauds requires service contracts that cannot be performed within 34 one year to be in writing and signed by the party to be charged, unless an 35 exception applies.] [The Statute of Frauds requires contracts involving a land interest to be in writing and signed by the party to be charged, unless an exception applies.]
+
+      Scenario 2: [Under the UCC, to be enforceable, agreements for the sale of goods for $500 or more must be in writing] containing 36 (1) identity of parties, (2) contract’s subject matter, (3) terms and conditions, (4) consideration recital, and (5) signature of the party to be charged, unless both parties are merchants. The writing need not be an actual contract, or the terms be contained on one piece of paper. A series of correspondence between the parties may suffice.
+  - no label: sof_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: sof_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Part Payment**
+      
+      For a goods sale, when part of the purchase price has been paid, the contract is enforced and outside the Statute of Frauds to the extent of the purchase.
+  - no label: pp_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pp_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Part Performance**
+      
+      A court may enforce a contract where there has been {part performance} (acts by either party subsequent to contract formation) evidencing contract existence.
+  - no label: pperf_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pperf_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Illegality
+question: |
+  Illegality
+subquestion: |
+  If the consideration or performance under a contract is illegal, the contract is illegal and **unenforceable**. If a contract contemplates illegal conduct, it is **void**. If a contract becomes illegal after formation, performance is **discharged**.
+fields: 
+  - no label: ill_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ill_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Capacity
+question: |
+  Capacity
+subquestion: |
+  Parties to a contract must have legal capacity to be held to contractual duties.
+fields: 
+  - note: |
+      **Mental**
+      
+      If a party with mental illness or defect is **adjudicated mentally incompetent****, contracts made by the individual are **void**. If the party is **not adjudicated** mentally incompetent, contracts are **voidable** and may be **disaffirmed if** the person does **not understand the nature and consequences of the transaction, and the other party has reason to know** of this fact.
+  - no label: mental_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: mental_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Minor**
+      
+      Traditionally, a {minor lacked capacity} to enter into a contract. Modernly, a minor may enter into a contract, but the contract is voidable at the minor’s option.
+  - no label: minor_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: minor_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Quasi-contract
+question: |
+  Quasi-contract
+subquestion: |
+  A court implies a quasi-contract when there is a failed contract, no contract, or divisible contract by implying a promise that requires the defendant to make restitution to the plaintiff. Elements: (1) plaintiff confers defendant a measureable 39 benefit without gratuitous intent, (2) defendant knows or has reason to know of plaintiff’s expectation because defendant had opportunity to decline the benefit, but instead knowingly accepted it, and (3) defendant unjustly enriched if defendant retains the benefit without cost.
+fields: 
+  - no label: qc_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: qc_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+mandatory: true
+progress: 100
+question: Summary 
+subquestion: |
+  % if sees_nav_bar:
+  
+  **Valid Contract**
+  
+  ${ pn_here }
+  
+  ${ pn_thus }
+  
+  ${ advert_here }
+  
+  ${ advert_thus }
+  
+  ${ offer_here }
+  
+  ${ offer_thus }
+  
+  ${ lot_here }
+  
+  ${ lot_thus }
+  
+  ${ death_here }
+  
+  ${ death_thus }
+  
+  ${ revoc_here }
+  
+  ${ revoc_thus }
+  
+  ${ ucc_here }
+  
+  ${ ucc_thus }
+  
+  ${ bc_here }
+  
+  ${ bc_thus }
+  
+  ${ uc_here }
+  
+  ${ uc_thus }
+  
+  ${ uc_io_here }
+  
+  ${ uc_io_thus }
+  
+  ${ co_cl_here }
+  
+  ${ co_cl_thus }
+  
+  ${ co_ucc_here }
+  
+  ${ co_ucc_thus }
+  
+  ${ rev_here }
+  
+  ${ rev_thus }
+  
+  ${ rej_here }
+  
+  ${ rej_thus }
+  
+  ${ acc_here }
+  
+  ${ acc_thus }
+  
+  ${ sil_here }
+  
+  ${ sil_thus }
+  
+  ${ action_bc_here }
+  
+  ${ action_bc_thus }
+  
+  ${ action_uc_here }
+  
+  ${ action_uc_thus }
+  
+  ${ mbr_here }
+  
+  ${ mbr_thus }
+  
+  ${ consid_here }
+  
+  ${ consid_thus }
+  
+  ${ bfe_here }
+  
+  ${ bfe_thus }
+  
+  ${ ip_here }
+  
+  ${ ip_thus }
+  
+  ${ pc_here }
+  
+  ${ pc_thus }
+  
+  ${ lv_here }
+  
+  ${ lv_thus }
+  
+  ${ pld_here }
+  
+  ${ pld_thus }
+  
+  ${ orc_here }
+  
+  ${ orc_thus }
+  
+  ${ pe_here }
+  
+  ${ pe_thus }
+  
+  ${ ui_here }
+  
+  ${ ui_thus }
+  
+  ${ duress_here }
+  
+  ${ duress_thus }
+  
+  ${ um_here }
+  
+  ${ um_thus }
+  
+  ${ mm_here }
+  
+  ${ mm_thus }
+  
+  ${ misrep_here }
+  
+  ${ misrep_thus }
+  
+  ${ uncon_here }
+  
+  ${ uncon_thus }
+  
+  ${ sof_here }
+  
+  ${ sof_thus }
+  
+  ${ pp_here }
+  
+  ${ pp_thus }
+  
+  ${ pperf_here }
+  
+  ${ pperf_thus }
+  
+  ${ ill_here }
+  
+  ${ ill_thus }
+  
+  ${ mental_here }
+  
+  ${ mental_thus }
+  
+  ${ minor_here }
+  
+  ${ minor_thus }
+  
+  ${ qc_here }
+  
+  ${ qc_thus }
+  
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  benefit without gratuitous intent: |
+    Reasonably expected compensation
+  UCC Firm Offer: |
+    If UCC contract and offeror is merchant, do UCC §2-205 Firm Offer below Offer.
+  authenticated writing: |
+    Authenticated means signed. For merchants, writing can be met with email, fax, electronic signature.
+  Irrevocability: |
+    No consideration by offeree needed to keep offer open.
+  Bilateral contract: |
+    Do not do Bilateral v. Unilateral Contract for a UCC contract because UCC contract is bilateral so no controversy on contract type. For a common law contract, after finding the Offer, determine if the offer is for a bilateral or unilateral contract before Acceptance because the method to accept (promise or action) depends on the contract type. Choose bilateral or unilateral; do not do both.
+  Valid Contract: |
+    
+  Preliminary negotiation: |
+    

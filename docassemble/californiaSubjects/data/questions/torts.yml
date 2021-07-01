@@ -1,0 +1,418 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Torts"
+  title: |
+    Torts
+---
+question: |
+  What is the main issue? 
+field: main_issue
+choices:
+  - intentional torts
+  - negligence
+  - strict liability
+---
+question: |
+  Define the intentional tort
+fields:
+  - People/Property: int_torts_ppl_or_prop
+    choices:
+      - people
+      - property
+  - Body/Mind: int_torts_body_or_mind
+    choices:
+      - body
+      - mind
+    show if: 
+      variable: int_torts_ppl_or_prop
+      is: 'people'
+  - Real/Personal: int_torts_real_or_pers
+    choices:
+      - real property
+      - personal property
+    show if: 
+      variable: int_torts_ppl_or_prop
+      is: 'property'
+---
+question: |
+  Intentional torts against person's body:
+fields:
+  - assault: assault_defined
+    datatype: area
+    help: |
+      An **assault** occurs when a defendant’s (1) intentional overt act (2) causes the plaintiff to experience (3) reasonable apprehension of an (4) imminent battery.
+  - battery: battery_defined
+    datatype: area
+    help: |
+      A **battery** is (1) a harmful or offensive contact (2) with plaintiff’s person (3) caused by defendant’s (4) intentional act.
+  - false imprisonment: fi_defined
+    datatype: area
+    help: |
+      **False imprisonment** results when a defendant (1) intends to confine or restrain, (2) another person, (3) to a bounded area, and (4) the actions cause such confinement or restraint.
+continue button field: body_elements
+---
+question: |
+  Define elements of assault
+fields:
+  - intentional overt act: overt_act_defined
+    datatype: area
+    help: |
+      Intent is established if the defendant (1) acts with the purpose to cause the plaintiff to experience reasonable apprehension of an imminent battery, or (2) knows with substantial certainty the consequences will result.
+  - transferred intent: trans_intent_defined
+    datatype: area
+    help: |
+      Transferred intent exists when a person intends to commit an intentional tort against one person, but instead commits (1) a different intentional tort against that person, (2) the intended tort against a different person, or (3) a different intentional tort against a different person.
+  - causes: causes_defined
+    datatype: area
+    help: |
+      Causation exists where the defendant’s act (1) legally causes, or (2) is a substantial factor in creating, the plaintiff to experience reasonable apprehension of an imminent battery. 
+  - reasonable apprehension: reas_apprehension_defined
+    datatype: area
+    help: |
+      A plaintiff's apprehension (expectation) must be reasonable. 
+  - imminent battery: imm_battery_defined
+    datatype: area
+    help: |
+      The battery must be imminent. Threats, or preparation of, a future battery, or a defendant too far away to inflict a battery, are insufficient.
+  - compensatory damages: as_comp_dam
+    datatype: area
+    help: |
+      Assault does not require harm.
+  - nominal damages: as_nom_dam
+    datatype: area
+    help: |
+      Nominal damages acknowledge a wrong when a plaintiff has no actual damages.
+  - punitive damages: as_pun_dam
+    datatype: area
+    help: |  
+      Punitive damages may be imposed if defendant acted willfully and wantonly, recklessly, or with malice.
+continue button field: assault_elements
+---
+question: |
+  Define elements of battery
+fields:
+  - harmful or offensive contact: harm_or_offense
+    datatype: area
+    help: |
+      Harmful contact causes physical injury to the body. Contact is offensive when a reasonable person finds the contact offensive, unless the defendant is aware the plaintiff is hypersensitive.
+
+      * **Indirect** contact exists when the defendant's act causes the plaintiff to contact an object, regardless of actual contact with the defendant.
+  - plaintiff's person: plaintiffs_person
+    datatype: area
+    help: |
+      Contact with anything connected to the plaintiff's person qualifies as contact.
+  - caused by defendant: caused_by_d
+    datatype: area
+    help: |
+      Causation exists where the defendant’s act (1) legally causes, or (2) is a substantial factor in creating, a harmful or offensive contact with plaintiff’s person. 
+      
+      * **Eggshell-skull Plaintiff**:  A defendant is liable for the full extent of a plaintiff’s injuries due to preexisting medical condition or vulnerability, even if the extent is unforeseeable.
+  - intent: intent
+    datatype: area
+    help: |
+      Intent is established if the defendant (1) acts with the purpose to cause a harmful or offensive contact with plaintiff’s person, or (2) knows with substantial certainty the consequences will result.
+  - damages: ba_dam
+    datatype: area
+    help: |
+      Battery does not require harm. [Punitive damages may be imposed if defendant acted willfully and wantonly, recklessly, or with malice.] Nominal damages acknowledge a wrong when a plaintiff has no actual damages. Punitive damages may be imposed if defendant acted willfully and wantonly, recklessly, or with malice.
+continue button field: battery_elements
+---
+question: |
+  false imprisonment - damages
+fields:
+  - definition: fi_def
+    datatype: area
+    help: |
+      False imprisonment results when a defendant (1) intends to confine or restrain, (2) another person, (3) to a bounded area, and (4) the actions cause such confinement or restraint.
+  - damages: fi_dam
+    datatype: area
+    help: |
+      False Imprisonment does not require harm. [Punitive damages may be imposed if defendant acted willfully and wantonly, recklessly, or with malice.] Nominal damages acknowledge a wrong when a plaintiff has no actual damages. Punitive damages may be imposed if defendant acted willfully and wantonly, recklessly, or with malice.
+continue button field: fi_elements  
+---
+question: |
+  Intentional torts against person's mind:
+fields:
+  - IIED: iied_defined
+    datatype: area
+  - damages: iied_damages
+    datatype: area
+help: |
+  A defendant is liable for intentional infliction of emotional distress when (1) extreme or outrageous conduct (2) causes a plaintiff severe emotional distress, and (3) damages.
+
+  Plaintiff must prove severe emotional distress beyond what a reasonable person could endure, but does not need physical injury. [Punitive damages may be imposed if defendant acted willfully and wantonly, recklessly, or with malice.]
+continue button field: mind_elements  
+---
+question: |
+  Define negligence 
+fields:
+  - no label: neg_defined
+    datatype: area
+help: |
+  A defendant must (1) fail to exercise such care as a reasonable person in his position would have exercised; (2) his conduct must be a breach of the duty to prevent the foreseeable risk of harm to anyone in the plaintiff's position; and (3) this breach must cause the plaintiff's damages. 
+---
+question: |
+  Intentional torts against real property:
+fields:
+  - trespass to land: ttl_defined
+    datatype: area
+  - private nuisance: priv_nuisance_defined
+    datatype: area
+  - public nuisance: pub_nuisance_defined
+    datatype: area
+help: |
+
+continue button field: real_prop_elements
+---
+question: |
+  Define elements of trespass to land
+fields:
+  - plaintiff: ttl_p
+    datatype: area
+  - intentional act: int_act
+    datatype: area
+  - transferred intent: t_intent
+    datatype: area
+  - causes physical invasion: phys_invasion
+    datatype: area
+  - real property: ttl_real_prop
+    datatype: area
+  - damages: ttl_dam
+    datatype: area
+help: |
+    Anyone with possessory rights in real property may bring a trespass action.
+    **Damages** 
+continue button field: ttl_elements
+---
+question: |
+  Define elements of private nuisance
+fields:
+  - plaintiff: priv_nuis_p
+    datatype: area
+  - substantial: subs
+    datatype: area
+  - unreasonable: unreas
+    datatype: area
+  - damages: priv_nuis_dam
+    datatype: area
+help: |
+    
+    **Damages** include depreciation in property value, and resulting harm, including personal injury and harm to property. [Punitive damages may be imposed if defendant acted willfully and wantonly, recklessly, or with malice.]
+continue button field: priv_nuisance_elements
+---
+question: |
+  Define elements of trespass to land
+fields:
+  - damages: pub_nuis_dam
+    datatype: area
+help: |
+  Damages include depreciation in property value, and resulting harm, including personal injury and harm to property. [Punitive damages may be imposed if defendant acted willfully and wantonly, recklessly, or with malice.]   
+continue button field: pub_nuisance_elements
+---
+question: |
+  Intentional torts against personal property:
+fields:
+  - trespass to chattels: ttc_defined
+    datatype: area
+    help: |
+      A defendant is liable for trespass to chattels if he (1) intentionally commits an act that (2) interferes with (3) plaintiff’s possessory right of chattels and (4) causes damage.
+  - conversion: conversion_defined
+    datatype: area
+    help: |
+      A defendant is liable for conversion if he (1) intentionally commits an act of (2) possession or interference with plaintiff’s chattel so (3) serious that he deprives plaintiff of the chattel, and (4) causes damages.
+continue button field: pers_prop_elements
+---
+question: |
+  Define elements of trespass to chattel
+fields:
+  - plaintiff: ttc_p
+    datatype: area
+    help: |
+      Anyone with possession or the immediate right to possession of the chattels may bring an action.
+  - intentional act: intent_act
+    datatype: area
+    help: |
+      Defendant need only have the intent to do the interfering act.
+  - interferes: interferes
+    datatype: area
+    help: |
+      Defendant interferes with plaintiff’s possessory right by (1) dispossessing plaintiff of the chattels or (2) use or intermeddling with plaintiff’s chattels.
+  - damages: ttc_dam
+    datatype: area
+    help: |
+      [In dispossession, a plaintiff proves damages by (1) actual amount caused by the interference (diminution in value) or (2) loss of use (rental value).] [In use or intermeddling, the plaintiff may recover actual damages (repair costs).] [Punitive damages may be imposed if defendant acted willfully and wantonly, recklessly, or with malice.]
+continue button field: ttc_elements
+---
+question: |
+  Define elements of conversion
+fields:
+  - plaintiff: conversion_p
+    datatype: area
+    help: |
+      Anyone with possession or the immediate right to possession of the chattels may bring an action.
+  - intentional act: conversion_intent
+    datatype: area
+    help: |
+      Defendant need only have the intent to do the interfering act.
+  - interferes: interferes
+    datatype: area
+    help: |
+      Defendant interferes with plaintiff’s chattel by exercising dominion or control over it.
+  - seriousness: srs
+    datatype: area
+    help: |
+      Factors to consider in determining seriousness: (1) duration and extent of interference, (2) defendant’s intent to assert an inconsistent right, (3) defendant’s good faith, (4) expense or inconvenience to plaintiff, (5) extent of harm to chattel.
+  - damages: conversion_dam
+    datatype: area
+    help: |
+      The standard measure of damages for conversion is (1) market value at time of conversion, (2) plus interest, (3) plus expenditures in pursuit of the property. [Punitive damages may be imposed if defendant acted willfully and wantonly, recklessly, or with malice.]
+continue button field: conversion_elements
+---
+question: |
+  intentional tort privileges and defenses
+fields:
+  - shopkeeper's: shopkeeper_priv
+    datatype: area
+    help: |
+      A shopkeeper has a privilege to detain a person suspected of stealing if the detention is done in a reasonable manner and time (generally, not to exceed 15-30 minutes).
+  - privilege of arrest: priv_of_arrest
+    datatype: area
+    help: |
+      A misdemeanor arrest without a warrant is privileged if the misdemeanor is a breach of the peace and committed in the presence of the arresting party.
+  - consent: consent
+    datatype: area
+    help: |
+      A plaintiff expressly consents if he by words or actions manifests the willingness to submit to the defendant’s conduct.
+      
+      * Consent given while under duress (physical force or threats) is invalid.
+      
+      * Consent by mistake is valid, unless the defendant caused, or knew and took advantage of, the mistake.
+      
+      * Consent induced by fraud is invalid if related an essential, not collateral, matter.
+      
+      * Consent is implied when the plaintiff is nonresponsive in a situation in which a reasonable person would object.
+  - self_defense: self_defense
+    datatype: area
+    help: |
+      A person is entitled to use reasonable force to prevent threatened harmful or offensive contact, except the initial aggressor is not entitled to self-defense, unless the other party responds to non-deadly force with deadly force.
+  - defense of others: def_of_others
+    datatype: area
+    help: |
+      A person may use reasonable force to prevent any threatened harmful or offensive contact in defense of others upon reasonable belief a defended party may use self-defense.
+continue button field: int_tort_privs_and_defs
+---
+question: |
+  Define elements of negligence
+fields:
+  - duty: duty_defined
+    datatype: area
+  - breach: breach_defined
+    datatype: area
+  - causation: causation_defined
+    datatype: area
+  - damages: damages_defined
+    datatype: area
+help: |
+  tbd
+continue button field: neg_elements  
+---
+question: |
+  Define the standards of care
+fields:
+  - firefighter's rule: firefighter
+    datatype: area
+  - duty to control third parties: third_parties
+    datatype: area
+  - std of care-default: default_soc
+    datatype: area
+  - std of care-professional: pro_soc
+    datatype: area
+  - std of care-child: child_soc
+    datatype: area
+  - std of care-innkeeper: guest_soc
+    datatype: area
+  - std of driver: driver_soc
+    datatype: area
+help: |
+  tbd
+continue button field: duty_elements  
+---
+question: |
+  Define strict liability
+fields:
+  - no label: str_liability_defined
+    datatype: area
+help: |
+---
+question: |
+  Define res ipsa loquitur  
+fields:
+  - Confirm: res_ipsa_defined
+    datatype: yesnoradio
+  - Rules: res_ipsa_definition
+    datatype: area
+help: |
+  In order to establish a prima facie case, (1) the event causing the injury would normally not have occurred in the absence of negligence; (2) the defendant was in exclusive control of the instrumentality that likely caused the injury; and (3) the plaintiff must not have voluntarily contributed to the event causing his injury. 
+---
+question: |
+
+---
+mandatory: true
+question: |
+  Here's the torts summary:
+subquestion: |
+  % if main_issue == 'intentional torts':
+    % if int_torts_ppl_or_prop == 'people':
+      % if int_torts_body_or_mind == 'body':
+        % if body_elements:
+          % if assault_elements and battery_elements and fi_elements:
+          % endif
+        % endif
+      % else:
+        % if iied_defined:
+        % endif
+      % endif
+    % else:
+      % if int_torts_real_or_pers == 'real property':
+        % if real_prop_elements:
+          % if ttl_elements and priv_nuisance_elements and pub_nuisance_elements:
+          % endif
+        % endif
+      % else:
+        % if pers_prop_elements:
+          % if ttc_elements and conversion_elements:
+          % endif
+        % endif
+      % endif
+    % endif
+    % if int_tort_privs_and_defs:
+    % endif
+  % elif main_issue == 'negligence':
+    % if neg_defined:
+      % if neg_elements:
+        % if duty_elements:
+        % endif
+      % endif
+  solid work
+    % endif
+  % else:
+    % if str_liability_defined:
+    % endif
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

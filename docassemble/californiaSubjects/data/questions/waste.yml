@@ -1,0 +1,204 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Waste"
+  title: |
+    Waste
+---
+sections:
+  - Waste
+  - Affirmative (Voluntary)
+  - Permissive (Involuntary)
+  - Ameliorative
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+section: Waste
+question: |
+  Waste
+subquestion: |
+  A {landlord/remainder interest} may bring suit for damages when a {tenant/life estate holder} commits (1) **affirmative** (voluntary) waste, (2) **permissive** (involuntary) waste, or (3) **{ameliorative waste}**.
+field: sees_nav_bar
+---
+section: Affirmative (Voluntary)
+question: |
+  **Affirmative ({Voluntary})**
+subquestion: |
+  Affirmative waste results from **intentional or negligent acts** that **cause a property value decrease**.
+fields: 
+  - no label: affirmative_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: affirmative_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Affirmative (Voluntary) Exceptions**
+      
+      Exceptions exist for exploiting minerals and timber if (1) a **grantor authorizes exploitation** at the beginning of the tenancy, or (2) **exploitation is necessary** to maintain the property.
+  - no label: affirmative_ex_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: affirmative_ex_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Permissive (Involuntary)
+question: |
+  Permissive (Involuntary)
+subquestion: |
+   Permissive waste results from (1) **{neglect}**, or (2) **{failure to reasonably protect property}**.
+fields: 
+  - no label: permissive_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: permissive_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Ameliorative
+question: |
+  Ameliorative
+subquestion: |
+   Ameliorative waste results from acts that **change or enhance property value**, without the consent of future interest holders.
+fields: 
+  - no label: ameliorative_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ameliorative_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Ameliorative Waste Exceptions**
+      
+      Modern majority allows **physically altering structures** on the property **when necessary to make reasonable use** of the property.
+  - no label: ameliorative_ex_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: ameliorative_ex_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  % if sees_nav_bar:
+  **Waste**
+  
+  A landlord/remainder interest may bring suit for damages when a tenant/life estate holder commits (1) **affirmative** (voluntary) waste, (2) **permissive** (involuntary) waste, or (3) **ameliorative waste**.
+  
+  **Affirmative Waste**
+  
+  ${ affirmative_here }
+  
+  ${ affirmative_thus }
+  
+  **Affirmative Waste Exceptions**
+  
+  ${ affirmative_ex_here }
+  
+  ${ affirmative_ex_thus }
+  
+  **Permissive Waste**
+  
+  ${ permissive_here }
+  
+  ${ permissive_thus }
+  
+  **Ameliorative**
+  
+  ${ ameliorative_here }
+  
+  ${ ameliorative_thus }
+  
+  **Ameliorative Waste Exceptions**
+  
+  ${ ameliorative_ex_here }
+  
+  ${ ameliorative_ex_thus }
+  % endif
+ 
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+section: Conclusion
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  landlord/remainder interest: |
+    Fill in the relationship between the parties (i.e. life estate – remainder, landlord-tenant).
+  tenant/life estate holder: |
+    If a life estate holder commits waste, the claim extinguishes upon the person’s death. At death, the person no longer possesses the property. The remainder interest cannot sue the person’s estate for damages the life estate holder committed before death.
+  ameliorative waste: |
+    On the exam, tailor the rules to the facts. List only the type of waste the facts trigger. Unnecessary to mention a type of waste if no facts.
+  Voluntary: |
+    Make headings for each type of waste the facts trigger.
+  neglect: |
+    Neglect means failure to keep up property. Example: Tenant has duty to make ordinary repairs to keep property in same condition as at lease term commencement, excluding ordinary wear and tear, unless tenant covenanted.
+  failure to reasonably protect property: |
+    Example: Life tenant fails to pay mortgage interest payments, taxes, or special assessments.

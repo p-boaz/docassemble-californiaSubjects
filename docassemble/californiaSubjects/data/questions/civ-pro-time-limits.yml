@@ -1,0 +1,217 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "CivPro Time Limits"
+  title: |
+    CivPro Time Limits
+---
+mandatory: True
+question: |
+  All done. Let's see how you did.
+subquestion: |
+  The summaries of ${ action }.
+    
+  ${ action.table }
+  
+  ${ action.add_action() }
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+objects:
+  - action: |
+      DAList.using(
+        object_type=Person,
+        complete_attribute='complete',
+        there_are_any=True)
+---
+code: |
+  action[i].name.text
+  action[i].time
+  action[i].complete = True
+---
+table: action.table
+rows: action
+columns:
+  - Action in Fed Ct: |
+      row_item.name.text
+  - Time Limit under FRCP: |
+      row_item.time
+edit:
+  - name.text
+  - time
+---
+question: |
+  What is the ${ ordinal(i) } action?
+fields:
+  - Name: action[i].name.text
+    choices:
+      - Service of process on Δ
+      - Service waiver
+      - Rule 12(b) motions - (2), (3), (4), (5)
+      - Rule 12(b) motions - (1), (6), (7)
+      - Answer to complaint
+      - Answer to complaint - if service waived
+      - Answer to complaint - if a Rule 12 motion is denied
+      - Reply to answer
+      - Removal
+      - Removal - if a new Δ joins the case
+      - Removal - based on diversity
+      - Remand
+      - Remand - if lack of SMJ
+      - Amendment to pleading
+      - Amendment to pleading - if adding new party (relation back)
+      - Response to amended pleading
+      - Rule 26(f) conference (meet & confer)
+      - Discovery - Initial disclosures
+      - Discovery - Expert testimony disclosure
+      - Discovery - Pretrial disclosures
+      - Discovery - Interrogatories, RFPs, RFAs
+      - Jury trial request
+      - Motion for Summary Judgment
+      - JNOV (renewed motion for JMOL)
+      - Motion for New Trial (de novo)
+      - Motion to amend final judgment
+      - Motion for relief from final judgment
+      - Appeal
+      - Appeal - U.S. is a party
+---
+question: |
+  What is the FRCP time limit on `${ action[i].name }`? 
+fields:
+  - no label: action[i].time
+    datatype: area
+help: |
+  **Service of process on Δ**
+  
+  * Π has 90 days after filing complaint
+  
+  **Service waiver**
+  
+  * Service waived if Δ returns waiver within 30 days
+  
+  **Rule 12(b) motions - (2), (3), (4), (5)**
+  
+  * Waived unless included in first answer or pre-answer motion
+  
+  **Rule 12(b) motions - (1), (6), (7)**
+  
+  * None, not waivable
+  
+  **Answer to complaint**
+  
+  * Δ has 21 days from service of complaint to answer
+  
+  **Answer to complaint - if service waived**
+  
+  * Δ has 60 days after Π’s waiver request sent (90 if foreign)
+  
+  **Answer to complaint - if a Rule 12 motion is denied**
+  
+  * Δ has 14 days after court’s notice
+  
+  **Reply to answer**
+  
+  * Π has 21 days after answer, if ordered by court
+  
+  **Removal**
+  
+  * Δ has 30 days after notice, pleading, complaint
+  
+  **Removal - if a new Δ joins the case**
+  
+  * New Δ has another 30 days to remove with other Δs
+  
+  **Removal - based on diversity**
+  
+  * 1 year after filed in state court, unless Π acted in bad faith
+  
+  **Remand**
+  
+  * Π has 30 days from removal notice
+  
+  **Remand - if lack of SMJ**
+  
+  * Π may move to remand at any time
+  
+  **Amendment to pleading**
+  
+  * Π has 21 days from service or 21 days after Δ’s response
+  
+  **Amendment to pleading - if adding new party (relation back)**
+  
+  * New pt needs notice of action within 90 days from its filing
+  
+  **Response to amended pleading**
+  
+  * Within original time remaining or 14 days from amendment
+  
+  **Rule 26(f) conference (meet & confer)**
+  
+  * At least 21 days before a scheduling conference
+  
+  **Discovery - Initial disclosures**
+  
+  * Within 14 days of meet and confer
+  
+  **Discovery - Expert testimony disclosure**
+  
+  * At least 90 days before trial
+  
+  **Discovery - Pretrial disclosures**
+  
+  * At least 30 days before trial
+  
+  **Discovery - Interrogatories, RFPs, RFAs**
+  
+  * Opposing party has 30 days to respond
+  
+  **Jury trial request**
+  
+  * File demand within 14 days of last pleading
+  
+  **Motion for Summary Judgment**
+  
+  * 30 days after close of discovery
+  
+  **JNOV (renewed motion for JMOL)**
+  
+  * Within 28 days of judgment
+  
+  **Motion for New Trial (de novo)**
+  
+  * Within 28 days of judgment
+  
+  **Motion to amend final judgment**
+  
+  * Within 28 days of judgment
+  
+  **Motion for relief from final judgment**
+  
+  * Within reasonable time up to 1 year
+  
+  **Appeal**
+  
+  * Within 30 days of final judgment 
+  
+  **Appeal - U.S. is a party**
+  
+  * Within 60 days if U.S. is a party
+---
+question: |
+  Are there any more actions
+  you would like to mention?
+yesno: action.there_is_another

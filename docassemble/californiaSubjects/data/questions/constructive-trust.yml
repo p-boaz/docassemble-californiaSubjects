@@ -1,0 +1,386 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Constructive Trust"
+  title: |
+    Constructive Trust
+---
+sections:
+  - Constructive Trust
+  - WOP
+  - Traced
+  - Title
+  - UE
+  - ILR
+  - SOF:
+    - Part Pmt
+    - Part Perf
+  - FP
+  - Eq Defenses: 
+    - UH
+    - Laches
+  - Eq Lien
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  Welcome to Constructive Trust/Equitable Lien
+subquestion: |
+  If you are not on a
+  smartphone-sized device,
+  you should see a navigation
+  bar to the left.
+field: sees_nav_bar
+---
+mandatory: True
+question: |
+  Constructive Trust
+subquestion: |
+  A constructive trust is an equitable remedy to prevent (1) **wrongfully obtained property** (2) **traced to plaintiff**, which defendant holds (3) title and is (4) **unjustly enriched**, when there is (5) **inadequate legal remedy**. 
+  
+  `Under the majority, the Statute of Fraud bars constructive trust for breach of an oral promise.`
+continue button field: intro
+section: Constructive Trust
+---
+mandatory: True
+question: |
+  Wrongfully Obtained Property
+subquestion: |
+  Wrongful Conduct
+  
+  `Insert rules for Wrongful Conduct (i.e. misappropriation)`
+fields: 
+  - no label: wc_here
+    datatype: area
+    hint: Here, 
+  - no label: wc_thus
+    datatype: area
+    hint: Thus, 
+section: WOP
+---
+mandatory: True
+question: |
+  Traced
+subquestion: |
+  The defendant’s property must be {traced} solely to plaintiff’s property.
+fields: 
+  - no label: traced_here
+    datatype: area
+    hint: Here, 
+  - no label: traced_thus
+    datatype: area
+    hint: Thus, 
+section: Traced
+---
+mandatory: True
+question: |
+  Bona Fide Purchaser
+subquestion: |
+  A bona fide purchaser (1) pays valuable consideration, (2) with no notice of a party’s property title claim.
+fields: 
+  - no label: bfp_here
+    datatype: area
+    hint: Here, 
+  - no label: bfp_thus
+    datatype: area
+    hint: Thus, 
+section: Traced
+---
+mandatory: True
+question: |
+  Title
+fields: 
+  - no label: title_here
+    datatype: area
+    hint: Here, 
+  - no label: title_thus
+    datatype: area
+    hint: Thus, 
+section: Title
+---
+mandatory: True
+question: |
+ Unjustly Enriched
+fields: 
+  - no label: ue_here
+    datatype: area
+    hint: Here, 
+  - no label: ue_thus
+    datatype: area
+    hint: Thus, 
+section: UE
+---
+mandatory: True
+question: |
+  Inadequate Legal Remedy
+subquestion: |
+  {Inadequate} legal remedy if (1) speculative, (2) insolvent defendant, (3) need multiple suits, or (4) unique property bargained for.
+fields: 
+  - no label: ar_here
+    datatype: area
+    hint: Here, 
+  - no label: ar_thus
+    datatype: area
+    hint: Thus, 
+section: ILR
+---
+mandatory: True
+question: |
+  Statute of Frauds
+subquestion: |
+  The Statute of Frauds requires contracts involving [____], to be in writing and signed by the party to be charged, unless an exception applies.
+fields: 
+  - no label: sof_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      `If contracts fact pattern, there may be an oral agreement, or the Statute of Frauds not met. If Statute of Frauds not met, discuss Statute of Frauds exceptions. Do not do Statute of Frauds, Fraudulent Promise for torts fact pattern.`
+  - no label: sof_thus
+    datatype: area
+    hint: Thus, 
+section: SOF
+---
+mandatory: True
+question: |
+  Part Payment
+subquestion: |
+  For a goods sale, when part of the purchase price has been paid, the contract is enforced and outside the Statute of Frauds to the extent of the purchase.
+fields: 
+  - no label: pmt_here
+    datatype: area
+    hint: Here, 
+  - no label: pmt_thus
+    datatype: area
+    hint: Thus, 
+section: SOF
+---
+mandatory: True
+question: |
+  Part Performance
+subquestion: |
+  A court may enforce a contract where there has been part performance (acts by either party subsequent to contract formation) evidencing contract existence.
+fields: 
+  - no label: perf_here
+    datatype: area
+    hint: Here, 
+  - no label: perf_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      {In conclusion},
+section: SOF
+---
+mandatory: True
+pre: |
+  `If unenforceable contract, constructive trust may apply if someone makes a promise without intent to carry out the promise at the moment the person makes a promise (fraudulent promise).`
+question: |
+  Fraudulent Promise
+subquestion: |
+  A constructive trust will be imposed in the event of a fraudulent promise.
+fields: 
+  - no label: fp_here
+    datatype: area
+    hint: Here, 
+  - no label: fp_thus
+    datatype: area
+    hint: Thus, 
+section: FP
+---
+mandatory: True
+pre: |
+  `Constructive trust is an equitable remedy so apply equitable defenses.`
+question: |
+  Equitable Defenses
+fields: 
+  - note: |
+      **{Unclean Hands}** 
+      
+      The party seeking relief must not have been guilty of **wrongful conduct** with respect to the **transaction subject matter**.  
+  - no label: uh_here
+    datatype: area
+    hint: Here, 
+  - no label: uh_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **Laches**
+      
+      The right to equitable relief is cut off when there has been unreasonable delay in initiating the claim, and the delay **prejudices** the defendant. 
+  - no label: laches_here
+    datatype: area
+    hint: Here, 
+  - no label: laches_thus
+    datatype: area
+    hint: Thus, 
+section: Eq Defenses
+---
+mandatory: True
+question: |
+  {Equitable Lien}
+subquestion: |
+  An equitable lien secures priority payment of debt owed to plaintiff over other creditors by imposing a lien on (1) wrongfully obtained property (2) traced to plaintiff, which defendant holds (3) title and is (4) unjustly enriched, when there is (5) an inadequate legal remedy.
+fields:
+  - note: Wrongfully Obtained Property
+  - no label: wop_here
+    datatype: area
+    hint: Here, 
+  - no label: wop_thus
+    datatype: area
+    hint: Thus, 
+  - note: Traced
+  - no label: trace_here
+    datatype: area
+    hint: Here, 
+  - no label: trace_thus
+    datatype: area
+    hint: Thus, 
+section: Eq Lien
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+
+  % if sees_nav_bar and intro:
+  **Temporary Restraining Order**
+  
+  ${ wc_here }
+  
+  ${ wc_thus }
+  
+  ${ traced_here }
+  
+  ${ traced_thus }
+  
+  ${ bfp_here }
+  
+  ${ bfp_thus }
+  
+  ${ title_here }
+  
+  ${ title_thus }
+  
+  **Preliminary Injunction**
+  
+  ${ ue_here }
+  
+  ${ ue_thus }
+  
+  ${ ar_here }
+  
+  ${ ar_thus }
+  
+  ${ sof_here }
+  
+  ${ sof_thus }
+  
+  ${ pmt_here }
+  
+  ${ pmt_thus }
+    
+  ${ perf_here }
+  
+  ${ perf_thus }
+  
+  **Fraudulent Promise** 
+  
+  ${ fp_here }
+  
+  ${ fp_thus }
+
+  ${ ue_here }
+  
+  ${ ue_thus }
+  
+  **Equitable Lien**
+  
+  An equitable lien secures priority payment of debt owed to plaintiff over other creditors by imposing a lien on (1) wrongfully obtained property (2) traced to plaintiff, which defendant holds (3) title and is (4) unjustly enriched, when there is (5) an inadequate legal remedy.
+  
+  ${ laches_here }
+  
+  ${ laches_thus }
+  
+  ${ wop_here }
+  
+  ${ wop_thus }
+  
+  ${ trace_here }
+  
+  ${ trace_thus }
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  Under the majority, the Statute of Fraud bars constructive trust for breach of an oral promise: |
+    Add this sentence for contracts fact patterns. Constructive trust does not apply to an oral agreement if the agreement is required to be in writing, unless there is a statue of frauds exception or fraudulent promise.
+  traced: |
+    No constructive trust when the defendant’s property cannot be traced solely to plaintiff’s property (i.e. defendant’s property improved with plaintiff’s property, plaintiff’s funds commingled with defendant’s property).
+  Inadequate: |
+    No constructive trust if able to obtain money damages (i.e. restitution, compensatory damages).
+  Unclean Hands: |
+    For unclean hands, the wrongful conduct has to relate to the parties’ transaction. There may be facts on the plaintiff doing something wrongful such as putting assets in another person’s name to hide assets from creditors. Unclean hands not a defense if wrongful conduct unrelated to the transaction.
+  Equitable Lien: |
+    Equitable lien gives someone owed a payment priority in getting paid over other creditors. 
+    
+    `Example`: G owes N $220K. G uses $220K to buy a boat. G has other debts. N can put an equitable lien on the boat such that if G sells the boat N gets paid before other creditors. Lien has to be on property traced to property belonging to N. G used the $220K to buy a boat so the boat is traced to $220K that belongs to N. G holds title to the boat. If G was able to keep the boat, G would be unjustly enriched because $220K belonged to N.
+  In conclusion: |
+    Conclude if Statute of Frauds met, or an exception makes the contract enforceable.
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue

@@ -1,0 +1,386 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Equal Protection"
+  title: |
+    Equal Protection
+---
+sections:
+  - Intro
+  - State Action
+  - Classification - Fundamental Right
+  - Classification - Suspect Class
+  - Classification - Gender/Legitimacy
+  - Classification - [ ]
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  **{Equal Protection}**
+subquestion: |
+  The Equal Protection Clause of the Fourteenth/The Due Process Clause of the {Fifth} Amendment provides that all persons are entitled to equal protection of the laws. Equal protection issues arise when the government treats similarly situated individuals differently based on classifications among {individuals}.
+field: sees_nav_bar
+---
+question: |
+  State Action
+subquestion: |
+  Because the U.S. Constitution only prohibits governmental infringement of constitutional rights, the litigant must show the action is attributable to the state, which includes government agencies and officials acting under the color of state law.
+fields: 
+  - no label: sa_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: sa_thus
+    datatype: area
+    required: False
+    hint: Thus, state action [was/was not] present.
+  - note: |
+      `Equal protection does not apply to private action. No equal protection violation if no government action.`
+section: State Action
+---
+question: |
+  Classification - Fundamental Right
+subquestion: |
+  `Determine if the law affects a fundamental right (i.e. religion, speech, travel, vote, privacy).`
+  
+  `If a Substantive Due Process issue involving fundamental rights in the essay answer, the analysis for strict scrutiny is the same; refer back if previously discussed.`
+fields: 
+  - note: |
+      `Analyze and mention the fundamental right affected.`
+  - no label: fr_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: fr_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Classification - Fundamental Right
+---
+question: |
+  Level of Scrutiny – Strict Scrutiny
+subquestion: |
+  If a fundamental right is involved, the court applies strict scrutiny. Strict scrutiny requires the law be (1) necessary and the least restrictive means to achieve (2) a compelling state interest.
+fields: 
+  - note: |
+      **{Compelling Interest}**
+  - no label: ci_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - note: |
+      **{Necessary}**
+  - no label: nec_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: nec_thus
+    datatype: area
+    required: False
+    hint: Thus,
+section: Classification - Fundamental Right
+---
+question: |
+  **Classification – {Suspect Class}**
+subquestion: |
+  When a law classifies based on a suspect class, strict scrutiny applies if there is intent on the part of the government to discriminate. If there is no discriminatory intent, rational basis applies.
+fields: 
+  - no label: suspect_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - note: |
+      **Discriminatory Intent**
+     
+      Discriminatory intent can be shown when the classification is (1) discriminatory {on its face}, (2) discriminatory {in its application}, or (3) has a {discriminatory motive} behind it.
+  - no label: discrim_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: discrim_thus
+    datatype: area
+    required: False
+    hint: Thus, there [was/was not] discriminatory intent, and the court should apply [strict scrutiny/rational basis]
+section: Classification - Suspect Class
+---
+question: |
+  Level of Scrutiny – Strict Scrutiny
+subquestion: |
+  If a suspect class is involved, and there is discriminatory intent, the court applies strict scrutiny. Strict scrutiny requires the law be (1) necessary and the least restrictive means to achieve (2) a {compelling state interest}.
+fields: 
+  - note: |
+      **{Compelling Interest}**
+  - no label: suspect_ci_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - note: |
+      **{Necessary}**
+  - no label: suspect_nec_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: nec_thus
+    datatype: area
+    required: False
+    hint: Thus,
+section: Classification - Suspect Class
+---
+question: |
+  Level of Scrutiny – Rational Basis
+subquestion: |
+  If a suspect class is involved, and there is no discriminatory intent, the court applies rational basis. Government action will be upheld if (1) rationally related to (2) a legitimate government interest.
+fields: 
+  - note: |
+      **Legitimate Interest**
+  - no label: legit_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - note: |
+      *2 steps for rational basis:*
+    
+      *1. Legitimate government interest.
+      2. Whether regulation is rationally related to the interest.*
+    
+      *Collapse to one paragraph to save time, but make sure to discuss 2 parts of the rules.*
+    
+      *If no mention of the government interest in the facts, base the interest on police powers (i.e. health, safety, welfare). If a Substantive Due Process issue involving no fundamental rights in the essay answer, the analysis for rational basis is the same; refer back if previously discussed.*
+    
+      *Do not play ping pong: Back-and-forth, back-and-forth arguing constitutes a ping pong essay that lacks analysis. Do not argue back and forth. The entire answer should not have the word “argue.” The time used to type the word “argue” is wasted time. A bar exam grader will unlikely be impressed by an examinee’s ability to recognize that one person can argue one thing, while another person can disagree. Analysis means evaluating whether the facts prove the rules to lead to a particular conclusion. This is different from saying what one person argues, how another person counters, and concluding one person is right. The back-and-forth, back-and-forth is also hard to read. After several rounds of back-and-forth, the arguing ends up being a facts recitation, not a proving of the rules. If there are alternative views to the facts, match each element to the facts for one side. Then match each element to the facts for the other view.*
+  - note: |
+      **Rationally Related**
+  - no label: rational_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: rational_thus
+    datatype: area
+    required: False
+    hint: Thus,
+section: Classification - Suspect Class
+---
+question: |
+  Classification – Gender/Legitimacy
+subquestion: |
+  When a law classifies based on [gender/legitimacy], intermediate scrutiny applies if there is intent on the part of the government to discriminate. If there is no discriminatory intent, rational basis applies.
+fields: 
+  - note: |
+      **Discriminatory Intent**
+      
+      Discriminatory intent can be shown when the classification is (1) discriminatory on its face, (2) discriminatory in its application, or (3) has a discriminatory motive behind it.
+  - no label: di_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: di_thus
+    datatype: area
+    required: False
+    hint: |
+      Thus, there [was/was not] discriminatory intent, and the court should apply [intermediate scrutiny/rational basis].
+section: Classification - Gender/Legitimacy
+---
+question: |
+  Level of Scrutiny - Intermediate Scrutiny
+subquestion: |
+  Under intermediate scrutiny, the law must be (1) substantially related to (2) an important government interest.
+fields: 
+  - note: Important Interest
+  - no label: important_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - note: Substantially Related
+  - no label: subs_here
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Classification - Gender/Legitimacy
+---
+question: |
+  Classification - [ ]
+subquestion: |
+  `Input each classification in the header. On the exam, there will usually be more than one classification.`
+fields: 
+  - note: |
+      `Explain the classification. Classifications that do not involve fundamental rights, gender, legitimacy, or suspect class (i.e. age, wealth, weight, economic, federal alienage) fall under rational basis.`
+  - no label: classification_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: classification_thus
+    datatype: area
+    required: False
+    hint: |
+      Thus, the law would be evaluated under rational basis.
+section: Classification - [ ]
+---
+question: |
+  Level of Scrutiny – Rational Basis
+subquestion: |
+  Government action will be upheld if (1) rationally related to (2) a legitimate government interest.
+fields: 
+  - note: |
+      **{Legitimate Interest}**
+  - no label: class_li_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - note: |
+      **Rationally Related**
+  - no label: rr_here
+    datatype: area
+    required: False
+    hint: Here,
+  - no label: rr_thus
+    datatype: area
+    required: False
+    hint: Thus,
+section: Classification - [ ]
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+  % if sees_nav_bar:
+  **Equal Protection**
+
+  **State Action**
+  
+  ${ sa_here }
+  
+  ${ sa_thus }
+
+  ${ fr_here }
+  
+  ${ fr_thus }
+  
+  ${ ci_here }
+  
+  ${ nec_here }
+  
+  ${ nec_thus }
+  
+  ${ suspect_here }
+  
+  ${ discrim_here }
+  
+  ${ discrim_thus }
+  
+  ${ suspect_ci_here }
+  
+  ${ suspect_nec_here }
+  
+  ${ nec_thus }
+  
+  ${ legit_here }
+  
+  ${ rational_here }
+  
+  ${ rational_thus }
+  
+  ${ di_here }
+  
+  ${ di_thus }
+  
+  ${ important_here }
+  
+  ${ subs_here }
+  
+  ${ classification_here }
+  
+  ${ classification_thus }
+  
+  ${ class_li_here }
+  
+  ${ rr_here }
+  
+  ${ rr_thus }
+
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  on its face: |
+    The law, by its own terms, makes an explicit distinction between classes of persons. Example: The Corps drafts boys ages 15 to 18 who have dropped out of school.
+  in its application: |
+    A law, neutral on its face, is invalid if the plaintiff proves government action had a discriminatory purpose when applying the law differently to different classes of persons. Example: Peremptory challenge is an equal protection violation when plaintiff proves attorney excluded a potential juror based on race or sex. Batson v. Kentucky, 476 U.S. 79 (1986).
+  discriminatory motive: |
+    A law, neutral on its face and in application, is invalid if it has a disproportionate impact on a class of persons and the plaintiff proves the law maker enacted or maintained the law for a discriminatory purpose. Statistical Evidence on Disproportionate Impact + Evidence on Legislative Intent = Discriminatory Motive.
+  compelling state interest: |
+    The government has the burden of proving the elements. Usually the government loses so make it turn out that way in the analysis.
+  Fifth: |
+    Use the Fourteenth Amendment for state government. Use the Fifth Amendment for federal government. No equal protection clause in the Bill of Rights. Bolling v. Sharpe, 347 U.S. 497 (1954) stretched Fifth Amendment “due process” to require the federal government to afford equal protection of the laws.
+  individuals: |
+    Do not waste time with an introduction on the different scrutiny levels. Identify the classification. Then give the rules only for the level of scrutiny for the classification.
+  Compelling Interest: |
+    Analyze the government interest first. Cannot determine if the means used to achieve an interest are necessary and least restrictive when do not know what the interest is. If no mention of the government interest in the facts, base the interest on police powers (i.e. health, safety, welfare).
+  Necessary: |
+    The law is not whether the government action is necessary, but whether the action is necessary to achieve the government interest.
+  Suspect Class: |
+    Input the suspect class (national origin, race, alienage) in the heading. Alienage: Use strict scrutiny for state laws that discriminate against aliens, except laws that prohibit aliens from the democratic process (i.e. voting, jury duty), working as a notary public, or government employment (i.e. police officers, public school teachers, probation officers). Use rational basis for state exceptions and federal laws. Federal alienage classification is likely valid unless it is arbitrary and unreasonable because Congress has plenary power over aliens under Article I.
+  Equal Protection: |
+    * A regulation that affects a specific classification triggers Equal Protection. A regulation that affects all triggers Substantive Due Process. Read the regulation to see if it involves more than one group.
+    
+    * If a regulation mentions only one group, the issue is substantive due process. Do not think it is equal protection based on how the regulation benefits another group. Example: A regulation bans disposable diapers for environmental reasons. As a result of the regulation, diaper services for cleaning cloth diapers become profitable, but a study finds no improvement in the environment.
+    
+    * If the regulation mentions at least two groups, the issue is equal protection. Example: A jail supervisor tells Ada that she can be designated a jail chaplain if she obtains a letter from a recognized religious group stating it has ordained Ada as a minister and endorsed her for such work. There are two classifications based on ordained v. not ordained, and recognized religious group v. not recognized religious group.

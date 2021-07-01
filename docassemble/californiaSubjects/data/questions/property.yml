@@ -1,0 +1,297 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Property"
+  title: |
+    Property
+---
+question: |
+  Main issue
+subquestion: |
+  First, list the parties and map their relationships (e.g., buyer-seller, landlord-tenant, lessor-lessee)
+fields:
+  - What are you analyzing?: main_issue
+    choices:
+      - What are the land interests at issue and the rights that come with it? 
+      - Is someone trying to transfer ownership of land? Who has the rights and duties? 
+  - Additional Details: land_interests
+    js show if: |
+      val('main_issue') == "What are the land interests at issue and the rights that come with it?"
+    choices: 
+      - Is there conveyance language?
+      - More than one person co-owns the property? 
+      - Is there a landlord-tenant lease?
+      - Someone occupied the land for some time? 
+      - Is there a statement (deed) to limit use of the land? 
+      - Construction on connected land by more than one party? 
+      - Interference to landowner from outside? 
+      - Zoning ordinance by a governmental entity that limits use of land? 
+      - Water near land? 
+  - Additional Details: land_transfers
+    js show if: |
+      val('main_issue') == "Is someone trying to transfer ownership of land? Who has the rights and duties?"
+    choices: 
+      - Is land conveyed by a land-sale contract (LSK)?
+      - Is land conveyed by a deed?
+      - Private property taken for public use?
+      - Mortgage in the facts?
+---
+question: |
+  Present Interests
+fields:
+  - (1): fs_absolute
+    datatype: area
+  - (2): fs_determinable
+    datatype: area
+  - (3): fs_cond_subs
+    datatype: area
+  - (4): life_estate
+    datatype: area
+help: |         
+  1. The **fee simple absolute** is a present estate that does not terminate, unless the owner dies intestate without heirs, in which case the property escheats to the state, and gives a person all property rights, including unimpeded rights to (1) sell or convey all or part, (2) devise.
+  2. A **fee simple determinable** is a present fee simple limited by specific durational language such that it terminates automatically upon the happening of a stated condition, and full property ownership reverts to the grantor.
+  3. A **fee simple subject to a condition subsequent** is a present fee simple in which the grantor reserves, through conditional words, the right to terminate upon the happening of a stated event. The fee simple does not automatically terminate upon the occurrence of the event, but when the grantor acts to recover possession.
+  4. A **life estate** is a present possessory interest limited in duration by a life.
+continue button field: present_interest
+---
+question: |
+  Future Interests
+fields:
+  - (1): poss_of_reverter
+    datatype: area
+  - (2): reversion
+    datatype: area
+  - (3): right_of_reentry
+    datatype: area
+  - (4): remainder
+    datatype: area
+help: |         
+  1. A **possibility of reverter** is a future interest that arises automatically in the grantor as a consequence of conveying a fee simple determinable. Upon the occurrence of the stated condition, the estate automatically reverts to the grantor.
+  2. A **reversion** is a future interest the grantor retains when the grantor transfers less than a fee simple absolute to a third person.
+  3. A **right of reentry** is a future interest the grantor expressly reserves after granting a life estate or fee simple on condition subsequent.
+  4. A **remainder** is a future interest created in a grantee that takes effect after the expiration of a prior possessory estate. A remainder can be [vested or contingent].
+continue button field: future_interest
+---
+question: |
+  Rule Against Perpetuities
+fields:
+  - Define: rap
+    datatype: area
+help: |
+  No interest in property is valid unless it must vest, if at all, not later than 21 years after some life in being (measuring life) at the creation of the interest.
+---
+question: |
+  The land contract
+fields:
+  - (1): sol
+    datatype: area
+  - (2): risk_of_loss
+    datatype: area
+  - (3): implied_promises
+    datatype: area
+  - (4): no_fitness_or_hosp
+    datatype: area
+help: |
+  **Statute of Frauds**
+  
+  * Land k must be in writing signed by the party against whom enforcement is sought (D).  
+  * Must describe the land and state some consideration.  
+  * When amt of land recited is more than actual size then specific perf w/ pro rata reduction in price.
+  * Exception:  Part performance.  B takes possession AND pays all or part or makes substantial improvements.  
+  
+  **Risk of Loss – equitable conversion**
+  
+  * Equity regards as done that which ought to be done.  
+  * Once k is signed, B is owner of the land, subject to the condition that he pays price.
+  * If btwn k and closing, prop is destroyed through no fault of parties then B bears risk of loss unless k says otherwise.  
+  
+  **Two implied promises in every land k**
+  
+  1. Seller promises to provide marketable title
+  
+    * Title free from lawsuits and threat of litigation.  
+    * 3 circs where title unmarketable:
+      * Adverse possession – even if portion.
+      * Encumbrances – like servitudes, mortgages.  Seller still has right to satisfy outstanding mortgage or lien at closing w/ proceeds of the sale.
+	    * Zoning violations – only if prop violates the ordinance.  
+  
+  2. Seller promises not to make any false stmts of material fact
+  
+    * Seller liable for failing to disclose latent material defects.  Responsible for material lies and also material omissions.  
+  
+  **No implied warranties of fitness or habitability**
+  
+  * Caveat emptor.  
+  * Exception:  Implied warranty of fitness and workmanlike construction applies if builder-seller.  
+continue button field: land_k
+---
+question: |
+  The closing
+subqueston: |
+  A deed passes legal title from seller to buyer it must be Lawfully Executed and Delivered (LEAD)
+fields:
+  - Lawful execution of a deed: lawful_ex
+    datatype: area
+  - Delivery req: delivery_req
+    datatype: area
+  - Covs for title and 3 types of deed: covs_and_deeds
+    datatype: area
+help: |
+  **Lawful execution of a deed**
+  
+  * The deed must be in writing signed by the grantor.  Don’t need to recite consideration.  
+  * Deed must include description of the land but doesn’t have to be perfect.  
+  
+  **Delivery req**
+  
+  * Delivery req can be satisfied when grantor physically or manually transfers the deed to the grantee.  
+  * However, delivery doesn’t necessarily require actual physical transfer of the deed.  Test is solely of present intent.  
+  * Recipient’s express rejection of the deed defeats delivery.
+  * If a deed, absolute on its face, is transferred to grantee w/ an oral condition then the oral conditions drops out.  
+  * Delivery by escrow OK.  Advantage is title can still pass after grantor dies.  
+
+  **Covs for title and 3 types of deed**:
+  
+  1. Quitclaim deed
+      * No covs.  Seller not even promising he even has title to convey.
+  2.	General warranty deed
+      * Warrants against all defects in title incl those attributable to grantor’s predecessors.  
+  3. Statutory special warranty deed
+      * Contains 2 promises that grantor only makes on behalf of himself.  
+      * Promises he has not conveyed this estate to anyone other than grantee, and
+      * Promises that the estate is free from encumbrances made by grantor.  
+continue button field: closing
+---
+question: 
+  Real Covenant
+subquestion: |
+  * Written promise or contractual limitation to do or not do something on land
+  * A real covenant "runs with the land," meaning a subsequent owner may enforce or be burdened by the covenant
+  * For **burden** to run with the land and bind successors it requires...
+fields: 
+  - 1: writing
+  - 2: intent
+  - 3: notice_of_cov
+  - 4: horiz_privaty
+  - 5: vert_privity
+  - 6: touch_and_concern
+help: |
+  For **burden** to run with the land and bind successor of burdened estate require writing, intent, notice of covenant by BFP of land (actual, inquiry, or constructive/record notice), horizontal privity, vertical privity, and touch & concern
+
+  1. Intent: Original covenanting parties intended that the terms be enforceable by successors or assignees
+    * Intent may be implied if covenant touches & concerns land or covenant is in writing
+  2. Horizontal privity: Relationship b/w original covenanting pts who shared interest in land (e.g., grantor-grantee)
+  3. Vertical privity: Relationship b/w covenanting pts and their successors in interest. Successor must take covenanting pt’s entire interest for burden to run (not a lesser estate such as life estate from fee simple absolute)
+  4. Touch & concern land: Covenant directly reduces use or enjoyment of the servient land, or increases obligations   
+continue button field: real_covenant
+---
+question: 
+  Equitable Servitude
+fields: 
+  - 1: else
+help: |
+  **Covenants in deed**:
+continue button field: eq_servitude
+---
+question: 
+  Adverse Possession
+fields: 
+  - The Rules for Adverse Possession: adverse_possession_rules
+help: |
+  tbd
+---
+question: 
+  License or Profit
+fields: 
+  - 1: smthg
+help: |
+  **Covenants in deed**:
+continue button field: license_or_profit
+---
+question: 
+  Six Covenants
+fields: 
+  - 1: seisin
+  - 2: right_to_convey
+  - 3: against_encum
+  - 4: quiet_enj
+  - 5: warranty
+  - 6: further_assur
+help: |
+  **Covenants in deed**:
+	  
+    * **Present**
+	    * Cov of seisin:  O warrants he owns estate. 
+      * Cov of right to convey:  O promises he has power to make the conveyance.  No temp restraints on O’s power to sell.
+	    * Cov against encumbrances:  O promises there are no servitudes or mortgages.
+	  * **Future**
+	    * Cov of quiet enjoyment:  O promises grantee will not be disturbed by 3rd party’s 	lawful claim of title.
+      * Cov of warranty:  O promises to defend grantee should there be any lawful claims of title asserted by others.
+      * Cov of further assurances:  O promises to perform whatever future acts are reas nec to perfect grantee’s title if it later turns out to be imperfect.  
+continue button field: six_covenants     
+---
+mandatory: true
+question: |
+  Here's the Property summary:
+subquestion: |
+  % if main_issue == 'What are the land interests at issue and the rights that come with it?':
+    % if land_interests == 'Is there conveyance language?':
+      % if present_interest:
+        % if future_interest:
+          % if rap:
+          % endif
+        % endif
+      % endif
+    % elif land_interests == 'Is there a landlord-tenant lease?':
+  Head over to the [Landlord-Tenant] interview for this question. 
+  
+  [Landlord-Tenant]: https://ca.barplaybook.com/run/Landlord-Tenant/#/1
+    % elif land_interests == 'Someone occupied the land for some time?':
+  ${ adverse_possession_rules }
+    % elif land_interests == 'Is there a statement (deed) to limit use of the land?':
+      % if real_covenant:
+        % if eq_servitude:
+          % if license_or_profit: 
+          % endif
+        % endif
+      % endif
+    % elif land_interests == 'Construction on connected land by more than one party?':
+    % elif land_interests == 'Interference to landowner from outside?':
+    % elif land_interests == 'Zoning ordinance by a governmental entity that limits use of land?':
+    % elif land_interests == 'Water near land?':
+    % endif
+  % elif main_issue == 'Is someone trying to transfer ownership of land? Who has the rights and duties?':
+    % if land_transfers == 'Is land conveyed by a land-sale contract (LSK)?':
+      % if land_k:
+        % if closing:
+          % if six_covenants:
+          % endif
+        % endif
+      % endif
+    % elif land_transfers == 'Is land conveyed by a deed?':
+  
+  Assess the validity of the deed **here**
+  
+    % elif land_transfers == 'Private property taken for public use?':
+  Head over to the [Takings] interview for this question. 
+  
+  [Takings]: https://ca.barplaybook.com/run/Takings/#/1
+    % elif land_transfers == 'Mortgage in the facts?':
+    % endif
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

@@ -1,0 +1,298 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Trustee Duties"
+  title: |
+    Trustee Duties
+---
+question: |
+ Trustee Duties
+subquestion: |
+  The trustee has the following fiduciary duties: 
+  
+  1. care,
+  2. {carefully} select and supervise agents, 
+  3. administer the trust in accord with terms, 
+  4. act impartially between beneficiaries,
+  5. not to delegate, 
+  6. loyalty, 
+  7. inform and account, 
+  8. earmark assets, 
+  9. physically separate assets.
+continue button field: trustee_duties
+---
+question: |
+  Duty of Care
+subquestion: |
+  The trustee must exercise that degree of {care}, skill, and caution exercised by a reasonably prudent person in managing and investing the person’s own property. If the trustee has special skills, the person will be held to a higher standard.
+continue button field: duty_of_care
+---
+pre: |
+  `First determine the standard of care.`
+question: |
+  Standard of Care
+fields:
+  - no label: std_care_here
+    datatype: area
+    hint: Here, 
+  - no label: std_care_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Trust Investments
+subquestion: |
+  With respect to trust investments, the duty of care requires (1) diversifying assets, (2) making property productive, and (3) making informed decisions regarding investment schemes.
+fields:
+  - note: |
+      **Diversifying Assets**
+  - no label: div_assets_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      **Property Productive**
+  - no label: prop_prod_here
+    datatype: area
+    hint: Here,
+  - note: |
+      **Informed Decisions**
+  - no label: inf_def_here
+    datatype: area
+    hint: Here,
+  - note: |
+      `Conclude if the trustee breached the standard of care.`
+  - no label: duty_care_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Duty to Carefully Select and Supervise Agents
+subquestion: |
+  A trustee may **delegate activities** that would be unreasonable to require the trustee to **perform**, but the trustee must **carefully select and supervise agents**.
+fields:
+  - no label: select_here
+    datatype: area
+    hint: Here, 
+  - no label: select_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Duty to Administer the Trust in Accord with Its Terms
+subquestion: |
+  A trustee has a duty to comply with trust agreement terms but cannot follow instructions blindly.
+fields:
+  - no label: admin_here
+    datatype: area
+    hint: Here, 
+  - no label: admin_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Duty to Act Impartially Between Beneficiaries
+subquestion: |
+  If a trust has two or more beneficiaries, the trustee shall act impartially in investing and managing trust property, taking into account differing interests of the beneficiaries.
+fields:
+  - no label: act_here
+    datatype: area
+    hint: Here, 
+  - no label: act_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Duty Not to Delegate
+subquestion: |
+  A trustee may seek the professional advice of others on matters the trustee cannot delegate, but the trustee must exercise independent judgment, and make the final decision personally.
+fields:
+  - no label: not_delegate_here
+    datatype: area
+    hint: Here, 
+  - no label: not_delegate_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Duty of Loyalty
+subquestion: |
+  The trustee owes the beneficiaries undivided loyalty. This requires the trustee **administer the trust solely for the benefit of the beneficiaries**.
+fields:
+  - no label: loyalty_here
+    datatype: area
+    hint: Here, 
+  - no label: loyalty_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Duty to Inform and Account
+subquestion: |
+  A trustee must **disclose** to beneficiaries complete and accurate **information** about the nature and extent of trust property, and periodically **account for actions** taken on behalf of the trust so the trustee’s performance can be assessed against trust provisions.
+fields:
+  - no label: inform_here
+    datatype: area
+    hint: Here, 
+  - no label: inform_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Duty to Earmark Assets
+subquestion: |
+  The trustee has a duty to earmark trust property. Traditionally, a trustee is strictly liable for breaching the duty to earmark even if the failure to earmark was not the cause of a loss. Modernly, trustee liability for failure to earmark is limited to damages actually caused by the trustee’s failure to earmark.
+fields:
+  - no label: earmark_here
+    datatype: area
+    hint: Here, 
+  - no label: earmark_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Duty to Physically Separate Assets
+subquestion: |
+  The trustee has a duty to physically **separate trust assets from other assets**.
+fields:
+  - no label: separate_here
+    datatype: area
+    hint: Here, 
+  - no label: separate_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Co-Trustees
+subquestion: |
+  Traditionally, co-trustees must act as a group with unanimity, unless the trust instrument indicates otherwise. Under the modern majority, co-trustees can act alone if there are three or more trustees.
+fields:
+  - no label: co_trustees_here
+    datatype: area
+    hint: Here, 
+  - no label: co_trustees_thus
+    datatype: area
+    hint: Thus,
+---
+mandatory: true
+question: |
+  Here's the Trustee Duties summary:
+subquestion: |
+  % if trustee_duties and duty_of_care:
+  
+  **Trustee Duties**
+
+  The trustee has the following fiduciary duties: (1) care, (2) carefully select and supervise agents, (3) administer the trust in accord with terms, (4) act impartially between beneficiaries, (5) not to delegate, (6) loyalty, (7) inform and account, (8) earmark assets, (9) physically separate assets.
+  
+  **Duty of Care**
+
+  The trustee must exercise that degree of care, skill, and caution exercised by a reasonably prudent person in managing and investing the person’s own property. If the trustee has special skills, the person will be held to a higher standard.
+ 
+    **Standard of Care** 
+
+    ${ std_care_here }
+  
+    ${ std_care_thus }
+  
+    **Trust Investments**
+  
+    With respect to trust investments, the duty of care requires (1) diversifying assets, (2) making property productive, and (3) making informed decisions regarding investment schemes.
+    
+        Diversifying Assets
+  
+        ${ div_assets_here }
+  
+        Property Productive
+  
+        ${ prop_prod_here }
+    
+        Informed Decisions
+  
+        ${ inf_def_here }
+  
+  ${ duty_care_thus }
+  
+  **Duty to Carefully Select and Supervise Agents** 
+  
+  A trustee may delegate activities that would be unreasonable to require the trustee to perform, but the trustee must carefully select and supervise agents.
+  
+  ${ select_here }
+  
+  ${ select_thus }
+  
+  **Duty to Administer the Trust in Accord with Its Terms** 
+
+  A trustee has a duty to comply with trust agreement terms but cannot follow instructions blindly.
+
+  ${ admin_here }
+  
+  ${ admin_thus }
+
+  **Duty to Act Impartially Between Beneficiaries** 
+  
+  If a trust has two or more beneficiaries, the trustee shall act impartially in investing and managing trust property, taking into account differing interests of the beneficiaries.
+
+  ${ act_here }
+  
+  ${ act_thus }
+  
+  **Duty Not to Delegate**
+  
+  A trustee may seek the professional advice of others on matters the trustee cannot delegate, but the trustee must exercise independent judgment, and make the final decision personally.
+  
+  ${ not_delegate_here }
+  
+  ${ not_delegate_thus }
+ 
+  **Duty of Loyalty** 
+  
+  The trustee owes the beneficiaries undivided loyalty. This requires the trustee administer the trust solely for the benefit of the beneficiaries.
+  
+  ${ loyalty_here }
+  
+  ${ loyalty_thus }
+
+  Duty to Inform and Account 
+  
+  A trustee must disclose to beneficiaries complete and accurate information about the nature and extent of trust property, and periodically account for actions taken on behalf of the trust so the trustee’s performance can be assessed against trust provisions.
+  
+  ${ inform_here }
+  
+  ${ inform_thus }
+
+  **Duty to Earmark Assets** 
+  
+  The trustee has a duty to earmark trust property. Traditionally, a trustee is strictly liable for breaching the duty to earmark even if the failure to earmark was not the cause of a loss. Modernly, trustee liability for failure to earmark is limited to damages actually caused by the trustee’s failure to earmark.
+
+  ${ earmark_here }
+  
+  ${ earmark_thus }
+
+  **Duty to Physically Separate Assets**
+  
+  The trustee has a duty to physically separate trust assets from other assets.
+  
+  ${ separate_here }
+  
+  ${ separate_thus }
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms:
+  carefully: First do Duty of Care. Then only list and analyze the rest of the duties the facts trigger.
+  care: Care means diligence and efforts. Skill means capabilities. Caution means conservatism.
+  

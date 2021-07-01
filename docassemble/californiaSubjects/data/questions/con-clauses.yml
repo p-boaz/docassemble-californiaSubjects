@@ -1,0 +1,106 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Constitutional Clauses Refresher"
+  title: |
+    Constitutional Clauses Refresher
+---
+mandatory: True
+question: |
+  All done. Let's see how you did.
+subquestion: |
+  The summaries of ${ clause }.
+    
+  ${ clause.table }
+  
+  ${ clause.add_action() }
+  
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+objects:
+  - clause: |
+      DAList.using(
+        object_type=Person,
+        complete_attribute='complete',
+        there_are_any=True)
+---
+code: |
+  clause[i].name.text
+  clause[i].applies
+  clause[i].does
+  clause[i].details
+  clause[i].complete = True
+---
+table: clause.table
+rows: clause
+columns:
+  - Clause: |
+      row_item.name.text
+  - Applies to: |
+      row_item.applies
+  - What it does: |
+      row_item.does
+  - Details: |
+      row_item.details
+edit:
+  - name.text
+  - applies
+  - does
+  - details
+---
+question: |
+  What is the ${ ordinal(i) } clause's name?
+fields:
+  - Name: clause[i].name.text
+    choices:
+      - Commerce Clause
+      - Welfare Clause
+      - Contracts Clause
+      - Privileges and Immunities Clauses
+      - Eleventh Amendment 
+      - Thirteenth Amendment 
+---
+question: |
+  To whom does the clause apply?
+fields:
+  - Applicable to: clause[i].applies
+    datatype: dropdown
+    choices: 
+      - Federal government
+      - States
+      - Both
+---
+question: |
+  What does the clause do?
+fields:
+  - What does it do?: clause[i].does
+    datatype: dropdown
+    choices:
+      - It is a source of power
+      - It prohibits something
+---
+question: |
+  Additional Details about the clause?
+fields:
+  - Details: clause[i].details
+    datatype: area
+---
+question: |
+  Are there any more clauses
+  you would like to mention?
+yesno: clause.there_is_another

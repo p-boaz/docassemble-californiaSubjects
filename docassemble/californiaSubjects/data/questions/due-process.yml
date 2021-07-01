@@ -1,0 +1,355 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Due Process"
+  title: |
+    Due Process
+---
+sections:
+  - Intro
+  - Procedural Due Process
+  - Process Due Plaintiff
+  - Substantive Due Process
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  **Due Process**
+subquestion: |
+  The Due Process Clause of the Fifth/Fourteenth Amendment provides that the government shall not take an individual's life, liberty, or property without due process of law. 
+field: sees_nav_bar
+---
+question: |
+  Procedural Due Process
+subquestion: |
+  When government action adversely affects libery or property interests, the court asks two questions in determining procedural due process: (1) Is the **threatened interest protected?**, (2) If the threatened interest is protected, what **process** is **due** to **plaintiff**?
+fields: 
+  - no label: pdp_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - note: |
+      `List the interests affected – life, liberty, or property.`
+section: Procedural Due Process
+---
+question: |
+  Threatened Interest Protected
+
+fields: 
+  - note: |
+      **Property**
+      
+      “Property” interest involves more than an abstract need or desire for a benefit. There must be a legitimate claim or entitlement under state or federal law.
+  - no label: property_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: property_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Liberty**
+      
+      Liberty deprivation occurs when a person loses (1) physical freedom, (2) fundamental rights, or (3) choice.
+  - no label: liberty_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: liberty_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+section: Procedural Due Process
+---
+question: |
+  Process Due Plaintiff
+subquestion: |
+ If government action threatens a protected interest, the court considers three factors in determining the process due: (1) private interest affected, (2) value of procedural safeguards, and (3) fiscal and administrative burden in providing the additional or substituted process.
+fields: 
+  - note: |
+      **Private Interest**
+  - no label: priv_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: priv_thus
+    datatype: area
+    required: False
+    hint: Thus,
+  - note: |
+      **Value of Procedural Safeguards**
+  - no label: safe_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: safe_thus
+    datatype: area
+    required: False
+    hint: Thus,
+  - note: |
+      **Fiscal and Administrative Burden**
+      
+      When imposing a fee denies an indigent of a fundamental right because of the indigent’s inability to pay a required fee to access the court system, due process requires the government to waive the fee.
+  - no label: burden_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: burden_thus
+    datatype: area
+    required: False
+    hint: Thus,
+section: Process Due Plaintiff
+---
+question: |
+  **Substantive Due Process**
+subquestion: |
+  The substantive due process clause guarantees the fairness of law and that laws will be reasonable and not arbitrary.
+  
+  *A regulation that affects a specific classification triggers Equal Protection. A regulation that affects all triggers Substantive Due Process. Read the regulation to see if it involves more than one group.*
+  
+  *If a regulation mentions only one group, the issue is substantive due process. Do not think it is equal protection based on how the regulation benefits another group. Example: A regulation bans disposable diapers for environmental reasons. As a result of the regulation, diaper services for cleaning cloth diapers become profitable, but a study finds no improvement in the environment.*
+  
+  *If the regulation mentions at least two groups, the issue is equal protection. Example: A jail supervisor tells Ada that she can be designated a jail chaplain if she obtains a letter from a recognized religious group stating it has ordained Ada as a minister and endorsed her for such work. There are two classifications based on ordained v. not ordained, and recognized religious group v. not recognized religious group.*
+continue button field: substantive
+section: Substantive Due Process
+---
+question: |
+  **Fundamental Right**
+subquestion: |
+  If a fundamental right is involved, the court applies strict scrutiny.
+fields:
+  - no label: fr_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - note: |
+      Analyze if the facts trigger a fundamental rights violation. 
+      
+      Examples: vote, travel, privacy (marriage, sexual relations, abortion, child-rearing, related persons live together), First Amendment rights.
+  - no label: fr_thus
+    datatype: area
+    required: False
+    hint: Thus,
+  - note: Conclude strict scrutiny should be applied if there is a fundamental rights violation.
+section: Substantive Due Process
+---
+question: |
+  Strict Scrutiny
+subquestion: |
+  Strict scrutiny requires the law be (1) necessary and the least restrictive means to achieve (2) a compelling state interest.
+fields: 
+  - note: |
+      **Compelling Interest**
+  - no label: ci_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - note: |
+      **Necessary**
+  - no label: nec_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: nec_thus
+    datatype: area
+    required: False
+    hint: Thus,
+section: Substantive Due Process
+---
+question: |
+  **No Fundamental Right**
+subquestion: |
+  If no fundamental right is involved, the court applies rational basis.
+fields:
+  - no label: nofr_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: nofr_thus
+    datatype: area
+    required: False
+    hint: Thus,
+section: Substantive Due Process
+---
+question: |
+  Rational Basis
+subquestion: |
+  Government action will be upheld if (1) rationally related to (2) a legitimate government interest.
+fields: 
+  - note: |
+      **Legitimate Interest**
+  - no label: li_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: li_thus
+    datatype: area
+    required: False
+    hint: Thus, 
+  - note: |
+      **Rationally Related**
+  - no label: rr_here
+    datatype: area
+    required: False
+    hint: Here, 
+  - no label: rr_thus
+    datatype: area
+    required: False
+    hint: Thus,
+section: Substantive Due Process
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+  % if sees_nav_bar:
+  **Due Process**
+  
+  The Due Process Clause of the [Fifth/Fourteenth] Amendment provides that the government shall not take an individual’s life, liberty, or property without due process of law.
+
+  **Procedural Due Process**
+  
+  ${ pdp_here }
+
+  ${ property_here }
+  
+  ${ property_thus }
+  
+  ${ liberty_here }
+  
+  ${ liberty_thus }
+  
+  **Process Due Plaintiff**
+  
+  ${ priv_here }
+  
+  ${ priv_thus }
+  
+  ${ safe_here }
+  
+  ${ safe_thus }
+  
+  **Fiscal and Administrative Burden**
+  
+  When imposing a fee denies an indigent of a fundamental right because of the indigent’s inability to pay a required fee to access the court system, due process requires the government to waive the fee
+  
+  ${ burden_here }
+  
+  ${ burden_thus }
+  
+  **Substantive Due Process**
+  
+  ${ fr_here }
+  
+  ${ fr_thus }
+  
+  **Strict Scrutiny**
+  
+  **Compelling Interest**
+  
+  ${ ci_here }
+
+  ${ nec_here }
+
+  ${ nec_thus }
+  
+  **NO Fundamental Rights**
+  
+  ${ nofr_here }
+  
+  ${ nofr_thus }
+  
+  ${ li_here }
+
+  ${ rr_here }
+
+  ${ rr_thus }
+
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  on its face: |
+    The law, by its own terms, makes an explicit distinction between classes of persons. Example: The Corps drafts boys ages 15 to 18 who have dropped out of school.
+  in its application: |
+    A law, neutral on its face, is invalid if the plaintiff proves government action had a discriminatory purpose when applying the law differently to different classes of persons. Example: Peremptory challenge is an equal protection violation when plaintiff proves attorney excluded a potential juror based on race or sex. Batson v. Kentucky, 476 U.S. 79 (1986).
+  discriminatory motive: |
+    A law, neutral on its face and in application, is invalid if it has a disproportionate impact on a class of persons and the plaintiff proves the law maker enacted or maintained the law for a discriminatory purpose. Statistical Evidence on Disproportionate Impact + Evidence on Legislative Intent = Discriminatory Motive.
+  compelling state interest: |
+    The government has the burden of proving the elements. Usually the government loses so make it turn out that way in the analysis.
+  Fifth: |
+    Use the Fourteenth Amendment for state government. Use the Fifth Amendment for federal government. No equal protection clause in the Bill of Rights. Bolling v. Sharpe, 347 U.S. 497 (1954) stretched Fifth Amendment “due process” to require the federal government to afford equal protection of the laws.
+  individuals: |
+    Do not waste time with an introduction on the different scrutiny levels. Identify the classification. Then give the rules only for the level of scrutiny for the classification.
+  Compelling Interest: |
+    Analyze the government interest first. Cannot determine if the means used to achieve an interest are necessary and least restrictive when do not know what the interest is. If no mention of the government interest in the facts, base the interest on police powers (i.e. health, safety, welfare).
+  Necessary: |
+    The law is not whether the government action is necessary, but whether the action is necessary to achieve the government interest.
+  Suspect Class: |
+    Input the suspect class (national origin, race, alienage) in the heading. Alienage: Use strict scrutiny for state laws that discriminate against aliens, except laws that prohibit aliens from the democratic process (i.e. voting, jury duty), working as a notary public, or government employment (i.e. police officers, public school teachers, probation officers). Use rational basis for state exceptions and federal laws. Federal alienage classification is likely valid unless it is arbitrary and unreasonable because Congress has plenary power over aliens under Article I.
+  Equal Protection: |
+    * A regulation that affects a specific classification triggers Equal Protection. A regulation that affects all triggers Substantive Due Process. Read the regulation to see if it involves more than one group.
+    
+    * If a regulation mentions only one group, the issue is substantive due process. Do not think it is equal protection based on how the regulation benefits another group. Example: A regulation bans disposable diapers for environmental reasons. As a result of the regulation, diaper services for cleaning cloth diapers become profitable, but a study finds no improvement in the environment.
+    
+    * If the regulation mentions at least two groups, the issue is equal protection. Example: A jail supervisor tells Ada that she can be designated a jail chaplain if she obtains a letter from a recognized religious group stating it has ordained Ada as a minister and endorsed her for such work. There are two classifications based on ordained v. not ordained, and recognized religious group v. not recognized religious group.

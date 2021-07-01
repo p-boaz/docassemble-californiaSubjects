@@ -1,0 +1,816 @@
+metadata:
+  interview_identifier: "CivPro"
+  title: |
+    Civil Procedure
+---
+features:
+  navigation: True
+---
+sections:
+  - Main Issue
+  - Authority
+  - Governing Law
+  - Pleadings
+  - Proper Parties and Claims
+  - Discovery
+  - Resolved without Trial
+  - Jury or Judge 
+  - Appeal
+  - Decision binding in future cases 
+  - Conclusion
+progressive: False
+---
+section: Main Issue
+question: |
+  What is the main issue? 
+fields:
+  - no label: main_issue
+    datatype: checkboxes
+    choices:
+      - Does the Court Have the Authority to Decide the Dispute?
+      - What Law Governs This Dispute?
+      - Are the Pleadings Proper? 
+      - Are the Proper Parties and Claims Before the Court?
+      - Have the Parties Properly Propounded and Replied to Discovery?
+      - Can the Dispute be Resolved Without Trial?
+      - If There is a Trial, Who Will Decide the Matter?
+      - Can the Decision be Appealed?
+      - Is the Decision Binding in Future Cases?
+---
+section: venue
+question: |
+  Is the Court the Proper Place to Resolve the Dispute? (*Venue*)
+subquestion: |
+  In federal court, there are three basic ways by which there might be *venue* in a particular judicial district: 
+fields:
+  - (1): venue_1
+    datatype: area
+  - (2): venue_2
+    datatype: area
+  - (3): venue_3
+    datatype: area
+help: |  
+   1. if *any* defendant *resides* in that district, and *all defendants reside in the state* containing that district; or 
+   2. if a "*substantial part of the events* ... giving rise to the claim *occurred*" in the district; or 
+   3. if at *least one defendant* can be subject to *personal jurisdiction* in the district, and *no other district qualifies* under either of the above two provisions (i.e., the all-defendants-reside and the where-events occurred provisions).
+   
+   * Note: there is **no** venue based on *plaintiff's residence*.
+continue button field: gen_venue_rule
+---
+section: venue
+question: |
+  Element 1: Any defendant resides
+fields:
+  - natural person: natl_person
+  - corporation: corp
+  - unincorporated associations: unassoc
+help: |  
+  1. **Natural Person** A natural person resides in the district where s/he domiciles.
+  2. **Corporation** A corporation resides in any judicial district in which the corporation is subject to personal jurisdiction at the time an action commences.
+  3. **Unincorporated Associations**  An unincorporated association’s residence is the entity’s residence, rather than its individual partners or members. A lawsuit may be brought wherever the unincorporated association does business.
+continue button field: any_def_resides
+---
+section: venue
+question: |
+  Substantial Part of Events or Omissions on Which Claim is Based Occurred
+fields:
+  - Substantial part of events or omissions: subst_part
+help: |  
+  **Substantial Part of Events or Omissions on Which Claim is Based Occurred**: Venue may be proper in the judicial district in which a substantial part of the events or omissions on which the claim is based occurred.
+---
+section: venue
+question: |
+  Improper or inappropriate Venue
+subquestion: |
+  Transfer & Forum Non Conveniens
+note: |
+  Can only transfer to another district ct where case could have been filed.
+fields:
+  - Transfer Element 1: con_parties
+  - Transfer Element 2: con_ws
+  - Transfer Element 3: int_of_justice
+  - Transfer Element 4: choice_of_law
+  - Forum Non Conveniens: fnc
+    datatype: area
+help: |  
+  **Transfer Elements**
+  
+  1. Convenience of the parties
+  2. Convenience of the Ws
+  3. Interests of justice
+  4. Ct to which case is transferred applies choice of law rules of original ct.
+  
+  **Forum Non Conveniens**: a discretionary power that allows courts to dismiss a case where another court, or forum, is much better suited to hear the case. This dismissal does not prevent a plaintiff from re-filing his or her case in the more appropriate forum.  Public (what law applies, what community should be burdened w/ jury service) and private (where Ws and evid are) factors.
+continue button field: improper_venue
+---
+section: CA jurisdiction rules
+question: |  
+  California Jurisdictional Issues
+subquestion: |
+  California divides cases into 3 types of courts/jurisdictions
+fields:
+  - Small Claims: sm_claims
+  - Limited Case: lim_case
+  - Unlimited Case: unlim_case
+help: |  
+  Small Claims: amount in dispute does not exceed $7500. 
+  
+  Limited Case: 
+    
+    1. the demand or the value of property in controversy does not exceed $25,000
+    2. Discovery is limited 
+  
+  Unlimited Civil Case: Anything that is not classified as Limited or Small Claims.
+continue button field: cal_jx
+---
+section: Personal Jurisdiction
+question: |
+  Does the Court Have Authority Over the Parties? (*Personal Jurisdiction*)
+subquestion: |
+  Personal jurisdiction refers to a court’s authority to exercise jurisdiction over a defendant.
+fields:
+  - Traditional Bases: trad_bases
+    datatype: area
+    help: |
+      Traditional bases for a court to exercise jurisdiction include when the defendant (1) is present while served in the forum, (2) consents to jurisdiction, or (3) is domiciled in the forum.
+  - Modern Bases: mod_bases
+    datatype: area
+    help: |
+      Modernly, personal jurisdiction must be (1) authorized by statute and (2) constitutional.
+continue button field: personal_jx_def
+---
+section: Personal Jurisdiction
+question: |
+  Modern Bases
+subquestion: |
+  Modernly, personal jurisdiction must be (1) authorized by statute and (2) constitutional.
+fields:
+  - Statutory: modern_stat
+    datatype: area
+    help: |
+      States enact long-arm statutes to authorize a court jurisdiction over non-residents to the extent the Due Process Clause of the U.S. Constitution permits.
+  - Constitutional: modern_const
+    datatype: area
+    help: |
+      Factors to assess whether an exercise of jurisdiction complies with the Due Process Clause of the U.S. Constitution: (1) minimum contacts between defendant and forum, (2) relationship cause of action has with forum, and (3) fair play and substantial justice.
+continue button field: personal_jx_modern
+---
+section: Personal Jurisdiction
+question: |
+  Minimum Contacts
+fields:
+  - Definition: min_contacts
+    help: |
+      Minimum contacts must be (1) purposeful such that the defendant (2) reasonably foresees being haled into the forum court.
+  - (1) purposeful: purposeful
+    datatype: area
+    help: |
+      The court reviews whether the defendant purposefully avails itself of the benefits and protections of the forum state’s laws.
+  - (1.1) Stream of Commerce: stream_of_com
+    datatype: area
+    help: |
+      The law is unsettled as to whether placing a product in the stream of commerce with the expectation that consumers in the forum buy the product is sufficient purposeful availment, without intentional contacts to serve the forum.]
+  - (2) Foresees: foresees
+    datatype: area
+    help: |   
+      There is foreseeability when a defendant knows or reasonably anticipates having to defend a lawsuit in a court resulting from minimum contacts.
+continue button field: personal_jx_modern_const_min_contacts
+---
+section: Personal Jurisdiction
+question: |
+  Relationship
+fields:
+  - Definition: relationship
+    datatype: area
+    help: |
+      The relationship the cause of action has with the forum warrants personal jurisdiction when, in the forum (1) defendant has systematic and continuous contact, or (2) suit is related to the defendant’s acts.
+  - (1): sys_and_cont
+    datatype: area
+    help: |
+      The court weighs the quantity and nature of the defendant’s contacts with the forum, or its connection with the cause of action to determine if they are systematic and continuous.
+  - (2): rel_to_forum
+    datatype: area
+    help: |
+      Jurisdiction is proper if the claim arises out of the defendant’s acts with the forum.
+continue button field: personal_jx_modern_const_relationship
+---
+section: Personal Jurisdiction
+question: |
+  Fair Play and Substantial Justice
+fields:
+  - Definition: fair_play
+    datatype: area
+    help: |
+      Factors courts consider in determining fair play and substantial justice include (1) burden on defendant, (2) state’s interest, (3) plaintiff’s relief interest, (4) interstate judicial system’s interest in efficiency, and (5) shared social policy interests of the states.
+  - (1): burden_on_d
+    datatype: area
+    help: |
+      The court will not find jurisdiction where requiring the defendant to defend in the forum would impose an unreasonable burden.
+  - (2): state_interest
+    datatype: area
+    help: |
+      A state has an interest in providing a forum for its citizens to resolve disputes.
+  - (3): p_relief_interest
+    datatype: area
+  - (4): interstate_jud_interest
+  - (5): shared_social_policy
+continue button field: personal_jx_modern_const_fair_play
+---
+section: Personal Jurisdiction
+question: |
+  Notice - Service of Process
+subquestion: |
+  D must be notified of the suit by reas method and given opp to appear and be heard.
+  
+  P must deliver...
+fields: 
+  - (1): summons
+  - (2): complaint 
+  - to D w/in: days_120
+    help: 120 days of filing complaint
+---
+section: Personal Jurisdiction
+question: |
+  Notice - mechanics
+subquestion: |
+  Personal service or Substituted service
+fields: 
+  - P can...: suitable_age
+    help: deliver to D’s home and leave with someone of suitable age who lives there.
+  - in CA: sub_service
+    help: |
+      substituted service is only permitted if process “cannot with reasonable diligence” be personally delivered to an individual defendant. 
+      
+      * Corporate defendant is always served via substituted service on its designated agent.
+---
+section: Personal Jurisdiction
+question: |
+  Notice - mechanics
+subquestion: |
+  Personal service or Substituted service
+fields: 
+  - P can...: suitable_age
+    help: 
+  - in CA: sub_service
+    help: |
+      P can deliver to D’s home and leave with someone of suitable age (over 18) who lives there.
+      
+      * In CA, substituted service is permitted only if process “cannot with reasonable diligence” be personally delivered to an individual defendant. 
+      * Corporate defendant is always served via substituted service on its designated agent.
+---
+section: Subject Matter Jurisdiction
+question: |
+  Does the Court Have Authority Over the Subject Matter?
+subquestion: |
+  Federal courts only have jurisdiction over two types of claims:
+fields:
+  - (1): fed_q
+  - elements: fed_q_el
+  - (2): dj
+  - elements: dj_el
+
+help: |
+  Federal-question jurisdiction over plausible claims that arise under the Constitution, treaties, or U.S. laws
+  
+  1. Π’s complaint must contain substantial FQ p/f case. Insufficient to anticipate federal defense
+  2. Exclusively federal statutes involve patents and copyrights, antitrust, securities, bankruptcy, interstate commerce, civil rights (U.S. as a party in K or tort case, e.g., estate, enforce alimony)
+  3. If claim depends on a federal statute, requires that statute provide for a federal cause of action
+  
+  Diversity jurisdiction = complete diversity of citizenship + AIC > 75k (pled in GF excl. interest or costs)
+  
+  1. Citizenship (state of domicile or permanent residence) is determined at the time of filing
+  2. Complete diversity of citizenship: No Π can be from the same state as any Δ (U.S. vs. foreign OK)
+  3. AIC: Must exceed 75k. Can aggregate by adding together 2+ claims by Π or suing joint tortfeasors
+  a. Can aggregate multiple Πs if they are enforcing a single right of common interest (class)
+  b. AIC may include attorney fees recoverable by contract or statute
+continue button field: smj_def
+---
+section: Subject Matter Jurisdiction
+question: Federal Question 
+fields:
+  - Well-plead complaint: wp_complaint
+    datatype: area
+help: |
+  P’s claim must be properly plead based on fed law – sets forth only a claim w/out any extraneous stuff that has nothing to do w/ the claim.  Every claim joined in fed ct has to have basis of SMJ.
+---
+section: Subject Matter Jurisdiction
+question: |
+  Diverse Citizenship
+subquestion: |
+  Federal courts only have jurisdiction over two types of claims:
+fields:
+  - natural person: nat_person
+    datatype: area
+  - corporation: corp
+    datatype: area
+
+help: |
+  Citizenship (state of domicile or permanent residence) is determined at the time of filing
+  
+  1. Resident’s domicile = physical presence + intent to remain there indefinitely
+  2. Corporation’s domicile = state of incorporation and state of principal place of business
+  
+  * Principal place of business: Use “nerve center” test (where decisions are made HQ) over “muscle” test (where manufacturing or service is done)
+ 
+  3. Domicile must be genuine (OK even if done to create/destroy diversity jurisdiction)
+---
+section: Subject Matter Jurisdiction
+question: |
+  Subject Matter Jurisdiction in California
+fields:
+  - (1): mtd
+  - (2): mjop
+  - (3): mts
+  - (4): mcd
+  - (5): msj
+  - (6): jmol
+  - (7): mnt
+help: |
+  1. 
+continue button field: smj_ca_def
+---
+section: Supplemental Jurisdiction
+question: |
+  Supplemental Jurisdiction
+fields:
+  - definition: supp_jx_def
+help: |
+  A federal court with jurisdiction may exercise supplemental jurisdiction over additional claims which the court does not independently have subject matter jurisdiction, but arise out of a common nucleus of operative fact as the claim that invoked federal subject matter jurisdiction.
+---
+section: Governing Law
+question: |
+  Statute of Limitations, like conflict-of-laws rules, are deemed "substantive" for *Erie* purposes - so the federal court must ...
+fields:
+  - Rule: sol_rule
+    help: |  
+      follow the statute of limitations rule that would be applied by the state where the federal court sits if the action had been filed in that state. 
+  - note: |
+      Other types of rules that reflect a **strong state policy** and would not lead to loss of **procedural uniformity** accross the federal system are also treated as substantive law. Examples include...
+  - (1): rem_or_add
+    help: |
+      A state's *remittitur* or *additur* rules, by which the trial judge is authorized to grant the disappointed party a conditional grant of new trial. 
+  - (2): notice_of_claim
+    help: |
+      A state's *notice-of-claim* requirements by which a plaintiff is required to give advance notice to the potential defendant before filing a particular kind of suit. 
+  - (3): issue_prec
+    help: |
+      A state's *issue preclusion* rules specifying the circumstances that would trigger "collateral estoppel" in a second suit. 
+continue button field: sol_and_others
+---
+section: Governing Law
+question: |
+  If the plaintiff's claim is based **solely on diversity** ...
+fields:
+  - Rule: based_on_div
+    datatype: area
+help: |  
+  The federal court must apply the substantive law of the state in which the federal court sits
+---
+section: Governing Law 
+question: |
+  If there are multiple states each of which has some relation to the controversy, the federal court must identify *which* state's substantive law to apply by ...
+fields:
+  - Rule: conflict_of_laws
+help: |  
+  following the conflict-of-laws principles of the state in which the federal court hearing the action sits. 
+---
+section: Pleadings
+question: |
+  Federal and State pleadings
+fields:
+  - Federal courts use...: notice_pleading
+    datatype: area
+  - California is a...: fact_pleading
+    datatype: area
+help: |
+  * Fed courts use **notice pleading** – A system of pleading requirements that only emphasizes pleadings as a way to notify parties of general issues in a case. This allows parties drafting pleadings to state their claims in general terms without alleging detailed facts to support each claim and without worrying about hypertechnical details.
+  * CA: “Fact” pleading state: A system of pleading requirements that mandates that submissions to the court, like complaints and answers, include all the facts needed to back up their allegations.  Fact pleading is no longer used in the federal system, but is still used in some states.
+---
+section: Pleadings
+question: |
+  Complaint
+subquestion: |
+  Note: fraud, mistake, and special damanges must be pled with specificity
+fields:
+  - (1): stmt_of_smj
+  - (2): stmt_of_claim
+  - (3): demand_for_relief
+  - In CA: ca_complaint 
+help: |
+  1. Statement of subject matter jurisdiction; 
+  2. Statement of the claim showing entitled to relief; 
+  3. Demand for relief.
+	
+  * CA:  Every pleading shall contain a caption setting forth: 
+  
+  1. The name of the court and county in which the action is brought, 
+  2. The title of the action, and 
+  3. Names of all parties except in class action, where the name of the first party is sufficient
+continue button field: complaint
+---
+section: Pleadings
+question: |
+  Defendant's Response (20 days)
+subquestion: |
+  Rule 12 requires D to answer in one of two ways: by motion or by answer
+fields:
+  - Answer: d_answer
+    datatype: area
+  - Rule 12(b) Defenses: rule_12b
+    datatype: area
+help: |
+  * **Answer**: admit, deny, or state that you lack sufficient info to admit or deny (or aff defenses).
+	
+  * **Rule 12(b) Defenses**: first 4 are waived if not raised by motion or answer.
+  
+  1.	Lack of personal jur
+  2.	Improper venue
+  3.	Insufficiency of process
+  4.	Insufficiency of service of process
+  5.	Lack of subject matter jur – maybe raised anytime, even on appeal.
+  6.	Failure to state claim upon which relief may be granted – may be raised anytime before trial or at trial. 
+  7.	Failure to join indispensable party – may be raised anytime before trial or at trial.    
+  8.	CA: California is one of two states, along with Virginia, which uses the demurrer as the primary pre-answer attack on the complaint. Most states and the federal courts have switched to modern "notice pleading" and use the motion to dismiss for failure to state a cause of action instead of the demurrer.
+continue button field: d_response
+---
+section: Pleadings
+question: |
+  Answer
+fields:
+  - definition: ans_def
+  - Admit or Deny: admit_or_deny
+  - Affirmative Defenses: aff_defenses
+help: |
+  **Answer**: An answer is a pleading by a (1) defendant that responds to a plaintiff’s complaint, or (2) plaintiff that responds to a defendant’s counterclaim.
+
+  **Admit or Deny**: An answer must admit or deny the complaint or counterclaim allegations. If a required responsive pleading does not deny an allegation, the allegation (unless relating to damages amount) will be deemed admitted.
+
+  **Affirmative Defenses**: An answer must state affirmative defenses the responding party has, or the defenses are deemed waived. Affirmative defenses include (1) accord and satisfaction, (2) arbitration and award, (3) assumption of risk, (4) contributory negligence, (5) duress, (6) estoppel, (7) failure of consideration, (8) fraud, (9) illegality, (10) injury by fellow servant, (11) laches, (12) license, (13) payment, (14) release, (15) res judicata, (16) Statute of Frauds, (17) statute of limitations, (18) waiver, (19) novation, (20) qualified immunity.
+continue button field: answer
+---
+section: Pleadings
+question: |
+  Counterclaims
+fields:
+  - definition: counter_cl_def
+  - (1): compulsory
+  - (2): permissive
+help: |
+  A counterclaim may be (1) compulsory or (2) permissive.
+
+  **Compulsory**: A compulsory claim arises from the same transaction or occurrence as a plaintiff’s claim, and must be pleaded as a counterclaim or be barred.
+
+  **Permissive** Any claim a defendant has against a plaintiff that is not compulsory may be asserted as a permissive counterclaim.
+continue button field: counterclaims
+---
+section: Pleadings
+question: |
+  Cross-Claims
+fields:
+  - definition: cross_cl_def
+help: |
+  A cross-claim may be brought by a party against a co-party that arises out of the same transaction or occurrence as the original complaint or counterclaim, or if the claim relates to property that is the subject matter of the original complaint. The cross-claim may include a claim that the co-party is liable to the cross-claimant for all or part of a claim asserted in the action against a cross-claimant.
+continue button field: crossclaims
+---
+section: Proper Parties and Claims
+question: |
+  Rule 14: Impleader or "third party practice"
+fields:
+  - Derivative liability: deriv_liability
+    datatype: area
+  - TPD defenses vs. main P: tpd_defenses
+    datatype: area
+help: |  
+  **Impleader**: If D impleads X, to be valid, claim must be **derivative** - it must be the case that X will be liable only if D is found liable to P. 
+  **Defenses**: TBD may assert any defense underlying the P-vs-D claim that D could assert. 
+  **Not "personal" defenses**: But the TPD may **not** assert defenses that are deemed to be **personal** to D. Thus, even if D could assert against P the defense of (i) lack of personal jurisdiction, (ii) improper service of process, or (iii) improper venue, the TPD may not assert those on behalf of the D. But TPD may raise her **own** defenses of this type. 
+continue button field: impleader
+---
+section: Proper Parties and Claims
+question: |
+  Class Actions
+subquestion: |
+  A class action is proper if (1) the class is so numerous that joinder of all members is impracticable, (2) questions of law or fact are common to the class, (3) named parties’ interests (claims or defenses) are typical of the class, and (4) named parties will adequately represent the interests of absent class members.2
+fields:
+  - One of Three Situations: one_of_three_sits
+    datatype: area
+  - Superior to Alternative Adjudication Methods: sup_to_alt_methods
+    datatype: area
+  - note: Discuss Subject Matter Jurisdiction and Venue as well. 
+help: |  
+  **One of Three Situations** Before a class action can be certified, it must fit one of three situations: (1) separate actions will create inconsistent results or impair unnamed parties’ interests, (2) equitable relief is the primary relief sought, or (c) common law or fact questions predominate over individual issues and a class action is superior (fair and efficient) to alternative adjudication methods.
+  **Factors a court considers when determining whether to certify a class**: (1) class members’ interests in individually controlling the prosecution or defense of separate actions, (2) extent and nature of litigation concerning the controversy begun by or against class members, (3) desirability of concentrating litigation of claims in the particular forum, and (4) difficulties in managing a class.
+continue button field: class_actions
+---
+section: Proper Parties and Claims
+question: |
+  Interventions
+subquestion: |
+  When a party *intervenes*, be sure to figure out whether it's a situation that allows at most "*permissive*" intervention or one that allows intervention "*of right*"
+fields:
+  - Permissive intervention: permis_int
+    note: the intervention is *permissive* (i.e., it is within the federal court discretion whether to allow intervention) if...
+  - Intervention of right: int_of_right
+    note: the intervention is *of right* (i.e., the district court *must* allow it, rather than hacing discretion whether to allow it) only if two not-very-common factors are present
+help: |  
+  **Permissive** (1) the claim shares a **common question of law or fact** and (2) the requirements for intervention *of right* are **not** met. 
+  **Of right** - TBD
+continue button field: intervention
+---
+section: Discovery
+question: |
+  Initial Disclosures - Rule 26
+fields:
+  - Required Initial Disclosures: init_disclosures
+    datatype: area
+---
+section: Discovery
+question: |
+  Types of Discovery
+fields:
+  - 1: interrogatories
+    datatype: area
+  - 2: req_to_produce
+    datatype: area
+  - 3: depositions
+    datatype: area
+  - 4: phys_or_mental_exam
+    datatype: area
+  - 5: req_for_admission
+    datatype: area
+  - 6: under_oath
+    datatype: area
+help: |
+  1. Interrogatories – questions propounded in writing to another party to be answered in writing under oath. 
+  2. Requests to Produce Documents – requests to another party (or nonparty if subpoenaed).  
+  3. Depositions – can depose nonparties or parties (nonparty should be subpoenaed).  
+  4. Physical or Mental Examinations – only available through court order upon showing that party’s health is in actual controversy and good cause.  
+  5. Requests for Admission – request by one party to another to admit the truth of any discoverable matter.
+  6. Parties must sign substantive answers under oath.  Each discovery request and response is signed by counsel certifying it is warranted, not interposed for improper purpose and not unduly burdensome.  
+continue button field: disc_types
+---
+section: Discovery
+question: |
+  Discovery Scope
+fields:
+  - rule: anything_rel
+  - not discoverable: priv_matter
+  - attorney work product or trial prep materials?: generally_not_disc
+continue button field: disc_scope
+---
+section: Discovery
+question: |
+  Enforcement of discovery rules (Rule 37 Sanctions)
+subquestion: |
+  Total or partial failure to provide discovery – motion to compel plus costs and certify good faith attempt to obtain discovery.
+note: |
+  Sanctions include:
+fields:
+  - 1: treat_as_admitted
+  - 2: disallow_evidence
+  - 3: adverse_to_violator
+    datatype: area
+  - 4: imm_or_auto_sanctions
+help: |
+  Sanctions include:
+    
+    1.	Treat matters as admitted
+    2.	Disallow evidence on an issue
+    3.	Establish the issue adverse to the violating party
+      (Strike the pleadings, Dismiss the cause of action or the entire action (bad faith), Enter a default judgment (bad faith), Hold in contempt, except for refusal to submit to physical or mental exam. 
+    4.	Immediate or automatic sanction
+continue button field: disc_enforcement
+---
+section: Resolved without Trial
+question: |
+  **Rule 12(b)(6)**: Failure to state a claim.  Tests sufficiency of P’s allegations, not sufficiency of evidence. Court takes all of P’s allegations as true in ruling on the motion. 
+fields: 
+  - Motion for Judgment on the Pleadings: mjp_def
+    datatype: area
+    help: |
+      After the answer is filed, a party may move for judgment on the pleadings to allow a court to dispose a case when the material facts are not in dispute, and a judgment on the merits can be achieved based on the content of the pleadings.
+---
+section: Resolved without Trial
+question: |
+  Dismissal
+fields:
+  - Voluntary: p_may_dismiss_once
+  - Motion in Civ Pro: civ_pro_mtd
+    datatype: area
+    help: |
+      **Civil Procedure Questions**: Prior to filing an answer, a defendant may file a motion raising [lack of personal jurisdiction, lack of subject matter jurisdiction, failure to state a claim upon which relief can be granted, improper venue, insufficient process, insufficient service of process, or failure to join a necessary or indispensable party] to seek dismissal of the claim.
+  - In Torts: torts_mtd
+    datatype: area
+    help: |
+      Torts Questions: A failure to state a claim defense allows a defendant to respond to procedural flaws in a complaint without responding to the case merits. A court dismisses civil claims without legal merit by determining if sufficient facts are pled to sustain a prima facie case for the alleged cause of action. The court does not evaluate the merits or go beyond the complaint.
+continue button field: dismissal
+---
+section: Resolved without Trial
+question: |
+  Summary Judgment
+fields:
+  - Definition: msj_def
+    datatype: area
+    help: |
+      A motion for summary judgment is applicable to all civil actions and should be granted if the pleadings, the discovery and disclosure materials on file, and affidavits show there is **no genuine issue as to any material fact and the movant is entitled to judgment as a matter of law**.
+  - Affidavits: affidavits
+    datatype: area
+    help: |
+      Affidavits must (1) be made on personal knowledge, (2) set forth facts admissible in evidence, and (3) show the affiant is competent to testify.
+---
+section: Jury or Judge
+question: |
+  Motion to Strike, Motion for New Trial
+fields:
+  - Motion for New Trial: mnt_def
+    datatype: area
+    help: |
+      The court may grant a motion for new trial at its discretion on all or certain issues or parties. Grounds for a new trial include 
+      
+      * verdict against clear weight of evidence, 
+      * verdict based on false evidence such that new trial necessary to prevent injustice, 
+      * verdict is excessive or inadequate, 
+      * error at trial that renders judgment unfair, 
+      * newly discovered evidence that existed at the time of trial excusably overlooked and likely have altered trial outcome,
+      * prejudicial misconduct of counsel, party, judge, or juror.
+      
+      The trial court must disregard harmless errors.
+---
+section: Jury or Judge
+question: |
+  Motion for Judgment as a Matter of Law
+fields:
+  - Define: jmol_def
+    datatype: area
+    help: |
+      A motion for judgment as a matter of law (JMOL) may be brought after the close of plaintiff's evidence or at the close of all trial evidence. A JMOL is granted if no reasonable person could differ as to the trial outcome.
+  - Renewed JMOL: renewed_jmol
+    datatype: area
+    help: |
+      If the court does not grant a JMOL, the court submits the action to the jury subject to the court deciding the legal questions raised by the JMOL. In ruling on the renewed JMOL, the court may (1) allow judgment on the verdict if the jury returned a verdict, (2) order a new trial, or (3) direct the entry of judgment as a matter of law. If the renewed JMOL is granted and the party had alternatively moved for a new trial, the court must determine whether to grant the motion for a new trial if the judgment is reversed or vacated on appeal.
+  - Time for Renewed JMOL: time_renewed_jmol
+    datatype: area
+    help: |
+      The movant may file a renewed motion for judgment as a matter of law no later than 28 days after the entry of judgment. If the motion addresses a jury issue not decided by a verdict, the renewed motion must be filed no later than 28 days after the jury was discharged.
+---
+section: Appeal
+question: |
+  Final Judgment Rule
+fields:
+  - Definition: fjr
+    datatype: area
+help: |
+  requires a final judgment on the entire case before an appeal may be taken
+---
+section: Appeal
+question: |
+  Final Judgment Rule - exceptions
+fields:
+  - Definition: fjr_exceptions
+    datatype: area
+help: |
+  Exceptions to the Final Judgment Rule.
+  
+  1. Pretrial orders involving temporary remedies.
+  2. Final judgment on collateral matters
+  3. Interlocutory orders of great importance that may be determinative of the ultimate decision.
+---
+section: Decision binding in future cases 
+question: |
+  Collateral Estoppel
+fields:
+  - Definition: col_estop
+    datatype: area
+---
+section: Decision binding in future cases 
+question: |
+  Collateral Estoppel
+fields:
+  - Definition: col_estop
+    datatype: area
+    help: |
+      Collateral estoppel (issue preclusion) precludes litigating (1) same factual and legal issues, (2) essential to a prior judgment, (3) actually litigated, and (4) reached a valid final judgment on the merits. Collateral estoppel does not require mutuality of parties, but the party (or privy) against whom the issue is to be precluded must have been a party to the prior action.
+  - Same Issues: same_issues
+    datatype: area
+    help: |
+      The court will not find jurisdiction where requiring the defendant to defend in the forum would impose an unreasonable burden.
+  - Essential: essential
+    datatype: area
+    help: |
+      A state has an interest in providing a forum for its citizens to resolve disputes.
+  - Actually Litigated: actually_lit
+    datatype: area
+  - Valid Final Judgment on the Merits: j_on_merits
+  - Party in Prior Action: prior_action
+continue button field: collateral_estoppel
+---
+section: Decision binding in future cases 
+question: |
+  Res Judicata
+fields:
+  - Definition: res_jud
+    datatype: area
+    help: |
+      Res judicata (claim preclusion) (1) precludes the same parties (or privies) from a prior action (2) to subsequently litigate sufficiently identical claims (3) that reached a valid final judgment on the merits.
+  - Same Parties: same_parties
+    datatype: area
+    help: |
+      The court will not find jurisdiction where requiring the defendant to defend in the forum would impose an unreasonable burden.
+  - Identical Claims: id_claims
+    datatype: area
+    help: |
+      A state has an interest in providing a forum for its citizens to resolve disputes.
+  - Valid Final Judgment on the Merits: valid_final_j
+    datatype: area
+continue button field: res_judicata
+---
+section: Conclusion
+mandatory: true
+question: |
+  Here's the Civ Pro summary
+subquestion: |
+  % if main_issue['Does the Court Have the Authority to Decide the Dispute?']:
+    % if gen_venue_rule: 
+      % if any_def_resides:
+        % if subst_part:
+          % if improper_venue:
+            % if cal_jx:
+            % endif
+          % endif
+        % endif
+      % endif
+    % endif
+    % if personal_jx_def:
+      % if personal_jx_modern:
+        % if personal_jx_modern_const_min_contacts:
+          % if personal_jx_modern_const_relationship:
+            % if personal_jx_modern_const_fair_play:
+              % if summons and suitable_age:
+              % endif
+            % endif
+          % endif
+        % endif
+      % endif
+    % endif
+    % if smj_def:
+      % if wp_complaint:
+        % if nat_person:
+          % if smj_ca_def:
+          % endif
+        % endif
+      % endif
+    % endif
+  % elif main_issue['What Law Governs This Dispute?']:
+    % if based_on_div: 
+      % if conflict_of_laws:
+        % if sol_and_others:
+        % endif
+      % endif
+    % endif
+  % elif main_issue['Are the Pleadings Proper?']:
+    % if notice_pleading and fact_pleading:
+      % if complaint: 
+        % if d_response: 
+        % endif
+      % endif
+    % endif
+  % elif main_issue['Are the Proper Parties and Claims Before the Court?']:
+    % if impleader: 
+      % if class_actions:
+        % if intervention:
+        % endif
+      % endif
+    % endif
+  % elif main_issue['Have the Parties Properly Propounded and Replied to Discovery?']:
+    % if init_disclosures: 
+      % if disc_types:
+        % if disc_scope:
+          % if disc_enforcement:
+          % endif
+        % endif
+      % endif
+    % endif
+  % elif main_issue['Can the Dispute be Resolved Without Trial?']:
+    % if dismissal: 
+      % if mjp_def:
+        % if msj_def:
+        % endif
+      % endif
+    % endif
+  % elif main_issue['If There is a Trial, Who Will Decide the Matter?']: 
+    % if mnt_def and jmol_def:
+    % endif
+  % elif main_issue['Can the Decision be Appealed?']:
+    % if fjr:
+      % if fjr_exceptions:
+      % endif
+    % endif
+  % elif main_issue['Is the Decision Binding in Future Cases?']:
+    % if collateral_estoppel: 
+      % if res_judicata:
+      % endif
+    % endif
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

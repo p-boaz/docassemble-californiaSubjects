@@ -1,0 +1,212 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Zoning"
+  title: |
+    Zoning
+---
+sections:
+  - Intro
+  - Tenth Amendment
+  - Zoning:
+    - Nonconforming Use
+    - Variance
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+section: Intro
+question: |
+  Zoning
+field: sees_nav_bar
+---
+section: Tenth Amendment
+question: |
+  Tenth Amendment
+subquestion: |
+  The Tenth Amendment provides that powers not granted to the federal government or prohibited to the states by the U.S. Constitution are reserved to the states.
+fields: 
+  - no label: tenth_here
+    datatype: area
+    hint: Here,
+    required: False
+  - no label: tenth_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Zoning
+question: |
+  Zoning
+subquestion: |
+  The state may enact statutes to control land use under the Tenth Amendment. A state enabling act can authorize cities and counties to exercise the zoning power.
+fields: 
+  - no label: zoning_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - note: |
+      `Analyze whether the Defendant (i.e. state, county, town, city) properly adopted a zoning ordinance.`
+  - no label: zoning_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Nonconforming Use
+question: |
+  Nonconforming Use
+subquestion: |
+  **{Amortization}** eliminates a nonconforming use that exists at the time a zoning act passes.
+fields: 
+  - no label: nu_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: nu_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+section: Variance
+question: |
+  Variance
+subquestion: |
+  A property owner may obtain a zoning variance by administrative action if (1) ordinance imposes a hardship, and (2) the variance will not be contrary to the public welfare.
+fields: 
+  - note: |
+      **Hardship**
+  - no label: hardship_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: hardship_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **Public Welfare**
+  - no label: pw_here
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: pw_thus
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      **In conclusion,**
+      
+      `Conclude whether plaintiff can obtain variance.`
+---
+mandatory: true
+question: Summary 
+subquestion: |
+  % if sees_nav_bar:
+  
+  **TENTH AMENDMENT**
+  
+  The Tenth Amendment provides that powers not granted to the federal government or prohibited to the states by the U.S. Constitution are reserved to the states.
+  
+  ${ tenth_here }
+  
+  ${ tenth_thus }
+  
+  **ZONING**
+  
+  The state may enact statutes to control land use under the Tenth Amendment. A state enabling act can authorize cities and counties to exercise the zoning power.
+  
+  ${ zoning_here }
+  
+  ${ zoning_thus }
+
+  **NONCONFORMING USE**
+  
+  **Amortization** eliminates a nonconforming use that exists at the time a zoning act passes.
+
+  ${ nu_here }
+  
+  ${ nu_thus }
+
+  **VARIANCE** 
+
+  A property owner may obtain a zoning variance by administrative action if (1) ordinance imposes a **hardship**, and (2) the variance will not be contrary to the **public welfare**.
+  
+  **Hardship**
+
+  ${ hardship_here }
+  
+  ${ hardship_thus }
+  
+  **Public Welfare**
+  
+  ${ pw_here }
+  
+  ${ pw_thus }
+  
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue
+---
+terms: 
+  Amortization: |
+    Nonconforming use not eliminated at once, but gradually with future deadline set on when use must end.
+  Tenth: |
+    Begin by showing the source of power for zoning ordinance (police power).
+  Zoning: |
+    Zoning may be tested with Taking, Equal Protection, Due Process.

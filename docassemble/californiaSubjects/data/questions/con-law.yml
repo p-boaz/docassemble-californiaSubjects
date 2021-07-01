@@ -1,0 +1,213 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Constitutional Law"
+  title: |
+    Constitutional Law
+---
+question: |
+  Main issue
+subquestion: |
+  There are seven Constitutional Clauses to remember
+fields:
+  - What are you analyzing?: main_issue
+    choices:
+      - Commerce Clause
+      - Welfare Clause
+      - Contracts Clause
+      - Privileges and Immunities Clause of the Fourteenth Amendment
+      - Interstate Privileges and Immunities Clause (Art. IV)
+      - Eleventh Amendment
+      - Thirteenth Amendment
+  - Analyzing a State Statute?: state_statute
+    js show if: |
+      val('main_issue') == "Commerce Clause"
+    datatype: yesnoradio
+  - Does the contract in question predate the offending statute?: contract_predates
+    js show if: |
+      val('main_issue') == "Contracts Clause"
+    datatype: yesnoradio
+  - Is there a classification built into the statute?: classification
+    js show if: |
+      val('main_issue') == "Privileges and Immunities Clause of the Fourteenth Amendment"
+    datatype: yesnoradio
+---
+question: |
+  Congress can regulate **four categories** of activities involving interstate commerce:
+fields:
+  - 1: com_c_one
+  - 2: com_c_two
+  - 3: com_c_three
+  - 4: com_c_four
+help: |
+  1. channels of interstate commerce
+  2. instrumentalities of interstate commerce
+  3. articles moving in interstate commerce
+  4. activities "substantially affecting" commerce
+---
+question: |
+  Supremacy Clause
+fields:
+  - What has Congress done?: congress_auth
+    choices:
+      - expressly authorized state regulation
+      - expressly prohibited state regulation
+      - Neither
+  - With no express authorization or prohibition by Congress, you have to determine if the federal law preempts the state law: preempts
+    js show if: |
+      val('congress_auth') == "Neither"
+    datatype: area
+help: |
+  1. 
+continue button field: sup_clause
+---
+question: |
+  State modifications of contracts ***will*** be permissible if the modifications
+fields:
+  - 1: con_c_one
+  - 2: con_c_two
+  - 3: con_c_three
+help: |
+  1. serve an ***important and legitimate public interest*** and 
+  2. are necessary to achieve that public interest; and if
+  3. the contract impairment is ***reasonable*** under the circumstances
+continue button field: mod_permissible
+---
+question: |
+  Threshold issues to address first
+fields:
+  - Is it a federal statute?: fed_statute
+    datatype: yesnoradio
+  - "There's no equal protection problem per se because": fifth_a
+    show if: fed_statute
+  - Is there goverment action?: govt_action
+    datatype: yesnoradio
+  - "There's no equal protection problem because": needs_govt_action
+    hide if: govt_action
+---
+question: |
+  Three levels of scrutiny
+fields:
+  - 1: strict
+  - 2: intermediate
+  - 3: rational
+  - What classification are you analyzing?: level_of_scrutiny
+    choices:
+      - Suspect (race, ethnicity, alienage)
+      - Freeedom of association
+      - Freedom of expression
+      - Religion
+      - Interstate travel
+      - Privacy (marriage, procreation, child-rearing, abortion)
+      - Voting
+      - Gender
+      - Legitimacy
+      - Same-sex marriage
+      - Other
+  - Therefore you're going to apply: scrutiny_type
+    choices:
+      - Strict scrutiny
+      - Intermediate scrutiny
+      - Rational basis
+help: |
+  - Suspect (race, ethnicity, alienage): **Strict Scrutiny**
+  - Freeedom of association: **Strict Scrutiny**
+  - Freedom of expression: **Strict Scrutiny**
+  - Religion: **Strict Scrutiny**
+  - Interstate travel: **Strict Scrutiny**
+  - Privacy (marriage, procreation, child-rearing, abortion): **Strict Scrutiny**
+  - Voting: **Strict Scrutiny**
+  - Gender: **Intermediate Scrutiny**
+  - Legitimacy: **Intermediate Scrutiny**
+  - Same-sex marriage: **Unclear**
+  - Other: **Rational relation**
+---
+question: |
+  Types of Freedom of expression
+fields:
+  - What classification are you analyzing?: freedom_types
+    choices:
+      - Speech
+      - Press
+      - Assembly
+      - Association
+      
+  - Must contain narrow and definite standards: vague_or_overbreadth
+    js show if: |
+      val('freedom_types') == "Speech"
+    datatype: area
+  - Must contain narrow and definite standards: vague_or_overbreadth
+    js show if: |
+      val('freedom_types') == "Association"
+    datatype: area
+---
+question: |
+  Is it Procedural or Substantive Due Process? 
+fields:
+  - What classification are you analyzing?: proc_or_subst
+    choices:
+      - Procedural
+      - Substantive
+---
+mandatory: true
+question: |
+  Here's the Constitutional Law  summary:
+subquestion: |
+  % if main_issue == 'Commerce Clause':
+  Congress can regulate **four categories** of activities involving interstate commerce:
+    
+  * ${ com_c_one }
+  * ${ com_c_two }
+  * ${ com_c_three }
+  * ${ com_c_four }
+    % if state_statute: 
+      % if sup_clause == 'Neither':
+  With no express authorization or prohibition by Congress, you have to determine if the federal law preempts the state law
+      % else:
+  Since there was express authorization or prohibition by Congress, the state law will be judged on the Supremacy Clause.
+      % endif
+    % endif
+  % endif
+  
+  % if main_issue == 'Contracts Clause':
+    % if contract_predates: 
+      % if mod_permissible: 
+      % endif
+    % else: 
+  There is no Contracts Clause implication because states ***can*** regulate contract formation ***prospectively***.
+    % endif
+  % endif
+    
+  % if main_issue == 'Privileges and Immunities Clause of the Fourteenth Amendment':
+    % if classification:
+  You've indicated this is an ***equal protection problem*** since there is a ***classification***.
+      % if govt_action:
+        % if level_of_scrutiny == 'Freedom of expression':
+          % if freedom_types:
+          % endif
+        % endif
+      % endif
+    % else: 
+      % if proc_or_subst == 'Procedural':
+  When dealing with procedural due process, yuo'll ask if notice and a hearing are necessary when a right is removed. 
+      % else: 
+  Substantive due process becomes an issue when state action substantially interferes with a ***"fundamental"*** right. This then requires Strict Scrutiny. **Burden of Persuasion** is another issue. Here's the rule: If the impaired right is fundamental, then the burden of persuasion is on the ***person attacking*** the government's action. 
+      % endif
+    % endif
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

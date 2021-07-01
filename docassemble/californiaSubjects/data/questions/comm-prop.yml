@@ -1,0 +1,517 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Community Property"
+  title: |
+    Community Property
+---
+question: |
+  Introduction
+fields: 
+  - no label: basic_presumption
+    required: false
+    datatype: area
+help: |
+  CA is a community property (CP) state. All property acquired during marriage by earnings or labor of either spouse is presumed CP. All property acquired before marriage, during marriage by gift, bequest, devise, or descent, or after divorce, death, or permanent physical separation is presumed separate property (SP). 
+  
+  At divorce, each spouse is entitled to one half CP interest. Asset characterization as CP or SP depends on (1) item’s source, (2) parties’ actions that may alter an item’s character, and (3) statutory presumptions affecting an item.
+---
+question: |
+  Domiciled in CA; Legal Marriage
+subquestion: |
+  CA community property law applies when the parties (1) are domiciled in California, and (2) have a legal marriage.
+fields: 
+  - note: |
+      **H and W** 
+  - no label: dom_and_legal_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: dom_and_legal_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **{H2 and W2}** 
+  - no label: dom_and_legal_here_2
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: dom_and_legal_thus_2
+    datatype: area
+    hint: Thus, 
+    required: False
+  - note: |
+      In conclusion, community property law [applied/did not apply] to [H] and [W].
+---
+question: |
+  Quasi-Community Property
+subquestion: |
+  Quasi-community property (QCP) is property acquired by either spouse that would have been CP had the spouse been domiciled in CA at the time of acquisition. QCP retains its SP nature when the parties become domiciled in CA. Divorce or death of the titled spouse triggers QCP.
+fields: 
+  - Is there a QCP issue in the facts?: there_is_qcp
+    datatype: yesnowide
+  - no label: qcp_here
+    show if: there_is_qcp
+    datatype: area
+    hint: Here, 
+    required: False
+  - no label: qcp_thus
+    show if: there_is_qcp
+    datatype: area
+    hint: Thus, 
+    required: False
+---
+question: |
+  Marital Economic Community
+subquestion: |
+  The marital economic community (MEC) begins upon marriage, and ends at (1) divorce, (2) a spouse’s death, or (3) {permanent separation}.
+  
+  3 topics to include in analysis:
+    
+    1. When MEC began.
+    2. When MEC ended.
+    3. Compute length of marriage if facts on numbers or dates.
+fields: 
+  - no label: mec_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: mec_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+---
+question: |
+  {Putative Spouse}
+subquestion: |
+  A putative spouse has a good faith belief s/he is, but is not, lawfully married.
+fields:
+  - Is there a Putative Spouse issue in the facts?: there_is_ps
+    datatype: yesnowide
+  - no label: ps_here
+    show if: there_is_ps
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: ps_thus
+    show if: there_is_ps
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  {Putative Spouse Property Rights}
+subquestion: |
+  All property that would have been CP or QCP had the marriage been valid is quasi-marital property (QMP) in a putative marriage. QMP is treated as CP or QCP.
+fields: 
+  - no label: pspr_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: pspr_thus
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  {Unmarried Cohabitants}
+subquestion: |
+  Contract principles govern property distribution acquired by unmarried cohabitants: (1) an express contract will be enforced, unless based on meretricious sexual services, (2) if no express contract, a court examines the parties’ acts to determine whether they had an implied contract, and (3) equitable remedies may be available.
+fields: 
+  - Is there an Unmarried Cohabitants issue in the facts?: there_is_uc
+    datatype: yesnowide
+  - no label: uc_here
+    show if: there_is_uc
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: uc_thus
+    show if: there_is_uc
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  {Premarital Agreement}
+subquestion: |
+  **{January 1, 2012}**: A premarital agreement avoids CA community property law. An agreement made after January 1, 2002 must be 
+      
+      1. in writing, 
+      2. signed by both parties, 
+      3. voluntary (party against whom enforcement is sought 
+        (a) represented by independent counsel or advised to seek independent counsel and expressly waived in writing, 
+        (b) had not less than 7 calendar days between time first presented with agreement and time signed, 
+        (c) did not execute under duress, fraud, or undue influence, and had capacity, and 
+        (d) informed of rights and obligations), and
+      4. not unconscionable (fair, reasonable, full property disclosure or parties’ financial obligations).
+
+  **January 1, 1986**: A premarital agreement avoids CA community property law. An agreement made on or after January 1, 1986 must be 
+  
+      1. in writing, 
+      2. signed by both parties, and 
+      3. enforceable without consideration. 
+    
+  
+  An oral agreement may be enforced when 
+      
+      1. promisor fully executes promise, or 
+      2. promisee relies to detriment on the oral agreement.
+fields: 
+  - Is there a Premarital Agreement issue in the facts?: there_is_pa
+    datatype: yesnowide
+  - no label: pa_here
+    show if: there_is_pa
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: pa_thus
+    show if: there_is_pa
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  {Transmutation}
+subquestion: |
+  Beginning **January 1, 1985**, transmutations must be by a written express declaration of the spouse whose property interest is adversely affected, unless the transmutation involves (1) gifts between spouses, or (2) tangible personal articles, (3) not substantial in value.
+fields: 
+  - Is there a Transmutation issue in the facts?: there_is_tmtn
+    datatype: yesnowide
+  - no label: tmtn_here
+    show if: there_is_tmtn
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: tmtn_thus
+    show if: there_is_tmtn
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Community Business or Separate Business?
+subquestion: |
+  *A community business is a business started during marriage or with CP funds.*
+
+  *SP business is business started by a spouse before marriage or during marriage with SP funds.* 
+      
+    * `Example: Hobby collecting coins before marriage is a SP business because coin collecting generates income though a hobby. Do not get confused with community business, which starts during marriage or with CP funds.`
+fields: 
+  - Community Property Business Issue?: there_is_comm_biz
+    datatype: yesnowide 
+  - Separate Property Business Issue?: there_is_sep_biz
+    datatype: yesnowide 
+---
+question: |
+  **Community Business** - {Appreciation During Separation}
+subquestion: |
+  If a community business operates during separation, and appreciates in value, a court uses either the Pereira or Van Camp formula in reverse to apportion the CP and SP interests.
+fields: 
+  - no label: cb_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: cb_thus
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Reverse Pereira
+subquestion: |
+  Use reverse Pereia when the **CP business value increase** can be **attributed** to a **spouse’s personal time, skills, and effort**. Reverse Pereia determines how much of the CP business value increase is due to **capital appreciation** of the initial CP contribution by valuing the CP business **at the time of separation plus a fair rate of return to yield the CP portion** of the business; remainder is the SP portion: CP = Value of CP Business at Time of Separation + (Value of CP Business at Time of Separation * Fair Rate of Return * Years of Separation); SP = FMV of CP Business at Divorce – CP.
+fields: 
+  - no label: rev_pereira_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: rev_pereira_thus
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Reverse Van Camp
+subquestion: |
+  Use reverse Van Camp when the **CP business value increase** can be **attributed** to a **business character**, rather than a spouse’s labor. Under reverse Van Camp, the court estimates the market salary for the spouse’s services to yield the SP portion of the business less any salary paid; remainder is the CP portion: SP = Reasonable Value of Services Provided During Separation – Salary Paid; CP = FMV of CP Business at Divorce – SP.
+fields: 
+  - no label: rev_van_camp_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: rev_van_camp_thus
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Goodwill
+subquestion: |
+  To the extent a business develops during marriage, there is CP interest in the goodwill. Two valuation techniques to calculate goodwill: (1) market sales valuation or (2) capitalization of past excess earnings.
+fields: 
+  - no label: goodwill_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: goodwill_thus
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Market Sales Valuation
+subquestion: |
+  Market sales valuation looks at the price the goodwill commands in a business sale.
+fields: 
+  - no label: msv_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: msv_thus
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  {Capitalization of Past Excess Earnings}
+subquestion: |
+  Capitalization of past excess earnings looks at the present value of the future income stream the goodwill developed during marriage generates in a future business.
+fields: 
+  - no label: cap_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: cap_thus
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  **Separate Property Business**
+subquestion: |
+  All property acquired during marriage by **gift, bequest, devise, or descent** is SP.
+fields: 
+  - no label: sep_prop_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: sep_prop_thus
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Spouse Contributes Labor to Enhance SP Business
+subquestion: |
+  Generally, income from a SP business is SP, but if a spouse contributes labor to enhance the SP business value, both spouses are entitled to a share of the SP business. A court uses either the Pereira or Van Camp formula to calculate the business value.
+fields: 
+  - no label: enhance_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: enhance_thus
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  {Pereira}
+subquestion: |
+  Pereia determines how much of the SP business value increase is due to capital appreciation of the initial SP contribution by valuing the SP business at the time of marriage plus a fair rate of return to yield the SP portion of the business; remainder is the CP portion.
+fields: 
+  - Use Pereira?: use_pereira
+    datatype: yesno
+  - no label: pereira_here
+    show if: use_pereira
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: pereira_thus
+    show if: use_pereira
+    required: false
+    datatype: area
+    hint: Thus,
+---
+question: |
+  {Van Camp}
+subquestion: |
+  Under Van Camp, the court estimates the market salary for the spouse’s services to yield the CP portion of the business less any salary paid; remainder is the SP portion.
+fields: 
+  - Use Pereira?: use_van_camp
+    datatype: yesnowide
+  - no label: van_camp_here
+    show if: use_van_camp
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: van_camp_thus
+    show if: use_van_camp
+    required: false
+    datatype: area
+    hint: Thus,
+---
+mandatory: True
+question: |
+  Here is your Community Property essay
+subquestion: |
+  ${ basic_presumption }
+  
+  **Domiciled in CA; Legal Marriage**
+  
+  CA community property law applies when the parties (1) are domiciled in California, and (2) have a legal marriage.
+  
+  ${ dom_and_legal_here }
+  
+  ${ dom_and_legal_thus }
+  
+  % if there_is_qcp:
+  ${ qcp_here }
+  
+  ${ qcp_here }
+  % endif
+  
+  **Marital Economic Community**
+
+  The marital economic community (MEC) begins upon marriage, and ends at (1) divorce, (2) a spouse’s death, or (3) permanent separation.
+  
+  ${ mec_here }
+  
+  ${ mec_thus }
+  
+  % if there_is_ps:  
+  ${ ps_here }
+  
+  ${ ps_thus }
+  
+  ${ pspr_here }
+  
+  ${ pspr_thus }
+  % endif
+
+  % if there_is_uc:  
+  ${ uc_here }
+  
+  ${ uc_thus }
+  % endif
+  
+  % if there_is_pa:  
+  ${ pa_here }
+  
+  ${ pa_thus }
+  % endif
+  
+  % if there_is_tmtn:    
+  ${ tmtn_here }
+  
+  ${ tmtn_thus }
+  % endif
+  
+  % if there_is_comm_biz:
+  ${ cb_here }
+  
+  ${ cb_thus }
+  
+  ${ rev_pereira_here }
+  
+  ${ rev_pereira_thus }
+  
+  ${ rev_van_camp_here }
+  
+  ${ rev_van_camp_thus }
+  
+  ${ goodwill_here }
+  
+  ${ goodwill_thus }
+
+  ${ msv_here }
+  
+  ${ msv_thus }
+  
+  ${ cap_here }
+  
+  ${ cap_thus }
+  % endif
+  
+  % if there_is_sep_biz:
+  ${ sep_prop_here }
+  
+  ${ sep_prop_thus }
+  
+  ${ enhance_here }
+  
+  ${ enhance_thus }
+  % endif
+
+  % if use_pereira:  
+  ${ pereira_here }
+  
+  ${ pereira_thus }
+  % endif 
+    
+  % if use_van_camp:
+  ${ van_camp_here }
+  
+  ${ van_camp_thus } 
+  % endif
+section: Conclusion  
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  H2 and W2: |
+    The facts may have a spouse with more than one relationship such as a married husband living with a girlfriend while separated. For each couple, analyze legal marriage, domiciled in CA.
+  permanent separation: |
+    Permanent separation means actual physical separation with no intent to resume marital relationship.
+  Marital Economic Community: |
+    Do MEC if need to know length of marriage for a calculation (i.e. business, stock options).
+  Putative Spouse: |
+    If a couple is not legally married, determine if a putative spouse.
+  Putative Spouse Property Rights: |
+    If putative spouse, discuss putative spouse property rights.
+  Unmarried Cohabitants: |
+    If not putative spouse, unmarried couple is unmarried cohabitants.
+  Premarital Agreement: |
+    Determine if there were enforceable agreements before marriage that make CP law inapplicable.
+  January 1, 2012: |
+    Tailor rules to the facts depending on the premarital agreement date.
+  Transmutation: |
+    Transmutation means changing SP to CP, CP to SP, or SP of one spouse to SP of other spouse. When Transmutation applies to the whole answer, do as preliminary issue before the questions. If the facts are vague on when the agreement was made, do both Premarital Agreement and Transmutation. 
+    
+    Example: Couple married in 1998. Agreement made in 1998, but no facts on whether before or during marriage. Do Premarital Agreement in the event agreement made before marriage. Do Transmutation in the event agreement made during marriage.
+  Community Business: |
+    A community business is a business started during marriage or with CP funds.
+  Appreciation During Separation: |
+    If couple permanently separated, but not divorced, and a spouse continues to operate the community business, a share of the business during separation is apportioned to CP using reverse Van Camp and Pereira.
+  Goodwill: |
+    When the couple divorces, a share of the community business goes to CP.
+  Capitalization of Past Excess Earnings: |
+    Capitalization of past excess earnings generally produces a higher value than market sales valuation because it does not contemplate a sale, where much goodwill would not survive a sale.
+  Separate Property Business: |
+    SP business is business started by a spouse before marriage or during marriage with SP funds. Example: Hobby collecting coins before marriage is a SP business because coin collecting generates income though a hobby. Do not get confused with community business, which starts during marriage or with CP funds.
+  spouse: |
+    Spouse who contributes labor does not need to be the same spouse that owns the business. Example: Wife owns SP restaurant that Husband manages. There is a community interest in Husband’s labor.
+  Pereira: |
+    Use Pereia when the SP business value increase can be attributed to a spouse’s personal time, skills, and effort. 
+    
+    * SP = Value of SP Business at Time of Marriage + (Value of SP Business at Time of Marriage * Fair Rate of Return * Years of Marriage); 
+    * CP = FMV of SP Business at Divorce – SP.
+  Van Camp: |
+    Use Van Camp when the SP business value increase can be attributed to a business character, rather than a spouse’s labor. 
+    
+    * CP = Reasonable Value of Services Provided During Marriage – Salary Paid; 
+    * SP = FMV of SP Business at Divorce – CP.

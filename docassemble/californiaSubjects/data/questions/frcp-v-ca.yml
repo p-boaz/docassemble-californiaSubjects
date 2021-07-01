@@ -1,0 +1,209 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "FRCP and California Rules"
+  title: |
+    FRCP and CA rules
+---
+question: |
+  Subject matter jurisdiction
+fields:
+  - FRCP: frcp_smj
+  - CA: ca_smj
+help: |
+  * FRCP: consider federal question jx, complete diversity of citizenship, supplemental jx, Erie doctrine
+  * CA: consider classifications: unlimited vs. limited civil cases (incl. small claims)
+---
+question: |
+  Venue
+fields:
+  - FRCP: frcp_venue
+  - CA: ca_venue
+help: |
+  * FRCP: District any Δ resides; all Δs must be in same state Court **must** transfer if improper venue
+  * CA: County any Δ resides (unless local, K, or tort case) Δ may move to transfer venue if improper venue
+---
+question: |
+  Service
+fields:
+  - FRCP: frcp_service
+  - CA: ca_service
+help: |
+  * FRCP: waiver of service extends time to respond
+  * CA: 
+    1. substitute service requires follow-up mailing 
+    2. may serve by publication 
+    3. waiver of service does not extend time to respond
+---
+question: |
+  Pleading standard
+fields: 
+  - FRCP: frcp_pleading
+  - CA: ca_pleading
+help: |
+  * FRCP: Notice pleading or heightened standard
+  * CA: Fact/code pleading or heightened standard
+---
+question: |
+  Time to answer by Δ
+fields: 
+  - FRCP: frcp_time
+  - CA: ca_time
+help: |
+  * FRCP: Within 21 days of service 
+  * CA: Within 30 days of service
+---
+question: |
+  Adding a new Δ to the case
+fields:
+  - FRCP: frcp_adding
+  - CA: ca_adding
+help: | 
+  * FRCP: FRCP 15(c) relation back after SOL has run
+  * CA: May correct misnomers after SOL has run Π has 3 yrs from filing to identify Doe defendants
+---
+question: |
+  Threshold defenses to raise or waive in pre-answer motion
+fields: 
+  - FRCP: frcp_defenses
+  - CA: ca_defenses
+help: |
+  * FRCP: 12(b)(2)–(5) objections that must be raised in the first answer or MTD: lack of PJ, improper venue, insufficient process, insufficient service of proces
+  * CA: Δ must raise in MTQ at special appearance, or they are waived: lack of PJ, insufficient process, insufficient service of process 
+    * Also available: general and special demurrers, anti-SLAPP motion
+---
+question: |
+  Requirements for Class Action
+fields: 
+  - FRCP: frcp_class_action
+  - CA: ca_class_action
+help: |
+  * FRCP: CANT + P/ER/CQ
+  * CA: Ascertainable class + community of interest
+---
+question: |
+  Res judicata
+fields: 
+  - FRCP: frcp_res
+  - CA: ca_res
+help: |
+  * FRCP: Prevents re-litigation of any part of a cause of action from same transaction or occurrence
+  * CA: "Primary rights” jurisdiction
+---
+question: |
+  Discovery
+fields: 
+  - note: FRCP
+  - scope: frcp_scope
+  - automatic disclosure: frcp_auto
+  - work product: frcp_wp
+  - duty to supplement: frcp_supp
+  - pretrial conferences: frcp_pretrial_conf
+  - note: CA
+  - scope: ca_scope
+  - automatic disclosure: ca_auto
+  - work product: ca_wp
+  - duty to supplement: ca_supp
+  - pretrial conferences: ca_pretrial_conf
+help: | 
+  **FRCP** 
+    * scope: 
+    * auto disclosure
+    * work product:
+    * duty to supplement: 
+    * pretrial conferences: 
+  **CA**
+    * scope: 
+    * auto disclosure
+    * work product:
+    * duty to supplement: 
+    * pretrial conferences: 
+---
+question: |
+  Jury trial
+fields: 
+  - note: FRCP
+  - request: frcp_request
+  - number of jurors: frcp_jurors
+  - note: CA
+  - request: ca_request
+  - number of jurors: ca_jurors
+help: | 
+  **FRCP** 
+    * request: Must file demand within 14 days of last pleading
+    * number of jurors: 6-12 / fewer than 6 if parties agree
+  **CA** 
+    * request: Must file demand within 5 days of case notice
+    * number of jurors: 12 / fewer than 12 if parties agree
+---
+question: |
+  Motion for summary judgment - timing
+fields: 
+  - FRCP: frcp_msj
+  - CA: ca_msj
+help: |
+  * FRCP: **Within 30 days** of close of discovery
+  * CA: **After 60 days** of general appearance of other party (unless good cause), **at least 75 days** before hearing
+---
+question: |
+  Renewed motion for JMOL (JNOV)
+fields: 
+  - FRCP: frcp_jnov
+  - CA: ca_jnov
+help: |
+  * FRCP: Party may raise only issues from original JMOL
+  * CA: No requirement to have brought a motion for JMOL at some point during trial
+---
+question: |
+  Appeal - timing
+fields:
+  - FRCP: frcp_appeal
+  - CA: ca_appeal
+help: |
+  * FRCP: within 30 days of close of discovery
+  * CA: within 60 days of final judgment
+---
+question: |
+  Nomenclature
+fields: 
+  - FRCP: frcp_nomenclature
+  - CA: ca_nomenclature
+help: |
+  * FRCP: "counterclaim," "cross-claim," "motion to dismiss"
+  * CA: "cross-complaint," demurrer"
+---
+mandatory: True
+question: |
+  Differences between Federal and California Civil Rules of Procedure
+subquestion: |
+  Under the FRCP, subject matter jurisdiction calls for ${ frcp_smj }, venue rules follow ${ frcp_venue }, services rules are ${ frcp_service }, pleading goes like ${ frcp_pleading }, then there are these:
+  
+  * ${ frcp_time }
+  * ${ frcp_adding }
+  * ${ frcp_defenses }
+  * ${ frcp_class_action }
+  * ${ frcp_res }
+  * ${ frcp_scope }
+  * ${ frcp_jurors }
+  * ${ frcp_msj }
+  * ${ frcp_jnov }
+  * ${ frcp_nomenclature }
+  
+  THE END
+  
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com

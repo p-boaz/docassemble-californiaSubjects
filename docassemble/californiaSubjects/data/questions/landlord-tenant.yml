@@ -1,0 +1,454 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Landlord-Tenant"
+  title: |
+    Landlord-Tenant
+---
+question: |
+  Details of the lease
+subquestion: |
+  Four type of LL-T leases: 
+fields: 
+  - Tenancy for years: t_for_yrs
+    datatype: area
+  - Periodic tenancy: periodic
+    datatype: area
+  - Tenancy at will: at_will
+    datatype: area
+  - Tenancy at sufferance: at_sufferance
+    datatype: area
+  - Lease for over a year?: lease_over_a_year
+    datatype: yesno
+  - Test for...: lease_sof
+    show if: lease_over_a_year
+  - Choose which one to analyze?: lease_type
+    choices:
+      - Tenancy for years
+      - Periodic tenancy
+      - Tenancy at will
+      - Tenancy at sufferance
+help: |
+  1. A tenancy for years is a leasehold estate with a definite beginning and end date.
+  2. A periodic tenancy is a repetitive, ongoing leasehold estate measured by a set time period, but with no predetermined termination date.
+  3. A tenancy at will is a leasehold estate without a specific term and continues until the landlord or tenant terminates.
+  4. A tenant who remains in possession on the premises after lease expiration is a holdover tenant. When a landlord refuses to accept rent from a holdover tenant, the tenant is a tenant at sufferance.
+---
+question: |
+  Apply facts to the lease rules
+subquestion: |
+  **${ lease_type }**
+
+  % if lease_type == 'Tenancy for years':
+  A tenancy for years is a leasehold estate with a definite beginning and end date.
+  
+  % elif lease_type == 'Periodic tenancy':
+  A periodic tenancy is a repetitive, ongoing leasehold estate measured by a set time period, but with no predetermined termination date.
+  
+  % elif lease_type == 'Tenancy at will':
+  A tenancy at will is a leasehold estate without a specific term and continues until the landlord or tenant terminates.
+  
+  % elif lease_type == 'Tenancy at sufferance':
+  A tenant who remains in possession on the premises after lease expiration is a holdover tenant. When a landlord refuses to accept rent from a holdover tenant, the tenant is a tenant at sufferance.
+  % endif
+fields: 
+  - no label: lease_here
+    datatype: area
+    hint: Here, 
+  - no label: lease_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Apply facts to the termination rules
+subquestion: |
+  % if lease_type == 'Tenancy for years':
+  **Termination Notice**
+  
+  A tenancy for years automatically expires at the term end date, and requires no termination notice.
+  
+  % elif lease_type == 'Periodic tenancy':  
+  **Termination Notice**
+  
+  Because a periodic tenancy automatically renews, notice is required to terminate. Notice (1) must be given before the beginning of the intended last period of the periodic tenancy, and (2) is generally effective only as of the last day of the {period}. The Statute of Frauds does not apply to a periodic tenancy because it is for a non-fixed {term}.
+  
+  % elif lease_type == 'Tenancy at will':  
+  **Termination Notice**
+  
+  Traditionally, either party may terminate a tenancy at will without notice, but the tenant must be given a reasonable time to vacate. Modern majority, either party may terminate with notice.
+  
+  % elif lease_type == 'Tenancy at sufferance':
+  **Self-Help**
+  
+  Most states no longer allow the landlord to use self-help, and require instead: (1) properly serve the tenant with lawsuit notice, and (2) obtain a court judgment of possession.
+  % endif
+fields: 
+  - no label: termination_here
+    datatype: area
+    hint: Here, 
+  - no label: termination_thus
+    datatype: area
+    hint: Thus,
+---
+pre: |
+  `A landlord-tenant relationship is based on common law estate theory and contract law. A lease is both a contract and a conveyance. After determining the type of leasehold estate, the second issue is usually to analyze if there is a valid lease using contract law. The most tested element on Valid Lease is the Statute of Frauds.`
+question: |
+  Valid Lease
+subquestion: |
+  A leasehold estate is a contractual relationship governed by a lease that contains the parties’ {covenants}. 
+  
+  The Statute of Frauds requires a lease for more than a year to be in writing to be enforceable./Generally, a tenant covenants to pay rent and not commit waste in exchange for the landlord delivering actual possession of, and repairing, the leasehold {premises}.
+fields: 
+  - no label: valid_lease_here
+    datatype: area
+    hint: Here, 
+  - no label: valid_lease_thus
+    datatype: area
+    hint: Thus,
+---
+pre: |
+  `If there are facts on the tenant assigning or subleasing, after Valid Lease, analyze if the assignment or sublease was proper. If the facts trigger assignment, discuss only assignment. If the facts trigger sublease, discuss only sublease. Do not do both, unless the facts are unclear whether sublease or assignment.`
+question: |
+  Assignment
+subquestion: |
+  Absent contrary language, a lease can be freely assigned. An assignment is a complete transfer of a tenant’s remaining lease term. Assignee tenants are in privity of estate with the landlord and liable to the landlord for rent and other lease covenants that run with the lease. Nonassignment restrictions are valid, but narrowly construed {against the landlord}. An assignment may be waived if a landlord knows of the assignment and {does not object}.
+fields: 
+  - no label: assignment_here
+    datatype: area
+    hint: Here, 
+  - no label: assignment_thus
+    datatype: area
+    hint: Thus,
+---
+pre: |
+  `If there are facts on the tenant assigning or subleasing, after Valid Lease, analyze if the assignment or sublease was proper. If the facts trigger assignment, discuss only assignment. If the facts trigger sublease, discuss only sublease. Do not do both, unless the facts are unclear whether sublease or assignment.`
+question: |
+  Assignment - Original Tenant Rights and Liabilities
+subquestion: |
+  Absent a novation, the original tenant in an assignment remains in privity of contract with the landlord, and is liable for the rent and all covenants in the lease for the lease duration.
+fields: 
+  - no label: assignment_otr_here
+    datatype: area
+    hint: Here, 
+  - no label: assignment_otr_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Sublease
+subquestion: |
+  Absent contrary language, a lease can be freely sublet. A {transfer for less than} the entire lease duration is a sublease. Non-sublease restrictions are valid, but narrowly construed against the landlord. A sublease may be waived if the landlord knows of the sublease and does not object.
+fields: 
+  - no label: sublease_here
+    datatype: area
+    hint: Here, 
+  - no label: sublease_thus
+    datatype: area
+    hint: Thus,
+---
+pre: |
+  `Usually a party in the facts does not comply with a lease covenant (i.e. not repair, not pay rent). If clear noncompliance, do Breach of Lease. If indication of noncompliance, do Anticipatory Repudiation.`
+question: |
+  Breach of Lease
+subquestion: |
+  The promises of the landlord and the tenant are generally independent of each other; each party must perform promises regardless of whether the other party performs. The tenant has a duty to pay rent as a consequence of a lease. If a tenant fails to pay rent, the landlord can sue for damages, and remove the tenant from the property.
+fields: 
+  - no label: breach_here
+    datatype: area
+    hint: Here, 
+  - no label: breach_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Anticipatory Repudiation
+subquestion: |
+  Anticipatory repudiation occurs where a promisor, prior to the time to perform arrives, unequivocally indicates s/he will not perform when the time occurs. Anticipatory repudiation gives the non-repudiating party four options:
+fields: 
+  - note: |
+      **Options** 
+  - no label: ar_options
+    datatype: area
+    hint: (1) 
+  - no label: ar_here
+    datatype: area
+    hint: Here, 
+  - no label: ar_thus
+    datatype: area
+    hint: Thus,
+help: |
+  Anticipatory repudiation gives the non-repudiating party four options: (1) treat the contract as totally repudiated and sue immediately, (2) suspend own performance and wait until performance is due to sue, (3) treat the repudiation as an offer to rescind, and the contract discharged, or (4) ignore the repudiation and urge performance.
+---
+pre: |
+  `Usual defenses for a tenant who does not comply with a lease covenant.`
+question: |
+  Tenant's Defenses
+fields:
+  - (1): surrender
+    datatype: area
+  - (2): abandonment
+    datatype: area
+  - (3): mitigation
+    datatype: area
+  - (4): habitability
+    datatype: area
+  - (5): quiet_enj
+    datatype: area
+continue button field: tenant_defenses
+---
+question: |
+  Surrender
+subquestion: |
+  A lease may terminate when, before the expiration, the tenant surrenders the leasehold.
+fields:
+  - no label: surrender_here
+    datatype: area
+    hint: Here, 
+  - no label: surrender_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Abandonment
+subquestion: |
+  If a tenant fails to pay rent, and abandons the premises by vacating without intent to return, the landlord may (1) retake the premises, (2) ignore the abandonment and continue to hold the tenant liable for rent, or (3) reenter and relet the premises.
+fields:
+  - note: Retake Premises
+  - no label: retake_here
+    datatype: area
+    hint: Here, 
+  - note: Ignore Abandonment 
+  - no label: ignore_here
+    datatype: area
+    hint: Here,
+  - note: |
+      {Reenter and Relet}
+  - no label: relet_here
+    datatype: area
+    hint: Here,
+---
+question: |
+  {Mitigation}
+subquestion: |
+  A party to a contract has the obligation to use {reasonable efforts} to avoid damages.
+fields:
+  - no label: mitigation_here
+    datatype: area
+    hint: Here, 
+  - no label: mitigation_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Implied Warranty of Habitability
+subquestion: |
+  With regard to {residential leases}, the implied warranty of habitability requires a landlord to maintain property such that it is reasonably suited for {residential use}. If the premises are nothabitable, the tenant may (1) refuse to pay rent, (2) remedy the defect and offset the cost against the rent, or (3) defend against eviction. Before the tenant withholds rent or remedy the defect, the tenant usually must notify the landlord of the problem and give the landlord a reasonable opportunity to correct the problem.
+fields:
+  - no label: habit_here
+    datatype: area
+    hint: Here, 
+  - no label: habit_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Remaining Issues
+subquestion: |
+  A party to a contract has the obligation to use {reasonable efforts} to avoid damages.
+fields:
+  - Quiet Enjoyment?: q_e
+    datatype: yesno
+  - Waste Issue?: waste
+    datatype: yesno
+  - Covenant Issue?: covenant
+    datatype: yesno
+  - Fixtures Issue?: fixtures
+    datatype: yesno
+---
+question: |
+  Fixtures
+subuestion: |
+  A chattel intended to be part of the land is converted from personal to real property when it attaches to the land. The chattel is then considered a fixture, becomes part of the land, and passes with the land ownership.
+fields:
+  - no label: fixtures_here
+    datatype: area
+    hint: Here, 
+  - no label: fixtures_thus
+    datatype: area
+    hint: Thus,
+  - Trade Fixtures Issue?: trade_fixtures
+    datatype: yesno
+  - note: Trade fixtures are items attached to real property for carrying on a business, and may be removed by a tenant at lease conclusion. 
+  - no label: trade_fixtures_here
+    show if: trade_fixtures
+    datatype: area
+    hint: Here, 
+  - no label: trade_fixtures_thus
+    show if: trade_fixtures
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Waste
+subuestion: |
+  
+fields:
+  - no label: waste_here
+    datatype: area
+    hint: Here, 
+  - no label: waste_thus
+    datatype: area
+    hint: Thus,
+---
+question: |
+  Covenant
+subuestion: |
+  
+fields:
+  - no label: cov_here
+    datatype: area
+    hint: Here, 
+  - no label: cov_thus
+    datatype: area
+    hint: Thus,
+---
+mandatory: True
+question: |
+  Landlord-Tenant Analysis
+subquestion: |
+  % if lease_type == 'Tenancy for years':
+  % elif lease_type == 'Periodic tenancy':
+  % elif lease_type == 'Tenancy at will':
+  % elif lease_type == 'Tenancy at sufferance':
+  % endif
+  **${ lease_type }**
+  
+  ${ lease_here }
+
+  ${ lease_thus }
+  
+  **Termination Notice**
+  
+  ${ termination_here }
+
+  ${ termination_thus }
+  
+  ${ valid_lease_here }
+  
+  ${ valid_lease_thus }
+  
+  ${ assignment_here }
+  
+  ${ assignment_thus }
+  
+  ${ assignment_otr_here }
+  
+  ${ assignment_otr_thus }
+  
+  ${ sublease_here }
+  
+  ${ sublease_thus }
+  
+  ${ breach_here }
+  
+  ${ breach_thus }
+  
+  ${ ar_here }
+  
+  ${ ar_thus }
+  
+  % if tenant_defenses: 
+  **Tenant's Defenses**
+  
+  **Surrender**
+  
+  ${ surrender_here }
+  
+  ${ surrender_thus }
+  
+  ${ retake_here }
+  
+  ${ ignore_here }
+  
+  ${ relet_here }
+  
+  ${ mitigation_here }
+  
+  ${ mitigation_thus }
+  
+  ${ habit_here }
+  
+  ${ habit_thus } 
+  % endif
+  
+  % if covenant:
+  **COVENANTS**
+  
+  ${ cov_here }
+  
+  ${ cov_thus }
+  % endif
+  % if waste:
+  **WASTE**
+  
+  ${ waste_here }
+  
+  ${ waste_thus }
+  % endif
+  % if fixtures:
+  **FIXTURES**
+  
+  ${ fixtures_here }
+  
+  ${ fixtures_thus }
+  % endif
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  covenants: |
+    Tailor the rules to the facts. For the first sentence, usually indicate the leasehold estate is a contractual relationship.
+  premises: |
+    After the first sentence, tailor the rules to the dispute between the parties (i.e. Statute of Frauds not met, duty to pay rent).
+  Assignee tenants are in privity of estate with the landlord and liable to the landlord for rent and other lease covenants that run with the lease.: |
+    Tailor the rules to the facts. If the facts trigger an issue on the subtenant not complying with lease obligations (i.e. pay rent), give rules on privity of estate. The privity of estate held by the tenant terminates upon an assignment by the tenant to the assignee.
+    
+    Compare with sublessee: Sublessee is not in privity of estate or contract with the landlord because the sublease is not for the entire lease duration. The tenant continues with the leasehold after the sublease expires. The sublessee is not liable to the landlord for rent or other covenants in the lease but is liable to the lessee, unless the sublessee expressly assumes the rent or other covenants.
+    
+    If the assignee reassigns the leasehold to a subsequent tenant, the assignee’s privity with the landlord ends (no longer liable because the subsequent tenant is in privity with the landlord).
+  against the landlord: |
+    Non-assignment restriction is a restraint on alienation
+  does not object: |
+    Facts on landlord accepting rent from assignee triggers waiver.
+  period: |
+    Example: End of the month for a month-to-month tenancy that begins the first day of the month. 
+  term: |
+    Traditional: Notice has to be sufficient to show intent. Modern: No writing is required for termination, unless a statute requires written notice.
+  transfer for less than: |
+    A sublease cannot be for more than the lease duration. If this happens, the sublease expires when the lease expires.
+  Reenter and Relet: |
+    Traditional: If tenant abandons, landlord has no duty to mitigate. Modern: Mitigation required.
+  Mitigation: |
+    A landlord-tenant fact pattern can be treated like a contract question. The lease is a contract. If there is a breach of lease or anticipatory repudiation, and the question asks for defenses, attack defenses and remedies issues (i.e. mitigation) as in a contract question.
+  reasonable efforts: |
+    Take steps that do not involve undue risk, expense, or inconvenience.
+  residential leases: |
+    If the facts give a commercial lease, raise implied warranty of habitability issue (tailor the rules to just put down the first sentence), but state issue does not apply.
+  residential use: |
+    Failure to comply with housing code requirements constitutes breach of warranty, especially violations that substantially threaten tenant’s health and safety.
+  suffereance: |
+    If the landlord accepts rent, the holdover tenant is a periodic tenant.

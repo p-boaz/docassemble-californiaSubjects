@@ -1,0 +1,793 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Defamation"
+  title: |
+    Defamation
+---
+sections:
+  - Intro
+  - Defamatory Language
+  - Or or Concerning Plaintiff
+  - Published to a Third Party
+  - Damages to Plaintiff Reputation
+  - U.S. Constitution - Public Concern:
+    - Falsity
+    - Fault
+  - Defenses: 
+    - Consent
+    - Truth
+  - Privileges: 
+    - Absolute Privilege
+    - Qualified Privilege
+  - Trade Libel:
+    - TL Defenses
+    - TL Privileges
+  - Conclusion
+---
+features:
+  navigation: True
+  progress bar: True
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Roadmap', 'road_map') ]
+---
+initial: True
+code: |
+  if returning_user(minutes=0.5):
+    welcome_back
+---
+mandatory: True
+question: |
+  Defamation
+subquestion: |
+  A plaintiff may bring a defamation action (1) if the defendant’s defamatory language, (2) of or concerning the plaintiff, (3) is published to a third party who understands its defamatory nature, (4) damages the plaintiff’s reputation.
+field: sees_nav_bar
+section: Intro
+---
+mandatory: True
+question: |
+  Defamatory Language
+subquestion: |
+  Defamatory language diminishes respect or goodwill towards, or deters association with, a plaintiff. An opinion is actionable if the defendant implies a factual basis for that opinion.
+fields:
+  - no label: dl_here
+    datatype: area
+    hint: Here, 
+  - no label: dl_thus
+    datatype: area
+    hint: Thus, 
+section: Defamatory Language
+---
+mandatory: True
+question: |
+  Inducement and Innuendo
+subquestion: |
+  A statement, not defamatory on its face, is actionable if the defamatory meaning becomes apparent when the plaintiff (1) pleads and proves extrinsic facts as inducement and (2) establishes the defamatory meaning by innuendo.
+fields: 
+  - no label: ii_here
+    datatype: area
+    hint: Here, 
+  - no label: ii_thus
+    datatype: area
+    hint: Thus, 
+section: Defamatory Language
+---
+mandatory: True
+question: |
+  Of or Concerning Plaintiff
+subquestion: |
+  A reasonable person must believe the defamatory language refers to the plaintiff.
+fields: 
+  - no label: concern_here
+    datatype: area
+    hint: Here, 
+  - no label: concern_thus
+    datatype: area
+    hint: Thus, 
+section: Of or Concerning Plaintiff
+---
+mandatory: True
+question: |
+  Colloquium
+subquestion: |
+  A statement, with no clear reference to plaintiff on its face, is actionable if plaintiff pleads and proves extrinsic facts to show a reasonable person perceives the statement refers to plaintiff.
+fields:
+  - no label: col_here
+    datatype: area
+    hint: Here, 
+  - no label: col_thus
+    datatype: area
+    hint: Thus, 
+section: Of or Concerning Plaintiff
+---
+mandatory: True
+question: |
+  Published to a Third Party
+subquestion: |
+  Publication of defamatory language is intentional or negligent communication to a third party (someone other than plaintiff) who understands it.
+fields: 
+  - no label: pub3p_here
+    datatype: area
+    hint: Here, 
+  - no label: pub3p_thus
+    datatype: area
+    hint: Thus, 
+section: Published to a Third Party
+---
+mandatory: True
+pre: |
+  `Do libel if written statements.`
+question: |
+  Libel
+subquestion: |
+  Special damages are presumed when defamation involves libel. Special damages are awarded for economic loss due to defamation. 
+  
+  *`Radio programs are treated as libels if sufficiently permanent, premeditated, and broadly disseminated.`*
+fields: 
+  - no label: libel_here
+    datatype: area
+    hint: Here, 
+  - no label: libel_thus
+    datatype: area
+    hint: Thus, 
+section: Damages to Plaintiff Reputation
+---
+mandatory: True
+pre: |
+  `No requirement to prove special damages.`
+question: |
+  Slander
+subquestion: |
+  In a slander action, special damages must be proven, unless a defamatory statement is slander per se, relating to (1) abilities in a profession, trade, business, (2) loathsome disease, (3) unchaste behavior, or (4) crime of moral turpitude or punishable by imprisonment.
+fields: 
+  - no label: slander_here
+    datatype: area
+    hint: Here, 
+  - no label: slander_thus
+    datatype: area
+    hint: Thus, 
+section: Damages to Plaintiff Reputation
+---
+mandatory: True
+question: |
+  U.S. Constitution - Public Concern
+subquestion: |
+  Under the U.S. Constitution, if the defamatory statement involves a public concern, a plaintiff must prove the defendant’s (1) fault regarding the (2) falsity of the statement.
+fields: 
+  - no label: const_here
+    datatype: area
+    hint: Here, 
+  - no label: const_thus
+    datatype: area
+    hint: Thus, 
+section: U.S. Constitution - Public Concern
+---
+mandatory: True
+question: |
+  Falsity
+fields: 
+  - no label: falsity_here
+    datatype: area
+    hint: Here, 
+  - no label: falsity_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      `If the facts are vague on whether the statement is true or false, conclude more facts are needed to determine falsity.`
+section: Falsity
+---
+mandatory: True
+question: |
+  Fault
+subquestion: |
+  The standard for establishing a defendant’s fault depends on the plaintiff’s status as a public or private person.
+  
+  `Order Public Figure before Private Figure. If not public figure, private figure by default.`
+fields: 
+  - no label: fault_here
+    datatype: area
+    hint: Here, 
+  - no label: fault_thus
+    datatype: area
+    hint: Thus, 
+section: Fault
+---
+mandatory: True
+question: |
+  Public Figure
+subquestion: |
+  A public figure is (1) official involved in public affairs, (2) person who achieves pervasive notoriety that s/he becomes a public figure for all purposes, or (3) person who voluntarily injects into a particular public controversy that s/he becomes a public figure for the controversy, but remains a private figure for other matters.
+fields: 
+  - no label: pubfig_here
+    datatype: area
+    hint: Here, 
+  - no label: pubfig_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      **Malice**
+     
+      A public figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  - no label: pub_malice_here
+    datatype: area
+    hint: Here, 
+  - no label: pub_malice_thus
+    datatype: area
+    hint: Thus,
+section: Fault
+---
+mandatory: True
+question: |
+  Private Figure
+subquestion: |
+  A private figure plaintiff proves the defendant’s fault by establishing (1) negligence or (2) malice.
+fields: 
+  - note: |
+      **Negligence**
+      
+      Negligence requires (1) duty, (2) breach, (3) causation, and (4) damages.
+  - no label: priv_neg_here
+    datatype: area
+    hint: Here, 
+  - no label: priv_neg_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      **Malice**
+      
+      A private figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  - no label: priv_malice_here
+    datatype: area
+    hint: Here, 
+  - no label: priv_malice_thus
+    datatype: area
+    hint: Thus,
+section: Fault
+---
+mandatory: True
+question: |
+  Consent
+subquestion: |
+  * {A plaintiff expressly consents if by words or actions s/he manifests the willingness to submit to the defendant’s acts.}
+  
+  * {Consent given while under duress, physical force or threats, is invalid.}
+  
+  * {Consent by mistake is valid, unless the defendant caused, or knew and took advantage of, the mistake.} 
+  
+  * Consent induced by fraud is invalid if related to an essential, not collateral, matter.
+  
+  * {Consent is implied when the plaintiff is nonresponsive in a situation in which a reasonable person would object.}
+fields: 
+  - no label: consent_here
+    datatype: area
+    hint: Here, 
+  - no label: consent_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+mandatory: True
+question: |
+  Truth
+subquestion: |
+  If the defamatory statement is factually accurate, the defendant has a complete defense. Defamatory statements are presumed false, unless the statements involve a public concern.
+fields: 
+  - no label: truth_here
+    datatype: area
+    hint: Here, 
+  - no label: truth_thus
+    datatype: area
+    hint: Thus, 
+section: Defenses
+---
+mandatory: True
+question: |
+  Absolute Privilege
+subquestion: |
+  In certain situations, such as (1) between spouses, (2) {during a judicial proceeding}, (2) in a legislative proceeding, and (4) required {media} {publications}, absolute privilege provides immunity, even if the action is wrong, malicious, or done with an improper motive.
+fields: 
+  - no label: ap_here
+    datatype: area
+    hint: Here, 
+  - no label: ap_thus
+    datatype: area
+    hint: Thus, 
+section: Privileges
+---
+mandatory: True
+question: |
+  Qualified Privilege
+subquestion: |
+  Statements made under the following circumstances are subject to qualified privilege: (1) affecting an important public concern, (2) in the interest of the publisher (defendant), such as defending its reputation, or (3) in the interest of a third party or recipient.
+fields: 
+  - no label: qp_here
+    datatype: area
+    hint: Here, 
+  - no label: qp_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **Public Concern**
+  - no label: pc_here
+    datatype: area
+    hint: Here, 
+  - no label: pc_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      **Publisher Interest**
+  - no label: pi_here
+    datatype: area
+    hint: Here, 
+  - no label: pi_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      **Third Party Interest**
+  - no label: ti_here
+    datatype: area
+    hint: Here, 
+  - no label: ti_thus
+    datatype: area
+    hint: Thus,
+section: Privileges
+---
+mandatory: True
+question: |
+  Abused
+subquestion: |
+  A qualified privilege may be lost if abused: (1) making statements outside the scope of the privilege, or (2) acting with malice.
+fields: 
+  - note: |
+      **Outside Scope**
+  - no label: os_here
+    datatype: area
+    hint: Here, 
+  - no label: os_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      **Malice**
+  - no label: mc_here
+    datatype: area
+    hint: Here, 
+  - no label: mc_thus
+    datatype: area
+    hint: Thus, 
+section: Privileges
+---
+mandatory: True
+question: |
+  Trade Libel
+subquestion: |
+  For a trade libel claim, the plaintiff must prove (1) false disparaging statement, (2) of or concerning plaintiff’s (a) business property title, (b) business quality, or (c) product quality, (3) published to a third party, (4) with intent (5) to damage the business.
+fields: 
+  - note: |
+      **False Disparaging Statement**
+  - no label: tl_fds_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      **Of or Concerning Plaintiff’s Business Property Title, Business, Product**
+  - no label: tl_concern_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      **Published to a Third Party**
+  - no label: tl_pub3p_here
+    datatype: area
+    hint: Here, 
+  - note: |
+      **Damages**
+  - no label: tl_dmg_here
+    datatype: area
+    hint: Here, 
+section: Trade Libel
+---
+mandatory: True
+question: |
+  Defenses
+fields: 
+  - note: |
+      **Truth**
+      
+      If the disparaging statement is factually accurate, the defendant has a complete defense.
+  - no label: tl_truth_here
+    datatype: area
+    hint: Here, 
+  - no label: tl_truth_thus
+    datatype: area
+    hint: Thus,
+section: TL Defenses
+---
+mandatory: True
+question: |
+  Privileges
+fields:
+  - note: |
+      **Competition**
+      
+      Except for false allegations, a defendant who is a competitor of the plaintiff will not be liable for encouraging a third party to switch business to the defendant by generally comparing the defendant’s business property title, business, or product with the plaintiff’s, stating or implying the defendant is better.
+  - no label: tl_comp_here
+    datatype: area
+    hint: Here, 
+  - no label: tl_comp_thus
+    datatype: area
+    hint: Thus, 
+section: TL Privileges
+---
+mandatory: True
+question: |
+  Absolute Privilege
+subquestion: |
+  In certain situations, such as (1) between spouses, (2) during a judicial proceeding, (2) in a legislative proceeding, and (4) required media publications, absolute privilege provides immunity, even if the action is wrong, malicious, or done with an improper motive.
+fields:
+  - no label: tl_ap_here
+    datatype: area
+    hint: Here, 
+  - no label: tl_ap_thus
+    datatype: area
+    hint: Thus, 
+section: TL Privileges
+---
+mandatory: True
+question: |
+  Qualified Privilege
+subquestion: |
+  Statements made under the following circumstances are subject to qualified privilege: (1) affecting an important public concern, (2) in the interest of the publisher (defendant), such as defending its reputation, or (3) in the interest of a third party or recipient.
+fields: 
+  - note: Public Concern
+  - no label: tl_pc_here
+    datatype: area
+    hint: Here, 
+  - no label: tl_pc_thus
+    datatype: area
+    hint: Thus, 
+  - note: Publisher Interest
+  - no label: tl_pi_here
+    datatype: area
+    hint: Here, 
+  - no label: tl_pi_thus
+    datatype: area
+    hint: Thus, 
+  - note: Third Party Interest
+  - no label: tl_tpi_here
+    datatype: area
+    hint: Here, 
+  - no label: tl_tpi_thus
+    datatype: area
+    hint: Thus,
+section: TL Privileges
+---
+mandatory: True
+question: |
+  Abused
+subquestion: |
+  A qualified privilege may be lost if abused: (1) making statements **outside the scope** of the privilege, or (2) acting with **malice**.
+fields: 
+  - note: |
+      **Outside Scope**
+  - no label: tl_os_here
+    datatype: area
+    hint: Here, 
+  - no label: tl_os_thus
+    datatype: area
+    hint: Thus,
+  - note: |
+      **Malice**
+  - no label: tl_mc_here
+    datatype: area
+    hint: Here, 
+  - no label: tl_mc_thus
+    datatype: area
+    hint: Thus, 
+section: TL Privileges
+---
+progress: 100
+mandatory: True
+question: Thank you.
+subquestion: |
+
+  % if sees_nav_bar:
+  **Defamation**
+  
+  A plaintiff may bring a defamation action (1) if the defendant’s defamatory language, (2) of or concerning the plaintiff, (3) is published to a third party who understands its defamatory nature, (4) damages the plaintiff’s reputation.
+  
+  **Defamatory Language**
+  
+  Defamatory language diminishes respect or goodwill towards, or deters association with, a plaintiff. An opinion is actionable if the defendant implies a factual basis for that opinion.
+  
+  ${ dl_here }
+  
+  ${ dl_thus }
+  
+  **Inducement and Innuendo**
+  
+  A statement, not defamatory on its face, is actionable if the defamatory meaning becomes apparent when the plaintiff (1) pleads and proves extrinsic facts as inducement and (2) establishes the defamatory meaning by innuendo.
+  
+  ${ ii_here }
+  
+  ${ ii_thus }
+  
+  **Of or Concerning Plaintiff**
+  
+  A reasonable person must believe the defamatory language refers to the plaintiff.
+  
+  ${ concern_here }
+  
+  ${ concern_thus }
+  
+  **Colloquium**
+  
+  A statement, with no clear reference to plaintiff on its face, is actionable if plaintiff pleads and proves extrinsic facts to show a reasonable person perceives the statement refers to plaintiff.
+  
+  ${ col_here }
+  
+  ${ col_thus }
+  
+  **Published to a Third Party**
+      
+  Publication of defamatory language is intentional or negligent communication to a third party (someone other than plaintiff) who understands it.
+
+  ${ pub3p_here }
+  
+  ${ pub3p_thus }
+  
+  **Damages to Plaintiff’s Reputation**
+      
+  **Libel**
+  
+  Special damages are presumed when defamation involves libel. Special damages are awarded for economic loss due to defamation. [6 Radio programs are treated as libels if sufficiently permanent, premeditated, and broadly disseminated.]
+
+  ${ libel_here }
+  
+  ${ libel_thus }
+  
+  **Slander**
+  
+  In a slander action, special damages must be proven, unless a defamatory statement is slander per se, relating to (1) abilities in a profession, trade, business, (2) loathsome disease, (3) unchaste behavior, or (4) crime of moral turpitude or punishable by imprisonment.
+  
+  ${ slander_here }
+  
+  ${ slander_thus }
+  
+  **U.S. Constitution - Public Concern** 
+  
+  Under the U.S. Constitution, if the defamatory statement involves a public concern, a plaintiff must prove the defendant’s (1) fault regarding the (2) falsity of the statement.
+  
+  ${ const_here }
+  
+  ${ const_thus }
+  
+  **Falsity**
+
+  ${ falsity_here }
+  
+  ${ falsity_thus }
+  
+  **Fault** 
+  
+  The standard for establishing a defendant’s fault depends on the plaintiff’s status as a 13 public or private person.
+  
+  **Public Figure** 
+  
+  A public figure is (1) official involved in public affairs, (2) person who achieves pervasive notoriety that s/he becomes a public figure for all purposes, or (3) person who voluntarily injects into a particular public controversy that s/he becomes a public figure for the controversy, but remains a private figure for other matters.
+  
+  ${ pubfig_here }
+  
+  ${ pubfig_thus }
+  
+  **Malice**
+  
+  A public figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  
+  ${ pub_malice_here }
+  
+  ${ pub_malice_thus }
+  
+  **Private Figure**
+  
+  A private figure plaintiff proves the defendant’s fault by establishing (1) negligence or (2) malice.
+  
+  **Negligence**
+  
+  Negligence requires (1) duty, (2) breach, (3) causation, and (4) damages.
+  
+  ${ priv_neg_here }
+  
+  ${ priv_neg_thus }
+  
+  **Malice**
+  
+  A private figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  
+  ${ priv_malice_here }
+  
+  ${ priv_malice_thus }
+  
+  **Defenses**
+    
+  A private figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  
+  **Consent**
+    
+  A private figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  
+  ${ consent_here }
+  
+  ${ consent_thus }
+  
+  **Truth**
+    
+  A private figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  
+  ${ truth_here }
+  
+  ${ truth_thus }
+  
+  **Privileges**
+    
+  A private figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  
+  **Absolute Privilege**
+    
+  A private figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  
+  ${ ap_here }
+  
+  ${ ap_thus }
+  
+  **Qualified Privilege**
+    
+  A private figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  
+  ${ qp_here }
+  
+  ${ qp_thus }
+  
+  **Abused**
+  
+  A private figure must prove defendant’s actual malice. Malice means the defendant (1) knows the defamatory language is false, or (2) recklessly disregards its truthfulness.
+  
+  ${ os_here }
+  
+  ${ os_thus }
+  
+  **TRADE LIBEL**
+  
+  For a trade libel claim, the plaintiff must prove (1) false disparaging statement, (2) of or concerning plaintiff’s (a) 25 business property title, (b) business quality, or (c) product quality, (3) published to a third party, (4) with intent (5) to 26 damage the business.
+  
+  **False Disparaging Statement**
+  
+  ${ tl_fds_here }
+  
+  **Of or Concerning Plaintiff’s Business Property Title, Business, Product**
+  
+  ${ tl_concern_here }
+  
+  **Published to a Third Party**
+  
+  ${ tl_pub3p_here }
+  
+  **Damages**
+  
+  ${ tl_dmg_here }
+
+  **Defenses**  
+  
+  **Truth**
+  
+  If the disparaging statement is factually accurate, the defendant has a complete defense.
+  
+  ${ tl_truth_here }
+  
+  ${ tl_truth_here }
+  
+  **Privileges**
+  
+  **Competition**
+  
+  Except for false allegations, a defendant who is a competitor of the plaintiff will not be liable for encouraging a third party to switch business to the defendant by generally comparing the defendant’s business property title, business, or product with the plaintiff’s, stating or implying the defendant is better. 
+    
+  ${ tl_comp_here }
+  
+  ${ tl_comp_thus }
+  
+  **Absolute Privilege**
+  
+  In certain situations, such as (1) between spouses, (2) during a judicial proceeding, (3) in a legislative proceeding, and (4) required media publications, absolute privilege provides immunity, even if the action is wrong, malicious, or done with an improper motive.
+  
+  ${ tl_ap_here }
+  
+  ${ tl_ap_thus }
+  
+  **Qualified Privilege**
+  
+  Statements made under the following circumstances are subject to qualified privilege: (1) affecting an important public concern, (2) in the interest of the publisher (defendant), such as defending its reputation, or (3) in the interest of a third party or recipient.
+  
+  ${ tl_pc_here }
+  
+  ${ tl_pc_thus }
+    
+  ${ tl_pi_here }
+  
+  ${ tl_pi_thus }
+    
+  ${ tl_tpi_here }
+  
+  ${ tl_tpi_thus }
+  
+  **Abused**
+  
+  A qualified privilege may be lost if abused: (1) making statements outside the scope of the privilege, or (2) acting with malice.
+    
+  ${ tl_os_here }
+  
+  ${ tl_os_thus }
+  
+  **Malice**
+    
+  ${ tl_mc_here }
+  
+  ${ tl_mc_thus }
+  
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  A plaintiff expressly consents if by words or actions s/he manifests the willingness to submit to the defendant’s acts.: |
+    Use this rule if facts trigger express consent.
+  Consent given while under duress, physical force or threats, is invalid.: |
+    Use this rule if facts trigger duress.
+  Consent by mistake is valid, unless the defendant caused, or knew and took advantage of, the mistake.: |
+    Use this rule if facts trigger mistake.  
+  Consent is implied when the plaintiff is nonresponsive in a situation in which a reasonable person would object.: |
+    Use this rule if facts trigger implied consent.
+---
+event: welcome_back
+question: |
+  Welcome back!
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to pick up
+  where you left off.
+buttons:
+  Continue: continue
+---
+event: road_map
+question: |
+  Roadmap
+subquestion: |
+  You are currently in the
+  **${ nav.get_section(display=True) }**
+  section.
+
+  ${ nav }
+
+  Press "Continue" to resume the
+  interview.
+buttons:
+  Continue: continue

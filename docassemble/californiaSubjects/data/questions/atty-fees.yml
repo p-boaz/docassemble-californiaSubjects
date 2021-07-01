@@ -1,0 +1,394 @@
+initial: true
+code: |
+  if not user_logged_in():
+    kick_out_user
+---
+event: kick_out_user
+question: |
+  User access only
+subquestion: |
+  Sorry, Bar Playbook is invite-only at this time. Please sign up [here] if you'd like to know when we're adding new members. 
+  
+  [here]: https://barplaybook.com/signup
+buttons:
+  - Exit: exit
+---
+metadata:
+  interview_identifier: "Attorney Fees"
+  title: |
+    Attorney Fees
+---
+sections:
+  - Intro
+  - Fee Agreement
+  - Contingent Fee
+  - Unreasonable Fee
+  - Retainers
+  - Fee Splitting with Lawyers:
+    - ABA
+    - CA
+  - Fee Splitting with Non-Lawyers
+  - Referral Fees:
+    - ABA
+    - CA
+  - Expense Advances
+  - Third Party Payor Rule
+  - Property as Payment for Services
+  - Fees Collection
+  - Conclusion
+---
+mandatory: True
+question: |
+  Professional Responsibility
+subquestion: |
+  ##`Attorney Fees`
+field: sees_nav_bar
+section: Intro
+---
+mandatory: True
+question: |
+  Fee Agreement
+subquestion: |
+  Under ABA [CA law], a contingent fee agreement must be in writing and state the method by which the fee is calculated, including whether expenses are deducted before or after the fee. 
+  
+  `In CA, where it is reasonably foreseeable the total expense to a client, including attorney fees, will exceed $1,000, the services contract must be written and include (1) basis of compensation, including hourly rates, statutory fees, and other charges, (2) general nature of the legal services provided, and (3) lawyer and client contractual responsibilities.`
+fields:
+  - no label: fa_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: fa_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Fee Agreement
+---
+mandatory: True
+question: |
+  Contingent Fee
+subquestion: |
+  A contingent fee requires the client to pay a fee only if there is a favorable outcome. Under ABA, contingent fees are not permitted in criminal cases, when the lawyer represents a defendant, or in domestic relations cases.
+fields: 
+  - no label: cf_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: cf_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Contingent Fee
+---
+mandatory: True
+question: |
+  Unreasonable [Unconscionable] Fee
+subquestion: |
+  Under ABA, a lawyer cannot charge unreasonable fees. Factors in determining whether a fee is reasonable include (1) time and labor required, novelty and difficulty of the questions, and skill requisite to perform the legal service properly, (2) likelihood representation will preclude the lawyer from accepting other employment, (3) customary fee in the locale for the kind of work, (4) amount involved and results obtained, (5) time limits imposed by the client or circumstances, (6) nature and length of the client professional relationship, (7) lawyer's experience, reputation, and ability, and (8) whether fixed or contingent fee. 
+  
+  CA prohibits unconscionable fees, and uses factors similar to the ABA for determining unreasonable fees to determine unconscionable fees, in addition to the following factors: (1) whether the lawyer engaged in “fraud or overreaching” in negotiating or setting the fee; and (2) whether the lawyer has failed to disclose material facts.
+fields: 
+  - no label: uf_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: uf_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Unreasonable Fee
+---
+mandatory: True
+question: |
+  Retainers
+subquestion: |
+  Under ABA, a lawyer may collect an advance fee in the form of a retainer, but unless the advance fee is a true retainer to reserve services, the lawyer must return any unearned portion.
+fields:
+  - no label: retainers_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: retainers_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Retainers
+---
+mandatory: True
+question: |
+  Specialization 
+subquestion: |
+  In an advertisement, a lawyer is permitted to state the lawyer **“specializes in”** a field of law as long as the statement is not false and misleading, but **may not imply or state** s/he is **certified** as a **specialist** in a field of law, **unless** s/he is certified by an organization approved by a state authority or accredited by the ABA, and identifies the certifying organization name.
+fields: 
+  - note: |
+      **ABA**
+      
+      Under ABA, lawyers not in the same firm can divide legal services fees if (1) division is proportionate to each lawyer’s services, (2) client consents in writing, and (3) total fees are reasonable.
+  - no label: fs_aba_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: fs_aba_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **CA**
+      
+      In CA, a lawyer shall not divide fees with a lawyer who is not a partner, associate, or shareholder, unless (1) client consents in writing at the time of the agreement or as soon as reasonably practicable after full diclosure of the fact a division of fees will be made, and (2) total fees are not increased solely by reason of a division and not unconscionable; (3) the client is informed of the identity of the fee-splitting lawyers and terms of the division; and (4) the lawyers enter into a written agreement to divide the fee.
+  - no label: fs_ca_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: fs_ca_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Fee Splitting with Lawyers
+---
+mandatory: True
+question: |
+ Fee Splitting with Non-Lawyers
+subquestion: |
+  Under both ABA and CA law, a lawyer or law firm may not share fees with non-lawyers, except via a compensation plan, even though based on a profit-sharing arrangement.
+fields: 
+  - no label: fsnl_here
+    required: false
+    datatype: area
+    hint: Here, 
+  - no label: fsnl_thus
+    required: false
+    datatype: area
+    hint: Thus, 
+section: Fee Splitting with Non-Lawyers
+---
+mandatory: True
+question: |
+  Referral Fees
+fields: 
+  - note: |
+      **ABA**
+      
+      Under ABA, a lawyer shall not give anything of value to a person for recommending the lawyer's services, except a lawyer may refer clients to another lawyer or a non-lawyer pursuant to an agreement that provides for the other person to refer clients to the lawyer, if (1) the reciprocal referral agreement is not exclusive, and (2) the client is informed of the existence and nature of the agreement.
+  - no label: rf_aba_here
+    datatype: area
+    hint: Here, 
+  - no label: rf_aba_thus
+    datatype: area
+    hint: Thus, 
+  - note: |
+      **CA**
+      
+      In CA, a lawyer may pay a referral fee to an outside lawyer who refers a case if (1) client knows all the terms and consents in writing, and (2) total fee is not increased and not unconscionable because of the referral.
+  - no label: rf_ca_here
+    datatype: area
+    hint: Here, 
+  - no label: rf_ca_thus
+    datatype: area
+    hint: Thus, 
+section: Fee Splitting
+---
+mandatory: True
+question: |
+  Expense Advances
+subquestion: |
+  Under ABA [CA law], a lawyer may advance court costs and other litigation expenses, the repayment of which may be contingent on the outcome. 
+  
+  Under ABA [CA law], a lawyer may pay court costs and litigation expenses on behalf of an indigent client. 
+  
+  ABA does not require a written agreement to advance expenses. 
+  
+  In CA, a written fee agreement must include (1) basis of compensation, including hourly rates, statutory fees, and other charges, (2) general nature of the legal services provided, and (3) lawyer and client contractual responsibilities.
+fields: 
+  - no label: ea_here
+    datatype: area
+    hint: Here, 
+  - no label: ea_thus
+    datatype: area
+    hint: Thus, 
+section: Expense Advances
+---
+mandatory: True
+question: |
+  Loans
+subquestion: |
+  ABA does not allow lawyers to make loans to clients except for litigation expenses.
+  
+  CA laws allow lawyers to make loans to clients for expenses outside of litigation if the payments are repaid, not gifts, and lawyer and client sign a written loan agreement.
+fields: 
+  - no label: loans_here
+    datatype: area
+    hint: Here, 
+  - no label: loans_thus
+    datatype: area
+    hint: Thus, 
+section: Loans
+---
+mandatory: True
+question: |
+  Third Payor Rule
+subquestion: |
+  A lawyer must not accept compensation from a third party for representing a client unless (1) client gives informed, written consent, (2) third party does not interfere with the lawyer’s independence or the client representation, and (3) arrangement does not compromise the client’s confidential information.
+fields: 
+  - no label: tpr_here
+    datatype: area
+    hint: Here, 
+  - no label: tpr_thus
+    datatype: area
+    hint: Thus, 
+section: Third Payor Rule
+---
+mandatory: True
+question: |
+  Property as Payment for Services
+subquestion: |
+  Under ABA, a lawyer may receive property as a payment for services, as long as the payment does not involve acquiring a proprietary interest in a litigation subject matter.
+fields: 
+  - no label: pps_here
+    datatype: area
+    hint: Here, 
+  - no label: pps_thus
+    datatype: area
+    hint: Thus, 
+section: Property as Payment for Services
+---
+mandatory: True
+question: |
+  Fees Collection
+subquestion: |
+  Under ABA [CA laws], a lawyer may collect a fee by taking an interest-bearing promissory note, or obtaining a lien upon a potential recovery to secure the fee payment, provided the lawyer complies with rules of professional conduct relating to business transactions with clients.
+fields: 
+  - no label: fc_here
+    datatype: area
+    hint: Here, 
+  - no label: fc_thus
+    datatype: area
+    hint: Thus, 
+section: Fees Collection
+---
+mandatory: True
+question: Thank you.
+subquestion: |
+
+  % if sees_nav_bar:
+  **Attorney Fees**
+  
+  **Fee Agreement**
+  
+  Under ABA [CA law], a contingent fee agreement must be in writing and state the method by which the fee is calculated, including whether expenses are deducted before or after the fee.
+  
+  In CA, where it is reasonably foreseeable the total expense to a client, including attorney fees, will exceed $1,000, the services contract must be written and include (1) basis of compensation, including hourly rates, statutory fees, and other charges, (2) general nature of the legal services provided, and (3) lawyer and client contractual responsibilities.
+  
+  ${ fa_here }
+  
+  ${ fa_thus }
+  
+  **Contingent Fee**
+  
+  A contingent fee requires the client to pay a fee only if there is a favorable outcome. Under ABA, contingent fees are not permitted in criminal cases, when the lawyer represents a defendant, or in domestic relations cases.
+  
+  ${ cf_here }
+  
+  ${ cf_thus }
+  
+  **Unreasonable [Unconscionable] Fee**
+  
+  ${ uf_here }
+  
+  ${ uf_thus }
+  
+  **Retainers**
+  
+  ${ retainers_here }
+  
+  ${ retainers_thus }
+  
+  **Fee Splitting**
+  
+  **ABA**
+      
+  In CA, mailings not clearly labeled as advertising that seek fee-paying work are presumed false or misleading.
+
+  ${ fs_aba_here }
+  
+  ${ fs_aba_thus }
+  
+  **CA**
+      
+  In CA, mailings not clearly labeled as advertising that seek fee-paying work are presumed false or misleading.
+
+  ${ fs_ca_here }
+  
+  ${ fs_ca_thus }
+  
+  **Fee Splitting with Non-Lawyers**
+  
+  Under ABA [CA law], a lawyer or law firm may not share fees with non-lawyers, except via a compensation plan, even though based on a profit-sharing arrangement.
+  
+  ${ fsnl_here }
+  
+  ${ fsnl_thus }
+  
+  **Referral Fees** 
+  
+  ${ rf_aba_here }
+  
+  ${ rf_aba_thus }
+
+  ${ rf_ca_here }
+  
+  ${ rf_ca_thus }
+  
+  **Agents** 
+  
+  A lawyer must not use agents to solicit in a manner the lawyer cannot.
+
+  ${ ea_here }
+  
+  ${ ea_thus }
+  
+  **Direct Mail**
+  
+  A lawyer may send a truthful and non-deceptive targeted letter to a potential client known to face a particular legal problem.
+  
+  ${ loans_here }
+  
+  ${ loans_thus }
+  
+  **Prospective Client**
+  
+  ${ tpr_here }
+  
+  ${ tpr_thus }
+  
+  **Direct Mail**
+  
+  A lawyer may send a truthful and non-deceptive targeted letter to a potential client known to face a particular legal problem.
+  
+  ${ pps_here }
+  
+  ${ pps_thus }
+  
+  **Fees Collection**
+  
+  ${ fc_here }
+  
+  ${ fc_thus }
+  % endif
+section: Conclusion
+action buttons:
+  - label: Continue
+    action: https://ca.barplaybook.com
+---
+terms: 
+  Solicitation: |
+    Solicitation is not the same as advertising. Solicitation is directed to specific people. Advertising is a communication to the masses.
+  pecuniary gain: |
+    Offers for free legal services allowed.
+  any form: |
+     Rule governs **all** communications about a lawyer’s services, including statements in letters, emails, telephone calls.
+  In CA: |
+    CA Rules of Professional Conduct, Rule 1-400
+  Under ABA: |
+    No similar CA rule. 
+  ads that contain: |
+    List and analyze only the restrictions the facts trigger.
